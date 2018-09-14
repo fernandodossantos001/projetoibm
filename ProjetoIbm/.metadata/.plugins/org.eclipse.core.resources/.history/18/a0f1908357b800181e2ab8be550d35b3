@@ -1,0 +1,54 @@
+package br.com.deschateie.bo;
+
+import br.com.deschateie.beans.Paciente;
+import br.com.deschateie.dao.PacienteDAO;
+
+public class PacienteBO {
+	
+	public static String consutlarPaciente(int codPaciente)throws Exception{
+		
+		if(codPaciente <0) {
+			return "código inválido";
+		}
+		if(codPaciente> 99999) {
+			return "código muito grande";
+		}
+		
+		PacienteDAO dao = new PacienteDAO();
+		
+		Paciente p = dao.consultarPaciente(codPaciente);
+		dao.fechar();
+		return p.getAll();
+		
+		
+		
+	}
+
+
+	public static String novoPaciente(Paciente p)throws Exception{
+		
+		String status = UsuarioBO.novoUsuario(p);
+		
+		if(!status.equals("Usuário cadastrado com Sucesso")) {
+			return status;
+		}
+		
+		if(p.getCodUsuario()!=p.getCodPaciente()) {
+			return "os códigos do usuario e do paciente precisam ser iguais";
+		}
+		
+		if(p.getCodPaciente()<1) {
+			return "código inválido";
+		}
+		
+		if (p.getCodPaciente()>99999) {
+			return "código muito grande";
+		}
+		
+		if() {
+			return "";
+		}
+			
+		return status;
+	}
+}

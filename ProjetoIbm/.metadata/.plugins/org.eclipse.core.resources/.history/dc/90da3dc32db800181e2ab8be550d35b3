@@ -1,0 +1,145 @@
+package br.com.deschateie.beans;
+
+public class Paciente extends Usuario {
+	
+	private int codPaciente;
+	private int cep;
+	private int cpf;
+	private String historico;
+	private int consultasReazlizadas;
+	
+	
+
+	public Paciente() {
+		
+	}
+	
+	public Paciente(int codUsuario, String nomeUsuario, String email, String dataNascimento, String login, String senha,
+			int nivelPermissao, String foto, String genero, int codPaciente, int cep, int cpf, String historico,
+			int consultasReazlizadas) {
+		super(codUsuario, nomeUsuario, email, dataNascimento, login, senha, nivelPermissao, foto, genero);
+		setCodPaciente(codPaciente);
+		setCep(cep);
+		setCpf(cpf);
+		setHistorico(historico);
+		setConsultasReazlizadas(consultasReazlizadas);
+	}
+
+
+	public void setAll(int codUsuario, String nomeUsuario, String email, String dataNascimento, String login, String senha,
+			int nivelPermissao, String foto, String genero, int codPaciente, int cep, int cpf, String historico,
+			int consultasReazlizadas) {
+		super.setAll(codUsuario, nomeUsuario, email, dataNascimento, login, senha, nivelPermissao, foto, genero);
+		setCodPaciente(codPaciente);
+		setCep(cep);
+		setCpf(cpf);
+		setHistorico(historico);
+		setConsultasReazlizadas(consultasReazlizadas);
+	}
+
+	
+
+
+	
+	public String getAll() {
+		return super.getAll()+"\n"+ 
+				"Código Paciente :" + codPaciente  + "\n"+ 
+				"Cep : " + cep  + "\n"+ 
+				"Cpf : " + cpf  + "\n"+ 
+				"Histórico : " + historico  + "\n"+ 
+				"Consultas Reazlizadas : " + consultasReazlizadas;
+	}
+
+	public int getCodPaciente() {
+		return codPaciente;
+	}
+
+
+
+
+
+	public void setCodPaciente(int codPaciente) {
+		this.codPaciente = codPaciente;
+	}
+
+
+
+
+
+	public int getCep() {
+		return cep;
+	}
+
+
+
+
+
+	public void setCep(int cep) {
+		this.cep = cep;
+	}
+
+
+
+
+
+	public int getCpf() {
+		return cpf;
+	}
+
+
+
+
+
+	public void setCpf(int cpf) {
+		this.cpf = cpf;
+	}
+
+
+
+
+
+	public String getHistorico() {
+		return historico;
+	}
+
+
+
+
+
+	public void setHistorico(String historico) {
+		this.historico = historico;
+	}
+
+
+
+
+
+	public int getConsultasReazlizadas() {
+		return consultasReazlizadas;
+	}
+
+
+
+
+
+	public void setConsultasReazlizadas(int consultasReazlizadas) {
+		this.consultasReazlizadas = consultasReazlizadas;
+	}
+
+
+
+
+
+	public int compareTo(Paciente outro) {
+		
+		if(this.cpf < outro.getCpf()) {
+			return -1;
+		}else if(this.cpf > outro.getCpf()) {
+			return 1;
+		}else {
+			return 0;
+		}
+	}
+
+
+}

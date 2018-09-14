@@ -1,0 +1,20 @@
+package br.com.deschateie.teste;
+
+import br.com.deschateie.beans.Paciente;
+import br.com.deschateie.dao.PacienteDAO;
+import br.com.deschateie.excecao.Excecao;
+
+public class TestePaciente {
+
+	public static void main(String[] args) {
+		
+		try {
+			System.out.println(new PacienteDAO().gravarPaciente(new Paciente(876, "donanfer2", "donanfer@gmail.com","12/01/97", "donanfer2", "donanfer", 2, "c://","masculino", 876, 9450499, 9999999, "chato",3), u));
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(Excecao.tratarExcecao(e));
+		}
+			
+	}
+
+}

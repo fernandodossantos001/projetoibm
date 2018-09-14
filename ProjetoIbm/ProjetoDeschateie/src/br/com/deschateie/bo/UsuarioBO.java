@@ -2,6 +2,8 @@ package br.com.deschateie.bo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import br.com.deschateie.beans.Usuario;
 import br.com.deschateie.dao.UsuarioDAO;
@@ -9,6 +11,7 @@ import br.com.deschateie.dao.UsuarioDAO;
 public class UsuarioBO {
 
 	public static String novoUsuario(Usuario u )throws Exception {
+		
 		if(u.getCodUsuario()>99999) {
 			return "Quantidade de caracterdes de código é muito grande";
 		}
@@ -24,19 +27,27 @@ public class UsuarioBO {
 		if(u.getNomeUsuario().length()<1) {
 			return "nome não pode estar vazio";
 		}
-//		
-//		if(!u.getDataNascimento().equals("\"[0-3]\\d-[0-9]\\d-[1-2]\\d{3}\"")) {
-//			return "data inválida";
-//		}
 		
-//		if(u.getDataNascimento().length()<6) {
-//			return "Data inválida";
-//		}
-//		
-//		if(u.getDataNascimento().length()>10) {
-//			return "data muito grande" ;
-//		}
-//		
+		
+		Pattern pattern = Pattern.compile("^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$");
+		
+		Matcher matcher = pattern.matcher(u.getDataNascimento());
+		
+		if(!matcher.find()) {
+			
+			return "data inválido";
+			
+		}
+
+		
+		if(u.getDataNascimento().length()<6) {
+			return "Data muito pequena";
+		}
+		
+		if(u.getDataNascimento().length()>10) {
+			return "data muito grande" ;
+		}
+		
 		if (u.getLogin().length()>20) {
 			return "nome de login muito grande" ;
 		}
@@ -181,9 +192,18 @@ public class UsuarioBO {
 		}
 		
 		
+		Pattern pattern = Pattern.compile("^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$");
+		
+		Matcher matcher = pattern.matcher(u.getDataNascimento());
+		
+		if(!matcher.find()) {
+			
+			return "data inválido";
+			
+		}
 		
 		if(u.getDataNascimento().length()<6) {
-			return "Data inválida";
+			return "Data muito pequena";
 		}
 		
 		if(u.getDataNascimento().length()>10) {

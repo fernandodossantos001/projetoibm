@@ -1,0 +1,11 @@
+package br.com.deschateie.beans;
+
+public class Paciente implements Comparable<Paciente> {
+	
+	private int codPaciente;
+	private int cep;
+	private int cpf;
+	private String historico;
+	private int consultasReazlizadas;
+
+}

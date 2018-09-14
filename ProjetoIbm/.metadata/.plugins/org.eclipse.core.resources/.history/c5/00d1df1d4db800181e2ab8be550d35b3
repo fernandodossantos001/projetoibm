@@ -1,0 +1,24 @@
+package br.com.deschateie.bo;
+
+import br.com.deschateie.dao.UsuarioDAO;
+
+public class PacienteBO {
+	
+	public static String consutlarPaciente(int codPaciente)throws Exception{
+		
+		if(codPaciente <0) {
+			return "código inválido";
+		}
+		if(codPaciente> 5) {
+			return "código muito grande";
+		}
+		
+		UsuarioDAO dao = new UsuarioDAO();
+		
+		dao.consultarCodUsuario(codUsuario);
+		
+		
+		
+	}
+
+}

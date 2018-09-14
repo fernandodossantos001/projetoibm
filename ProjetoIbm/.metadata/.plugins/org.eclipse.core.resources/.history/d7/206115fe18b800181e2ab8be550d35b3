@@ -1,0 +1,294 @@
+package br.com.deschateie.bo;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import br.com.deschateie.beans.Usuario;
+import br.com.deschateie.dao.UsuarioDAO;
+
+public class UsuarioBO {
+
+	public static String novoUsuario(Usuario u )throws Exception {
+		
+		if(u.getCodUsuario()>99999) {
+			return "Quantidade de caracterdes de código é muito grande";
+		}
+		
+		if(u.getCodUsuario() < 1) {
+			return "código inválido";
+		}
+		
+		if(u.getNomeUsuario().length()>80) {
+			return "nome muito grande";
+		}
+		
+		if(u.getNomeUsuario().length()<1) {
+			return "nome não pode estar vazio";
+		}
+		
+		
+		Pattern pattern = Pattern.compile("(\\d{2})(//)(\\d{4})(//)(\\d{2})");
+//		
+		Matcher matcher = pattern.matcher(u.getDataNascimento());
+		
+		if(!matcher.find()) {
+			return "email inválido";
+//		}
+//		if(!u.getDataNascimento().equals("\"[0-3]\\d-[0-9]\\d-[1-2]\\d{3}\"")) {
+//			return "data inválida";
+//		}
+		
+		if(u.getDataNascimento().length()<6) {
+			return "Data inválida";
+		}
+		
+		if(u.getDataNascimento().length()>10) {
+			return "data muito grande" ;
+		}
+		
+		if (u.getLogin().length()>20) {
+			return "nome de login muito grande" ;
+		}
+		
+		if(u.getLogin().length()<1) {
+			return "nome de login inválido";
+		}
+		
+		if(u.getSenha().length()>15) {
+			return "Senha muito grande";
+		}
+		
+		if(u.getSenha().length()<4) {
+			return "senha inválida";
+		}
+		
+		if(u.getNivelPermissao() < 1 || u.getNivelPermissao() > 7) {
+			return "nivel de permissao invalido";
+		}
+		
+		
+		if(u.getFoto().length()>40) {
+			return "caminho da imagem muito grande";
+		}
+		
+		if(u.getFoto().length()<1) {
+			return "caminho inválido";
+		}
+		
+		if(u.getGenero().length()>20) {
+			return "genero muito grande";
+		}
+		
+		if(u.getGenero().length()<1) {
+			return "genero inválido";
+		}
+		
+		UsuarioDAO dao = new UsuarioDAO();
+		
+		
+		if(u.getEmail().equals(dao.consultarEmailUsuario(u.getEmail()).getEmail())) {
+			dao.fechar();
+			return "Email Já existente";
+		}
+		
+		if(u.getLogin().equals(dao.consultarLoginUsuario(u.getLogin()).getLogin())) {
+			dao.fechar();
+			return "Login já existente";
+		}
+		
+		if(u.getCodUsuario()== dao.consultarCodUsuario(u.getCodUsuario()).getCodUsuario()) {
+			dao.fechar();
+			return "codigo existente";
+		}
+		
+		u.setGenero(u.getGenero().toUpperCase());
+		u.setNomeUsuario(u.getNomeUsuario().toUpperCase());
+		u.setEmail(u.getEmail().toUpperCase());
+		
+		
+		dao.gravaUsuario(u);
+		dao.fechar();
+		return "Usuário cadastrado com Sucesso";
+		
+	}
+
+	public static String pesquisarEmailUsuario(String email)throws Exception{
+		
+		if(email.length()<0) {
+			return "email invalido";
+		}
+		
+		if (email.length()>60) {
+			return "email muito grande";
+		}
+		
+		
+		UsuarioDAO dao = new UsuarioDAO();
+		
+		Usuario usuario = dao.consultarEmailUsuario(email.toUpperCase());
+		
+		if(usuario == null) {
+			return "nenhum usuario encontrado com esse email";
+		}else {
+			return "Usuario :" + usuario.getAll();
+		}
+	}
+
+	public static List<Usuario> pesquisarNomesUsuarios(String nome)throws Exception{
+	
+		List<Usuario> listaUsuario = new ArrayList<Usuario>();
+		
+		
+		if(nome.length()<1) {
+			return listaUsuario;
+		}
+		
+		if(nome.length()>80) {
+			return listaUsuario ;
+		}
+		
+		UsuarioDAO dao = new UsuarioDAO();
+		return dao.consultarNomesUsuario(nome);
+		
+	}
+
+	public static String excluirUsuario(int codUsuario)throws Exception{
+		
+		if(codUsuario <0) {
+			return "código inválido";
+		}
+		
+		if (codUsuario> 99999) {
+			return "código muito grande";
+		}
+		
+		
+		UsuarioDAO dao = new UsuarioDAO();
+		Usuario usuario = dao.consultarCodUsuario(codUsuario);
+		
+		if(usuario.getCodUsuario()>1) {
+			//vai dar uma excessao
+			dao.excluirUsuario(codUsuario);
+			dao.fechar();
+			return "excluido com sucesso";
+		}
+		
+		return "usuario não encontrado" ;
+		
+	}
+
+	public static String AlterarDadosUsuario(Usuario u )throws Exception {
+		
+		
+		
+		if(u.getNomeUsuario().length()>80) {
+			return "nome muito grande";
+		}
+		
+		if(u.getNomeUsuario().length()<1) {
+			return "nome não pode estar vazio";
+		}
+		
+		
+		
+		if(u.getDataNascimento().length()<6) {
+			return "Data inválida";
+		}
+		
+		if(u.getDataNascimento().length()>10) {
+			return "data muito grande" ;
+		}
+		
+		if (u.getLogin().length()>20) {
+			return "nome de login muito grande" ;
+		}
+		
+		if(u.getLogin().length()<1) {
+			return "nome de login inválido";
+		}
+		
+		if(u.getSenha().length()>15) {
+			return "Senha muito grande";
+		}
+		
+		if(u.getSenha().length()<4) {
+			return "senha inválida";
+		}
+		
+		if(u.getNivelPermissao() < 1 || u.getNivelPermissao() > 7) {
+			return "nivel de permissao invalido";
+		}
+		
+		
+		if(u.getFoto().length()>40) {
+			return "caminho da imagem muito grande";
+		}
+		
+		if(u.getFoto().length()<1) {
+			return "caminho inválido";
+		}
+		
+		if(u.getGenero().length()>20) {
+			return "genero muito grande";
+		}
+		
+		if(u.getGenero().length()<1) {
+			return "genero inválido";
+		}
+		
+		UsuarioDAO dao = new UsuarioDAO();
+		
+		
+		if(u.getEmail().equals(dao.consultarEmailUsuario(u.getEmail()).getEmail())) {
+			dao.fechar();
+			return "Email Já existente";
+		}
+		
+		if(u.getLogin().equals(dao.consultarLoginUsuario(u.getLogin()).getLogin())) {
+			dao.fechar();
+			return "Login já existente";
+		}
+		
+		
+		
+		u.setGenero(u.getGenero().toUpperCase());
+		u.setNomeUsuario(u.getNomeUsuario().toUpperCase());
+		u.setEmail(u.getEmail().toUpperCase());
+		
+		
+		dao.alterarDadosUsuario(u);
+		dao.fechar();
+		return "Usuário alterado com Sucesso";
+		
+	}
+
+	public static String autenticarUsuario(String login, String senha)throws Exception{
+		if(login.length()<1) {
+			return "usuario invalido";	
+		}
+		
+		if(login.length()>20) {
+			return "usuario de login muito grando";
+		}
+		
+		if(senha.length()<1) {
+			return "senha invalida";	
+		}
+		
+		if(senha.length()>15) {
+			return "senha de login muito grande";
+			
+		}
+		
+		
+		UsuarioDAO dao = new UsuarioDAO();
+		String msg = dao.autenticarUsuario(login, senha).getAll();
+		dao.fechar();
+		return msg;
+	}
+	
+	
+	
+}

@@ -1,0 +1,23 @@
+package br.com.deschateie.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import br.com.deschateie.beans.Paciente;
+import br.com.deschateie.conexao.Conexao;
+
+public class PacienteDAO {
+	private Connection con;
+	private PreparedStatement stmt;
+	private ResultSet rs;
+	
+	public PacienteDAO() {
+		con= new Conexao().getConectar();
+	}
+	
+	public String gravarPaciente(Paciente p)throws Exception{
+		
+	}
+
+}
