@@ -23,7 +23,7 @@ public class TestePaciente {
 			//System.out.println(PacienteBO.novoPaciente(new Paciente(36, "Zé bunitinho", "zeBunitinho@zezihno.com", "3/12/1940", "zezinhao", "zezez2e", 1, " ", "masculino", 36, 47349383, 64444444, "a",4)));
 			
 			
-			System.out.println(PacienteBO.alterarDadosPaciente(new Paciente(36, "Zé bunitinho", "zeBunitinho@zezihno.com", "3/12/1940", "FernandoTeste", "fernando", 1, " ", "masculino", 36, 47349383, 64444444, "a",4)));
+			System.out.println(PacienteBO.alterarDadosPaciente(new Paciente(36, "Zé bunitinho", "zeBunitinho@zezihno.com", "3/12/1940", "zezinhaao", "zezez2e", 1, " ", "masculino", 36, 47349383, 64444444, "a",4)));
 //			System.out.println(PacienteBO.excluirPaciente(36));
 			
 		} catch (Exception e) {
