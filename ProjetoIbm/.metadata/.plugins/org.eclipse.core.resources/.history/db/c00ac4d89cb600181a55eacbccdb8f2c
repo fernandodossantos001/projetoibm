@@ -1,0 +1,12 @@
+package br.com.deschateie.conexao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class Conexao {
+	
+	public Connection conectar()throws Exception{
+		return DriverManager.getConnection
+				("jdbc:oracle:thin:://localhost/http:/127.0.0.1:8080:xe","RM80577","120197");
+	}
+}

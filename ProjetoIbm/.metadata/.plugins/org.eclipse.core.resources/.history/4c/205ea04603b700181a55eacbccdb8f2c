@@ -1,0 +1,15 @@
+package br.com.deschateie.teste;
+
+public class TesteExcluirEndereco {
+
+	public static void main(String[] args) {
+		try {
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(Execao.);
+		}
+
+	}
+
+}

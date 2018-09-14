@@ -1,0 +1,16 @@
+package br.com.deschateie.excecao;
+
+public class Excecao extends Exception{
+	
+	
+	public static String tratarExcecao(Exception e) {
+		if(e.getClass().getName().equals("java.lang.NumberFormatException")) {
+			return "Número inválido";
+		}else if(e.getClass().getName().equals("java.sql.SQLException")){
+			return "não foi possível conectar ao banco de dados";
+		}else {
+			return "mensagem do arquiteto";
+		}
+	}
+
+}

@@ -1,0 +1,10 @@
+package br.com.deschateie.conexao;
+
+import java.sql.Connection;
+
+public class Conexao {
+	
+	public Connection conectar()throws Exception{
+		return DriverManager
+	}
+}

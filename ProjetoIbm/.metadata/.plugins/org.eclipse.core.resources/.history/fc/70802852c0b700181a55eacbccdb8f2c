@@ -1,0 +1,13 @@
+package br.com.deschateie.beans;
+
+public class Usuario implements Comparable<Usuario>{
+	private int codUsuario;
+	private String nomeUsuario;
+	private String email;
+	private String dataNascimento;
+	private String login;
+	private String senha;
+	private int nivelPermissao;
+	private String foto;
+	private String genero;
+}

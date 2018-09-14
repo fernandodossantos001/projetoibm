@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Deschateie/WebContent/WEB-INF/lib/ojdbc6 - Copy.jar&apos; to &apos;ojdbc6 .jar&apos;" description="Rename resource &apos;ojdbc6 - Copy.jar&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/WEB-INF/lib/ojdbc6 - Copy.jar" name="ojdbc6 .jar" stamp="1536254484872" updateReferences="true"/>
+</session>

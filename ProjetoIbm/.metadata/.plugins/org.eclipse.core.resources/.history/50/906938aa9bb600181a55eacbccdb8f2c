@@ -1,0 +1,8 @@
+package br.com.deschateie.conexao;
+
+public class Conexao {
+	
+	public Connection conectar()throws Exception{
+		
+	}
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="br.com.deschateie.bo.EnderecoBO"/>
+<fullyQualifiedTypeName name="br.com.deschateie.dao.EnderecoDAO"/>
+<fullyQualifiedTypeName name="br.com.deschateie.beans.Endereco"/>
+<fullyQualifiedTypeName name="javax.print.attribute.standard.RequestingUserName"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="br.com.deschateie.excecao.Excecao"/>
+<fullyQualifiedTypeName name="br.com.deschateie.conexao.Conexao"/>
+<fullyQualifiedTypeName name="java.sql.Blob"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="br.com.deschateie.bo.UsuarioBO"/>
+<fullyQualifiedTypeName name="br.com.deschateie.dao.UsuarioDAO"/>
+<fullyQualifiedTypeName name="br.com.deschateie.beans.Usuario"/>
+</qualifiedTypeNameHistroy>

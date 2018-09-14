@@ -1,0 +1,234 @@
+package br.com.deschateie.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import br.com.deschateie.beans.Endereco;
+import br.com.deschateie.conexao.Conexao;
+
+public class EnderecoDAO {
+	private Connection con;
+	private PreparedStatement stmt;
+	private ResultSet rs;
+	
+	public  EnderecoDAO()throws Exception {
+		con = new Conexao().conectar();
+	}
+	
+	public String gravarEnderecoPsicologo(Endereco endereco) throws Exception {
+		stmt = con.prepareStatement("INSERT INTO T_SCP_ENDERECO "
+				+ "(CD_ENDERECO,CD_PSICOLOGO,DS_TIPO,DS_LOGRADOURO,NR_NUMERO,DS_COMPLEMENTO,"
+				+ "NR_CEP,DS_BAIRRO,DS_CIDADE,DS_UF,DS_PAIS) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
+		stmt.setInt(1, endereco.getCdEndereco());
+		stmt.setInt(2, endereco.getCdAtendente());
+		stmt.setString(3, endereco.getTipo());
+		stmt.setString(4, endereco.getLogradouro());
+		stmt.setString(5, endereco.getNumero());
+		stmt.setString(6, endereco.getComplemento());
+		stmt.setInt(7,endereco.getCep());
+		stmt.setString(8, endereco.getBairro());
+		stmt.setString(9, endereco.getCidade());
+		stmt.setString(10, endereco.getUf());
+		stmt.setString(11, endereco.getPais());
+		stmt.executeUpdate();
+		
+		return "Cadastrado com Suceso";
+		
+	}
+	
+	
+
+	public String gravarEnderecoVoluntario(Endereco endereco) throws Exception {
+		stmt = con.prepareStatement("INSERT INTO T_SCP_ENDERECO "
+				+ "(CD_ENDERECO,CD_VOLUNTARIO,DS_TIPO,DS_LOGRADOURO,NR_NUMERO,DS_COMPLEMENTO,"
+				+ "NR_CEP,DS_BAIRRO,DS_CIDADE,DS_UF,DS_PAIS) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
+		stmt.setInt(1, endereco.getCdEndereco());
+		stmt.setInt(2, endereco.getCdAtendente());
+		stmt.setString(3, endereco.getTipo());
+		stmt.setString(4, endereco.getLogradouro());
+		stmt.setString(5, endereco.getNumero());
+		stmt.setString(6, endereco.getComplemento());
+		stmt.setInt(7,endereco.getCep());
+		stmt.setString(8, endereco.getBairro());
+		stmt.setString(9, endereco.getCidade());
+		stmt.setString(10, endereco.getUf());
+		stmt.setString(11, endereco.getPais());
+		stmt.executeUpdate();
+		
+		return "Cadastrado com Suceso";
+		
+	}
+	
+	
+	public Endereco consultarEnderecoPsicologo(int cdEndereco)throws Exception {
+		stmt= con.prepareStatement("SELECT * FROM T_SCP_ENDERECO WHERE CD_PSICOLOGO= ?");
+		stmt.setInt(1, cdPsicologo);
+		rs = stmt.executeQuery();
+		if(rs.next()) {
+			return new Endereco(
+		 			rs.getInt("CD_ENDERECO"),
+		 			rs.getInt("CD_PSICOLOGO"),
+					rs.getString("DS_TIPO"),
+					rs.getString("DS_LOGRADOURO"),
+					rs.getString("NR_NUMERO"),
+					rs.getString("DS_COMPLEMENTO"),
+					rs.getInt("NR_CEP"),
+					rs.getString("DS_BAIRRO"),
+					rs.getString("DS_CIDADE"),
+					rs.getString("DS_UF"),
+					rs.getString("DS_PAIS"));
+		}
+		
+		return new Endereco();
+		
+	}
+	
+
+	public Endereco consultarPorVoluntario(int cdVoluntario)throws Exception {
+		stmt= con.prepareStatement("SELECT * FROM T_SCP_ENDERECO WHERE CD_VOLUNTARIO = ?");
+		stmt.setInt(1, cdVoluntario);
+		rs = stmt.executeQuery();
+		if(rs.next()) {
+			return new Endereco(
+		 			rs.getInt("CD_ENDERECO"),
+		 			rs.getInt("CD_VOLUNTARIO"),
+					rs.getString("DS_TIPO"),
+					rs.getString("DS_LOGRADOURO"),
+					rs.getString("NR_NUMERO"),
+					rs.getString("DS_COMPLEMENTO"),
+					rs.getInt("NR_CEP"),
+					rs.getString("DS_BAIRRO"),
+					rs.getString("DS_CIDADE"),
+					rs.getString("DS_UF"),
+					rs.getString("DS_PAIS"));
+		}
+		
+		return new Endereco();
+		
+	}
+	
+	public List<Endereco> consultarPorLogradouroPsicologo(String logradouro)throws Exception{
+		List<Endereco> listaEndereco = new ArrayList<Endereco>();
+		
+		stmt = con.prepareStatement("SELECT * FROM T_SCP_ENDERECO WHERE DS_LOGRADOURO LIKE ?");
+		
+		stmt.setString(1, logradouro+"%");
+		
+		rs = stmt.executeQuery();
+		
+		while(rs.next()) {
+			 listaEndereco.add( new Endereco(
+					 			rs.getInt("CD_ENDERECO"),
+					 			rs.getInt("CD_PSICOLOGO"),
+								rs.getString("DS_TIPO"),
+								rs.getString("DS_LOGRADOURO"),
+								rs.getString("NR_NUMERO"),
+								rs.getString("DS_COMPLEMENTO"),
+								rs.getInt("NR_CEP"),
+								rs.getString("DS_BAIRRO"),
+								rs.getString("DS_CIDADE"),
+								rs.getString("DS_UF"),
+								rs.getString("DS_PAIS")));
+		}
+		
+		return listaEndereco;
+		
+		
+	}
+	
+	
+	public List<Endereco> consultarPorLogradouroVoluntario(String logradouro)throws Exception{
+		List<Endereco> listaEndereco = new ArrayList<Endereco>();
+		
+		stmt = con.prepareStatement("SELECT * FROM T_SCP_ENDERECO WHERE DS_LOGRADOURO LIKE ?");
+		
+		stmt.setString(1, logradouro+"%");
+		
+		rs = stmt.executeQuery();
+		
+		while(rs.next()) {
+			 listaEndereco.add( new Endereco(
+					 			rs.getInt("CD_ENDERECO"),
+					 			rs.getInt("CD_VOLUNTARIO"),
+								rs.getString("DS_TIPO"),
+								rs.getString("DS_LOGRADOURO"),
+								rs.getString("NR_NUMERO"),
+								rs.getString("DS_COMPLEMENTO"),
+								rs.getInt("NR_CEP"),
+								rs.getString("DS_BAIRRO"),
+								rs.getString("DS_CIDADE"),
+								rs.getString("DS_UF"),
+								rs.getString("DS_PAIS")));
+		}
+		
+		return listaEndereco;
+		
+		
+	}
+	
+	
+	public String apagarEndereco(int cdEndereco)throws Exception{
+		stmt = con.prepareStatement("DELETE FROM T_SCP_ENDERECO WHERE CD_ENDERECO = ?");
+		stmt.setInt(1, cdEndereco);
+		
+		return stmt.executeUpdate()+ "linhas excluidas" ;
+	}
+	
+	
+	public String atualizarPsicologo(int cdPsicologo,String logradouro,String tipo,String numero,String complemento, int cep,
+							String bairro, String cidade,String uf,String pais)throws Exception{
+		stmt= con.prepareStatement("UPDATE T_SCP_ENDERECO SET DS_LOGRADOURO = ?,"
+									+ "DS_TIPO = ?,"
+									+ "NR_NUMERO = ?,"
+									+ "DS_COMPLEMENTO = ?,"
+									+ "NR_CEP = ?,"
+									+ "DS_BAIRRO = ?,"
+									+ "DS_CIDADE = ?,"
+									+ "DS_UF = ?,"
+									+ "DS_PAIS = ?"
+									+ "WHERE CD_PSICOLOGO = ?");
+		stmt.setString(1, logradouro);
+		stmt.setString(2, tipo);
+		stmt.setString(3, numero);
+		stmt.setString(4, complemento);
+		stmt.setInt(5,cep);
+		stmt.setString(6, bairro);
+		stmt.setString(7, cidade);
+		stmt.setString(8, uf);
+		stmt.setString(9, pais);
+		stmt.setInt(10, cdPsicologo);
+		return stmt.executeUpdate() + "linhas atualizadas";
+	}
+	
+	public String atualizarVoluntario(int cdVoluntario,String logradouro,String tipo,String numero,String complemento, int cep,
+			String bairro, String cidade,String uf,String pais)throws Exception{
+				stmt= con.prepareStatement("UPDATE T_SCP_ENDERECO SET DS_LOGRADOURO = ?,"
+									+ "DS_TIPO = ?,"
+									+ "NR_NUMERO = ?,"
+									+ "DS_COMPLEMENTO = ?,"
+									+ "NR_CEP = ?,"
+									+ "DS_BAIRRO = ?,"
+									+ "DS_CIDADE = ?,"
+									+ "DS_UF = ?,"
+									+ "DS_PAIS = ? "
+									+ "WHERE CD_VOLUNTARIO = ?");
+		stmt.setString(1, logradouro);
+		stmt.setString(2, tipo);
+		stmt.setString(3, numero);
+		stmt.setString(4, complemento);
+		stmt.setInt(5,cep);
+		stmt.setString(6, bairro);
+		stmt.setString(7, cidade);
+		stmt.setString(8, uf);
+		stmt.setString(9, pais);
+		stmt.setInt(10, cdVoluntario);
+		return stmt.executeUpdate() + "linhas atualizadas";
+}
+
+	
+	public void fechar()throws Exception{
+		con.close();
+	}
+}
