@@ -1,23 +1,25 @@
 package br.com.deschateie.beans;
 
 public class Voluntario extends Usuario  implements Comparable<Usuario> {
-	
+	private int codVoluntario;
 	private String rg;
 	private long cpf;
 	private String formacao;
 	private String periodo;
 	private String comentario;
-	private int telefone;
+	private long telefone;
 	
 	public Voluntario() {
 		
 	}
 	
 	public Voluntario(int codUsuario, String nomeUsuario, String email, String dataNascimento, String login,
-			String senha, int nivelPermissao, String foto, String genero, String rg, long cpf, String formacao,
-			String periodo, String comentario,  int telefone) {
+			String senha, int nivelPermissao, String foto, String genero,int codVoluntario, String rg, long cpf, String formacao,
+			String periodo, String comentario,  long telefone) {
 		super(codUsuario, nomeUsuario, email, dataNascimento, login, senha, nivelPermissao, foto, genero);
+		setCodVoluntario(codVoluntario);
 		setRg(rg);
+		setCpf(cpf);
 		setFormacao(formacao);
 		setPeriodo(periodo);
 		setComentario(comentario);
@@ -25,14 +27,16 @@ public class Voluntario extends Usuario  implements Comparable<Usuario> {
 	}
 	
 	public void setAll(int codUsuario, String nomeUsuario, String email, String dataNascimento, String login,
-			String senha, int nivelPermissao, String foto, String genero, String rg, long cpf, String formacao,
-			String periodo, String comentario, int telefone) {
+			String senha, int nivelPermissao, String foto, String genero,int codVoluntario, String rg, long cpf, String formacao,
+			String periodo, String comentario, long telefone) {
 		super.setAll(codUsuario, nomeUsuario, email, dataNascimento, login, senha, nivelPermissao, foto, genero);
+		setCodVoluntario(codVoluntario);
 		setRg(rg);
+		setCpf(cpf);
 		setFormacao(formacao);
 		setPeriodo(periodo);
 		setComentario(comentario);
-		setTelefone(telefone);
+		setTelefone((long)telefone);
 	}
 	
 	
@@ -40,14 +44,26 @@ public class Voluntario extends Usuario  implements Comparable<Usuario> {
 	
 	
 	public String getAll() {
-		return "Voluntario Rg :" + rg + "/n"+
-				"Cpf : " + cpf +  "/n"+
-				"Formacao : " + formacao + "/n"+
-				"Periodo :" + periodo+ "/n"+
-				"Comentario : " + comentario + "/n"+
+		return 	super.getAll() + "\n" +
+				"Codigo Voluntario :" + codVoluntario + "\n"+
+				"Rg :" + rg + "\n"+
+				"Cpf : " + cpf +  "\n"+
+				"Formacao : " + formacao + "\n"+
+				"Periodo :" + periodo+ "\n"+
+				"Comentario : " + comentario + "\n"+
 				"Telefone : " + telefone;
 	}
 
+	
+
+	public int getCodVoluntario() {
+		return codVoluntario;
+	}
+
+	public void setCodVoluntario(int codVoluntario) {
+		this.codVoluntario = codVoluntario;
+	}
+	
 	public String getRg() {
 		return rg;
 	}
@@ -58,7 +74,7 @@ public class Voluntario extends Usuario  implements Comparable<Usuario> {
 		return cpf;
 	}
 	public void setCpf(long cpf) {
-		this.cpf = cpf;
+		this.cpf =(long) cpf;
 	}
 	public String getFormacao() {
 		return formacao;
@@ -78,10 +94,10 @@ public class Voluntario extends Usuario  implements Comparable<Usuario> {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
-	public int getTelefone() {
+	public long getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(int telefone) {
+	public void setTelefone(long telefone) {
 		this.telefone = telefone;
 	}
 

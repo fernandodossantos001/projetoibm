@@ -1,0 +1,28 @@
+package br.com.deschateie.teste;
+
+import br.com.deschateie.beans.Voluntario;
+import br.com.deschateie.bo.VoluntarioBO;
+import br.com.deschateie.dao.VoluntarioDAO;
+import br.com.deschateie.excecao.Excecao;
+
+public class TesteVoluntario {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		try {
+//			System.out.println(new VoluntarioDAO().consultarVoluntario(27).getAll());
+//			System.out.println("----------------------------------------------");
+//			System.out.println(VoluntarioBO.consultarVoluntario(28).getAll());
+//			
+		System.out.println(new VoluntarioDAO().gravarVoluntario(new Voluntario(1744,
+				"anjosHenry", "henryAnjos@henryanjos.com", "12/01/1985", "HenryAnjos", "anjos", 3, "c:/windwos", "masculino", 1744, "23082342J", 123123123, "psicologia", "noturno", "chato", 272188991)));	
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(Excecao.tratarExcecao(e));
+		}
+
+	}
+
+}

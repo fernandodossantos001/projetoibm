@@ -1,6 +1,8 @@
 package br.com.deschateie.teste;
 
-import br.com.deschateie.bo.UsuarioBO;
+import br.com.deschateie.beans.Voluntario;
+import br.com.deschateie.bo.VoluntarioBO;
+import br.com.deschateie.dao.VoluntarioDAO;
 import br.com.deschateie.excecao.Excecao;
 
 public class TesteVoluntario {
@@ -9,10 +11,19 @@ public class TesteVoluntario {
 		// TODO Auto-generated method stub
 		
 		try {
+//			System.out.println(new VoluntarioDAO().consultarVoluntario(27).getAll());
+//			System.out.println("----------------------------------------------");
+//			System.out.println(VoluntarioBO.consultarVoluntario(28).getAll());
+//			
+//		System.out.println(new VoluntarioDAO().gravarVoluntario(new Voluntario(1744,
+////				"anjosHenry", "henryAnjos@henryanjos.com", "12/01/1985", "HenryAnjos", "anjos", 3, "c:/windwos", "masculino", 1744, "23082342J", 123123123, "psicologia", "noturno", "chato", 272188991)));	
+//		
+//			System.out.println(VoluntarioBO.novoVoluntario((new Voluntario(1944,
+	//				"anjosHenry", "asdfasfd@asfdasf.com", "12/01/1985", "loginss", "anjos", 3, "c:/windwos", "masculino", 1744, "23082342JK", 1231231323, "psicologia", "noturno", "chato", 272188991))));	
+
+			System.out.println(VoluntarioBO.excluirVoluntario(22));
+			System.out.println("teste");
 			
-			System.out.println(UsuarioBO.pesquisarEmailUsuario("libero@euismodest.net").getAll());
-			System.out.println("-----------------------------------------------------------");
-			System.out.println(UsuarioBO.autenticarUsuario("Erat", "UIJ82AHO8PM").getAll());
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(Excecao.tratarExcecao(e));

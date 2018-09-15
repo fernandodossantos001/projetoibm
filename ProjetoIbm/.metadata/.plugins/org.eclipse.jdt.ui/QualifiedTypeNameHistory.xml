@@ -8,12 +8,20 @@
 <fullyQualifiedTypeName name="br.com.deschateie.dao.EnderecoDAO"/>
 <fullyQualifiedTypeName name="br.com.deschateie.beans.Endereco"/>
 <fullyQualifiedTypeName name="javax.print.attribute.standard.RequestingUserName"/>
-<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-<fullyQualifiedTypeName name="br.com.deschateie.excecao.Excecao"/>
 <fullyQualifiedTypeName name="br.com.deschateie.conexao.Conexao"/>
 <fullyQualifiedTypeName name="java.sql.Blob"/>
 <fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="br.com.deschateie.bo.UsuarioBO"/>
 <fullyQualifiedTypeName name="br.com.deschateie.dao.UsuarioDAO"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="br.com.deschateie.bo.UsuarioBO"/>
+<fullyQualifiedTypeName name="br.com.deschateie.beans.Paciente"/>
+<fullyQualifiedTypeName name="br.com.deschateie.bo.PacienteBO"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.lang.Comparable"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="br.com.deschateie.excecao.Excecao"/>
 <fullyQualifiedTypeName name="br.com.deschateie.beans.Usuario"/>
+<fullyQualifiedTypeName name="br.com.deschateie.dao.VoluntarioDAO"/>
+<fullyQualifiedTypeName name="br.com.deschateie.beans.Voluntario"/>
+<fullyQualifiedTypeName name="br.com.deschateie.bo.VoluntarioBO"/>
 </qualifiedTypeNameHistroy>

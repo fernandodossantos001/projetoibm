@@ -17,10 +17,12 @@ public class VoluntarioDAO {
 	}
 	
 	public Voluntario consultarVoluntario(int codVoluntario)throws Exception{
-		stmt = con.prepareStatement("SELECT * FROM T_SCP_USUARIO,T_SCP_VOLUNTARIO WHERE CD_USUARIO = ?");
+		stmt = con.prepareStatement("SELECT * FROM  T_SCP_USUARIO ,T_SCP_VOLUNTARIO WHERE CD_USUARIO = ? AND CD_VOLUNTARIO = ?");
 		stmt.setInt(1, codVoluntario);
+		stmt.setInt(2, codVoluntario);
 		rs = stmt.executeQuery();
-		if(rs.next()) {
+		
+		if(rs.next()) { 
 			return new  Voluntario(
 									rs.getInt("CD_USUARIO"),
 									rs.getString("NM_USUARIO"),
@@ -31,16 +33,53 @@ public class VoluntarioDAO {
 									rs.getInt("NR_NIVEL_PERMISSAO"),
 									rs.getString("DS_FOTO"),
 									rs.getString("DS_GENERO"),
+									rs.getInt("CD_VOLUNTARIO"),
 									rs.getString("NR_RG"),
 									rs.getLong("NR_CPF"),
 									rs.getString("DS_FORMACAO"),
 									rs.getString("DS_PERIODO"),
 									rs.getString("DS_COMENTARIO"),
-									rs.getInt("DS_TELEFONE"));
+									rs.getLong("DS_TELEFONE"));
 		}else {
 			return new Voluntario();
 		}
 	}
 	
+
+	
+	public String gravarVoluntario(Voluntario v)throws Exception{
+//		new UsuarioDAO().gravaUsuario(v);
+		stmt = con.prepareStatement("INSERT INTO T_SCP_VOLUNTARIO"
+									+ "	(CD_VOLUNTARIO,"
+									+ " NR_RG,"
+									+ " NR_CPF,"
+									+ " DS_FORMACAO,"
+									+ " DS_PERIODO,"
+									+ " DS_COMENTARIO,"
+									+ " DS_TELEFONE)"
+									+ " VALUES (?,?,?,?,?,?,?)");
+		stmt.setInt(1, v.getCodVoluntario());
+		stmt.setString(2, v.getRg());
+		stmt.setLong(3, v.getCpf());
+		stmt.setString(4, v.getFormacao());
+		stmt.setString(5, v.getPeriodo());
+		stmt.setString(6, v.getComentario());
+		stmt.setLong(7, v.getTelefone());
+		stmt.executeUpdate();
+		return "Cadastrado com sucesso";
+	}
+
+
+	public String excluirVoluntario(int codVoluntario)throws Exception{
+		stmt = con.prepareStatement("DELETE  FROM T_SCP_VOLUNTARIO WHERE CD_VOLUNTARIO  = ?");
+		stmt.setInt(1, codVoluntario );
+		return stmt.executeUpdate() + "linha exlcuida"; 
+	}
+	
+	public void fechar()throws Exception {
+		con.close();
+		
+	}
+
 	
 }
