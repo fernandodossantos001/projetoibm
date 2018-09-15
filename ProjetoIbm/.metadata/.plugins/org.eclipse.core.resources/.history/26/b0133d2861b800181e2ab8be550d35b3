@@ -1,0 +1,14 @@
+package br.com.deschateie.beans;
+
+public class Voluntario extends Usuario {
+	
+	private String rg;
+	private long cpf;
+	private String formacao;
+	private String periodo;
+	private String comentario;
+	private Endereco endereco;
+	private int telefone;
+	
+	
+}

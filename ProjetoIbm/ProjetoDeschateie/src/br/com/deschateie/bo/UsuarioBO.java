@@ -114,26 +114,34 @@ public class UsuarioBO {
 		
 	}
 
-	public static String pesquisarEmailUsuario(String email)throws Exception{
+	public static Usuario pesquisarEmailUsuario(String email)throws Exception{
 		
 		if(email.length()<0) {
-			return "email invalido";
+			return new Usuario() ;
 		}
 		
 		if (email.length()>60) {
-			return "email muito grande";
+			return new Usuario();
 		}
 		
 		
 		UsuarioDAO dao = new UsuarioDAO();
 		
-		Usuario usuario = dao.consultarEmailUsuario(email.toUpperCase());
+		Usuario usuario = dao.consultarEmailUsuario(email);
 		
 		if(usuario == null) {
-			return "nenhum usuario encontrado com esse email";
-		}else {
-			return "Usuario :" + usuario.getAll();
+			return new Usuario();
 		}
+		
+		return new Usuario(usuario.getCodUsuario(),
+							usuario.getNomeUsuario(),
+							usuario.getEmail(),
+							usuario.getDataNascimento(),
+							usuario.getLogin(),
+							usuario.getSenha(),
+							usuario.getNivelPermissao(),
+							usuario.getFoto(),
+							usuario.getSenha());
 	}
 
 	public static List<Usuario> pesquisarNomesUsuarios(String nome)throws Exception{
@@ -273,29 +281,39 @@ public class UsuarioBO {
 		
 	}
 
-	public static String autenticarUsuario(String login, String senha)throws Exception{
+	public static Usuario autenticarUsuario(String login, String senha)throws Exception{
 		if(login.length()<1) {
-			return "usuario invalido";	
+			return new Usuario();	
 		}
 		
 		if(login.length()>20) {
-			return "usuario de login muito grando";
+			return new Usuario();
 		}
 		
 		if(senha.length()<1) {
-			return "senha invalida";	
+			return new Usuario();	
 		}
 		
 		if(senha.length()>15) {
-			return "senha de login muito grande";
+			return new Usuario();
 			
 		}
 		
 		
 		UsuarioDAO dao = new UsuarioDAO();
-		String msg = dao.autenticarUsuario(login, senha).getAll();
+		Usuario usuario = dao.autenticarUsuario(login, senha);
 		dao.fechar();
-		return msg;
+		return  new Usuario(
+							usuario.getCodUsuario(),
+							usuario.getNomeUsuario(),
+							usuario.getEmail(),
+							usuario.getDataNascimento(),
+							usuario.getLogin(),
+							usuario.getSenha(),
+							usuario.getNivelPermissao(),
+							usuario.getFoto(),
+							usuario.getSenha());
+
 	}
 	
 	

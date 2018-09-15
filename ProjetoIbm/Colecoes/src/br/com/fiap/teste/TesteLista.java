@@ -28,8 +28,8 @@ public class TesteLista {
 		
 		for (Cargo cargo : cargos) {
 			System.out.println(cargo.getNome());
-			System.out.println(cargo.getSalario());
-			System.out.println(cargo.getNivel());
+//			System.out.println(cargo.getSalario());
+//			System.out.println(cargo.getNivel());
 		}
 	}
 

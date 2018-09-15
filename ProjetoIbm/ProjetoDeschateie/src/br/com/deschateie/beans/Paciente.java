@@ -1,6 +1,6 @@
 package br.com.deschateie.beans;
 
-public class Paciente extends Usuario {
+public class Paciente extends Usuario implements Comparable<Usuario> {
 	
 	private int codPaciente;
 	private int cep;
@@ -131,15 +131,9 @@ public class Paciente extends Usuario {
 
 
 
-	public int compareTo(Paciente outro) {
-		
-		if(this.cpf < outro.getCpf()) {
-			return -1;
-		}else if(this.cpf > outro.getCpf()) {
-			return 1;
-		}else {
-			return 0;
-		}
+	@Override
+	public int compareTo(Usuario o) {
+		return getNomeUsuario().compareTo(o.getNomeUsuario());
 	}
 
 

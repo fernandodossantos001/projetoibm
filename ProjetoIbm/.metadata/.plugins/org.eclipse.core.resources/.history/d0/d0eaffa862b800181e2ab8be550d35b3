@@ -1,0 +1,12 @@
+package br.com.deschateie.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class VoluntarioDAO {
+	private Connection con;
+	private PreparedStatementment;
+	private ResultSet rs;
+
+}
