@@ -15,10 +15,10 @@ public class Paciente extends Usuario implements Comparable<Usuario> {
 	}
 	
 	public Paciente(int codUsuario, String nomeUsuario, String email, String dataNascimento, String login, String senha,
-			int nivelPermissao, String foto, String genero, int codPaciente, int cep, long cpf, String historico,
+			int nivelPermissao, String foto, String genero, int cep, long cpf, String historico,
 			int consultasReazlizadas) {
 		super(codUsuario, nomeUsuario, email, dataNascimento, login, senha, nivelPermissao, foto, genero);
-		setCodPaciente(codPaciente);
+		setCodPaciente(codUsuario);
 		setCep(cep);
 		setCpf(cpf);
 		setHistorico(historico);
@@ -31,7 +31,7 @@ public class Paciente extends Usuario implements Comparable<Usuario> {
 			int consultasReazlizadas) {
 		
 		super.setAll(codUsuario, nomeUsuario, email, dataNascimento, login, senha, nivelPermissao, foto, genero);
-		setCodPaciente(codPaciente);
+		setCodPaciente(codUsuario);
 		setCep(cep);
 		setCpf(cpf);
 		setHistorico(historico);

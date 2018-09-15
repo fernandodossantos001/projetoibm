@@ -14,10 +14,10 @@ public class Voluntario extends Usuario  implements Comparable<Usuario> {
 	}
 	
 	public Voluntario(int codUsuario, String nomeUsuario, String email, String dataNascimento, String login,
-			String senha, int nivelPermissao, String foto, String genero,int codVoluntario, String rg, long cpf, String formacao,
+			String senha, int nivelPermissao, String foto, String genero, String rg, long cpf, String formacao,
 			String periodo, String comentario,  long telefone) {
 		super(codUsuario, nomeUsuario, email, dataNascimento, login, senha, nivelPermissao, foto, genero);
-		setCodVoluntario(codVoluntario);
+		setCodVoluntario(codUsuario);
 		setRg(rg);
 		setCpf(cpf);
 		setFormacao(formacao);
@@ -27,10 +27,10 @@ public class Voluntario extends Usuario  implements Comparable<Usuario> {
 	}
 	
 	public void setAll(int codUsuario, String nomeUsuario, String email, String dataNascimento, String login,
-			String senha, int nivelPermissao, String foto, String genero,int codVoluntario, String rg, long cpf, String formacao,
+			String senha, int nivelPermissao, String foto, String genero, String rg, long cpf, String formacao,
 			String periodo, String comentario, long telefone) {
 		super.setAll(codUsuario, nomeUsuario, email, dataNascimento, login, senha, nivelPermissao, foto, genero);
-		setCodVoluntario(codVoluntario);
+		setCodVoluntario(codUsuario);
 		setRg(rg);
 		setCpf(cpf);
 		setFormacao(formacao);

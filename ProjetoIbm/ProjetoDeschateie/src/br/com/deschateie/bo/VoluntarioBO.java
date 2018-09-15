@@ -31,7 +31,6 @@ public class VoluntarioBO {
 				 				v.getNivelPermissao(),
 				 				v.getFoto(),
 				 				v.getGenero(),
-				 				v.getCodVoluntario(),
 				 				v.getRg(),
 				 				v.getCpf(),
 				 				v.getFormacao(),

@@ -5,20 +5,36 @@ import br.com.deschateie.dao.PacienteDAO;
 
 public class PacienteBO {
 	
-	public static String consutlarPaciente(int codPaciente)throws Exception{
+	public static Paciente consutlarPaciente(int codPaciente)throws Exception{
 		
 		if(codPaciente <0) {
-			return "código inválido";
+			return new Paciente();
 		}
 		if(codPaciente> 99999) {
-			return "código muito grande";
+			return new Paciente();
 		}
 		
 		PacienteDAO dao = new PacienteDAO();
 		
 		Paciente p = dao.consultarPaciente(codPaciente);
+		if(p.getCodUsuario()<0) {
+			return new Paciente();
+		}
 		dao.fechar();
-		return p.getAll();
+		
+		return new Paciente(p.getCodPaciente(),
+							p.getNomeUsuario(),
+							p.getEmail(),
+							p.getDataNascimento(),
+							p.getLogin(),
+							p.getSenha(),
+							p.getNivelPermissao(),
+							p.getFoto(),
+							p.getGenero(),
+							p.getCep(),
+							p.getCpf(),
+							p.getHistorico(),
+							p.getConsultasReazlizadas());
 		
 		
 		

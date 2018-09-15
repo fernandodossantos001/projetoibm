@@ -17,9 +17,8 @@ public class VoluntarioDAO {
 	}
 	
 	public Voluntario consultarVoluntario(int codVoluntario)throws Exception{
-		stmt = con.prepareStatement("SELECT * FROM  T_SCP_USUARIO ,T_SCP_VOLUNTARIO WHERE CD_USUARIO = ? AND CD_VOLUNTARIO = ?");
+		stmt = con.prepareStatement("SELECT * FROM  T_SCP_USUARIO ,T_SCP_VOLUNTARIO WHERE CD_USUARIO = ? ");
 		stmt.setInt(1, codVoluntario);
-		stmt.setInt(2, codVoluntario);
 		rs = stmt.executeQuery();
 		
 		if(rs.next()) { 
@@ -33,7 +32,6 @@ public class VoluntarioDAO {
 									rs.getInt("NR_NIVEL_PERMISSAO"),
 									rs.getString("DS_FOTO"),
 									rs.getString("DS_GENERO"),
-									rs.getInt("CD_VOLUNTARIO"),
 									rs.getString("NR_RG"),
 									rs.getLong("NR_CPF"),
 									rs.getString("DS_FORMACAO"),

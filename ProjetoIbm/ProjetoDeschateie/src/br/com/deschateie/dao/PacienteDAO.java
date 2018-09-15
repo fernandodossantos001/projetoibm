@@ -60,9 +60,8 @@ public class PacienteDAO {
 	}
 	
 	public Paciente consultarPaciente(int codPaciente)throws Exception{
-		stmt= con.prepareStatement("SELECT * FROM  T_SCP_USUARIO ,T_SCP_PACIENTE WHERE CD_USUARIO = ? AND CD_PACIENTE = ?");
+		stmt= con.prepareStatement("SELECT * FROM  T_SCP_USUARIO ,T_SCP_PACIENTE WHERE CD_USUARIO = ? ");
 		stmt.setInt(1, codPaciente);
-		stmt.setInt(2, codPaciente);
 		
 		rs = stmt.executeQuery();
 		if(rs.next()) {
@@ -76,7 +75,6 @@ public class PacienteDAO {
 								rs.getInt("NR_NIVEL_PERMISSAO"),
 								rs.getString("DS_FOTO"),
 								rs.getString("DS_GENERO"),
-								rs.getInt("CD_PACIENTE"),
 								rs.getInt("DS_CEP"),
 								rs.getLong("NR_CPF"),
 								rs.getString("DS_HISTORICO"),
