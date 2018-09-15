@@ -1,0 +1,10 @@
+package br.com.deschateie.bo;
+
+public class PsicologoBO {
+
+	public static Psicologo pesquisarPsicologo(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

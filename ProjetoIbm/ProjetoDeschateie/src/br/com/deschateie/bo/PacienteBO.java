@@ -5,7 +5,7 @@ import br.com.deschateie.dao.PacienteDAO;
 
 public class PacienteBO {
 	
-	public static Paciente consutlarPaciente(int codPaciente)throws Exception{
+	public static Paciente pesquisarPaciente(int codPaciente)throws Exception{
 		
 		if(codPaciente <0) {
 			return new Paciente();

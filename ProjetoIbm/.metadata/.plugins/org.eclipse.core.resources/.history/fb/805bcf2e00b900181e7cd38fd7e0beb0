@@ -1,0 +1,18 @@
+package br.com.deschateie.beans;
+
+public class Psicologo extends Usuario implements Comparable<Usuario> {
+	
+	private int codPsicologo;
+	private int crp;
+	private String biografia;
+	private long telefone;
+	
+	
+	
+	
+	@Override
+	public int compareTo(Usuario outro) {
+		return super.compareTo(outro);
+	}
+	
+}
