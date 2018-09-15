@@ -1,8 +1,7 @@
 package br.com.deschateie.bo;
 
-import br.com.deschateie.beans.Usuario;
+
 import br.com.deschateie.beans.Voluntario;
-import br.com.deschateie.dao.UsuarioDAO;
 import br.com.deschateie.dao.VoluntarioDAO;
 
 public class VoluntarioBO {
@@ -132,4 +131,73 @@ public class VoluntarioBO {
 		dao.fechar();
 		return status;
 	}
+
+	public static String alterarDadosVoluntario(Voluntario v)throws Exception{
+		if (v.getCodVoluntario()<0) {
+			return "Codigo voluntario invalido";
+		}
+		
+		if(v.getCodVoluntario()>99999) {
+			return "Codigo muito grande";
+		}
+		
+		if (v.getFormacao().length() < 1) {
+			return "o campo formacao nao pode estar vazio";
+		}
+		
+		if (v.getFormacao().length()>60) {
+			return "formacao muito grande";
+		}
+		
+		
+		if (v.getPeriodo().length()<0) {
+			return "o campo perido nao pode estar vazio";
+		}
+		
+		if(v.getPeriodo().length()> 40) {
+			return "periodo muito grande ";
+		}
+		
+		if (v.getComentario().length()<0) {
+			return "o campo comentario nao pode estar vazio";
+		}
+		
+		if (v.getComentario().length()>80) {
+			return "comentario muito grande";
+		}
+		
+		if(v.getTelefone()<0) {
+			return "o campo telefone não pode estar vazio";
+		}
+		if(v.getTelefone()>99999999999l) {
+			return "telefone muito grande";
+		}
+		
+		VoluntarioDAO dao = new VoluntarioDAO();
+		Voluntario volu = dao.consultarVoluntario(v.getCodVoluntario());
+
+		if(volu.getRg().equalsIgnoreCase(v.getRg())) {
+			dao.fechar();
+			return "RG já existente";
+		}
+		
+		if(volu.getCpf()== v.getCpf()) {
+			dao.fechar();
+			return "CPF já existente";
+		}
+		
+		
+		
+		String status = UsuarioBO.AlterarDadosUsuario(v);
+		
+		if (!status.equals( "Usuário alterado com Sucesso")) {
+			return status;
+		}
+		
+		
+		dao.alterarDadosVoluntario(v);
+		dao.fechar();
+		return "Alterado com sucesso";
+	}
+
 }

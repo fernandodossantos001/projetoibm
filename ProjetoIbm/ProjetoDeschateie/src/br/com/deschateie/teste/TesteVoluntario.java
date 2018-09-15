@@ -21,8 +21,10 @@ public class TesteVoluntario {
 //			System.out.println(VoluntarioBO.novoVoluntario((new Voluntario(1944,
 	//				"anjosHenry", "asdfasfd@asfdasf.com", "12/01/1985", "loginss", "anjos", 3, "c:/windwos", "masculino", 1744, "23082342JK", 1231231323, "psicologia", "noturno", "chato", 272188991))));	
 
-			System.out.println(VoluntarioBO.excluirVoluntario(22));
-			System.out.println("teste");
+	//		System.out.println(VoluntarioBO.excluirVoluntario(28));
+	System.out.println(new VoluntarioDAO().alterarDadosVoluntario(new Voluntario(23,
+							"anjosHenry", "asdfasfd@asfdasf.com", "12/01/1985", "loginss", "anjos", 3, "c:/windwos", "masculino", 23, "230823K", 1231231323, "psicologia", "noturno", "chato", 272188991)));	
+
 			
 		} catch (Exception e) {
 			e.printStackTrace();

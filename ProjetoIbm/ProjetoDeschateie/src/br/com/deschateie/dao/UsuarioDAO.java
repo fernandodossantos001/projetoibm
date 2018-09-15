@@ -139,7 +139,7 @@ public class UsuarioDAO {
 	public String alterarDadosUsuario(Usuario u)throws Exception{
 		stmt = con.prepareStatement("UPDATE T_SCP_USUARIO"
 									+ "	SET NM_USUARIO = ?,"
-									+ " DS_EMAIL = ?,"
+									+ " DS_EMAIL = TO_DATE(?,'DD/MM/YYYY'),"
 									+ " DT_NASCIMENTO = ?,"
 									+ " DS_LOGIN = ?,"
 									+ " DS_SENHA = ?,"

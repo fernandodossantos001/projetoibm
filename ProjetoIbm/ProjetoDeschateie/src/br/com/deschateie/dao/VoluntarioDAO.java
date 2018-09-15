@@ -71,7 +71,7 @@ public class VoluntarioDAO {
 
 
 	public String excluirVoluntario(int codVoluntario)throws Exception{
-		stmt = con.prepareStatement("DELETE  FROM T_SCP_VOLUNTARIO WHERE CD_VOLUNTARIO  = ?");
+		stmt = con.prepareStatement("DELETE FROM T_SCP_VOLUNTARIO WHERE CD_VOLUNTARIO  = ?");
 		stmt.setInt(1, codVoluntario );
 		return stmt.executeUpdate() + "linha exlcuida"; 
 	}
@@ -79,6 +79,27 @@ public class VoluntarioDAO {
 	public void fechar()throws Exception {
 		con.close();
 		
+	}
+
+	public String alterarDadosVoluntario(Voluntario v)throws Exception {
+
+		stmt= con.prepareStatement("UPDATE T_SCP_VOLUNTARIO"
+									+ " SET NR_RG = ?,"
+									+ "NR_CPF = ?,"
+									+ "DS_FORMACAO =?,"
+									+ "DS_PERIODO = ?,"
+									+ "DS_COMENTARIO = ?,"
+									+ "DS_TELEFONE = ?"
+									+ "WHERE CD_VOLUNTARIO = ?");
+		
+		stmt.setString(1, v.getRg());
+		stmt.setLong(2, v.getCpf());
+		stmt.setString(3, v.getFormacao());
+		stmt.setString(4, v.getPeriodo());
+		stmt.setString(5, v.getComentario());
+		stmt.setLong(6, v.getTelefone());
+		stmt.setInt(7, v.getCodVoluntario());
+		return stmt.executeUpdate() + "linha atualizada";
 	}
 
 	
