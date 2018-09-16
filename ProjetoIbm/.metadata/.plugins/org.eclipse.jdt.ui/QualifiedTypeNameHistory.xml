@@ -12,7 +12,6 @@
 <fullyQualifiedTypeName name="java.sql.Blob"/>
 <fullyQualifiedTypeName name="br.com.deschateie.dao.UsuarioDAO"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-<fullyQualifiedTypeName name="java.lang.Comparable"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="br.com.deschateie.dao.VoluntarioDAO"/>
 <fullyQualifiedTypeName name="br.com.deschateie.beans.Voluntario"/>
@@ -20,17 +19,21 @@
 <fullyQualifiedTypeName name="br.com.deschateie.bo.VoluntarioBO"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="java.lang.StringIndexOutOfBoundsException"/>
-<fullyQualifiedTypeName name="br.com.deschateie.bo.UsuarioBO"/>
-<fullyQualifiedTypeName name="br.com.deschateie.beans.Usuario"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="br.com.deschateie.bo.PacienteBO"/>
 <fullyQualifiedTypeName name="br.com.deschateie.beans.PsicologoOnline"/>
-<fullyQualifiedTypeName name="br.com.deschateie.excecao.Excecao"/>
 <fullyQualifiedTypeName name="javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction"/>
-<fullyQualifiedTypeName name="br.com.deschateie.beans.Psicologo"/>
 <fullyQualifiedTypeName name="br.com.deschateie.beans.Paciente"/>
-<fullyQualifiedTypeName name="br.com.deschateie.bo.PsicologoBO"/>
-<fullyQualifiedTypeName name="br.com.deschateie.beans.PsiOnline"/>
 <fullyQualifiedTypeName name="br.com.deschateie.dao.PsiOnlineDAO"/>
+<fullyQualifiedTypeName name="br.com.deschateie.beans.PsiOnline"/>
 <fullyQualifiedTypeName name="br.com.deschateie.bo.PsiOnlineBO"/>
+<fullyQualifiedTypeName name="java.lang.Comparable"/>
+<fullyQualifiedTypeName name="br.com.deschateie.beans.Psicologo"/>
+<fullyQualifiedTypeName name="br.com.deschateie.beans.Usuario"/>
+<fullyQualifiedTypeName name="br.com.deschateie.excecao.Excecao"/>
+<fullyQualifiedTypeName name="br.com.deschateie.bo.PsicologoBO"/>
+<fullyQualifiedTypeName name="br.com.deschateie.bo.UsuarioBO"/>
+<fullyQualifiedTypeName name="br.com.deschateie.beans.AvaliacaoVoluntario"/>
+<fullyQualifiedTypeName name="br.com.deschateie.dao.AvaliacaoVoluntarioDAO"/>
+<fullyQualifiedTypeName name="br.com.deschateie.bo.AvaliacaoVoluntarioBO"/>
 </qualifiedTypeNameHistroy>
