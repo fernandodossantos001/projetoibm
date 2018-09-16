@@ -1,0 +1,21 @@
+package br.com.deschateie.teste;
+
+import br.com.deschateie.bo.AvaliacaoVoluntarioBO;
+import br.com.deschateie.dao.AvaliacaoVoluntarioDAO;
+import br.com.deschateie.excecao.Excecao;
+
+public class TesteAvaliacaoVoluntario {
+
+	public static void main(String[] args) {
+		try {
+//			System.out.println(AvaliacaoVoluntarioBO.pesquisarAvaliacao(1));
+			System.out.println(new AvaliacaoVoluntarioDAO().consultarAvaliacao(1));
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(Excecao.tratarExcecao(e));
+		}
+		
+
+	}
+
+}

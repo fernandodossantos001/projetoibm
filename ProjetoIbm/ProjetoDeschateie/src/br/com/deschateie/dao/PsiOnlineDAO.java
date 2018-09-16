@@ -62,7 +62,25 @@ public class PsiOnlineDAO {
 		return "Cadastrado com sucesso";
 	}
 
+	public String excluirPsicologoOnline(int codPsi)throws Exception{
+		stmt = con.prepareStatement("DELETE FROM T_SCP_PSI_ONLINE WHERE CD_PSICOLOGO_ON = ?");
+		stmt.setInt(1, codPsi);
+		return "foi excluida " + stmt.executeUpdate() + "linha";
+		
+	}
 
+	public String alterarDadosPsicologoOnline(PsiOnline psi)throws Exception{
+		stmt = con.prepareStatement("UPDATE T_SCP_PSI_ONLINE "
+									+ "SET DS_PERIODO = ?,"
+									+ "DS_FORMA_ATENDIMENTO = ?,"
+									+ "VL_NOTA_ATENDIMENTO = ?,"
+									+ "QT_ATENDIMENTO = ?");
+		stmt.setString(1, psi.getPeriodo());
+		stmt.setString(2, psi.getFormaAtendimento());
+		stmt.setInt(3, psi.getNotaAtendimento());
+		stmt.setInt(4, psi.getQtdeAtendimentos());
+		return stmt.executeUpdate()+"atualiada";
+	}
 	public void fechar()throws Exception {
 		con.close();
 	}

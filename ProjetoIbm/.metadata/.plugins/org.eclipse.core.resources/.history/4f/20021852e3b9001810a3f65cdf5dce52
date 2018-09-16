@@ -1,0 +1,59 @@
+package br.com.deschateie.bo;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import br.com.deschateie.beans.AvaliacaoVoluntario;
+import br.com.deschateie.beans.Psicologo;
+import br.com.deschateie.beans.Usuario;
+import br.com.deschateie.dao.AvaliacaoVoluntarioDAO;
+
+public class AvaliacaoVoluntarioBO {
+	public static AvaliacaoVoluntario pesquisarAvaliacao(int codAvaliacao) throws Exception{
+		
+		if (codAvaliacao<1) {
+			return new AvaliacaoVoluntario();
+		}
+		
+		if (codAvaliacao>99999) {
+			return new AvaliacaoVoluntario();
+		}
+		AvaliacaoVoluntarioDAO  dao = new AvaliacaoVoluntarioDAO(); 
+		return dao.consultarAvaliacao(codAvaliacao);
+	}
+
+	public static String novaAvaliacaoVoluntario(AvaliacaoVoluntario aV)throws Exception{
+		if (aV.getCodAvaliacao()<0) {
+			return "codigo invalido";
+		}
+		
+		if (aV.getCodAvaliacao()>99999) {
+			return "codigo muito grande"; 
+		}
+		if (aV.getResultado().length()<0) {
+			return "O campo resultado não pode esta vazio";
+		}
+		
+		if(aV.getResultado().length()>80) {
+			return "resultado muito grande";
+		}
+		
+		AvaliacaoVoluntario avu = pesquisarAvaliacao(aV.getCodAvaliacao());
+		if(avu != null) {
+			Usuario usuario = UsuarioBO.pesquisarUsuarioPorCod(avu.getUsuario().getCodUsuario());
+			Psicologo psicologo = PsicologoBO.pesquisarPsicologo(avu.getPsicologo().getCodPsicologo())
+					
+			
+		}
+	
+		Pattern pattern = Pattern.compile("^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$");
+		Matcher matcher = pattern.matcher(aV.getDataAvaliacao());
+		
+		if(!matcher.find()) {
+			return "data inválido";
+			
+		}
+		
+		return "Avaliacao cadastrada com sucesso";
+	}
+}

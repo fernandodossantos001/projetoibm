@@ -1,0 +1,15 @@
+package br.com.deschateie.teste;
+
+public class TesteAvaliacaoVoluntario {
+
+	public static void main(String[] args) {
+		try {
+			
+		} catch (Exception e) {
+			e.printStackTraces());
+		}
+		
+
+	}
+
+}

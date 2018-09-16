@@ -1,0 +1,24 @@
+package br.com.deschateie.teste;
+
+import br.com.deschateie.beans.PsiOnline;
+import br.com.deschateie.bo.PsiOnlineBO;
+import br.com.deschateie.excecao.Excecao;
+
+public class TestePsiOnline {
+
+	public static void main(String[] args) {
+
+		try {
+			System.out.println(PsiOnlineBO.pesquisarPsicologoOnline(11).getAll());
+			
+			
+		/
+			
+			System.out.println(PsiOnlineBO.pesquisarPsicologoOnline(854).getAll());
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(Excecao.tratarExcecao(e));
+		}
+	}
+
+}

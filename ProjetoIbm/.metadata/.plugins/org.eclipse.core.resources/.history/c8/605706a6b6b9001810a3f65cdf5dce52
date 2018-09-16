@@ -1,0 +1,26 @@
+package br.com.deschateie.beans;
+
+public class AvaliacaoVoluntario implements Comparable<AvaliacaoVoluntario> {
+	private int codAvaliacao;
+	private int codPsicologo;
+	private int codUsuario;
+	private String dataAvaliacao;
+	private String resultado;
+	
+	
+	
+	@Override
+	public int compareTo(AvaliacaoVoluntario o) {
+		if(codAvaliacao< o.codAvaliacao) {
+			return -1;
+		}else if(codAvaliacao > o.codAvaliacao) {
+			return 1;
+		}else {
+			return 0;
+		}
+		
+	}
+	
+	
+
+}

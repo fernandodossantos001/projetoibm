@@ -1,8 +1,0 @@
-package br.com.deschateie.bo;
-
-public class PsiOnlineBO {
-	public static PsiOnline pesquisarPsicologoOnline(PsiOnline psi)throws Exception {
-		
-	}
-	
-}

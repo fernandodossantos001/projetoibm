@@ -1,0 +1,10 @@
+package br.com.deschateie.beans;
+
+public class AvaliacaoVoluntario {
+	private int codAvaliacao;
+	private int codPsicologo;
+	private int codUsuario;
+	private String dataAvaliacao;
+	private String resultado;
+
+}

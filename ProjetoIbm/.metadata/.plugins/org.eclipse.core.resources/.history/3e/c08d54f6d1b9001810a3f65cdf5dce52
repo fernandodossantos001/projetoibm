@@ -1,0 +1,10 @@
+package br.com.deschateie.bo;
+
+import br.com.deschateie.beans.AvaliacaoVoluntario;
+
+public class AvaliacaoVoluntarioBO {
+	public static AvaliacaoVoluntario pesquisarAvaliacao(int codAvaliacao) throws Exception{
+		
+	}
+
+}

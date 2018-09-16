@@ -1,9 +1,0 @@
-package br.com.deschateie.bo;
-
-public class PsicologoBO {
-
-	public static Psicologo pesquisarPsicologo(int codPsicologo)throws Exception {
-		return null;
-	}
-
-}
