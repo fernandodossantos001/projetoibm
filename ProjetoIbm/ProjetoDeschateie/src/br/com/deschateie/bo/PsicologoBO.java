@@ -13,17 +13,10 @@ public class PsicologoBO {
 		
 		PsicologoDAO dao = new PsicologoDAO();
 		Psicologo p = dao.consultarPsicologo(codPsicologo);
-		 if(p.getCodPsicologo()<1) {
-			 return new Psicologo();
-		 }
+		
 		
 		dao.fechar();
-		return new Psicologo(p.getCodPsicologo(),
-							p.getNomeUsuario(), p.getEmail(), p.getDataNascimento(),
-							p.getLogin(), p.getSenha(), p.getNivelPermissao(),
-							p.getFoto(), p.getGenero(), p.getCrp(), p.getFormacao(),
-							p.getBiografia(), p.getTelefone(), p.getValorConsulta());
-		
+		return p ;
 		
 		
 		
@@ -116,7 +109,9 @@ public class PsicologoBO {
 		 if (!status.equals("Usuário cadastrado com Sucesso")) {
 			return status;
 		}
+		 
 		 dao.GravarPsicologo(p);
+		 dao.fechar();
 		return "Psicologo cadastrado com Sucesso";
 	}
 
@@ -184,7 +179,7 @@ public class PsicologoBO {
 		 
 		 dao.alterarDadosPsicologo(p);
 		 
-		 
+		 dao.fechar();
 		return "Psicologo atualizado com Sucesso";
 	}
 

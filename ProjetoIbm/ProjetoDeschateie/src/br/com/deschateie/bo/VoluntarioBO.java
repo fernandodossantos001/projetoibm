@@ -16,27 +16,10 @@ public class VoluntarioBO {
 		}
 		
 		VoluntarioDAO dao = new VoluntarioDAO();
-		Voluntario v = dao.consultarVoluntario(codVoluntario);
-		 if(v==null) {
-			 return new Voluntario();
-		 }
+		Voluntario vo = dao.consultarVoluntario(codVoluntario);
+		dao.fechar();
+		return vo;
 		 
-		 return new Voluntario(
-				 				v.getCodUsuario(),
-				 				v.getNomeUsuario(),
-				 				v.getEmail(),
-				 				v.getDataNascimento(),
-				 				v.getLogin(),
-				 				v.getSenha(),
-				 				v.getNivelPermissao(),
-				 				v.getFoto(),
-				 				v.getGenero(),
-				 				v.getRg(),
-				 				v.getCpf(),
-				 				v.getFormacao(),
-				 				v.getPeriodo(), 
-				 				v.getComentario(),
-				 				v.getTelefone());
 		
 	}
 

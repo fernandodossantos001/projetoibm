@@ -17,24 +17,8 @@ public class PacienteBO {
 		PacienteDAO dao = new PacienteDAO();
 		
 		Paciente p = dao.consultarPaciente(codPaciente);
-		if(p.getCodUsuario()<0) {
-			return new Paciente();
-		}
 		dao.fechar();
-		
-		return new Paciente(p.getCodPaciente(),
-							p.getNomeUsuario(),
-							p.getEmail(),
-							p.getDataNascimento(),
-							p.getLogin(),
-							p.getSenha(),
-							p.getNivelPermissao(),
-							p.getFoto(),
-							p.getGenero(),
-							p.getCep(),
-							p.getCpf(),
-							p.getHistorico(),
-							p.getConsultasReazlizadas());
+		return p;
 		
 		
 		

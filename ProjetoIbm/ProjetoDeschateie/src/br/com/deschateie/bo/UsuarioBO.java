@@ -130,21 +130,9 @@ public class UsuarioBO {
 		
 		UsuarioDAO dao = new UsuarioDAO();
 		
-		Usuario usuario = dao.consultarEmailUsuario(email);
-		
-		if(usuario == null) {
-			return new Usuario();
-		}
-		
-		return new Usuario(usuario.getCodUsuario(),
-							usuario.getNomeUsuario(),
-							usuario.getEmail(),
-							usuario.getDataNascimento(),
-							usuario.getLogin(),
-							usuario.getSenha(),
-							usuario.getNivelPermissao(),
-							usuario.getFoto(),
-							usuario.getSenha());
+		Usuario us = dao.consultarEmailUsuario(email);
+		dao.fechar();
+		return us;
 	}
 
 	public static List<Usuario> pesquisarNomesUsuarios(String nome)throws Exception{
@@ -326,16 +314,7 @@ public class UsuarioBO {
 		UsuarioDAO dao = new UsuarioDAO();
 		Usuario usuario = dao.autenticarUsuario(login, senha);
 		dao.fechar();
-		return  new Usuario(
-							usuario.getCodUsuario(),
-							usuario.getNomeUsuario(),
-							usuario.getEmail(),
-							usuario.getDataNascimento(),
-							usuario.getLogin(),
-							usuario.getSenha(),
-							usuario.getNivelPermissao(),
-							usuario.getFoto(),
-							usuario.getSenha());
+		return usuario;
 
 	}
 	
@@ -352,21 +331,9 @@ public class UsuarioBO {
 		
 		UsuarioDAO dao = new UsuarioDAO();
 		
-		Usuario usuario = dao.consultarCodUsuario(codUsuario);
-		
-		if(usuario == null) {
-			return new Usuario();
-		}
-		
-		return new Usuario(usuario.getCodUsuario(),
-							usuario.getNomeUsuario(),
-							usuario.getEmail(),
-							usuario.getDataNascimento(),
-							usuario.getLogin(),
-							usuario.getSenha(),
-							usuario.getNivelPermissao(),
-							usuario.getFoto(),
-							usuario.getSenha());
+		 Usuario us =dao.consultarCodUsuario(codUsuario);
+		dao.fechar();
+		return us;
 	}
 	
 }

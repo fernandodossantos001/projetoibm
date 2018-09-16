@@ -65,7 +65,7 @@ public class ClienteDAO {
 		stmt.setInt(1, numero);
 		rs = stmt.executeQuery();
 		
-		//eu poderia fazer isso com operador ternario ?
+		
 		if(rs.next()) {
 			return new Cliente(
 								rs.getString("NM_CLIENTE"),

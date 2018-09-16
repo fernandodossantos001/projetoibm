@@ -1,0 +1,17 @@
+package br.com.deschateie.bo;
+
+import br.com.deschateie.beans.PsiOnline;
+
+public class PsiOnlineBO {
+	public static PsiOnline pesquisarPsicologoOnline(int codPsi)throws Exception {
+		
+		if(codPsi <1) {
+			return new PsiOnline();
+		}
+		
+		if(codPsi>99999) {
+			return new PsiOnline();
+		}
+	}
+	
+}

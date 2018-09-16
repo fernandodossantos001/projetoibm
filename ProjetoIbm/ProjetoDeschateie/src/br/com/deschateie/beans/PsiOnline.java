@@ -15,7 +15,7 @@ public class PsiOnline extends Psicologo implements Comparable<Usuario> {
 			int notaAtendimento, int qtdeAtendimentos) {
 		super(codUsuario, nomeUsuario, email, dataNascimento, login, senha, nivelPermissao, foto, genero, crp, formacao,
 				biografia, telefone, valorConsulta);
-		setCodPsicologo(codUsuario);
+		setCodPsiOnline(codUsuario);
 		setPeriodo(periodo);
 		setFormaAtendimento(formaAtendimento);
 		setNotaAtendimento(notaAtendimento);
@@ -26,13 +26,25 @@ public class PsiOnline extends Psicologo implements Comparable<Usuario> {
 		
 	}
 	
+	
+	
+
+	
+	public String getAll() {
+		return super.getAll()+ "\n"+
+				"Codigo Psicologo Online : " + codPsiOnline +"\n"+
+				"Periodo :" + periodo + "\n"+
+				"Forma Atendimento : "+ formaAtendimento + "\n"+
+				"Nota Atendimento : " + notaAtendimento +"\n"+
+				"Quantidade de Atendimentos : " + qtdeAtendimentos;
+	}
 
 	public void setAll(int codUsuario, String nomeUsuario, String email, String dataNascimento, String login,
 			String senha, int nivelPermissao, String foto, String genero, int crp, String formacao, String biografia,
 			long telefone, double valorConsulta, String periodo, String formaAtendimento,
 			int notaAtendimento, int qtdeAtendimentos) {
 		super.setAll(codUsuario, nomeUsuario, email, dataNascimento, login, senha, nivelPermissao, foto, genero, crp, formacao, biografia, telefone, valorConsulta);
-		setCodPsicologo(codUsuario);
+		setCodPsiOnline(codUsuario);
 		setPeriodo(periodo);
 		setFormaAtendimento(formaAtendimento);
 		setNotaAtendimento(notaAtendimento);

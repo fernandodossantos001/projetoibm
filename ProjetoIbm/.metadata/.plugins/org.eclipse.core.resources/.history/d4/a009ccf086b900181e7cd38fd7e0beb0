@@ -1,0 +1,10 @@
+package br.com.deschateie.bo;
+
+import br.com.deschateie.beans.PsiOnline;
+
+public class PsiOnlineBO {
+	public static PsiOnline pesquisarPsicologoOnline(PsiOnline psi)throws Exception {
+		
+	}
+	
+}

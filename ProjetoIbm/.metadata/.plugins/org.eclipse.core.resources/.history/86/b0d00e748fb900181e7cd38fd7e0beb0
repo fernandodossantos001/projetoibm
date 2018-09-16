@@ -1,0 +1,44 @@
+package br.com.deschateie.bo;
+
+import br.com.deschateie.beans.PsiOnline;
+import br.com.deschateie.dao.PsiOnlineDAO;
+
+public class PsiOnlineBO {
+	public static PsiOnline pesquisarPsicologoOnline(int codPsi)throws Exception {
+		
+		if(codPsi <1) {
+			return new PsiOnline();
+		}
+		
+		if(codPsi>99999) {
+			return new PsiOnline();
+		}
+		
+		PsiOnlineDAO dao = new PsiOnlineDAO();
+		return dao.consultarPsicologoOnline(codPsi);
+	}
+	
+	
+	public static String novoPsicologoOnline(PsiOnline psi)throws Exception {
+		if (psi.getPeriodo().length()<0) {
+			return "O periodo nao pode estar vazio";
+		}
+		
+		if(psi.getPeriodo().length()>40) {
+			return "periodo muito grande";
+		}
+		
+		if (psi.getFormaAtendimento().length()<0) {
+			return "A forma de atendimento nao pode estar vazia";
+		}
+		
+		if (psi.getFormaAtendimento().length()>40) {
+			return "forma de atendimento muito grande";
+		}
+		
+		if (psi.getNotaAtendimento()<1) {
+			return "nota invalida";
+		}
+	}
+	
+}
