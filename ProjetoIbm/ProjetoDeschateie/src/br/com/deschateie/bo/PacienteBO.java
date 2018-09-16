@@ -131,20 +131,32 @@ public class PacienteBO {
 			return "histórico muito grande";
 		}
 		
-	
+		PacienteDAO dao = new PacienteDAO();
+		Paciente pa = new Paciente();
+		
+		if(dao.consultarPaciente(p.getCodPaciente()).getCodPaciente()<1) {
+			return "nao foi possivel achar esse codigo no banco";
+		}
 		
 		String status = UsuarioBO.AlterarDadosUsuario(p);
 		
 		if(!status.equals("Usuário alterado com Sucesso")) {
-			
+			System.out.println(dao.consultarPaciente(p.getCodPaciente()).getAll());
 			return status;
 		}
 		
+	
 		
-		PacienteDAO dao = new PacienteDAO();
+		if(p.getCpf() != pa.getCpf()) {
+			if(p.getCpf() == dao.consultarPacienteCpf(pa.getCpf()).getCpf()) {
+				dao.fechar();
+				return "cpf já existe";			}
+		}
+		
+		
 		dao.AlteraDadosPaciente(p);
 		dao.fechar();
-		return "cadastrado com sucesso";
+		return "alterado com sucesso";
 		
 	}
 }

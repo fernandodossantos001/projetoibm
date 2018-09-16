@@ -44,6 +44,32 @@ public class VoluntarioDAO {
 	}
 	
 
+	public Voluntario consultarVoluntarioCpf(long cpf)throws Exception{
+		stmt = con.prepareStatement("SELECT * FROM  T_SCP_USUARIO ,T_SCP_VOLUNTARIO WHERE CR_CPF = ? ");
+		stmt.setLong(1, cpf);
+		rs = stmt.executeQuery();
+		
+		if(rs.next()) { 
+			return new  Voluntario(
+									rs.getInt("CD_USUARIO"),
+									rs.getString("NM_USUARIO"),
+									rs.getString("DS_EMAIL"),
+									rs.getString("DT_NASCIMENTO"),
+									rs.getString("DS_LOGIN"),
+									rs.getString("DS_SENHA"),
+									rs.getInt("NR_NIVEL_PERMISSAO"),
+									rs.getString("DS_FOTO"),
+									rs.getString("DS_GENERO"),
+									rs.getString("NR_RG"),
+									rs.getLong("NR_CPF"),
+									rs.getString("DS_FORMACAO"),
+									rs.getString("DS_PERIODO"),
+									rs.getString("DS_COMENTARIO"),
+									rs.getLong("DS_TELEFONE"));
+		}else {
+			return new Voluntario();
+		}
+	}
 	
 	public String gravarVoluntario(Voluntario v)throws Exception{
 //		new UsuarioDAO().gravaUsuario(v);

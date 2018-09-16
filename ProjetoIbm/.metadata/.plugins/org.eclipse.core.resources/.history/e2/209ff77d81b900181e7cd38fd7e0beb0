@@ -1,0 +1,11 @@
+package br.com.deschateie.beans;
+
+public class PsicologoOnline extends Psicologo implements Comparable<Psicologo> {
+	private int codPsiOnline;
+	private String periodo;
+	private String formaAtendimento;
+	private int notaAtendimento;
+	private int qtdeAtendimentos;
+	
+	
+}

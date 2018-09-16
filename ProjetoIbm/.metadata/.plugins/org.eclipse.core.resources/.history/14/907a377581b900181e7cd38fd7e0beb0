@@ -1,0 +1,9 @@
+package br.com.deschateie.beans;
+
+public class PsicologoOnline {
+	private int codPsiOnline;
+	private String periodo;
+	private String formaAtendimento;
+	private int notaAtendimento;
+	private int qtdeAtendimentos;
+}

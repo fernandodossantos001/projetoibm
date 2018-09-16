@@ -174,16 +174,14 @@ public class VoluntarioBO {
 		}
 		
 		VoluntarioDAO dao = new VoluntarioDAO();
-		Voluntario volu = dao.consultarVoluntario(v.getCodVoluntario());
 
-		if(volu.getRg().equalsIgnoreCase(v.getRg())) {
-			dao.fechar();
-			return "RG já existente";
-		}
+		Voluntario volu = new Voluntario();
+		volu = dao.consultarVoluntario(v.getCodVoluntario());
 		
-		if(volu.getCpf()== v.getCpf()) {
-			dao.fechar();
-			return "CPF já existente";
+		if(v.getCpf() != volu.getCpf()) {
+			if(v.getCpf() == dao.consultarVoluntarioCpf(v.getCpf()).getCpf()) {
+				dao.fechar();
+				return "cpf já existe";			}
 		}
 		
 		

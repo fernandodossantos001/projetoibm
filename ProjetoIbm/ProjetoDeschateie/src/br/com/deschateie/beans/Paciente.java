@@ -27,7 +27,7 @@ public class Paciente extends Usuario implements Comparable<Usuario> {
 
 
 	public void setAll(int codUsuario, String nomeUsuario, String email, String dataNascimento, String login, String senha,
-			int nivelPermissao, String foto, String genero, int codPaciente, int cep, int cpf, String historico,
+			int nivelPermissao, String foto, String genero, int cep, int cpf, String historico,
 			int consultasReazlizadas) {
 		
 		super.setAll(codUsuario, nomeUsuario, email, dataNascimento, login, senha, nivelPermissao, foto, genero);

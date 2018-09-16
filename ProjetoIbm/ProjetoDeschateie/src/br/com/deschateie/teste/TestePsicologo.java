@@ -1,7 +1,7 @@
 package br.com.deschateie.teste;
 
-import br.com.deschateie.beans.Usuario;
-import br.com.deschateie.dao.UsuarioDAO;
+import br.com.deschateie.beans.Psicologo;
+import br.com.deschateie.bo.PsicologoBO;
 import br.com.deschateie.excecao.Excecao;
 
 public class TestePsicologo {
@@ -21,12 +21,11 @@ public class TestePsicologo {
 			
 		//	System.out.println(PsicologoBO.NovoPsicologo(
 			//		new Psicologo(46, "testepsicologo", "psicologo@teste.com", "12/01/1997", "psicologoFernando", "teste", 4, "c:","masculino", 1234569, "psicologia", "aaaa", 984738372, 200.60)));
-		//	System.out.println(PsicologoBO.AlterarDadosPsicologo(new Psicologo(46, "testepsicologo", "psicologo@teste2.com", "12/01/1997", "psicologoFernando23", "teste", 4, "c:","masculino", 5014504, "psicologia", "aaaa", 984738372, 200.60)));
+			//System.out.println(PsicologoBO.AlterarDadosPsicologo(new Psicologo(46, "testepsicologo", "psicologo@teste2.com", "12/01/1997", "psicologoFernando23", "teste", 4, "c:","masculino", 654321, "psicologia", "aaaa", 984738372, 200.60)));
+	//		System.out.println(PsicologoBO.pesquisarPsicologo(46).getAll());
 			
-			
-			//System.out.println(UsuarioBO.AlterarDadosUsuario(new Usuario(1,"Paki","libero@euismodest2.net","04/10/1990","Suspenddisse","MQS40JSP8VL",5,"OUTROS", "c:/")));
 
-			//System.out.println(PsicologoBO.pesquisarPsicologo(44).getAll());
+			System.out.println(PsicologoBO.pesquisarPsicologo(46).getAll());
 			
 			
 		} catch (Exception e) {

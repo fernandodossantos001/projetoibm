@@ -12,20 +12,20 @@ public class Psicologo extends Usuario implements Comparable<Usuario> {
 	
 	
 	
-	public Psicologo(Psicologo p ) {
-		super(p.getCodUsuario(), p.getNomeUsuario(), p.getEmail(), p.getDataNascimento(), p.getLogin(), p.getSenha(), p.getNivelPermissao(), p.getFoto(), p.getGenero());
-		setCodPsicologo(p.getCodUsuario());
-		setCrp(p.getCrp());
-		setFormacao(p.getFormacao());
-		setBiografia(p.getBiografia());
-		setTelefone(p.getTelefone());
-		setValorConsulta(p.getValorConsulta());
-	}
+//	public Psicologo(Psicologo p ) {
+//		super(p.getCodUsuario(), p.getNomeUsuario(), p.getEmail(), p.getDataNascimento(), p.getLogin(), p.getSenha(), p.getNivelPermissao(), p.getFoto(), p.getGenero());
+//		setCodPsicologo(p.getCodUsuario());
+//		setCrp(p.getCrp());
+//		setFormacao(p.getFormacao());
+//		setBiografia(p.getBiografia());
+//		setTelefone(p.getTelefone());
+//		setValorConsulta(p.getValorConsulta());
+//	}
 	
 	public Psicologo(int codUsuario, String nomeUsuario, String email, String dataNascimento, String login,
 			String senha, int nivelPermissao, String foto, String genero, int crp, String formacao, String biografia,
 			long telefone, double valorConsulta) {
-		super(codUsuario, nomeUsuario, email, dataNascimento, login, senha, nivelPermissao, foto, genero);
+		super.setAll(codUsuario, nomeUsuario, email, dataNascimento, login, senha, nivelPermissao, foto, genero);
 		setCodPsicologo(codUsuario);
 		setCrp(crp);
 		setFormacao(formacao);
@@ -42,7 +42,7 @@ public class Psicologo extends Usuario implements Comparable<Usuario> {
 
 
 	
-	public void  setALl(int codUsuario, String nomeUsuario, String email, String dataNascimento, String login,
+	public void  setAll(int codUsuario, String nomeUsuario, String email, String dataNascimento, String login,
 			String senha, int nivelPermissao, String foto, String genero, int crp, String formacao, String biografia,
 			long telefone, double valorConsulta) {
 		super.setAll(codUsuario, nomeUsuario, email, dataNascimento, login, senha, nivelPermissao, foto, genero);

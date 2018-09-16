@@ -270,15 +270,26 @@ public class UsuarioBO {
 			return "O campo email nao pode estar vazio";
 		}
 		
+		Usuario us = new Usuario();
+		us = dao.consultarCodUsuario(u.getCodUsuario());
 		
-		if(u.getEmail().equals(dao.consultarEmailUsuario(u.getEmail()).getEmail())) {
-			dao.fechar();
-			return "Email Já existente";
+		if(us.getCodUsuario()<1) {
+			return "codigo nao existe";
 		}
 		
-		if(u.getLogin().equals(dao.consultarLoginUsuario(u.getLogin()).getLogin())) {
-			dao.fechar();
-			return "Login já existente";
+		if(!u.getEmail().equals(us.getEmail())) {
+			if(u.getEmail().equals(dao.consultarEmailUsuario(u.getEmail()).getEmail())) {
+				dao.fechar();
+				return "Email Já existente";
+			}
+		}
+		
+		
+		if(!u.getLogin().equals(us.getLogin())) {
+			if(u.getLogin().equals(dao.consultarLoginUsuario(u.getLogin()).getLogin())) {
+				dao.fechar();
+				return "Login já existente";
+			}
 		}
 		
 		
@@ -328,6 +339,34 @@ public class UsuarioBO {
 
 	}
 	
-	
+	public static Usuario pesquisarUsuarioPorCod(int codUsuario)throws Exception{
+		
+		if(codUsuario<0) {
+			return new Usuario() ;
+		}
+		
+		if (codUsuario>99999) {
+			return new Usuario();
+		}
+		
+		
+		UsuarioDAO dao = new UsuarioDAO();
+		
+		Usuario usuario = dao.consultarCodUsuario(codUsuario);
+		
+		if(usuario == null) {
+			return new Usuario();
+		}
+		
+		return new Usuario(usuario.getCodUsuario(),
+							usuario.getNomeUsuario(),
+							usuario.getEmail(),
+							usuario.getDataNascimento(),
+							usuario.getLogin(),
+							usuario.getSenha(),
+							usuario.getNivelPermissao(),
+							usuario.getFoto(),
+							usuario.getSenha());
+	}
 	
 }

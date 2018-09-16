@@ -19,6 +19,29 @@ public class UsuarioDAO {
 		con = new  Conexao().conectar();
 	}
 	
+	
+	public Usuario consultarUsuario(int codUsuario)throws Exception{
+		stmt = con.prepareStatement("SELECT * FROM T_SCP_USUARIO WHERE CD_USUARIO = ?");
+		stmt.setInt(1, codUsuario);
+		rs = stmt.executeQuery();
+		
+		if(rs.next()) {
+			return new Usuario(	
+								rs.getInt("CD_USUARIO"),
+								rs.getString("NM_USUARIO"),
+								rs.getString("DS_EMAIL"),
+								rs.getString("DT_NASCIMENTO"),
+								rs.getString("DS_LOGIN"),
+								rs.getString("DS_SENHA"),
+								rs.getInt("NR_NIVEL_PERMISSAO"),
+								rs.getString("DS_FOTO"),
+								rs.getString("DS_GENERO"));
+		}
+		
+		return new Usuario();
+		
+	}
+	
 	public Usuario consultarLoginUsuario(String login)throws Exception{
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_USUARIO WHERE DS_LOGIN = ?");
 		stmt.setString(1, login);

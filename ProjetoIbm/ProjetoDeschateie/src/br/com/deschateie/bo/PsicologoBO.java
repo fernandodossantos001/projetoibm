@@ -18,7 +18,11 @@ public class PsicologoBO {
 		 }
 		
 		dao.fechar();
-		return new Psicologo(p);
+		return new Psicologo(p.getCodPsicologo(),
+							p.getNomeUsuario(), p.getEmail(), p.getDataNascimento(),
+							p.getLogin(), p.getSenha(), p.getNivelPermissao(),
+							p.getFoto(), p.getGenero(), p.getCrp(), p.getFormacao(),
+							p.getBiografia(), p.getTelefone(), p.getValorConsulta());
 		
 		
 		
@@ -161,10 +165,15 @@ public class PsicologoBO {
 		PsicologoDAO dao = new PsicologoDAO();
 		Psicologo ps = dao.consultarPsicologo(p.getCodUsuario());
 		
-			 if(ps.getCrp() == p.getCrp()) {
+		
+		if(p.getCrp()!=ps.getCrp()) {
+			
+			 if(p.getCrp() == dao.consultarPsicologoCrp(p.getCrp()).getCrp()) {
 				 dao.fechar();
-				 return "CRP Já existente";
+				 return "CRP já cadastrado";
 			 }
+		}
+			
 		
 		 
 		 String status = UsuarioBO.AlterarDadosUsuario(p);

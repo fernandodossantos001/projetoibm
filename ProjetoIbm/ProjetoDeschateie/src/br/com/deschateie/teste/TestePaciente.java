@@ -22,9 +22,22 @@ public class TestePaciente {
 		//	System.out.println(PacienteBO.consutlarPaciente(30));
 			//System.out.println(PacienteBO.novoPaciente(new Paciente(36, "Zé bunitinho", "zeBunitinho@zezihno.com", "3/12/1940", "zezinhao", "zezez2e", 1, " ", "masculino", 36, 47349383, 64444444, "a",4)));
 			
+//			System.out.println(PacienteBO.alterarDadosPaciente
+//					(new Paciente(21, "fernando santos", "fernandodossantos001@icloud.com",
+//							"12/01/1997", "santosfernando", "santos", 3, "c:\\", "masculino", 34830854, 12312312312l
+//							,"teste", 4)));
 			
-			System.out.println(PacienteBO.alterarDadosPaciente(new Paciente(36, "Zé bunitinho", "zeBunitinho@zezihno.com", "3/12/1940", "FernandoTeste", "fernando", 1, " ", "masculino", 47349383, 64444444, "a",4)));
-//			System.out.println(PacienteBO.excluirPaciente(36));
+			//System.out.println(PacienteBO.excluirPaciente(21));
+			
+		//System.out.println(PacienteBO.excluirPaciente(36));
+		
+		//System.out.println(PacienteBO.pesquisarPaciente(21).getAll());
+		
+		System.out.println(PacienteBO.alterarDadosPaciente
+				(new Paciente(36, "34", "36@teste.com.br", "12/01/1997", "3636", "3636", 3,
+						"asd", "mas", 333333, 2233233340l, "teste", 3)));
+		
+		System.out.println(PacienteBO.pesquisarPaciente(36).getAll());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
