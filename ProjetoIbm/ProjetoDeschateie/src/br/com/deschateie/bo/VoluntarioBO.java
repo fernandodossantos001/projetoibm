@@ -132,6 +132,7 @@ public class VoluntarioBO {
 	}
 
 	public static String alterarDadosVoluntario(Voluntario v)throws Exception{
+		
 		if (v.getCodVoluntario()<0) {
 			return "Codigo voluntario invalido";
 		}

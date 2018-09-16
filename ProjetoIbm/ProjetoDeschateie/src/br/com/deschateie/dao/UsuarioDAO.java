@@ -139,8 +139,8 @@ public class UsuarioDAO {
 	public String alterarDadosUsuario(Usuario u)throws Exception{
 		stmt = con.prepareStatement("UPDATE T_SCP_USUARIO"
 									+ "	SET NM_USUARIO = ?,"
-									+ " DS_EMAIL = TO_DATE(?,'DD/MM/YYYY'),"
-									+ " DT_NASCIMENTO = ?,"
+									+ " DS_EMAIL = ?,"
+									+ " DT_NASCIMENTO = TO_DATE(?,'DD/MM/YYYY'),"
 									+ " DS_LOGIN = ?,"
 									+ " DS_SENHA = ?,"
 									+ " DS_FOTO = ?,"
