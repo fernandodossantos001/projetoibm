@@ -1,0 +1,11 @@
+package br.com.deschateie.bo;
+
+import br.com.deschateie.beans.Agendamento;
+
+public class AgendamentoBO {
+	public static Agendamento pesquisarAgendamento(int codAgendamento)throws Exception{
+		if (codAgendamento<0) {
+			
+		}
+	}
+}

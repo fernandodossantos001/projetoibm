@@ -1,0 +1,35 @@
+package br.com.deschateie.bo;
+
+import br.com.deschateie.beans.Agendamento;
+import br.com.deschateie.dao.AgendamentoDAO;
+
+public class AgendamentoBO {
+	public static Agendamento pesquisarAgendamento(int codAgendamento)throws Exception{
+		if (codAgendamento<0) {
+			return new Agendamento();
+		}
+		
+		if(codAgendamento>99999) {
+			return new Agendamento();
+		}
+		
+		Agendamento agendamento = new Agendamento();
+		AgendamentoDAO dao = new AgendamentoDAO();
+		agendamento = dao.consultarAgendamento(codAgendamento);
+		dao.fechar();
+		return agendamento;
+	}
+
+	public static String exluirAgendamento(int codAgendamento) {
+		if (codAgendamento<0) {
+			return "Código inválido";
+		}
+		
+		if (codAgendamento>99999) {
+			return "codigo muito grande";
+		}
+		
+		AgendamentoDAO dao
+		return null;
+	}
+}

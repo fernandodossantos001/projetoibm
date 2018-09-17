@@ -1,0 +1,76 @@
+package br.com.deschateie.bo;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import br.com.deschateie.beans.Agendamento;
+import br.com.deschateie.dao.AgendamentoDAO;
+
+public class AgendamentoBO {
+	public static Agendamento pesquisarAgendamento(int codAgendamento)throws Exception{
+		if (codAgendamento<0) {
+			return new Agendamento();
+		}
+		
+		if(codAgendamento>99999) {
+			return new Agendamento();
+		}
+		
+		Agendamento agendamento = new Agendamento();
+		AgendamentoDAO dao = new AgendamentoDAO();
+		agendamento = dao.consultarAgendamento(codAgendamento);
+		dao.fechar();
+		return agendamento;
+	}
+
+	public static String exluirAgendamento(int codAgendamento)throws Exception {
+		if (codAgendamento<0) {
+			return "Código inválido";
+		}
+		
+		if (codAgendamento>99999) {
+			return "codigo muito grande";
+		}
+		
+		
+		if(pesquisarAgendamento(codAgendamento)== null) {
+			return "não foi pssivel excluir o agendamento, verifique o codigo de agendamento";
+		}
+		
+		AgendamentoDAO dao = new AgendamentoDAO();
+		dao.excluirAgendamento( codAgendamento);
+		dao.fechar();
+		return "Exluido com sucesso";
+	}
+
+	public static String AlterarDadosAgendamento(int codAgendamento,String data) throws Exception{
+
+		Pattern pattern = Pattern.compile("^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$");
+		
+		Matcher matcher = pattern.matcher(data);
+		
+		if(!matcher.find()) {
+			
+			return "data inválido";
+			
+		}
+		
+		if (codAgendamento<0) {
+			return "codigo agendamento invalido";
+		}
+		
+		if (codAgendamento>99999) {
+			return "codigo agendamento muito grande";
+		}
+		
+		
+		if(pesquisarAgendamento(codAgendamento) == null) {
+			return "Agendamento nao encontrado, verifique o codigo";
+		}
+		
+		AgendamentoDAO dao = new AgendamentoDAO();
+		dao.alterarDadosAgendamento(codAgendamento,data);
+		dao.fechar();
+		return "Data Alterada com sucesso";
+	}
+}

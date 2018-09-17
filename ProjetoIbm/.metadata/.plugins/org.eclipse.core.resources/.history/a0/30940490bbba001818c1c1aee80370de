@@ -1,0 +1,19 @@
+package br.com.deschateie.bo;
+
+import br.com.deschateie.beans.Agendamento;
+import br.com.deschateie.dao.AgendamentoDAO;
+
+public class AgendamentoBO {
+	public static Agendamento pesquisarAgendamento(int codAgendamento)throws Exception{
+		if (codAgendamento<0) {
+			return new Agendamento();
+		}
+		
+		if(codAgendamento>99999) {
+			return new Agendamento();
+		}
+		
+		Agendamento agendamento = new AgendamentoDAO().consultarAgendamento(codAgendamento);
+		return agendamento;
+	}
+}
