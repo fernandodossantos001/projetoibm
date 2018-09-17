@@ -1,8 +1,9 @@
 package br.com.deschateie.teste;
 
-import br.com.deschateie.beans.AvaliacaoVoluntario;
-import br.com.deschateie.bo.AvaliacaoVoluntarioBO;
-import br.com.deschateie.dao.AvaliacaoVoluntarioDAO;
+import br.com.deschateie.beans.Avaliacao;
+import br.com.deschateie.bo.AvaliacaoBO;
+import br.com.deschateie.bo.PsicologoBO;
+import br.com.deschateie.dao.AvaliacaoDAO;
 import br.com.deschateie.excecao.Excecao;
 
 public class TesteAvaliacaoVoluntario {
@@ -20,7 +21,25 @@ public class TesteAvaliacaoVoluntario {
 //			System.out.println(AvaliacaoVoluntarioBO.excluirAvaliacaoVoluntario(1244));
 //			
 			System.out.println("---------------------------------");
-			System.out.println(AvaliacaoVoluntarioBO.pesquisarAvaliacao(1244).getAll());
+			//System.out.println(AvaliacaoVoluntarioBO.pesquisarAvaliacao(1).getAll());
+			System.out.println("-------------------------------------");
+			
+			
+			//System.out.println(AvaliacaoVoluntarioBO.pesquisarAvaliacao(0).getAll());
+			
+		System.out.println(AvaliacaoBO.novaAvaliacaoVoluntario(983, 12, 855, "12/09/1997", "EM ANALISE"));
+			//System.out.println(new AvaliacaoVoluntarioDAO().consultarAvaliacaoUsuario(1).getAll());
+			
+			
+//			System.out.println(AvaliacaoVoluntarioBO.pesquisarAvaliacao(1).getAll());
+//			System.out.println("----------------------- S T A T U S ------------------------------");
+//			System.out.println(AvaliacaoVoluntarioBO.alteradaDadosAvaliacao(1,"15/09/2018","EM ANALISE"));
+//			System.out.println("---------------------------------------------------");
+//			System.out.println(AvaliacaoVoluntarioBO.pesquisarAvaliacao(1).getAll());
+			
+			
+			
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();

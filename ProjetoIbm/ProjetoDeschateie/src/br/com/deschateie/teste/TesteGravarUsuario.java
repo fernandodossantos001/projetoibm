@@ -17,8 +17,9 @@ public class TesteGravarUsuario {
 		//	System.out.println(new UsuarioDAO().alterarDadosUsuario(new Usuario(123, "fernando2","Fernandodossantos002@gmail.com", "12/01/1997", "fernandodossantos002", "asdf", 001, " ", "Masculino")));
 	//	System.out.println(new UsuarioDAO().autenticarUsuario("fernandodossantos002","asdf").getAll());
 			//	System.out.println(new UsuarioDAO().gravaUsuario(new Usuario(1234, "fernando2","Fernandodossantos001@gmail.com", "12/01/1997", "fernandodossantos002", "asdf", 001, " ", "Masculino")));
-		//System.out.println(UsuarioBO.novoUsuario(new Usuario(12394, "fernadndoSantos","fernandoribeiri2018@hotmail.com", "12/01/1997", "mandela1234226", "assssssssdf", 001, " ", "Masculino")));
-			
+		//System.out.println(UsuarioBO.novoUsuario(new Usuario(12394, "fernadndoSantos","fernandoribeiri2018@hotmail.com", "12/01/1997", "mandela1234226", "csadfas", 1, " ", "Masculino")));
+		//	System.out.println(UsuarioBO.excluirUsuario(12394));
+	//	System.out.println(UsuarioBO.pesquisarUsuarioPorCod(12394).getAll());
 		//	System.out.println(UsuarioBO.pesquisarEmailUsuario("libero@euismodest.net").getEmail());
 		
 		

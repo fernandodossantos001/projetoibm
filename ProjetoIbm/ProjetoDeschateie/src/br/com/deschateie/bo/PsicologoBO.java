@@ -86,7 +86,7 @@ public class PsicologoBO {
 			 return "url da foto não pode estar vazia";
 		 }
 		 
-		 if (p.getValorConsulta()>99999999d) {
+		 if (p.getValorConsulta()>99999999l) {
 			return "valor da consulta muito grande";
 		}
 		if(p.getCrp()<0) {
