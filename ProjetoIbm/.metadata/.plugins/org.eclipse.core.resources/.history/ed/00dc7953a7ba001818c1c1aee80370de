@@ -23,7 +23,7 @@ public class VoluntarioBO {
 		
 	}
 
-	public static String novoVoluntario(Voluntario v,boolean ehValido)throws Exception{
+	public static String novoVoluntario(Voluntario v)throws Exception{
 		if (v.getCodVoluntario()<0) {
 			return "Codigo voluntario invalido";
 		}
@@ -79,14 +79,12 @@ public class VoluntarioBO {
 		
 		
 		
-		if (!ehValido) {
-			String status = UsuarioBO.novoUsuario(v);		
-			if (!status.equals( "Usuário cadastrado com sucesso")) {
-				
-				return status;
-			}
-		}
+		String status = UsuarioBO.novoUsuario(v);
 		
+		if (!status.equals( "Usuário cadastrado com sucesso")) {
+			
+			return status;
+		}
 		
 		
 		dao.gravarVoluntario(v);

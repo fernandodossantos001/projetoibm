@@ -50,7 +50,7 @@ public class PsicologoBO {
 
 
 
-	public static String  NovoPsicologo(Psicologo p, boolean ehValido) throws Exception{
+	public static String  NovoPsicologo(Psicologo p) throws Exception{
 		
 		if(p.getCodUsuario()<0) {
 			return "código inválido";
@@ -105,18 +105,10 @@ public class PsicologoBO {
 			 return "CRP Já existente";
 		 }
 		 
-		
-		 if (!ehValido) {
-			 String status = UsuarioBO.novoUsuario(p);
-			 if (!status.equals("Usuário cadastrado com Sucesso")) {
-				return status;
-			}
+		 String status = UsuarioBO.novoUsuario(p);
+		 if (!status.equals("Usuário cadastrado com Sucesso")) {
+			return status;
 		}
-		 
-		
-		 
-		
-		 
 		 
 		 dao.GravarPsicologo(p);
 		 dao.fechar();
@@ -124,6 +116,71 @@ public class PsicologoBO {
 	}
 
 	
+public static String  NovoPsicologo(int crp, String formacao, String biografia,
+		long telefone, double valorConsulta) throws Exception{
+		
+		if(p.getCodUsuario()<0) {
+			return "código inválido";
+		}
+		
+		if(p.getCodUsuario()>99999) {
+			return "codigo muito grande";
+		}
+		 if(p.getFormacao().length()<0) {
+			 return "formaco nao pode estar vazia";
+		 }
+		 
+		 if (p.getFormacao().length()>20) {
+			return"formacao muito grande";		}
+		 
+		 if (p.getBiografia().length()>120) {
+			return"biografia muito grande";
+		}
+		 
+		 if (p.getTelefone()<0) {
+			return "telefone invalido";
+		}
+		 
+		 if (p.getTelefone()>99999999999l) {
+			return "telefone muito grande";
+		}
+		 
+		 if (p.getFoto().length()>120) {
+			return "url da foto muito grande";
+		}
+		 
+		 if(p.getFoto().length()<1) {
+			 return "url da foto não pode estar vazia";
+		 }
+		 
+		 if (p.getValorConsulta()>99999999l) {
+			return "valor da consulta muito grande";
+		}
+		if(p.getCrp()<0) {
+			return "CRP invalido";
+		}
+		
+		if(p.getCrp()>9999999) {
+			return"CRP muito grande";
+		}
+		
+		
+		PsicologoDAO dao = new PsicologoDAO();
+		Psicologo ps = dao.consultarPsicologo(p.getCodUsuario());
+		 if(ps.getCrp()== p.getCrp()) {
+			 dao.fechar();
+			 return "CRP Já existente";
+		 }
+		 
+		 String status = UsuarioBO.novoUsuario(p);
+		 if (!status.equals("Usuário cadastrado com Sucesso")) {
+			return status;
+		}
+		 
+		 dao.GravarPsicologo(p);
+		 dao.fechar();
+		return "Psicologo cadastrado com Sucesso";
+	}
 
 
 	public static String  AlterarDadosPsicologo(Psicologo p) throws Exception{

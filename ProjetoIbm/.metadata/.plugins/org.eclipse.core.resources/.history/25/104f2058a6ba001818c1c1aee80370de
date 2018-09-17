@@ -50,7 +50,7 @@ public class PsicologoBO {
 
 
 
-	public static String  NovoPsicologo(Psicologo p, boolean ehValido) throws Exception{
+	public static String  NovoPsicologo(Psicologo p) throws Exception{
 		
 		if(p.getCodUsuario()<0) {
 			return "código inválido";
@@ -105,15 +105,10 @@ public class PsicologoBO {
 			 return "CRP Já existente";
 		 }
 		 
-		
-		 if (!ehValido) {
-			 String status = UsuarioBO.novoUsuario(p);
-			 if (!status.equals("Usuário cadastrado com Sucesso")) {
-				return status;
-			}
+		 String status = UsuarioBO.novoUsuario(p);
+		 if (!status.equals("Usuário cadastrado com Sucesso")) {
+			return status;
 		}
-		 
-		
 		 
 		
 		 

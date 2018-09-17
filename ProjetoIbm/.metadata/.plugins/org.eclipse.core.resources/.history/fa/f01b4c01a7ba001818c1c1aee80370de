@@ -54,9 +54,8 @@ public class PsiOnlineBO {
 		}
 		
 		
-		
+		String status = PsicologoBO.NovoPsicologo(psi,ehValido);
 		if (!ehValido) {
-			String status = PsicologoBO.NovoPsicologo(psi,ehValido);
 			 if (!status.equals("Psicologo cadastrado com Sucesso")) {
 					return status;
 				}

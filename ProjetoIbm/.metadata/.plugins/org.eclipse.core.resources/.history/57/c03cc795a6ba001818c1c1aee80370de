@@ -19,7 +19,7 @@ public class PsiOnlineBO {
 	}
 	
 	
-	public static String novoPsicologoOnline(PsiOnline psi, boolean ehValido)throws Exception {
+	public static String novoPsicologoOnline(PsiOnline psi)throws Exception {
 		
 		if (psi.getPeriodo().length()<0) {
 			return "O periodo nao pode estar vazio";
@@ -54,15 +54,10 @@ public class PsiOnlineBO {
 		}
 		
 		
-		
-		if (!ehValido) {
-			String status = PsicologoBO.NovoPsicologo(psi,ehValido);
-			 if (!status.equals("Psicologo cadastrado com Sucesso")) {
-					return status;
-				}
+		String status = PsicologoBO.NovoPsicologo(psi);
+		 if (!status.equals("Psicologo cadastrado com Sucesso")) {
+			return status;
 		}
-		
-		
 		 
 		 PsiOnlineDAO dao = new PsiOnlineDAO();
 		 dao.gravarPsiOnline(psi);
