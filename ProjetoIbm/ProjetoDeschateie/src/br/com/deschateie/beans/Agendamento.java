@@ -24,8 +24,8 @@ public class Agendamento implements Comparable<Agendamento>{
 
 	public Agendamento() {
 		super();
-		usuario = new Usuario();
-		psicologo = new Psicologo();
+		this.usuario = new Usuario();
+		this.psicologo = new Psicologo();
 	}
 	
 	

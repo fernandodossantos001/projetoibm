@@ -1,8 +1,6 @@
 package br.com.deschateie.teste;
 
-import br.com.deschateie.bo.AgendamentoBO;
-import br.com.deschateie.bo.UsuarioBO;
-import br.com.deschateie.dao.AgendamentoDAO;
+
 import br.com.deschateie.excecao.Excecao;
 
 public class TesteAgendamento {

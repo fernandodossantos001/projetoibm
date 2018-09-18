@@ -27,7 +27,7 @@ public class EnderecoDAO {
 		stmt.setString(4, endereco.getLogradouro());
 		stmt.setString(5, endereco.getNumero());
 		stmt.setString(6, endereco.getComplemento());
-		stmt.setInt(7,endereco.getCep());
+		stmt.setString(7,endereco.getCep());
 		stmt.setString(8, endereco.getBairro());
 		stmt.setString(9, endereco.getCidade());
 		stmt.setString(10, endereco.getUf());
@@ -50,7 +50,7 @@ public class EnderecoDAO {
 		stmt.setString(4, endereco.getLogradouro());
 		stmt.setString(5, endereco.getNumero());
 		stmt.setString(6, endereco.getComplemento());
-		stmt.setInt(7,endereco.getCep());
+		stmt.setString(7,endereco.getCep());
 		stmt.setString(8, endereco.getBairro());
 		stmt.setString(9, endereco.getCidade());
 		stmt.setString(10, endereco.getUf());
@@ -74,7 +74,7 @@ public class EnderecoDAO {
 					rs.getString("DS_LOGRADOURO"),
 					rs.getString("NR_NUMERO"),
 					rs.getString("DS_COMPLEMENTO"),
-					rs.getInt("NR_CEP"),
+					rs.getString("NR_CEP"),
 					rs.getString("DS_BAIRRO"),
 					rs.getString("DS_CIDADE"),
 					rs.getString("DS_UF"),
@@ -101,7 +101,7 @@ public class EnderecoDAO {
 					rs.getString("DS_LOGRADOURO"),
 					rs.getString("NR_NUMERO"),
 					rs.getString("DS_COMPLEMENTO"),
-					rs.getInt("NR_CEP"),
+					rs.getString("NR_CEP"),
 					rs.getString("DS_BAIRRO"),
 					rs.getString("DS_CIDADE"),
 					rs.getString("DS_UF"),
@@ -129,7 +129,7 @@ public class EnderecoDAO {
 								rs.getString("DS_LOGRADOURO"),
 								rs.getString("NR_NUMERO"),
 								rs.getString("DS_COMPLEMENTO"),
-								rs.getInt("NR_CEP"),
+								rs.getString("NR_CEP"),
 								rs.getString("DS_BAIRRO"),
 								rs.getString("DS_CIDADE"),
 								rs.getString("DS_UF"),
@@ -159,7 +159,7 @@ public class EnderecoDAO {
 								rs.getString("DS_LOGRADOURO"),
 								rs.getString("NR_NUMERO"),
 								rs.getString("DS_COMPLEMENTO"),
-								rs.getInt("NR_CEP"),
+								rs.getString("NR_CEP"),
 								rs.getString("DS_BAIRRO"),
 								rs.getString("DS_CIDADE"),
 								rs.getString("DS_UF"),
@@ -195,7 +195,7 @@ public class EnderecoDAO {
 		stmt.setString(2, endereco.getTipo());
 		stmt.setString(3, endereco.getNumero());
 		stmt.setString(4, endereco.getCidade());
-		stmt.setInt(5,endereco.getCep());
+		stmt.setString(5,endereco.getCep());
 		stmt.setString(6, endereco.getBairro());
 		stmt.setString(7, endereco.getCidade());
 		stmt.setString(8, endereco.getUf());
@@ -219,7 +219,7 @@ public class EnderecoDAO {
 		stmt.setString(2, endereco.getTipo());
 		stmt.setString(3, endereco.getNumero());
 		stmt.setString(4, endereco.getCidade());
-		stmt.setInt(5,endereco.getCep());
+		stmt.setString(5,endereco.getCep());
 		stmt.setString(6, endereco.getBairro());
 		stmt.setString(7, endereco.getCidade());
 		stmt.setString(8, endereco.getUf());

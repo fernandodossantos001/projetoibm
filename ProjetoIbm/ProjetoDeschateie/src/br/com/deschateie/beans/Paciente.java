@@ -3,10 +3,10 @@ package br.com.deschateie.beans;
 public class Paciente extends Usuario implements Comparable<Usuario> {
 	
 	private int codPaciente;
-	private int cep;
+	private String cep;
 	private long cpf;
 	private String historico;
-	private int consultasReazlizadas;
+	private int consultasReazlizadas; 
 	
 	
 
@@ -15,19 +15,19 @@ public class Paciente extends Usuario implements Comparable<Usuario> {
 	}
 	
 	public Paciente(int codUsuario, String nomeUsuario, String email, String dataNascimento, String login, String senha,
-			int nivelPermissao, String foto, String genero, int cep, long cpf, String historico,
+			int nivelPermissao, String foto, String genero, String cep, long cpf, String historico,
 			int consultasReazlizadas) {
 		super(codUsuario, nomeUsuario, email, dataNascimento, login, senha, nivelPermissao, foto, genero);
 		setCodPaciente(codUsuario);
 		setCep(cep);
 		setCpf(cpf);
 		setHistorico(historico);
-		setConsultasReazlizadas(consultasReazlizadas);
+		setConsultasReazlizadas(consultasReazlizadas); 
 	}
 
 
 	public void setAll(int codUsuario, String nomeUsuario, String email, String dataNascimento, String login, String senha,
-			int nivelPermissao, String foto, String genero, int cep, int cpf, String historico,
+			int nivelPermissao, String foto, String genero, String cep, int cpf, String historico,
 			int consultasReazlizadas) {
 		
 		super.setAll(codUsuario, nomeUsuario, email, dataNascimento, login, senha, nivelPermissao, foto, genero);
@@ -67,7 +67,7 @@ public class Paciente extends Usuario implements Comparable<Usuario> {
 
 
 
-	public int getCep() {
+	public String getCep() {
 		return cep;
 	}
 
@@ -75,7 +75,7 @@ public class Paciente extends Usuario implements Comparable<Usuario> {
 
 
 
-	public void setCep(int cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 

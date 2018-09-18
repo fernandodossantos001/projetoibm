@@ -1,0 +1,9 @@
+package br.com.deschateie.dao;
+
+public class ConversaDAO {
+	
+	public ConversaDAO()throws Exception{
+		
+	}
+
+}

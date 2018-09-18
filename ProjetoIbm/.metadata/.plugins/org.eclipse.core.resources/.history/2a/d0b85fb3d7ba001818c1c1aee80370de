@@ -1,0 +1,10 @@
+package br.com.deschateie.dao;
+
+public class ConversaDAO {
+	private Connection con;
+	
+	public ConversaDAO()throws Exception{
+		con
+	}
+
+}

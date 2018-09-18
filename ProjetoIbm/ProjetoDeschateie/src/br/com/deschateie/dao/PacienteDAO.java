@@ -26,7 +26,7 @@ public class PacienteDAO {
 									+ "VALUES(?,?,?,?,?) ");
 		
 		stmt.setInt(1, p.getCodUsuario());
-		stmt.setInt(2, p.getCep());
+		stmt.setString(2, p.getCep());
 		stmt.setLong(3, p.getCpf());
 		stmt.setString(4, p.getHistorico());
 		stmt.setInt(5, p.getConsultasReazlizadas());
@@ -42,7 +42,7 @@ public class PacienteDAO {
 									"UPDATE T_SCP_PACIENTE SET DS_CEP = ?, NR_CPF = ?, DS_HISTORICO = ? WHERE CD_PACIENTE = ?"
 									);
 		
-		stmt.setInt(1, p.getCep());
+		stmt.setString(1, p.getCep());
 		stmt.setLong(2, p.getCpf());
 		stmt.setString(3, p.getHistorico());
 		stmt.setInt(4,p.getCodPaciente());
@@ -76,7 +76,7 @@ public class PacienteDAO {
 								rs.getInt("NR_NIVEL_PERMISSAO"),
 								rs.getString("DS_FOTO"),
 								rs.getString("DS_GENERO"),
-								rs.getInt("DS_CEP"),
+								rs.getString("DS_CEP"),
 								rs.getLong("NR_CPF"),
 								rs.getString("DS_HISTORICO"),
 								rs.getInt("NR_CONSULTAS_REALIZADAS"));
@@ -107,7 +107,7 @@ public class PacienteDAO {
 								rs.getInt("NR_NIVEL_PERMISSAO"),
 								rs.getString("DS_FOTO"),
 								rs.getString("DS_GENERO"),
-								rs.getInt("DS_CEP"),
+								rs.getString("DS_CEP"),
 								rs.getLong("NR_CPF"),
 								rs.getString("DS_HISTORICO"),
 								rs.getInt("NR_CONSULTAS_REALIZADAS"));

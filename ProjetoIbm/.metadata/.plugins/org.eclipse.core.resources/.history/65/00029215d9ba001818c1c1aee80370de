@@ -1,0 +1,13 @@
+package br.com.deschateie.bo;
+
+import br.com.deschateie.beans.Conversa;
+
+public class ConversaBO {
+	
+	public static Conversa pesquisarConversa(int codConversa)throws Exception {
+		if (codConversa<1) {
+			return new Conversa();
+		}
+	}
+
+}

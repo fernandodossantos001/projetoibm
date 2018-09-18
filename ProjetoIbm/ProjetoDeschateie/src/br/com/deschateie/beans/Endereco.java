@@ -17,7 +17,7 @@ public class Endereco implements Comparable <Endereco> {
 	private String logradouro;
 	private String numero;
 	private String complemento;
-	private int cep;
+	private String cep;
 	private String bairro;
 	private String cidade;
 	private String uf;
@@ -37,7 +37,7 @@ public class Endereco implements Comparable <Endereco> {
 	 *
 	 */
 	public Endereco(int cdEndereco, int cdAtendente ,String tipo, String logradouro, String numero,
-			String complemento, int cep, String bairro, String cidade, String uf, String pais) {
+			String complemento, String cep, String bairro, String cidade, String uf, String pais) {
 		setCdEndereco(cdEndereco);
 		setCdAtendente(cdAtendente);
 		setTipo(tipo);
@@ -60,7 +60,7 @@ public class Endereco implements Comparable <Endereco> {
 	 *
 	 */
 	public void setAll(int cdEndereco, int cdAtendente,String tipo, String logradouro, String numero,
-			String complemento, int cep, String bairro, String cidade, String uf, String pais) {
+			String complemento, String cep, String bairro, String cidade, String uf, String pais) {
 		
 		setCdEndereco(cdEndereco);
 		setCdAtendente(cdAtendente);
@@ -149,10 +149,10 @@ public class Endereco implements Comparable <Endereco> {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
-	public int getCep() {
+	public String getCep() {
 		return cep;
 	}
-	public void setCep(int cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 	public String getBairro() {

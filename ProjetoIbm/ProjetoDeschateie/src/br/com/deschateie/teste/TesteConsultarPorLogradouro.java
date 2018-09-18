@@ -13,7 +13,7 @@ public class TesteConsultarPorLogradouro {
 		// TODO Auto-generated method stub
 		
 		try {
-			List<Endereco> enderecos = new EnderecoDAO().consultarPorLogradouroEnderecoPsicologo("m");
+			List<Endereco> enderecos = new EnderecoDAO().consultarPorLogradouroEnderecoPsicologo("A");
 			
 			if(!enderecos.isEmpty()) {
 				for(Endereco endereco : enderecos) {

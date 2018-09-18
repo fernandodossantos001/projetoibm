@@ -1,0 +1,12 @@
+package br.com.deschateie.beans;
+
+public class Conversa {
+	
+	private int codConversa;
+	private String HoraInicio;
+	private int qtdeRespostas;
+	private String historico;
+	private String horaTermino;
+	private Voluntario voluntario;
+
+}

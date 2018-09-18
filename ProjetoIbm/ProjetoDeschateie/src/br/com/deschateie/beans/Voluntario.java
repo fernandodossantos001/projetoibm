@@ -26,6 +26,8 @@ public class Voluntario extends Usuario  implements Comparable<Usuario> {
 		setTelefone(telefone);
 	}
 	
+	
+	
 	public void setAll(int codUsuario, String nomeUsuario, String email, String dataNascimento, String login,
 			String senha, int nivelPermissao, String foto, String genero, String rg, long cpf, String formacao,
 			String periodo, String comentario, long telefone) {

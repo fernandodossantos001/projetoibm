@@ -41,11 +41,11 @@ public class PacienteBO {
 			return "código muito grande";
 		}
 		
-		if(p.getCep()>99999999) {
+		if(p.getCep().length()>99999999) {
 			return "cep muito grande";
 		}
 		
-		if(p.getCep()<1) {
+		if(p.getCep().length()<1) {
 			return "cep inválido";
 		}
 			
@@ -103,11 +103,11 @@ public class PacienteBO {
 		
 		
 		
-		if(p.getCep()>99999999) {
+		if(p.getCep().length()>99999999) {
 			return "cep muito grande";
 		}
 		
-		if(p.getCep()<1) {
+		if(p.getCep().length()<1) {
 			return "cep inválido";
 		}
 			

@@ -1,0 +1,19 @@
+package br.com.deschateie.teste;
+
+import br.com.deschateie.bo.ConversaBO;
+import br.com.deschateie.excecao.Excecao;
+
+public class TesteConversa {
+	
+	public static void main(String[] args) {
+		try {
+			
+			
+			System.out.println(ConversaBO.pesquisarConversa(9));
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(Excecao.tratarExcecao(e));
+		}
+		
+	}
+}

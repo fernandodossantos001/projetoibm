@@ -184,9 +184,11 @@ public class UsuarioBO {
 			return "Quantidade de caracterdes de código é muito grande";
 		}
 		
+		
 		if(u.getCodUsuario() < 1) {
 			return "código inválido";
 		}
+		
 		
 		if(u.getNomeUsuario().length()>80) {
 			return "nome muito grande";
@@ -264,6 +266,8 @@ public class UsuarioBO {
 		if(us.getCodUsuario()<1) {
 			return "codigo nao existe";
 		}
+		
+		
 		
 		if(!u.getEmail().equals(us.getEmail())) {
 			if(u.getEmail().equals(dao.consultarEmailUsuario(u.getEmail()).getEmail())) {

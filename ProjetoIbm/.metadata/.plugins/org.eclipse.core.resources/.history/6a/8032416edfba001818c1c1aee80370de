@@ -1,0 +1,24 @@
+package br.com.deschateie.teste;
+
+import br.com.deschateie.bo.ConversaBO;
+import br.com.deschateie.bo.VoluntarioBO;
+import br.com.deschateie.excecao.Excecao;
+
+public class TesteConversa {
+	
+	public static void main(String[] args) {
+		try {
+			
+			
+		System.out.println(ConversaBO.pesquisarConversa(9).getAll());
+		System.out.println("--------------------------------");
+		System.out.println(ConversaBO.exluirConversa(9));
+		System.out.println("--------------- S T A T U S -------------------");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(Excecao.tratarExcecao(e));
+		}
+		
+	}
+}

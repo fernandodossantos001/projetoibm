@@ -1,0 +1,9 @@
+package br.com.deschateie.bo;
+
+public class ConversaBO {
+	
+	public static Conversa pesquisarConversa(int codConversa)throws Exception {
+		
+	}
+
+}

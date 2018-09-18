@@ -39,7 +39,7 @@ public class EnderecoBO {
 			return "Quantidade de caracterdes de  Complemento muito grande";
 		}
 		
-		if (endereco.getCep()>99999999) {
+		if (endereco.getCep().length()>99999999) {
 			return "Número de CEP muito grande";
 		}
 		
@@ -88,7 +88,7 @@ public class EnderecoBO {
 		
 		
 		
-		if (endereco.getCep()== 0) {
+		if (endereco.getCep().length()== 0) {
 			return "O campo Cep não pode estar vazio ";
 		}
 		
@@ -161,7 +161,7 @@ public class EnderecoBO {
 			return "Quantidade de caracterdes de  Complemento muito grande";
 		}
 		
-		if (endereco.getCep()>99999999) {
+		if (endereco.getCep().length()>99999999) {
 			return "Número de CEP muito grande";
 		}
 		
@@ -202,7 +202,7 @@ public class EnderecoBO {
 		
 		
 		
-		if (endereco.getCep()== 0) {
+		if (endereco.getCep().length()== 0) {
 			return "O campo Cep não pode estar vazio não pode estar vazio";
 		}
 		
@@ -361,7 +361,7 @@ public class EnderecoBO {
 			return "Quantidade de caracterdes de  Complemento muito grande";
 		}
 		
-		if (endereco.getCep()>99999999) {
+		if (endereco.getCep().length()>99999999) {
 			return "Número de CEP muito grande";
 		}
 		
@@ -402,7 +402,7 @@ public class EnderecoBO {
 		
 		
 		
-		if (endereco.getCep()== 0) {
+		if (endereco.getCep().length()== 0) {
 			return "O campo Cep não pode estar vazio não pode estar vazio";
 		}
 		
@@ -486,7 +486,7 @@ public class EnderecoBO {
 			return "Quantidade de caracterdes de  Complemento muito grande";
 		}
 		
-		if (endereco.getCep()>99999999) {
+		if (endereco.getCep().length()>99999999) {
 			return "Número de CEP muito grande";
 		}
 		
@@ -527,7 +527,7 @@ public class EnderecoBO {
 		
 		
 		
-		if (endereco.getCep()== 0) {
+		if (endereco.getCep().length()== 0) {
 			return "O campo Cep não pode estar vazio não pode estar vazio";
 		}
 		

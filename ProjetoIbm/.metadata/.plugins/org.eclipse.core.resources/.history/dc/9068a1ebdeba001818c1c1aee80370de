@@ -1,0 +1,38 @@
+package br.com.deschateie.bo;
+
+import br.com.deschateie.beans.Conversa;
+import br.com.deschateie.dao.ConversaDAO;
+
+public class ConversaBO {
+	
+	public static Conversa pesquisarConversa(int codConversa)throws Exception {
+		if (codConversa<1) {
+			return new Conversa();
+		}
+		
+		if (codConversa>99999) {
+			return new Conversa();
+		}
+		
+		ConversaDAO dao = new ConversaDAO();
+		Conversa conversa = dao.consultarConversa(codConversa);
+		dao.fechar();
+		return conversa;
+	}
+
+	public static String  exluirConversa(int codConversa) {
+		if (codConversa<1) {
+			return "codigo invalido";
+		}
+		
+		if (codConversa>99999) {
+			return "codigo conversa muito grande";
+		}
+		
+		if(pesquisarConversa(codConversa).getCodConversa()<1) {
+			return "Codigo nao encontrado";
+		}
+		return null;
+	}
+
+}
