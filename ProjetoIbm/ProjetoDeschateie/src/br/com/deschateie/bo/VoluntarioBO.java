@@ -78,6 +78,7 @@ public class VoluntarioBO {
 		}
 		
 		
+		v.setNivelPermissao(2);
 		
 		if (!ehValido) {
 			String status = UsuarioBO.novoUsuario(v);		
@@ -87,7 +88,7 @@ public class VoluntarioBO {
 			}
 		}
 		
-		
+		UsuarioBO.alterarNivelAcesso(v);
 		
 		dao.gravarVoluntario(v);
 		return "Cadastrado com sucesso";
@@ -177,6 +178,8 @@ public class VoluntarioBO {
 			return status;
 		}
 		
+		
+		UsuarioBO.alterarNivelAcesso(v);
 		
 		dao.alterarDadosVoluntario(v);
 		dao.fechar();

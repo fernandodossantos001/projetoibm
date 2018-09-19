@@ -54,7 +54,7 @@ public class PsiOnlineBO {
 		}
 		
 		
-		
+		psi.setNivelPermissao(3);
 		if (!ehValido) {
 			String status = PsicologoBO.NovoPsicologo(psi,ehValido);
 			 if (!status.equals("Psicologo cadastrado com Sucesso")) {
@@ -62,6 +62,15 @@ public class PsiOnlineBO {
 				}
 		}
 		
+		UsuarioBO.alterarNivelAcesso(psi);
+		
+		if(UsuarioBO.pesquisarUsuarioPorCod(psi.getCodUsuario()).getCodUsuario()==0) {
+			return "Usuario nao encontrado";
+		}
+		
+		 if(pesquisarPsicologoOnline(psi.getCodPsicologo()).getCodPsicologo()>0) {
+				return "O codigo do psicologo ja existe";
+			}
 		
 		 
 		 PsiOnlineDAO dao = new PsiOnlineDAO();

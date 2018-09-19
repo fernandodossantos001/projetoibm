@@ -1,6 +1,7 @@
 package br.com.deschateie.bo;
 
 import br.com.deschateie.beans.Paciente;
+import br.com.deschateie.beans.Usuario;
 import br.com.deschateie.dao.PacienteDAO;
 
 public class PacienteBO {
@@ -61,6 +62,7 @@ public class PacienteBO {
 			return "a quantidade de consultas não pode estar vazia";
 		}
 		
+		p.setNivelPermissao(1);
 		if(ehvalido==false) {
 			String status = UsuarioBO.novoUsuario(p);
 			
@@ -69,13 +71,31 @@ public class PacienteBO {
 				return status;
 			}
 			
+		UsuarioBO.alterarNivelAcesso(p);	
+			
 		}
 		
+		//Usuario user = UsuarioBO.pesquisarUsuarioPorCod(p.getCodUsuario());
+		
+		
+		
+//		Paciente paci = pesquisarPaciente(p.getCodPaciente());
+//		if(paci.getCodPaciente()>0) {
+//			return "paciente ja cadastrado";
+//		}
+		
+		if(UsuarioBO.pesquisarUsuarioPorCod(p.getCodUsuario()).getCodUsuario()==0) {
+			return "Usuario nao encontrado";
+		}
+		
+		if(pesquisarPaciente(p.getCodPaciente()).getCodPaciente()>0) {
+			return "O codigo do paciente ja existe";
+		}
 		
 		PacienteDAO dao = new PacienteDAO();
 		dao.gravarPaciente(p);
 		dao.fechar();
-		return "cadastrado com sucesso";
+		return "Cadastrado com suceso";
 	}
 
 	public static String excluirPaciente(int codPaciente)throws Exception{

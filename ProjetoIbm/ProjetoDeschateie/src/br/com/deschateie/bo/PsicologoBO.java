@@ -106,6 +106,7 @@ public class PsicologoBO {
 		 }
 		 
 		
+		 p.setNivelPermissao(4);
 		 if (!ehValido) {
 			 String status = UsuarioBO.novoUsuario(p);
 			 if (!status.equals("Usuário cadastrado com Sucesso")) {
@@ -113,10 +114,15 @@ public class PsicologoBO {
 			}
 		}
 		 
-		
+		UsuarioBO.alterarNivelAcesso(p);
 		 
-		
-		 
+		 if(UsuarioBO.pesquisarUsuarioPorCod(p.getCodUsuario()).getCodUsuario()==0) {
+				return "Usuario nao encontrado";
+			}
+			
+		 if(pesquisarPsicologo(p.getCodPsicologo()).getCodPsicologo()>0) {
+				return "O codigo do psicologo ja existe";
+			}
 		 
 		 dao.GravarPsicologo(p);
 		 dao.fechar();

@@ -26,7 +26,7 @@ public class AvaliacaoBO {
 		return avaliacao;
 	}
 
-	public static String novaAvaliacaoV(Avaliacao av)throws Exception{
+	public static String novaAvaliacaoV(Avaliacao av, int nrPermissao)throws Exception{
 		if (av.getCodAvaliacao()<0) {
 			return "codigo invalido";
 		}
@@ -71,6 +71,9 @@ public class AvaliacaoBO {
 		if (dao.consultarAvaliacaoUsuario(av.getUsuario().getCodUsuario()).getUsuario().getCodUsuario() == av.getUsuario().getCodUsuario()) {
 			return "Usuario já existe";
 		}
+		
+		avu.getUsuario().setNivelPermissao(nrPermissao);
+		UsuarioBO.alterarNivelAcesso(avu.getUsuario());
 		
 		dao.gravarDadosAvaliacao(av);
 		dao.fechar();

@@ -203,7 +203,12 @@ public class UsuarioDAO {
 		return new Usuario();
 	}
 
-	
+	public String alterarNivelAcesso(Usuario u)throws Exception{
+		stmt = con.prepareStatement("UPDATE T_SCP_USUARIO SET NR_NIVEL_PERMISSAO = ? WHERE CD_USUARIO = ?");
+		stmt.setInt(1, u.getNivelPermissao());
+		stmt.setInt(2, u.getCodUsuario());
+		return stmt.executeUpdate() + "linha atualizada";
+	}
 	public void fechar()throws Exception {
 		con.close();
 	}

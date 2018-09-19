@@ -93,6 +93,7 @@ public class DataBO {
 				}else if(dia2<dia){
 					return "O dia do termino nao pode ser menor que o dia do inicio";
 				}
+		
 		 return "ok";
 
 

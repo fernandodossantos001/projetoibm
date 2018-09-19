@@ -338,4 +338,29 @@ public class UsuarioBO {
 		return us;
 	}
 	
+	public static String alterarNivelAcesso(Usuario u)throws Exception{
+		if (u.getCodUsuario()<1) {
+			return "codigo invalido";
+		}
+		
+		if (u.getCodUsuario()>99999) {
+			return "codigo de usuario muito grande";
+		}
+		
+		
+		if (u.getNivelPermissao()<0 || u.getNivelPermissao()> 7) {
+			return "nivel de permissao invalido";
+		}
+		
+		
+		if (pesquisarUsuarioPorCod(u.getCodUsuario()).getCodUsuario()==0) {
+			return "usuario nao encontrado";
+		}
+		
+		UsuarioDAO dao = new UsuarioDAO();
+		dao.alterarNivelAcesso(u);
+		dao.fechar();
+		return "nivel de acesso alterado com sucesso";
+		
+	}
 }
