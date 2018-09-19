@@ -63,5 +63,32 @@ public class ConversaDAO {
 	public void fechar()throws Exception{
 		con.close();
 	}
+
+	public String gravarConversa(Conversa c)throws Exception {
+		stmt = con.prepareStatement("INSERT INTO T_SCP_CONVERSA"
+									+ "(CD_CONVERSA,HR_INICIO,QT_RESPOSTAS,"
+									+ "DS_HISTORICO, HR_TERMINO,CD_VOLUNTARIO) "
+									+ "VALUES(?,TO_DATE(?,'DD/MM/YYYY HH24:MI'),?,?,TO_DATE(?,'DD/MM/YYYY HH24:MI'),?)");
+		stmt.setInt(1, c.getCodConversa());
+		stmt.setString(2, c.getHoraInicio());
+		stmt.setInt(3, c.getQtdeRespostas());
+		stmt.setString(4, c.getHistorico());
+		stmt.setString(5, c.getHoraTermino());
+		stmt.setInt(6, c.getVoluntario().getCodVoluntario());
+		stmt.executeUpdate();
+		return "Conversa cadastrada com sucesso";
+	}
+
+
+	public String alterarDadosConversa(Conversa c)throws Exception {
+		stmt = con.prepareStatement("UPDATE T_SCP_CONVERSA SET "
+									+ "HR_INICIO = TO_DATE(?,'DD/MM/YYYY HH24:MI'), QT_RESPOSTAS = ?,DS_HISTORICO = ?,HR_TERMINO = TO_DATE(?,'DD/MM/YYYY HH24:MI') WHERE CD_CONVERSA = ?");
+		stmt.setString(1, c.getHoraInicio());
+		stmt.setInt(2, c.getQtdeRespostas());
+		stmt.setString(3, c.getHistorico());
+		stmt.setString(4, c.getHoraTermino());
+		stmt.setInt(5, c.getCodConversa());
+		return stmt.executeUpdate() + "linha alterada";
+	}
 	
 }

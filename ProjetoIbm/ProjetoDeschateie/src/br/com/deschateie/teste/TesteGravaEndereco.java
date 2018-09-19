@@ -13,7 +13,7 @@ public class TesteGravaEndereco {
 		try {
 			System.out.println(new EnderecoDAO().gravarEnderecoVoluntario
 					(new Endereco(9846,13, "CASA", "AVENIDA PAULIS",
-							"1000","" , 000000000, "BELA VISTA", "SÂO PAULOS", "SP", "BRASIL")));
+							"1000","" , "000000000", "BELA VISTA", "SÂO PAULOS", "SP", "BRASIL")));
 			
 	
 			

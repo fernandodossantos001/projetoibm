@@ -58,13 +58,6 @@ public class AgendamentoDAO {
 		return new Agendamento();
 	}
 
-	
-	
-	
-	public void fechar()throws Exception {
-		con.close();
-	}
-
 	public String  excluirAgendamento(int codAgendamento)throws Exception {
 		stmt = con.prepareStatement("DELETE FROM T_SCP_AGENDAMENTO WHERE CD_AGENDAMENTO = ?");
 		stmt.setInt(1, codAgendamento);
@@ -72,25 +65,29 @@ public class AgendamentoDAO {
 		
 	}
 
-	public String alterarDadosAgendamento(int codAgendamento,String data)throws Exception {
+	public String alterarDadosAgendamento(Agendamento ag)throws Exception {
 		stmt = con.prepareStatement("UPDATE T_SCP_AGENDAMENTO SET DT_AGENDAMENTO = TO_DATE(?,'DD/MM/YYYY HH24:MI') WHERE CD_AGENDAMENTO = ?");
-		stmt.setString(1, data);
-		stmt.setInt(2, codAgendamento);
+		stmt.setString(1, ag.getDataAgendamento());
+		stmt.setInt(2, ag.getCodAgendamento());
 		return stmt.executeUpdate() +  "linha alterada";
 		
 	}
 
-	public String gravarAgendamento(int codAgendamento, int codPsicologo, int codUsuario,String data)throws Exception {
+	public String gravarAgendamento(Agendamento ag)throws Exception {
 		stmt = con.prepareStatement("INSERT INTO T_SCP_AGENDAMENTO"
 									+ "(CD_AGENDAMENTO,CD_PSICOLOGO,CD_USUARIO,DT_AGENDAMENTO)"
-									+ " VALUES(?,?,?,TO_DATE(?,'DD/MM/YYYY'))");
-		stmt.setInt(1, codAgendamento);
-		stmt.setInt(2, codPsicologo);
-		stmt.setInt(3, codUsuario);
-		stmt.setString(4, data);
+									+ " VALUES(?,?,?,TO_DATE(?,'DD/MM/YYYY HH24:MI'))");
+		stmt.setInt(1, ag.getCodAgendamento());
+		stmt.setInt(2, ag.getPsicologo().getCodPsicologo());
+		stmt.setInt(3, ag.getUsuario().getCodUsuario());
+		stmt.setString(4, ag.getDataAgendamento());
 		stmt.executeUpdate();
 		return "Agendamento cadastrado com sucesso";
 		
+	}
+	
+	public void fechar()throws Exception {
+		con.close();
 	}
 
 }

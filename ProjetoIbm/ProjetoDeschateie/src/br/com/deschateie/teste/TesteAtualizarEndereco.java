@@ -9,7 +9,7 @@ public class TesteAtualizarEndereco {
 	public static void main(String[] args) {
 
 		try {
-			System.out.println(new EnderecoDAO().gravarEnderecoPsicologo(new Endereco(123, 321, "RUA", "JOAOZINHO", "33A", " ", 999999, "PEREIRA", "SÃO PAULO", "SP", "BRASIL")));
+			System.out.println(new EnderecoDAO().gravarEnderecoPsicologo(new Endereco(123, 321, "RUA", "JOAOZINHO", "33A", " ", "999999", "PEREIRA", "SÃO PAULO", "SP", "BRASIL")));
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(Excecao.tratarExcecao(e));

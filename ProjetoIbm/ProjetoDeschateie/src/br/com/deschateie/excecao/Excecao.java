@@ -8,6 +8,8 @@ public class Excecao extends Exception{
 			return "Número inválido";
 		}else if(e.getClass().getName().equals("java.sql.SQLException")){
 			return "não foi possível conectar ao banco de dados";
+		}else if (e.getClass().getName().equals("java.lang.StringIndexOutOfBoundsException")) {
+			return "faltou informar a hora em alguma data, verificar a data de inicio e termino";
 		}else {
 			return "mensagem do arquiteto";
 		}

@@ -1,9 +1,8 @@
 package br.com.deschateie.bo;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import br.com.deschateie.beans.Conversa;
+import br.com.deschateie.beans.Usuario;
+import br.com.deschateie.beans.Voluntario;
 import br.com.deschateie.dao.ConversaDAO;
 
 public class ConversaBO {
@@ -41,7 +40,7 @@ public class ConversaBO {
 		return null;
 	}
 
-	public static String novaConversa(Conversa c) {
+	public static String novaConversa(Conversa c)throws Exception {
 		
 		if (c.getCodConversa()<1) {
 			return "codigo invalido";
@@ -62,9 +61,72 @@ public class ConversaBO {
 			return status;
 		}
 		
+		status = DataBO.comparaDatas(c.getHoraInicio(), c.getHoraTermino());
+		if(!status.equals("ok")) {
+			return status;
+		}
 		
-	
-		return null;
+		
+		
+		if(pesquisarConversa(c.getCodConversa())!=null) {
+			return "codigo de conversa já existente";
+		}
+		
+		if (VoluntarioBO.pesquisarVoluntario(c.getVoluntario().getCodVoluntario()).getCodVoluntario()==0) {
+			return "codigo voluntario nao existente";
+		}
+		
+		ConversaDAO dao = new ConversaDAO();
+		status = dao.gravarConversa(c);
+		dao.fechar();
+		
+		return status;
+	}
+
+	public static String alterarDadosConversa(Conversa c) throws Exception{
+		if (c.getCodConversa()<1) {
+			return "codigo invalido";
+		}
+		
+		if (c.getCodConversa()>99999) {
+			return "codigo muito grande";
+		}
+		
+		String status = DataBO.validaDataHora(c.getHoraInicio());
+		if(!status.equals(c.getHoraInicio())) {
+			return status;
+		}
+		
+		
+		status = DataBO.validaDataHora(c.getHoraTermino());
+		if(!status.equals(c.getHoraTermino())) {
+			return status;
+		}
+		
+		status = DataBO.comparaDatas(c.getHoraInicio(), c.getHoraTermino());
+		if(!status.equals("ok")) {
+			return status;
+		}
+		
+		Conversa conversa = pesquisarConversa(c.getCodConversa());
+		
+		if(conversa.getCodConversa()==0) {
+			return "a conversa nao foi encontrada para ser alterada";
+		}
+		
+		if (VoluntarioBO.pesquisarVoluntario(c.getVoluntario().getCodVoluntario()).getCodVoluntario()==0) {
+			return "codigo voluntario nao existente";
+		}
+		
+		
+		
+		
+		
+		ConversaDAO dao = new ConversaDAO();
+		status = dao.alterarDadosConversa(c);
+		dao.fechar();
+		
+		return "alterado com sucesso";
 	}
 
 }

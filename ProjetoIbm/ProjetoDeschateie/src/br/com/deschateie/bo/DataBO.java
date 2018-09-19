@@ -44,5 +44,75 @@ public class DataBO {
 		return data + "-"+ hora;
 		
 	}
+	
+	public static String  comparaDatas(String dataInicio,String dataTermino) {
+		
+		
+		
+		
+		int dia = 0;
+		int mes = 0;
+		int ano = 0;
+		
+		int dia2 = 0;
+		int mes2 = 0;
+		int ano2 = 0;
+		
+		int hora = 0;
+		int minuto = 0;
+		
+		int hora2 = 0;
+		int minuto2 = 0;
+		
+		dia = Integer.parseInt(dataInicio.substring(0, 2));
+		mes = Integer.parseInt(dataInicio.substring(dataInicio.indexOf("/")+1,5));
+		ano = Integer.parseInt(dataInicio.substring(6,10));
+		hora = Integer.parseInt(dataInicio.substring(11,13));
+		minuto = Integer.parseInt(dataInicio.substring(14,16));
+		
+		dia2 = Integer.parseInt(dataTermino.substring(0, 2));
+		mes2 = Integer.parseInt(dataTermino.substring(dataTermino.indexOf("/")+1,5));
+		ano2 = Integer.parseInt(dataTermino.substring(6,10));
+		hora2 = Integer.parseInt(dataTermino.substring(11,13));
+		minuto2 = Integer.parseInt(dataTermino.substring(14,16));
+		
+		
+		
+		
+		if(ano2<ano) {
+			return "O ano de termino nao pode ser menor que o ano de inicio ";
+		}else if(mes2<mes) {
+				return "O mes de termino nao pode ser menor que o mes de inicio";
+			}else if(dia>dia2) {					
+					if (hora2<hora) {
+						return "O horario de termino precisa ser maior que o horario de inicio";
+					}else if(minuto2<minuto) {
+						return "Os minuto de termino precisa ser mais que os minutos de inicio";
+					}	
+				
+				}else if(dia2<dia){
+					return "O dia do termino nao pode ser menor que o dia do inicio";
+				}
+		 return "ok";
 
+
+		
+	}
+
+	public static String converterFormatoData(String data) {
+		
+		String ano = data.substring(0,4);
+		String mes = data.substring(5,7);
+		String dia = data.substring(8,10);
+		String novaData = dia +"/"+mes+"/"+ano;
+		
+		
+		if(data.length()>10) {
+			String hora = data.substring(11,13);
+			String minuto = data.substring(14,16);
+			String horario = hora+":"+minuto;
+			return novaData+"-"+horario;
+			}
+		return novaData;
+	}
 }

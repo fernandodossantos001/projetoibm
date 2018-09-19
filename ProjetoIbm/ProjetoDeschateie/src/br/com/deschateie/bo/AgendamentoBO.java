@@ -1,7 +1,5 @@
 package br.com.deschateie.bo;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import br.com.deschateie.beans.Agendamento;
 import br.com.deschateie.beans.Psicologo;
@@ -45,78 +43,70 @@ public class AgendamentoBO {
 		return "Exluido com sucesso";
 	}
 
-	public static String AlterarDadosAgendamento(int codAgendamento,String data) throws Exception{
+	public static String AlterarDadosAgendamento(Agendamento ag) throws Exception{
 
-		Pattern pattern = Pattern.compile("^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$");
 		
-		Matcher matcher = pattern.matcher(data);
-		
-		if(!matcher.find()) {
-			
-			return "data inválido";
-			
+		String status = DataBO.validarData(ag.getDataAgendamento());
+		if(!status.equals(ag.getDataAgendamento())) {
+			return status;
 		}
 		
-		if (codAgendamento<1 ) {
+		if (ag.getCodAgendamento()<1 ) {
 			return "codigo agendamento invalido";
 		}
 		
-		if (codAgendamento>99999) {
+		if (ag.getCodAgendamento()>99999) {
 			return "codigo agendamento muito grande";
 		}
 		
 		
-		Agendamento agendamento = pesquisarAgendamento(codAgendamento);
+		Agendamento agendamento = pesquisarAgendamento(ag.getCodAgendamento());
 		if (agendamento.getCodAgendamento()<1) {
 			return "codigo nao encontrado";
 		}
 		AgendamentoDAO dao = new AgendamentoDAO();
-		dao.alterarDadosAgendamento(codAgendamento,data);
+		dao.alterarDadosAgendamento(ag);
 		dao.fechar();
 		return "Data Alterada com sucesso";
 	}
 
-	public static String novoAgendamento(int codAgendamento, int codPsicologo, int codUsuario, String data)throws Exception {
-		if (codAgendamento<1 ) {
+	public static String novoAgendamento(Agendamento ag)throws Exception {
+		if (ag.getCodAgendamento()<1 ) {
 			return "codigo agendamento invalido";
 		}
 		
-		if (codAgendamento>99999) {
+		if (ag.getCodAgendamento()>99999) {
 			return "codigo agendamento muito grande";
 		}
 		
-		if(codPsicologo<1) {
+		if(ag.getPsicologo().getCodPsicologo()<1) {
 			return "codigo psicologo invalido";
 		}
-		if (codPsicologo>99999) {
+		if (ag.getPsicologo().getCodPsicologo()>99999) {
 			return "codigo psicologo muito grande";
 		}
 		
-		Pattern pattern = Pattern.compile("^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$");
-		Matcher matcher = pattern.matcher(data);
-		if(!matcher.find()) {
-			return "data inválido";
-		}
+		String status = DataBO.validarData(ag.getDataAgendamento());
 		
 		Usuario usuario = new Usuario();
-		usuario = UsuarioBO.pesquisarUsuarioPorCod(codUsuario);
+		usuario = UsuarioBO.pesquisarUsuarioPorCod(ag.getUsuario().getCodUsuario());
 		if (usuario.getCodUsuario()<1) {
 			return "codigo de usuario nao existe";
 		}
 		
 		Psicologo psicologo = new Psicologo();
-		psicologo = PsicologoBO.pesquisarPsicologo(codPsicologo);
+		psicologo = PsicologoBO.pesquisarPsicologo(ag.getPsicologo().getCodPsicologo());
 		if (psicologo.getCodPsicologo()<1) {
 			return "codigo do psicologo nao existe";
 		}
 		
-		Agendamento agendamento = pesquisarAgendamento(codAgendamento);
+		Agendamento agendamento = pesquisarAgendamento(ag.getCodAgendamento());
 		if(agendamento.getCodAgendamento()>0) {
 			return "codigo do agendamento ja existe";
 		}
 		AgendamentoDAO dao = new AgendamentoDAO();
 		
-		dao.gravarAgendamento(codAgendamento,codPsicologo,codUsuario,data);
+		dao.gravarAgendamento(ag);
 		dao.fechar();
 		
 		return "Agendamento cadastrado com sucesso";

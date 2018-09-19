@@ -25,7 +25,7 @@ public class PacienteBO {
 	}
 
 
-	public static String novoPaciente(Paciente p)throws Exception{
+	public static String novoPaciente(Paciente p,boolean ehvalido)throws Exception{
 		
 		
 		
@@ -61,11 +61,14 @@ public class PacienteBO {
 			return "a quantidade de consultas não pode estar vazia";
 		}
 		
-		String status = UsuarioBO.novoUsuario(p);
-		
-		if(!status.equals("Usuário cadastrado com Sucesso")) {
+		if(ehvalido==false) {
+			String status = UsuarioBO.novoUsuario(p);
 			
-			return status;
+			if(!status.equals("Usuário cadastrado com Sucesso")) {
+				
+				return status;
+			}
+			
 		}
 		
 		

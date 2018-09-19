@@ -23,7 +23,7 @@ public class TestePaciente {
 			//System.out.println(PacienteBO.novoPaciente(new Paciente(36, "Zé bunitinho", "zeBunitinho@zezihno.com", "3/12/1940", "zezinhao", "zezez2e", 1, " ", "masculino", 36, 47349383, 64444444, "a",4)));
 			
 			System.out.println(PacienteBO.novoPaciente(new Paciente(648,"paciente1", "paciente@pciente.com.br",
-					"12/01/1997", "paciente123", "paciente123", 1, "c:///", "masculino", "0000005", 1231231231, "historico paciente", 1)));
+					"12/01/1997", "paciente123", "paciente123", 1, "c:///", "masculino", "0000005", 1231231231, "historico paciente", 1), true));
 			
 //			System.out.println(PacienteBO.alterarDadosPaciente
 //					(new Paciente(21, "fernando santos", "fernandodossantos001@icloud.com",

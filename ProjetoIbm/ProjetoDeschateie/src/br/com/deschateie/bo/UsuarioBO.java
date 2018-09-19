@@ -18,7 +18,7 @@ public class UsuarioBO {
 		
 		if(u.getCodUsuario() < 1) {
 			return "código inválido";
-		}
+		} 
 		
 		if(u.getNomeUsuario().length()>80) {
 			return "nome muito grande";
@@ -29,16 +29,10 @@ public class UsuarioBO {
 		}
 		
 		
-		Pattern pattern = Pattern.compile("^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$");
-		
-		Matcher matcher = pattern.matcher(u.getDataNascimento());
-		
-		if(!matcher.find()) {
-			
-			return "data inválido";
-			
+		String status = DataBO.validarData(u.getDataNascimento());
+		if(!status.equals(u.getDataNascimento())) {
+			return status;
 		}
-
 		
 		if(u.getDataNascimento().length()<6) {
 			return "Data muito pequena";
@@ -64,7 +58,7 @@ public class UsuarioBO {
 			return "senha inválida";
 		}
 		
-		if(u.getNivelPermissao() < 1 || u.getNivelPermissao() > 7) {
+		if(u.getNivelPermissao() < 0 || u.getNivelPermissao() > 7) {
 			return "nivel de permissao invalido";
 		}
 		
@@ -199,16 +193,20 @@ public class UsuarioBO {
 		}
 		
 		
-		Pattern pattern = Pattern.compile("^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$");
+//		Pattern pattern = Pattern.compile("^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$");
+//		
+//		Matcher matcher = pattern.matcher(u.getDataNascimento());
+//		
+//		if(!matcher.find()) {
+//			
+//			return "data inválido";
+//			
+//		}
 		
-		Matcher matcher = pattern.matcher(u.getDataNascimento());
-		
-		if(!matcher.find()) {
-			
-			return "data inválido";
-			
+		String status = DataBO.validarData(u.getDataNascimento());
+		if (!status.equals(u.getDataNascimento())) {
+			return status;
 		}
-		
 		if(u.getDataNascimento().length()<6) {
 			return "Data muito pequena";
 		}

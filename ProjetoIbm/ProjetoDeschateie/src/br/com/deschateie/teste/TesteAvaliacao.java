@@ -1,6 +1,7 @@
 package br.com.deschateie.teste;
 
 import br.com.deschateie.beans.Avaliacao;
+import br.com.deschateie.beans.Voluntario;
 import br.com.deschateie.bo.AvaliacaoBO;
 import br.com.deschateie.bo.PsicologoBO;
 import br.com.deschateie.dao.AvaliacaoDAO;
@@ -27,7 +28,6 @@ public class TesteAvaliacao {
 			
 			//System.out.println(AvaliacaoVoluntarioBO.pesquisarAvaliacao(0).getAll());
 			
-		System.out.println(AvaliacaoBO.novaAvaliacaoVoluntario(983, 12, 855, "12/09/1997", "EM ANALISE"));
 			//System.out.println(new AvaliacaoVoluntarioDAO().consultarAvaliacaoUsuario(1).getAll());
 			
 			

@@ -109,15 +109,15 @@ public Avaliacao consultarAvaliacaoUsuario(int codUsuario)throws Exception{
 	}
 
 	
-	public String gravarDadosAvaliacao(int codAvaliacao, int codPsicologo, int codUsuario, String dataAvaliacao,String resultado)throws Exception{
+	public String gravarDadosAvaliacao(Avaliacao av)throws Exception{
 		stmt = con.prepareStatement("INSERT INTO T_SCP_AVALIACAO"
 								+ "(CD_AVALIACAO,CD_PSICOLOGO,CD_USUARIO,DT_AVALIACAO,DS_RESULTADO)"
 								+ "VALUES(?,?,?,TO_DATE(?,'dd/mm/yyyy'),?)");
-		stmt.setInt(1, codAvaliacao);
-		stmt.setInt(2, codPsicologo);
-		stmt.setInt(3, codUsuario);
-		stmt.setString(4, dataAvaliacao);
-		stmt.setString(5, resultado);
+		stmt.setInt(1, av.getCodAvaliacao());
+		stmt.setInt(2, av.getPsicologo().getCodPsicologo());
+		stmt.setInt(3, av.getUsuario().getCodUsuario());
+		stmt.setString(4, av.getDataAvaliacao());
+		stmt.setString(5, av.getResultado());
 		stmt.executeUpdate();
 		return "Avaliacao cadastrada com sucesso";
 	}
@@ -128,11 +128,11 @@ public Avaliacao consultarAvaliacaoUsuario(int codUsuario)throws Exception{
 		return stmt.executeUpdate() + "linha excluida";
 	}
 	
-	public String alterarDadosAvaliacao(int codAvaliacao,String dataAvaliacao, String resultado)throws Exception{
+	public String alterarDadosAvaliacao(Avaliacao av)throws Exception{
 		stmt = con.prepareStatement("UPDATE  T_SCP_AVALIACAO SET DT_AVALIACAO = ?, DS_RESULTADO = ? WHERE CD_AVALIACAO = ?");
-		stmt.setString(1, dataAvaliacao);
-		stmt.setString(2, resultado);
-		stmt.setInt(3, codAvaliacao);
+		stmt.setString(1, av.getDataAvaliacao());
+		stmt.setString(2, av.getResultado());
+		stmt.setInt(3, av.getCodAvaliacao());
 		stmt.executeUpdate();
 		return "Alterado com sucesso";
 		

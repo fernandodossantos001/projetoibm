@@ -26,56 +26,53 @@ public class AvaliacaoBO {
 		return avaliacao;
 	}
 
-	public static String novaAvaliacaoVoluntario(int codAvaliacao, int codPsicologo, int codUsuario, String dataAvaliacao,String resultado)throws Exception{
-		if (codAvaliacao<0) {
+	public static String novaAvaliacaoV(Avaliacao av)throws Exception{
+		if (av.getCodAvaliacao()<0) {
 			return "codigo invalido";
 		}
 		
-		if (codAvaliacao>99999) {
+		if (av.getCodAvaliacao()>99999) {
 			return "codigo muito grande"; 
 		}
-		if (resultado.length()<0) {
+		if (av.getResultado().length()<0) {
 			return "O campo resultado não pode esta vazio";
 		}
 		
-		if(resultado.length()>80) {
+		if(av.getResultado().length()>80) {
 			return "resultado muito grande";
 		}
 		
-		Pattern pattern = Pattern.compile("^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$");
-		Matcher matcher = pattern.matcher(dataAvaliacao);
-		
-		if(!matcher.find()) {
-			return "data inválido";
-			
+		String status = DataBO.validarData(av.getDataAvaliacao());
+		if(!status.equals(av.getDataAvaliacao())) {
+			return status;
 		}
 		
-		Avaliacao avu = pesquisarAvaliacao(codAvaliacao);
-		if(avu.getCodAvaliacao()== codAvaliacao) {
+		Avaliacao avu = pesquisarAvaliacao(av.getCodAvaliacao());
+		if(avu.getCodAvaliacao()== av.getCodAvaliacao()) {
 			return "codigo ja existente";
 		}
 		
 		
 
 		
-		Usuario usuario = UsuarioBO.pesquisarUsuarioPorCod(codUsuario);
-		Psicologo psicologo = PsicologoBO.pesquisarPsicologo(codPsicologo);
-		if(usuario.getCodUsuario()!= codUsuario) {
+		Usuario usuario = UsuarioBO.pesquisarUsuarioPorCod(av.getUsuario().getCodUsuario());
+		Psicologo psicologo = PsicologoBO.pesquisarPsicologo(av.getPsicologo().getCodPsicologo());
+		if(usuario.getCodUsuario()!= av.getUsuario().getCodUsuario()) {
 			return "o codigo do usuario nao foi encontrado";
 		}
 		
-		if(psicologo.getCodPsicologo()!= codPsicologo) {
+		if(psicologo.getCodPsicologo()!= av.getPsicologo().getCodPsicologo()) {
 			return "o codigo do psicolo nao foi encontrado";
 		}
 		
 		
 		AvaliacaoDAO dao = new AvaliacaoDAO();
 		
-		if (dao.consultarAvaliacaoUsuario(codUsuario).getUsuario().getCodUsuario() == codUsuario) {
+		if (dao.consultarAvaliacaoUsuario(av.getUsuario().getCodUsuario()).getUsuario().getCodUsuario() == av.getUsuario().getCodUsuario()) {
 			return "Usuario já existe";
 		}
 		
-		dao.gravarDadosAvaliacao(codAvaliacao, codPsicologo, codUsuario,dataAvaliacao,resultado);
+		dao.gravarDadosAvaliacao(av);
 		dao.fechar();
 		return "Avaliacao cadastrada com sucesso";
 	}
@@ -102,31 +99,28 @@ public class AvaliacaoBO {
 	}
 
 	
-	public static String alteradaDadosAvaliacao(int codAvaliacao, String dataAvaliacao, String resultado)throws Exception {
+	public static String alteradaDadosAvaliacao(Avaliacao av)throws Exception {
 		
-		Pattern pattern = Pattern.compile("^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$");
-		Matcher matcher = pattern.matcher(dataAvaliacao);
-		
-		if(!matcher.find()) {
-			return "data inválido";
-			
+		String status = DataBO.validarData(av.getDataAvaliacao());
+		if(!status.equals(av.getDataAvaliacao())) {
+			return status;
 		}
 		
-		if(resultado.length()<0) {
+		if(av.getResultado().length()<0) {
 			return "resultado nao pode estar vazio";
 		}
 		
-		if (resultado.length()>80) {
+		if (av.getResultado().length()>80) {
 			return "resultado muito grande";
 		}
 		
-		Avaliacao av = pesquisarAvaliacao(codAvaliacao);
-		if(av.getCodAvaliacao()==0) {
+		Avaliacao ava = pesquisarAvaliacao(av.getCodAvaliacao());
+		if(ava.getCodAvaliacao()==0) {
 			return "Avaliacao não encontradao";
 		}
 		
 		AvaliacaoDAO dao = new AvaliacaoDAO();
-		dao.alterarDadosAvaliacao(codAvaliacao, dataAvaliacao, resultado);
+		dao.alterarDadosAvaliacao(av);
 		dao.fechar();
 		return "Dados Alterados com suceso";
 	}
