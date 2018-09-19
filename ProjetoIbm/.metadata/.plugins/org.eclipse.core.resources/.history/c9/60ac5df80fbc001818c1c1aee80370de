@@ -1,0 +1,11 @@
+package br.com.deschateie.bo;
+
+import br.com.deschateie.beans.Consulta;
+
+public class ConsultaBO {
+	
+	public static Consulta pesquisarConsulta(int codConsulta)throws Exception{
+		
+	}
+
+}

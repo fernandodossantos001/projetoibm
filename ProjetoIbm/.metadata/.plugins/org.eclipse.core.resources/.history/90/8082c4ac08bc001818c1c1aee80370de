@@ -1,0 +1,7 @@
+package br.com.deschateie.beans;
+
+public class Consulta {
+	private int codConsulta;
+	private Psicologo psicologo;
+	private Paciente paciente
+}

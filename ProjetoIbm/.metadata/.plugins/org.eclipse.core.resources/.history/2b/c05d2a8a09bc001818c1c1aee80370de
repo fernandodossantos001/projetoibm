@@ -1,0 +1,57 @@
+package br.com.deschateie.beans;
+
+public class Consulta implements Comparable<Consulta>{
+	private int codConsulta;
+	private Psicologo psicologo;
+	private Paciente paciente;
+	private Conversa conversa;
+	private String dataConsulta;
+	private int notaAtendimento;
+	private String comentario;
+	
+	
+	public int getCodConsulta() {
+		return codConsulta;
+	}
+	public void setCodConsulta(int codConsulta) {
+		this.codConsulta = codConsulta;
+	}
+	public Psicologo getPsicologo() {
+		return psicologo;
+	}
+	public void setPsicologo(Psicologo psicologo) {
+		this.psicologo = psicologo;
+	}
+	public Paciente getPaciente() {
+		return paciente;
+	}
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
+	}
+	public Conversa getConversa() {
+		return conversa;
+	}
+	public void setConversa(Conversa conversa) {
+		this.conversa = conversa;
+	}
+	public String getDataConsulta() {
+		return dataConsulta;
+	}
+	public void setDataConsulta(String dataConsulta) {
+		this.dataConsulta = dataConsulta;
+	}
+	public int getNotaAtendimento() {
+		return notaAtendimento;
+	}
+	public void setNotaAtendimento(int notaAtendimento) {
+		this.notaAtendimento = notaAtendimento;
+	}
+	public String getComentario() {
+		return comentario;
+	}
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
+	}
+	
+	
+}

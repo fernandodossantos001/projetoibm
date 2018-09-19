@@ -26,6 +26,8 @@ public class Conversa implements Comparable<Conversa> {
 		setVoluntario(voluntario);
 	}
 	
+	
+	
 	public void setAll(int codConversa, String horaInicio, int qtdeRespostas, String historico, String horaTermino,
 			Voluntario voluntario) {
 		setCodConversa(codConversa);

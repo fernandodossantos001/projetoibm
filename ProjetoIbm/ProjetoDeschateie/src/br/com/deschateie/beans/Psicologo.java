@@ -35,6 +35,16 @@ public class Psicologo extends Usuario implements Comparable<Usuario> {
 	}
 	
 	
+	public Psicologo(int codPsicologo,int crp, String formacao, String biografia,
+			long telefone, double valorConsulta) {
+		setCodPsicologo(codPsicologo);
+		setCrp(crp);
+		setFormacao(formacao);
+		setBiografia(biografia);
+		setTelefone(telefone);
+		setValorConsulta(valorConsulta);
+	}
+	
 	public Psicologo() {
 		
 	}
