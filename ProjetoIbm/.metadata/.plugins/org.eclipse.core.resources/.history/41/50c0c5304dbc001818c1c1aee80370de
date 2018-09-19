@@ -1,0 +1,21 @@
+package br.com.deschateie.bo;
+
+import br.com.deschateie.beans.FormaPagamento;
+import br.com.deschateie.excecao.Excecao;
+
+public class TesteFormaPagamento {
+
+	public static void main(String[] args) {
+
+		try {
+			System.out.println(FormaPagamentoBO.pesquisarFormaPagamento(new FormaPagamento(1,"boleto")).getAll());
+			
+			
+			System.out.println(FormaPagamentoBO.novaFormaPagamento(new FormaPagamento()));
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(Excecao.tratarExcecao(e));
+		}
+	}
+
+}

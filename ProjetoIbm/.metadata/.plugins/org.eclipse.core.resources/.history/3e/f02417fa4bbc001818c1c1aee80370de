@@ -1,0 +1,26 @@
+package br.com.deschateie.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import br.com.deschateie.beans.FormaPagamento;
+import br.com.deschateie.conexao.Conexao;
+
+public class FormaPagamentoDAO {
+	
+	private Connection con;
+	private PreparedStatement stmt;
+	private ResultSet sr;
+	
+	public FormaPagamentoDAO()throws Exception {
+		this.con = new  Conexao().conectar();
+	}
+	
+	public FormaPagamento consultarFormaPagamento(FormaPagamento fp)throws Exception{
+		stmt = con.prepareStatement("SELECT * FROM T_SCP_FORMA_PAGAMENTO WHERE CD_FORMA_PGTO = ?");
+		stmt.setInt(1, fp.getCodFormaPagamento());
+		rs = stmt.executeQuery();
+	}
+	
+}

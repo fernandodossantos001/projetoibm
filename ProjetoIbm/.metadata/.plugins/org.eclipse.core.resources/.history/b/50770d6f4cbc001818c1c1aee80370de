@@ -1,0 +1,10 @@
+package br.com.deschateie.bo;
+
+import br.com.deschateie.beans.FormaPagamento;
+
+public class FormaPagamentoBO {
+	public static FormaPagamento pesquisarFormaPagamento(FormaPagamento fb)throws Exception{
+		if(fb)
+	}
+
+}

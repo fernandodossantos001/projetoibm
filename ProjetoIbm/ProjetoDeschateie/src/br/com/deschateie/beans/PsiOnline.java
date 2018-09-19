@@ -22,6 +22,21 @@ public class PsiOnline extends Psicologo implements Comparable<Usuario> {
 		setQtdeAtendimentos(qtdeAtendimentos);
 	}
 	
+	
+	public PsiOnline(int codPsiOnline,int crp, String formacao, String biografia,
+			long telefone, double valorConsulta, String periodo, String formaAtendimento,
+			int notaAtendimento, int qtdeAtendimentos) {
+		super(codPsiOnline, crp, formacao, biografia, telefone, valorConsulta);
+		
+		setCodPsiOnline(codPsiOnline);
+		setPeriodo(periodo);
+		setFormaAtendimento(formaAtendimento);
+		setNotaAtendimento(notaAtendimento);
+		setQtdeAtendimentos(qtdeAtendimentos);
+	}
+	
+	
+	
 	public PsiOnline() {
 		
 	}
@@ -31,7 +46,7 @@ public class PsiOnline extends Psicologo implements Comparable<Usuario> {
 
 	
 	public String getAll() {
-		return super.getAll()+ "\n"+
+		return// super.getAll()+ "\n"+
 				"Codigo Psicologo Online : " + codPsiOnline +"\n"+
 				"Periodo :" + periodo + "\n"+
 				"Forma Atendimento : "+ formaAtendimento + "\n"+

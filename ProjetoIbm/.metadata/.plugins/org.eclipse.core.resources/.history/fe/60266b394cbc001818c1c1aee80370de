@@ -1,0 +1,8 @@
+package br.com.deschateie.bo;
+
+public class FormaPagamentoBO {
+	public static FormaPagamento pesquisarFormaPagamento(FormaPagamentoBO fb)throws Exception{
+		
+	}
+
+}
