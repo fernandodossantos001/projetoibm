@@ -46,7 +46,7 @@ public class PsiOnline extends Psicologo implements Comparable<Usuario> {
 
 	
 	public String getAll() {
-		return// super.getAll()+ "\n"+
+		return super.getAll()+ "\n"+
 				"Codigo Psicologo Online : " + codPsiOnline +"\n"+
 				"Periodo :" + periodo + "\n"+
 				"Forma Atendimento : "+ formaAtendimento + "\n"+

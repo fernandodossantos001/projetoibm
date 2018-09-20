@@ -1,6 +1,0 @@
-package br.com.deschateie.excecao;
-
-public class Excecao extends Exception{
-	
-
-}

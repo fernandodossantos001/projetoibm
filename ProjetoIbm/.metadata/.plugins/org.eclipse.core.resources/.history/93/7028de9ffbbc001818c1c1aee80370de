@@ -1,0 +1,21 @@
+package br.com.deschateie.teste;
+
+import br.com.deschateie.bo.EnderecoBO;
+import br.com.deschateie.excecao.Excecao;
+
+public class TesteEndereco {
+
+	public static void main(String[] args) {
+
+		try {
+			System.out.println(EnderecoBO.pesquisarEnderecoPsicologo("a"));
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(Excecao.tratarExcecao(e));
+		}
+		
+
+	}
+
+}

@@ -1,9 +1,0 @@
-package br.com.deschateie.bo;
-
-public class DataBO {
-	
-	public static String validarData(String data) {
-		
-	}
-
-}

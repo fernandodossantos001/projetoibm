@@ -8,10 +8,11 @@
 		<item value="250" key="dialogHeight"/>
 		<item value="350" key="dialogWidth"/>
 		<list key="textEntries">
-			<item value="2"/>
+			<item value="1"/>
 			<item value="3"/>
 			<item value="2"/>
-			<item value="1"/>
+			<item value="3"/>
+			<item value="3"/>
 			<item value="1"/>
 			<item value="1"/>
 			<item value="2"/>
@@ -20,9 +21,10 @@
 		<list key="orderedElements">
 			<item value="org.eclipse.debug.ui.actions.RunLast"/>
 			<item value="AUTOGEN:::org.eclipse.jdt.ui.JavaElementCreationActionSet/org.eclipse.jdt.ui.actions.NewTypeDropDown"/>
-			<item value="org.eclipse.jdt.ui.edit.text.java.create.getter.setter"/>
 			<item value="org.eclipse.jdt.ui.edit.text.java.generate.tostring"/>
 			<item value="org.eclipse.jdt.ui.edit.text.java.generate.constructor.using.fields"/>
+			<item value="org.eclipse.jdt.ui.edit.text.java.create.getter.setter"/>
+			<item value="org.eclipse.jdt.debug.ui.localJavaShortcut.run"/>
 			<item value="org.eclipse.wst.server.ui.ServersView"/>
 			<item value="org.eclipse.jdt.ui.wizards.NewPackageCreationWizard"/>
 			<item value="org.eclipse.ui.newWizard(newWizardId=org.eclipse.jdt.ui.wizards.JavaProjectWizard)"/>
@@ -33,20 +35,25 @@
 			<item value="org.eclipse.ui.commands"/>
 			<item value="org.eclipse.ui.commands"/>
 			<item value="org.eclipse.ui.commands"/>
+			<item value="org.eclipse.ui.commands"/>
 			<item value="org.eclipse.e4.ui.parts"/>
 			<item value="org.eclipse.ui.wizards"/>
 			<item value="org.eclipse.ui.commands"/>
 		</list>
 		<list key="textArray">
-			<item value="r"/>
 			<item value="run"/>
-			<item value="new"/>
-			<item value="new c"/>
-			<item value="new cl"/>
-			<item value="getter"/>
-			<item value="get"/>
+			<item value="new "/>
+			<item value="new cla"/>
+			<item value="new class"/>
+			<item value="tos"/>
 			<item value="tostr"/>
-			<item value="usin"/>
+			<item value="constructo"/>
+			<item value="cons"/>
+			<item value="constr"/>
+			<item value="getter"/>
+			<item value="gette"/>
+			<item value="gett"/>
+			<item value="run java"/>
 			<item value="server"/>
 			<item value="packa"/>
 			<item value="pa"/>

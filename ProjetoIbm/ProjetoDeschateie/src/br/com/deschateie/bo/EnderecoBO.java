@@ -1,5 +1,8 @@
 package br.com.deschateie.bo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.deschateie.beans.Endereco;
 import br.com.deschateie.dao.EnderecoDAO;
 
@@ -234,57 +237,25 @@ public class EnderecoBO {
 	}
 
 	
-	public static String pesquisarEnderecoPsicologo(int cdEndereco)throws Exception{
-		Endereco endereco = new Endereco();
+	public static List<Endereco> pesquisarEnderecoPsicologo(String logradouro)throws Exception{
 		
-		if(cdEndereco < 1) {
-			return "codigo endereco inválido";
-		}
-		if(cdEndereco >99999999) {
-			return "Quantidade de caracterdes do endereco muito grande";
-		}
-		
+		List<Endereco> listaEndereco = new ArrayList<Endereco>();
 		
 		EnderecoDAO dao = new EnderecoDAO();
-		
-		
-		
-		
-		endereco = dao.consultarEnderecoPsicologo(cdEndereco);
-		
-		if(endereco.getCdAtendente()==0) {
-			dao.fechar();
-			return "Não foi possivel encontrar nenhum endereco usando o cep " + cdEndereco;
-		}
+		listaEndereco = dao.consultarPorLogradouroEnderecoPsicologo(logradouro);
 		dao.fechar();
-		return "Endereco Encontrado" + endereco.getAll();
+		return listaEndereco;
 		
 	
 	}
 
-	public static String pesquisarEnderecoVoluntario(int cdEndereco)throws Exception{
-
-		if(cdEndereco < 1) {
-			return "código endereco inválido";
-		}
-		if(cdEndereco >99999999) {
-			return "Quantidade de caracterdes do endereço muito grande";
-		}
+	public static List<Endereco> pesquisarEnderecoVoluntario(String logradouro)throws Exception{
+		List<Endereco> listaEndereco = new ArrayList<Endereco>();
 		
-		Endereco endereco = new Endereco();		
 		EnderecoDAO dao = new EnderecoDAO();
-		
-		
-		
-		
-		endereco = dao.consultarEnderecoVoluntario(cdEndereco);
-		
-		if(endereco.getCdAtendente()==0) {
-			dao.fechar();
-			return "Não foi possivel encontrar nenhum endereco usando o código :" + cdEndereco;
-		}
+		listaEndereco = dao.consultarPorLogradouroEnderecoVoluntario(logradouro);
 		dao.fechar();
-		return "Endereco Encontrado" + endereco.getAll();
+		return listaEndereco;
 		
 	
 	}
@@ -439,7 +410,7 @@ public class EnderecoBO {
 					endereco.getPais().toUpperCase()
 					);
 			
-			String resp = dao.atualizarEnderecoPsicologo(endereco);
+			String resp = dao.alterarEnderecoPsicologo(endereco);
 
 			
 
@@ -564,7 +535,7 @@ public class EnderecoBO {
 					endereco.getPais().toUpperCase()
 					);
 			
-			String resp = dao.atualizarEnderecoVoluntario(endereco);
+			String resp = dao.alterarEnderecoVoluntario(endereco);
 
 			
 

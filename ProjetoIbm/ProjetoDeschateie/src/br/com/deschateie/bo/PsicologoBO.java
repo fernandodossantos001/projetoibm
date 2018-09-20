@@ -63,7 +63,7 @@ public class PsicologoBO {
 			 return "formaco nao pode estar vazia";
 		 }
 		 
-		 if (p.getFormacao().length()>20) {
+		 if (p.getFormacao().length()>120) {
 			return"formacao muito grande";		}
 		 
 		 if (p.getBiografia().length()>120) {
@@ -114,8 +114,9 @@ public class PsicologoBO {
 			}
 		}
 		 
-		UsuarioBO.alterarNivelAcesso(p);
 		 
+		UsuarioBO.alterarNivelAcesso(p);
+		UsuarioBO.AlterarDadosUsuario(p); 
 		 if(UsuarioBO.pesquisarUsuarioPorCod(p.getCodUsuario()).getCodUsuario()==0) {
 				return "Usuario nao encontrado";
 			}
@@ -138,7 +139,7 @@ public class PsicologoBO {
 			 return "formaco nao pode estar vazia";
 		 }
 		 
-		 if (p.getFormacao().length()>20) {
+		 if (p.getFormacao().length()>120) {
 			return"formacao muito grande";		}
 		 
 		 if (p.getBiografia().length()>120) {

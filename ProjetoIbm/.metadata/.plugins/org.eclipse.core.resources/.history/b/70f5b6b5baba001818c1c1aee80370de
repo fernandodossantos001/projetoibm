@@ -1,7 +1,0 @@
-package br.com.deschateie.bo;
-
-public class AgendamentoBO {
-	public static pesquisarAgendamento(int codAgendamento)throws Exception{
-		
-	}
-}
