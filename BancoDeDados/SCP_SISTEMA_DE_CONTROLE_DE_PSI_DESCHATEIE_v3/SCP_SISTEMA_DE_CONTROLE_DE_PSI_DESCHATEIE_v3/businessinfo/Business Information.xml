@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="FE320924-D682-897A-3CD1-01C6EA4EC102">
+<createdBy>HioX</createdBy>
+<createdTime>2018-05-15 11:19:22 UTC</createdTime>
+<ownerDesignName>SCP_SISTEMA_DE_CONTROLE_DE_PSI_DESCHATEIE</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>

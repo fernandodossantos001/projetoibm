@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_15" directorySegmentName="seg_0" id="767072C0-F915-D4C6-2F34-955B2DE04C3E">
+<createdBy>HioX</createdBy>
+<createdTime>2018-05-15 13:09:37 UTC</createdTime>
+<ownerDesignName>SCP_SISTEMA_DE_CONTROLE_DE_PSI_DESCHATEIE_v3</ownerDesignName>
+<engineerTo>
+<item key="F6AB5D53-4821-7678-6F27-B6BC5E73F171" value="true"/>
+</engineerTo>
+<sourcePk>26BA4932-5E51-432F-1407-7F9C5D07B81A</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>41B48E22-B940-3998-26CF-5EE8CC47C821</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>807C9FC2-6EAB-8510-9BFA-4CE8B84ECD17</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

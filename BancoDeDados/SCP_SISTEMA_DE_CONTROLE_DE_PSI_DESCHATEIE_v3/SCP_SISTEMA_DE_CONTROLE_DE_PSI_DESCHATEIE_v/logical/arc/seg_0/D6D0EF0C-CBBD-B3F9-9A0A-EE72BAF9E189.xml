@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Arc class="oracle.dbtools.crest.model.design.logical.Arc" directorySegmentName="seg_0" id="D6D0EF0C-CBBD-B3F9-9A0A-EE72BAF9E189" name="Arc_2">
+<createdBy>HioX</createdBy>
+<createdTime>2018-05-15 12:39:10 UTC</createdTime>
+<ownerDesignName>SCP_SISTEMA_DE_CONTROLE_DE_PSI_DESCHATEIE</ownerDesignName>
+<engineerTo>
+<item key="F6AB5D53-4821-7678-6F27-B6BC5E73F171" value="true"/>
+</engineerTo>
+<entity>1AB4B448-693D-5C3A-63D0-7C4D707A8B2B</entity>
+<relations>
+<relationID>510FA432-A13B-2EED-6E57-E38FC43FF390</relationID>
+<relationID>B237D9B1-BFC0-E55E-16D3-C9F2FC352901</relationID>
+<relationID>59349B4B-ED55-0795-E791-1B2CB79241EB</relationID>
+</relations>
+</Arc>

@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2193CC0D-72B9-2836-9DB1-E309F8A39019" name="T_SCP_PSI_ONLINE">
+<createdBy>HioX</createdBy>
+<createdTime>2018-05-15 11:54:25 UTC</createdTime>
+<ownerDesignName>SCP_SISTEMA_DE_CONTROLE_DE_PSI_DESCHATEIE_v</ownerDesignName>
+<engineerTo>
+<item key="F6AB5D53-4821-7678-6F27-B6BC5E73F171" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="cd_usuario" id="CDDA7BC8-3704-5BA0-4A04-AD4F73659627">
+<createdBy>HioX</createdBy>
+<createdTime>2018-05-15 11:56:12 UTC</createdTime>
+<generatorID>94AC359B-3CFF-3D77-1A0C-01953637DE2C</generatorID>
+<ownerDesignName>SCP_SISTEMA_DE_CONTROLE_DE_PSI_DESCHATEIE_v</ownerDesignName>
+<engineerTo>
+<item key="F6AB5D53-4821-7678-6F27-B6BC5E73F171" value="true"/>
+</engineerTo>
+<referedAttribute>50866856-BEE5-6803-47CE-F89471DD88E7</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ds_periodo" id="C7FCBB77-B2F7-100D-61B7-4AD3AE9AA278">
+<createdBy>HioX</createdBy>
+<createdTime>2018-05-15 11:54:54 UTC</createdTime>
+<ownerDesignName>SCP_SISTEMA_DE_CONTROLE_DE_PSI_DESCHATEIE_v</ownerDesignName>
+<engineerTo>
+<item key="F6AB5D53-4821-7678-6F27-B6BC5E73F171" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ds_forma_atendimento" id="4A83F51D-0C15-8A3C-F7D8-CEC61B1BBD58">
+<createdBy>HioX</createdBy>
+<createdTime>2018-05-15 11:59:30 UTC</createdTime>
+<ownerDesignName>SCP_SISTEMA_DE_CONTROLE_DE_PSI_DESCHATEIE_v</ownerDesignName>
+<engineerTo>
+<item key="F6AB5D53-4821-7678-6F27-B6BC5E73F171" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vl_nota_atendimento" id="817E11F3-414F-ABF2-2727-DE3900D0AB8C">
+<createdBy>HioX</createdBy>
+<createdTime>2018-05-15 14:02:47 UTC</createdTime>
+<ownerDesignName>SCP_SISTEMA_DE_CONTROLE_DE_PSI_DESCHATEIE_v</ownerDesignName>
+<engineerTo>
+<item key="F6AB5D53-4821-7678-6F27-B6BC5E73F171" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="qt_atendimento" id="1F22FA0A-0610-9133-E007-496396564A3D">
+<createdBy>HioX</createdBy>
+<createdTime>2018-05-15 14:03:53 UTC</createdTime>
+<ownerDesignName>SCP_SISTEMA_DE_CONTROLE_DE_PSI_DESCHATEIE_v</ownerDesignName>
+<engineerTo>
+<item key="F6AB5D53-4821-7678-6F27-B6BC5E73F171" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="6786A989-DB7E-E737-D850-61063E84B018" name="T_SCP_PSI_ONLINE PK">
+<createdBy>HioX</createdBy>
+<createdTime>2018-05-15 11:56:21 UTC</createdTime>
+<ownerDesignName>SCP_SISTEMA_DE_CONTROLE_DE_PSI_DESCHATEIE_v</ownerDesignName>
+<engineerTo>
+<item key="F6AB5D53-4821-7678-6F27-B6BC5E73F171" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>CDDA7BC8-3704-5BA0-4A04-AD4F73659627</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

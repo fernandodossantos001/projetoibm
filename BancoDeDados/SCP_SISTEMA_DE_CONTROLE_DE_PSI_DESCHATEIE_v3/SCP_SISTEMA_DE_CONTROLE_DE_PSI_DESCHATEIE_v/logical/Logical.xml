@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="D3CE3068-1F10-D251-B635-C41562D75445" mainViewID="637C4631-AFA6-B33C-5BB6-CFD34E589EBE">
+<createdBy>HioX</createdBy>
+<createdTime>2018-05-15 11:19:21 UTC</createdTime>
+<ownerDesignName>SCP_SISTEMA_DE_CONTROLE_DE_PSI_DESCHATEIE</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

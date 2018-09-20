@@ -139,4 +139,5 @@ public class PsiOnlineBO {
 		dao.alterarDadosPsicologoOnline(psi);
 		return "Psicologo Online atualizado com Sucesso";
 	}
+
 }

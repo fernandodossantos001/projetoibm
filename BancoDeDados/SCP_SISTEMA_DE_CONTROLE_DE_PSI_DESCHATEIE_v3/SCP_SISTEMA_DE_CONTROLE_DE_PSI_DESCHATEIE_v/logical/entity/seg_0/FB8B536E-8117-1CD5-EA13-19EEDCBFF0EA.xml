@@ -1,0 +1,55 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="FB8B536E-8117-1CD5-EA13-19EEDCBFF0EA" name="T_SCP_PSI_RESP">
+<createdBy>HioX</createdBy>
+<createdTime>2018-05-15 11:36:17 UTC</createdTime>
+<ownerDesignName>SCP_SISTEMA_DE_CONTROLE_DE_PSI_DESCHATEIE_v</ownerDesignName>
+<engineerTo>
+<item key="F6AB5D53-4821-7678-6F27-B6BC5E73F171" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="cd_usuario" id="2790DB1E-E26B-F8C6-72E7-55A85E5DC6EA">
+<createdBy>HioX</createdBy>
+<createdTime>2018-05-15 11:49:29 UTC</createdTime>
+<generatorID>7A41CFEB-834F-E992-1B84-0DD0FD93A9DD</generatorID>
+<ownerDesignName>SCP_SISTEMA_DE_CONTROLE_DE_PSI_DESCHATEIE_v</ownerDesignName>
+<engineerTo>
+<item key="F6AB5D53-4821-7678-6F27-B6BC5E73F171" value="true"/>
+</engineerTo>
+<referedAttribute>50866856-BEE5-6803-47CE-F89471DD88E7</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dt_admissao" id="D5CBC6FF-0D83-72B9-B6D3-C4D8493DECBF">
+<createdBy>HioX</createdBy>
+<createdTime>2018-05-15 11:48:15 UTC</createdTime>
+<ownerDesignName>SCP_SISTEMA_DE_CONTROLE_DE_PSI_DESCHATEIE_v</ownerDesignName>
+<engineerTo>
+<item key="F6AB5D53-4821-7678-6F27-B6BC5E73F171" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="335D7F36-5ACB-20D3-FCD7-CDFA69A6A5C8" name="T_SCP_PSI_RESP PK">
+<createdBy>HioX</createdBy>
+<createdTime>2018-05-15 11:49:35 UTC</createdTime>
+<ownerDesignName>SCP_SISTEMA_DE_CONTROLE_DE_PSI_DESCHATEIE_v</ownerDesignName>
+<engineerTo>
+<item key="F6AB5D53-4821-7678-6F27-B6BC5E73F171" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2790DB1E-E26B-F8C6-72E7-55A85E5DC6EA</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
