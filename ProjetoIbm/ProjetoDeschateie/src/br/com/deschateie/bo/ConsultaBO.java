@@ -18,6 +18,7 @@ public class ConsultaBO {
 	}
 
 	public static Consulta pesquisarConsultaPaciente(int codPaciente)throws Exception{
+
 		
 		if(codPaciente< 1) {
 			return new Consulta();
@@ -28,6 +29,20 @@ public class ConsultaBO {
 		}
 		
 		Consulta c = new ConsultaDAO().pesquisarConsultaPaciente(codPaciente);
+		return c;
+	}
+
+	public static Consulta pesquisarConsultacodPsiOnline(int codPsiOnline)throws Exception{
+		
+		if(codPsiOnline< 1) {
+			return new Consulta();
+		}
+		
+		if(codPsiOnline>99999) {
+			return new Consulta();
+		}
+		
+		Consulta c = new ConsultaDAO().pesquisarConsultaPsiOnline(codPsiOnline);
 		return c;
 	}
 }

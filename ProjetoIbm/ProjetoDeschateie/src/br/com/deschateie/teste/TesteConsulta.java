@@ -1,11 +1,6 @@
 package br.com.deschateie.teste;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-import br.com.deschateie.beans.Consulta;
-import br.com.deschateie.bo.ConsultaBO;
+import br.com.deschateie.dao.ConsultaDAO;
 import br.com.deschateie.excecao.Excecao;
 
 public class TesteConsulta {
@@ -14,13 +9,14 @@ public class TesteConsulta {
 		try {
 			//System.out.println(ConsultaBO.pesquisarConsulta(1).getAll());
 			
-			List<Consulta> listaConsultas = new ArrayList<Consulta>();
-			
-			listaConsultas = ConsultaBO.pesquisarConsulta();
-			for (Consulta consulta : listaConsultas) {
-				System.out.println(consulta.getAll());
-			}
-			
+//			List<Consulta> listaConsultas = new ArrayList<Consulta>();
+//			
+//			listaConsultas = ConsultaBO.pesquisarConsulta();
+//			for (Consulta consulta : listaConsultas) {
+//				System.out.println(consulta.getAll());
+//			}
+//		
+			System.out.println(new ConsultaDAO().pesquisarConsultaPsiOnline(15).getAll());
 			
 			
 			

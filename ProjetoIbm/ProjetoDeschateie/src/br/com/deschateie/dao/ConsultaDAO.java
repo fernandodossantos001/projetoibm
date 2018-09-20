@@ -108,5 +108,45 @@ public class ConsultaDAO {
 		return new Consulta();
 	}
 	
+	
+	public Consulta pesquisarConsultaPsiOnline(int codPsiOnline)throws Exception{
+		stmt = con.prepareStatement("SELECT * FROM T_SCP_CONSULTA \r\n" + 
+				"INNER JOIN T_SCP_PACIENTE ON(T_SCP_CONSULTA.CD_PACIENTE = T_SCP_PACIENTE.CD_PACIENTE) \r\n" + 
+				"INNER JOIN T_SCP_USUARIO ON(T_SCP_PACIENTE.CD_PACIENTE = T_SCP_USUARIO.CD_USUARIO) \r\n" + 
+				"INNER JOIN T_SCP_PSICOLOGO ON(T_SCP_CONSULTA.CD_PSICOLOGO_ON = T_SCP_PSICOLOGO.CD_PSICOLOGO) \r\n" + 
+				"INNER JOIN T_SCP_PSI_ONLINE ON(T_SCP_PSICOLOGO.CD_PSICOLOGO = T_SCP_PSI_ONLINE.CD_PSICOLOGO_ON) WHERE T_SCP_CONSULTA.CD_PSICOLOGO_ON = ?");
+		stmt.setInt(1, codPsiOnline);
+		rs = stmt.executeQuery();
+		if(rs.next()) {
+			new Consulta(
+					rs.getInt("CD_CONSULTA"),
+					new PsiOnline(
+							rs.getInt(33),
+							rs.getString(34),
+							rs.getString(35),
+							rs.getString(36),
+							rs.getString(37),
+							rs.getString(38),
+							rs.getInt(39),
+							rs.getString(40),
+							rs.getString(41),
+							rs.getInt("NR_CRP"),
+							rs.getString("DS_FORMACAO"),
+							rs.getString("DS_BIOGRAFIA"),
+							rs.getLong("DS_TELEFONE"),
+							rs.getDouble("VL_CONSULTA"),
+							rs.getString("DS_PERIODO"),
+							rs.getString("DS_FORMA_ATENDIMENTO"),
+							rs.getInt("VL_NOTA_ATENDIMENTO"),
+							rs.getInt("QT_ATENDIMENTO")),
+					new Paciente(),
+				 			rs.getInt("CD_CONVERSA"),
+					rs.getString("DT_CONSULTA"),
+					rs.getInt("VL_NOTA_ATENDIMENTO"), 
+					rs.getString("DS_COMENTARIO"));
+		}
+		
+		return new Consulta();
+	}
 }
 
