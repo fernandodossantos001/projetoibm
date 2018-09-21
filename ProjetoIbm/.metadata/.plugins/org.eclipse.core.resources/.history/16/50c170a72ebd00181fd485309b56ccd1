@@ -115,7 +115,7 @@ public class ConsultaDAO {
 				"INNER JOIN T_SCP_USUARIO ON(T_SCP_PACIENTE.CD_PACIENTE = T_SCP_USUARIO.CD_USUARIO)\r\n" + 
 				"INNER JOIN T_SCP_PSICOLOGO ON(T_SCP_CONSULTA.CD_PSICOLOGO_ON = T_SCP_PSICOLOGO.CD_PSICOLOGO)\r\n" + 
 				"INNER JOIN T_SCP_PSI_ONLINE ON(T_SCP_PSICOLOGO.CD_PSICOLOGO = T_SCP_PSI_ONLINE.CD_PSICOLOGO_ON)\r\n" + 
-				"INNER JOIN T_SCP_USUARIO ON (T_SCP_USUARIO.CD_USUARIO = T_SCP_PSI_ONLINE.CD_PSICOLOGO_ON) where t_scp_psi_online.cd_psicologo_on = 15");
+				"INNER JOIN T_SCP_USUARIO ON (T_SCP_USUARIO.CD_USUARIO = T_SCP_PSI_ONLINE.CD_PSICOLOGO_ON)");
 		rs = stmt.executeQuery();
 		if(rs.next()) {
 			new Consulta(
@@ -156,7 +156,7 @@ public class ConsultaDAO {
 				 			rs.getInt("CD_CONVERSA"),
 					rs.getString("DT_CONSULTA"),
 					rs.getInt("VL_NOTA_ATENDIMENTO"), 
-					rs.getString("DS_COMENTARIO"));
+					rs.getString("DS_COMENTARIO")));
 		}
 		
 		return new Consulta();
