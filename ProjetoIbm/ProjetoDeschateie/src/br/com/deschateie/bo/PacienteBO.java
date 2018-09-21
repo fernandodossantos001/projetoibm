@@ -54,6 +54,10 @@ public class PacienteBO {
 			return "histórico muito grande";
 		}
 		
+		if(p.getHistorico().length()<1) {
+			p.setHistorico(" ");
+		}
+		
 		if(p.getConsultasReazlizadas()>999) {
 			return "consulta muito grande";
 		}
@@ -71,10 +75,12 @@ public class PacienteBO {
 				return status;
 			}
 			
-		UsuarioBO.alterarNivelAcesso(p);	
+		
 			
 		}
 		
+		
+		UsuarioBO.alterarNivelAcesso(p);	
 		//Usuario user = UsuarioBO.pesquisarUsuarioPorCod(p.getCodUsuario());
 		
 		

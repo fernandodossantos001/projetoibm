@@ -3,8 +3,8 @@ package br.com.deschateie.beans;
 public class Consulta implements Comparable<Consulta>{
 	
 	private int codConsulta;
-	private PsiOnline psiOnline;
-	private Paciente paciente;
+	private int codPsiOnline;
+	private int codPaciente;
 	private int codConversa;
 	private String dataConsulta;
 	private int notaAtendimento;
@@ -12,26 +12,25 @@ public class Consulta implements Comparable<Consulta>{
 	
 	
 	public Consulta() {
-		this.psiOnline = new PsiOnline();
-		this.paciente = new Paciente();
+		
 	}
 	
-	public Consulta(int codConsulta, PsiOnline psiOnline, Paciente paciente, int codConversa, String dataConsulta,
+	public Consulta(int codConsulta, int codPsiOnline, int codPaciente, int codConversa, String dataConsulta,
 			int notaAtendimento, String comentario) {
 		setCodConsulta(codConsulta);
-		setPsiOnline(psiOnline);
-		setPaciente(paciente);
+		setCodPsiOnline(codPsiOnline);
+		setCodPaciente(codPaciente);
 		setCodConversa(codConversa);
 		setDataConsulta(dataConsulta);
 		setNotaAtendimento(notaAtendimento);
 		setComentario(comentario);
 	}
 	
-	public void setAll(int codConsulta, PsiOnline psiOnline, Paciente paciente, int codConversa, String dataConsulta,
+	public void setAll(int codConsulta, int codPsiOnline, int codPaciente, int codConversa, String dataConsulta,
 			int notaAtendimento, String comentario) {
 		setCodConsulta(codConsulta);
-		setPsiOnline(psiOnline);
-		setPaciente(paciente);
+		setCodPsiOnline(codPsiOnline);
+		setCodPaciente(codPaciente);
 		setCodConversa(codConversa);
 		setDataConsulta(dataConsulta);
 		setNotaAtendimento(notaAtendimento);
@@ -42,17 +41,14 @@ public class Consulta implements Comparable<Consulta>{
 	
 	
 	public String getAll() {
-		return "Codigo consulta :" + codConsulta + "\n"+
-				"------------ DADOS PSI ONLINE -----------"+ "\n"
-				+ psiOnline.getAll() +  "\n"
-				+"------------------------"+ "\n"
-				+ "----------- DADOS PACIENTE ----------" + "\n"
-				+ paciente.getAll() + "\n"
-				+"-----------------------------"
+		return "Codigo consulta :" + codConsulta + "\n"
+				+ "Codigo Psicologo Online" + codPsiOnline +  "\n"
+				+ "Codigo Paciente"+codPaciente+ "\n"
 				+ "Codigo conversa : " +codConversa+ "\n"
 				+"Data Consulta :" + dataConsulta + "\n"
 				+ "Nota Atendimento :" + notaAtendimento+ "\n"
-				+ "Comentario :" + comentario;
+				+ "Comentario :" + comentario + "\n"+
+				"-------------------------------------";
 	}
 
 	public int getCodConsulta() {
@@ -61,17 +57,17 @@ public class Consulta implements Comparable<Consulta>{
 	public void setCodConsulta(int codConsulta) {
 		this.codConsulta = codConsulta;
 	}
-	public PsiOnline getPsicologo() {
-		return psiOnline;
+	public int getCodPsiOnline() {
+		return codPsiOnline;
 	}
-	public void setPsiOnline(PsiOnline psiOnline) {
-		this.psiOnline = psiOnline;
+	public void setCodPsiOnline(int codPsiOnline) {
+		this.codPsiOnline = codPsiOnline;
 	}
-	public Paciente getPaciente() {
-		return paciente;
+	public int getCodPaciente() {
+		return codPaciente;
 	}
-	public void setPaciente(Paciente paciente) {
-		this.paciente = paciente;
+	public void setCodPaciente(int codPaciente) {
+		this.codPaciente = codPaciente;
 	}
 	public int getCodConversa() {
 		return this.codConversa;

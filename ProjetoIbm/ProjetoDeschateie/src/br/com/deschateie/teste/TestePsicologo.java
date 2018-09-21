@@ -19,8 +19,8 @@ public class TestePsicologo {
 			//depois que que for feito psicologo online executar esse linha de codigo para testar
 			//System.out.println(PsicologoBO.excluirPsicologo(44));
 			
-		//	System.out.println(PsicologoBO.NovoPsicologo(
-			//		new Psicologo(46, "testepsicologo", "psicologo@teste.com", "12/01/1997", "psicologoFernando", "teste", 4, "c:","masculino", 1234569, "psicologia", "aaaa", 984738372, 200.60)));
+			System.out.println(PsicologoBO.NovoPsicologo(
+					new Psicologo(46, "testepsicologo", "psicologo@teste.com", "12/01/1997", "psicologoFernando", "teste", 4, "c:","masculino", 1434569, "psicologia", "aaaa", 984738372, 200.60),false));
 			//System.out.println(PsicologoBO.AlterarDadosPsicologo(new Psicologo(46, "testepsicologo", "psicologo@teste2.com", "12/01/1997", "psicologoFernando23", "teste", 4, "c:","masculino", 654321, "psicologia", "aaaa", 984738372, 200.60)));
 	//		System.out.println(PsicologoBO.pesquisarPsicologo(46).getAll());
 			

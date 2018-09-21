@@ -1,9 +1,0 @@
-package br.com.deschateie.bo;
-
-public class ConsultaBO {
-	
-	public static Consulta pesquisarConsulta(int codConsulta)throws Exception{
-		
-	}
-
-}

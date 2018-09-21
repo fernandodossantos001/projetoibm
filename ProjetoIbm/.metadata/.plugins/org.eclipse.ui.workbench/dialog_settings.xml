@@ -9,20 +9,32 @@
 		<item value="350" key="dialogWidth"/>
 		<list key="textEntries">
 			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
 			<item value="2"/>
 			<item value="1"/>
 		</list>
 		<list key="orderedElements">
+			<item value="org.eclipse.debug.ui.actions.RunLast"/>
+			<item value="AUTOGEN:::org.eclipse.jdt.ui.JavaElementCreationActionSet/org.eclipse.jdt.ui.actions.NewTypeDropDown"/>
+			<item value="org.eclipse.ui.file.export"/>
 			<item value="org.eclipse.wst.server.ui.ServersView"/>
 			<item value="org.eclipse.jdt.ui.wizards.NewPackageCreationWizard"/>
 			<item value="org.eclipse.ui.newWizard(newWizardId=org.eclipse.jdt.ui.wizards.JavaProjectWizard)"/>
 		</list>
 		<list key="orderedProviders">
+			<item value="org.eclipse.ui.actions"/>
+			<item value="org.eclipse.ui.commands"/>
+			<item value="org.eclipse.ui.commands"/>
 			<item value="org.eclipse.e4.ui.parts"/>
 			<item value="org.eclipse.ui.wizards"/>
 			<item value="org.eclipse.ui.commands"/>
 		</list>
 		<list key="textArray">
+			<item value="run"/>
+			<item value="new cla"/>
+			<item value="export"/>
 			<item value="server"/>
 			<item value="packa"/>
 			<item value="pa"/>
@@ -43,6 +55,7 @@
 		<item value="true" key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID"/>
 		<item value="true" key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID"/>
 		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="A:\Documentos\Backup\java.zip"/>
 			<item value="A:\Documentos\Backup\workspaceJava.zip"/>
 		</list>
 	</section>

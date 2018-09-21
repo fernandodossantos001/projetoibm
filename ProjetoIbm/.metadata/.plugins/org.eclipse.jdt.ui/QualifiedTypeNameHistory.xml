@@ -36,7 +36,6 @@
 <fullyQualifiedTypeName name="br.com.deschateie.beans.Agendamento"/>
 <fullyQualifiedTypeName name="br.com.deschateie.beans.Avaliacao"/>
 <fullyQualifiedTypeName name="br.com.deschateie.bo.PacienteBO"/>
-<fullyQualifiedTypeName name="br.com.deschateie.bo.UsuarioBO"/>
 <fullyQualifiedTypeName name="br.com.deschateie.beans.Usuario"/>
 <fullyQualifiedTypeName name="br.com.deschateie.bo.VoluntarioBO"/>
 <fullyQualifiedTypeName name="br.com.deschateie.beans.Voluntario"/>
@@ -44,18 +43,20 @@
 <fullyQualifiedTypeName name="br.com.deschateie.beans.Conversa"/>
 <fullyQualifiedTypeName name="br.com.deschateie.beans.Psicologo"/>
 <fullyQualifiedTypeName name="br.com.deschateie.bo.ConversaBO"/>
-<fullyQualifiedTypeName name="br.com.deschateie.dao.UsuarioDAO"/>
 <fullyQualifiedTypeName name="java.lang.Comparable"/>
 <fullyQualifiedTypeName name="br.com.deschateie.dao.FormaPagamento"/>
 <fullyQualifiedTypeName name="br.com.deschateie.dao.FormaPagamentoDAO"/>
-<fullyQualifiedTypeName name="java.lang.Exception"/>
-<fullyQualifiedTypeName name="br.com.deschateie.beans.FormaPagamento"/>
-<fullyQualifiedTypeName name="br.com.deschateie.beans.PsiOnline"/>
 <fullyQualifiedTypeName name="br.com.deschateie.bo.FormaPagamentoBO"/>
-<fullyQualifiedTypeName name="br.com.deschateie.beans.Consulta"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="br.com.deschateie.bo.ConsultaBO"/>
 <fullyQualifiedTypeName name="br.com.deschateie.excecao.Excecao"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="br.com.deschateie.bo.EnderecoBO"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="br.com.deschateie.beans.Consulta"/>
+<fullyQualifiedTypeName name="br.com.deschateie.dao.ConsultaDAO"/>
+<fullyQualifiedTypeName name="br.com.deschateie.dao.UsuarioDAO"/>
+<fullyQualifiedTypeName name="br.com.deschateie.bo.UsuarioBO"/>
+<fullyQualifiedTypeName name="br.com.deschateie.beans.PsiOnline"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="br.com.deschateie.beans.FormaPagamento"/>
+<fullyQualifiedTypeName name="br.com.deschateie.bo.ConsultaBO"/>
 </qualifiedTypeNameHistroy>

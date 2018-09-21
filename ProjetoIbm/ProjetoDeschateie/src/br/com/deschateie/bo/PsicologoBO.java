@@ -24,6 +24,8 @@ public class PsicologoBO {
 	}
 
 	
+
+
 	
 	public static String excluirPsicologo(int codPsicologo)throws Exception {
 	
@@ -99,7 +101,7 @@ public class PsicologoBO {
 		
 		
 		PsicologoDAO dao = new PsicologoDAO();
-		Psicologo ps = dao.consultarPsicologo(p.getCodUsuario());
+		Psicologo ps = dao.consultarPsicologoCrp(p.getCrp());
 		 if(ps.getCrp()== p.getCrp()) {
 			 dao.fechar();
 			 return "CRP Já existente";
