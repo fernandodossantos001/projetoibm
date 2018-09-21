@@ -109,28 +109,27 @@ public class ConsultaDAO {
 	}
 	
 	
-	public List<Consulta> pesquisarConsultaPsiOnline(int codPsiOnline)throws Exception{ 
+	public List<Consulta> pesquisarConsultaPsicologo()throws Exception{ 
 		List<Consulta> listaConsulta = new ArrayList<Consulta>();
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_CONSULTA \r\n" + 
 				"INNER JOIN T_SCP_USUARIO ON(T_SCP_CONSULTA.CD_PSICOLOGO_ON = T_SCP_USUARIO.CD_USUARIO) \r\n" + 
 				"INNER JOIN T_SCP_PSICOLOGO ON(T_SCP_CONSULTA.CD_PSICOLOGO_ON = T_SCP_PSICOLOGO.CD_PSICOLOGO) \r\n" + 
 				"INNER JOIN T_SCP_PSI_ONLINE ON(T_SCP_PSICOLOGO.CD_PSICOLOGO = T_SCP_PSI_ONLINE.CD_PSICOLOGO_ON)\r\n" + 
 				"WHERE T_SCP_CONSULTA.CD_PSICOLOGO_ON = ?");
-		stmt.setInt(1, codPsiOnline);
 		rs = stmt.executeQuery();
 		while(rs.next()) {
 			listaConsulta.add(new Consulta(
 					rs.getInt("CD_CONSULTA"),
 					new PsiOnline(
-							rs.getInt("CD_USUARIO"),
-							rs.getString("NM_USUARIO"),
-							rs.getString("DS_EMAIL"),
-							rs.getString("DT_NASCIMENTO"),
-							rs.getString("DS_LOGIN"),
-							rs.getString("DS_SENHA"),
-							rs.getInt("NR_NIVEL_PERMISSAO"),
-							rs.getString("DS_FOTO"),
-							rs.getString("DS_GENERO"),
+							rs.getInt(33),
+							rs.getString(34),
+							rs.getString(35),
+							rs.getString(36),
+							rs.getString(37),
+							rs.getString(38),
+							rs.getInt(39),
+							rs.getString(40),
+							rs.getString(41),
 							rs.getInt("NR_CRP"),
 							rs.getString("DS_FORMACAO"),
 							rs.getString("DS_BIOGRAFIA"),
@@ -141,23 +140,12 @@ public class ConsultaDAO {
 							rs.getInt("VL_NOTA_ATENDIMENTO"),
 							rs.getInt("QT_ATENDIMENTO")),
 				new Paciente(),
-				 			rs.getInt("CD_CONVERSA"),
 					rs.getString("DT_CONSULTA"),
 					rs.getInt("VL_NOTA_ATENDIMENTO"), 
 					rs.getString("DS_COMENTARIO")));
 		}
 		
 		return listaConsulta;
-	}
-
-	public String excluirConsulta(int codConsulta)throws Exception{
-		stmt = con.prepareStatement("DELETE FROM T_SCP_CONSULTA WHERE CD_CONSULTA = ?");
-		stmt.setInt(1, codConsulta);
-		return stmt.executeUpdate() + "excluida";
-	}
-	
-	public void fechar()throws Exception{
-		con.close();
 	}
 	
 }

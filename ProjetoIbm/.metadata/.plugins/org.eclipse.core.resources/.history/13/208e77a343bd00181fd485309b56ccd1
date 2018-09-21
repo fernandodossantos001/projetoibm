@@ -109,14 +109,13 @@ public class ConsultaDAO {
 	}
 	
 	
-	public List<Consulta> pesquisarConsultaPsiOnline(int codPsiOnline)throws Exception{ 
+	public List<Consulta> pesquisarConsultaPsiOnline()throws Exception{ 
 		List<Consulta> listaConsulta = new ArrayList<Consulta>();
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_CONSULTA \r\n" + 
 				"INNER JOIN T_SCP_USUARIO ON(T_SCP_CONSULTA.CD_PSICOLOGO_ON = T_SCP_USUARIO.CD_USUARIO) \r\n" + 
 				"INNER JOIN T_SCP_PSICOLOGO ON(T_SCP_CONSULTA.CD_PSICOLOGO_ON = T_SCP_PSICOLOGO.CD_PSICOLOGO) \r\n" + 
 				"INNER JOIN T_SCP_PSI_ONLINE ON(T_SCP_PSICOLOGO.CD_PSICOLOGO = T_SCP_PSI_ONLINE.CD_PSICOLOGO_ON)\r\n" + 
-				"WHERE T_SCP_CONSULTA.CD_PSICOLOGO_ON = ?");
-		stmt.setInt(1, codPsiOnline);
+				"WHERE T_SCP_CONSULTA.CD_PSICOLOGO_ON = 15");
 		rs = stmt.executeQuery();
 		while(rs.next()) {
 			listaConsulta.add(new Consulta(
@@ -148,16 +147,6 @@ public class ConsultaDAO {
 		}
 		
 		return listaConsulta;
-	}
-
-	public String excluirConsulta(int codConsulta)throws Exception{
-		stmt = con.prepareStatement("DELETE FROM T_SCP_CONSULTA WHERE CD_CONSULTA = ?");
-		stmt.setInt(1, codConsulta);
-		return stmt.executeUpdate() + "excluida";
-	}
-	
-	public void fechar()throws Exception{
-		con.close();
 	}
 	
 }

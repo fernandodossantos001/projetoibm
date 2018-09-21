@@ -44,6 +44,6 @@ public class ConsultaBO {
 		}
 		
 		listaConsulta = new ConsultaDAO().pesquisarConsultaPsiOnline(codPsiOnline);
-		return listaConsulta;
+		return c;
 	}
 }

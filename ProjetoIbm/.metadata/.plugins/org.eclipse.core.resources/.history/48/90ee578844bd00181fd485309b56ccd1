@@ -5,7 +5,6 @@ import java.util.List;
 
 import br.com.deschateie.beans.Consulta;
 import br.com.deschateie.bo.ConsultaBO;
-import br.com.deschateie.dao.ConsultaDAO;
 import br.com.deschateie.excecao.Excecao;
 
 public class TesteConsulta {
@@ -22,12 +21,11 @@ public class TesteConsulta {
 //			}
 //		
 			
-//			listaConsultas = ConsultaBO.pesquisarConsultacodPsiOnline(18);
-//			for (Consulta consulta : listaConsultas) {
-//				System.out.println(consulta.getAll());
-//			}
+			listaConsultas = ConsultaBO.pesquisarConsultacodPsiOnline(18);
+			for (Consulta consulta : listaConsultas) {
+				System.out.println(consulta.getAll());
+			}
 			
-			System.out.println(new ConsultaDAO().excluirConsulta(10));
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(Excecao.tratarExcecao(e));

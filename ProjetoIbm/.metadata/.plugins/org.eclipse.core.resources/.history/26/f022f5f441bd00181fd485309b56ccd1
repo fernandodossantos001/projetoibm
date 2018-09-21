@@ -20,7 +20,7 @@ public class ConsultaDAO {
 		con = new Conexao().conectar();
 	}
 	
-	public List<Consulta> pesquisarConsulta()throws Exception{ 
+	public List<Consulta> pesquisarConsulta()throws Exception{
 		List<Consulta> listaConsulta = new ArrayList<Consulta>();
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_CONSULTA\r\n" + 
 				"INNER JOIN T_SCP_PACIENTE ON(T_SCP_CONSULTA.CD_PACIENTE = T_SCP_PACIENTE.CD_PACIENTE)\r\n" + 
@@ -109,20 +109,18 @@ public class ConsultaDAO {
 	}
 	
 	
-	public List<Consulta> pesquisarConsultaPsiOnline(int codPsiOnline)throws Exception{ 
-		List<Consulta> listaConsulta = new ArrayList<Consulta>();
-		stmt = con.prepareStatement("SELECT * FROM T_SCP_CONSULTA \r\n" + 
-				"INNER JOIN T_SCP_USUARIO ON(T_SCP_CONSULTA.CD_PSICOLOGO_ON = T_SCP_USUARIO.CD_USUARIO) \r\n" + 
-				"INNER JOIN T_SCP_PSICOLOGO ON(T_SCP_CONSULTA.CD_PSICOLOGO_ON = T_SCP_PSICOLOGO.CD_PSICOLOGO) \r\n" + 
+	public Consulta pesquisarConsultaPsiOnline(int codPsiOnline)throws Exception{
+		stmt = con.prepareStatement("SELECT * FROM T_SCP_CONSULTA\r\n" + 
+				"INNER JOIN T_SCP_PACIENTE ON(T_SCP_CONSULTA.CD_PACIENTE = T_SCP_PACIENTE.CD_PACIENTE)\r\n" + 
+				"INNER JOIN T_SCP_USUARIO ON(T_SCP_PACIENTE.CD_PACIENTE = T_SCP_USUARIO.CD_USUARIO)\r\n" + 
+				"INNER JOIN T_SCP_PSICOLOGO ON(T_SCP_CONSULTA.CD_PSICOLOGO_ON = T_SCP_PSICOLOGO.CD_PSICOLOGO)\r\n" + 
 				"INNER JOIN T_SCP_PSI_ONLINE ON(T_SCP_PSICOLOGO.CD_PSICOLOGO = T_SCP_PSI_ONLINE.CD_PSICOLOGO_ON)\r\n" + 
-				"WHERE T_SCP_CONSULTA.CD_PSICOLOGO_ON = ?");
-		stmt.setInt(1, codPsiOnline);
+				"INNER JOIN T_SCP_USUARIO ON (T_SCP_USUARIO.CD_USUARIO = T_SCP_PSI_ONLINE.CD_PSICOLOGO_ON) where t_scp_psi_online.cd_psicologo_on = 15");
 		rs = stmt.executeQuery();
-		while(rs.next()) {
-			listaConsulta.add(new Consulta(
+		if(rs.next()) {
+			return new Consulta(
 					rs.getInt("CD_CONSULTA"),
-					new PsiOnline(
-							rs.getInt("CD_USUARIO"),
+					new PsiOnline(rs.getInt("CD_USUARIO"),
 							rs.getString("NM_USUARIO"),
 							rs.getString("DS_EMAIL"),
 							rs.getString("DT_NASCIMENTO"),
@@ -140,25 +138,27 @@ public class ConsultaDAO {
 							rs.getString("DS_FORMA_ATENDIMENTO"),
 							rs.getInt("VL_NOTA_ATENDIMENTO"),
 							rs.getInt("QT_ATENDIMENTO")),
-				new Paciente(),
+				new Paciente(
+							rs.getInt("CD_USUARIO"),
+							rs.getString("NM_USUARIO"),
+							rs.getString("DS_EMAIL"),
+							rs.getString("DT_NASCIMENTO"),
+							rs.getString("DS_LOGIN"),
+							rs.getString("DS_SENHA"),
+							rs.getInt("NR_NIVEL_PERMISSAO"),
+							rs.getString("DS_FOTO"),
+							rs.getString("DS_GENERO"),
+							rs.getString("DS_CEP"),
+							rs.getLong("NR_CPF"),
+							rs.getString("DS_HISTORICO"),
+							rs.getInt("NR_CONSULTAS_REALIZADAS")),
 				 			rs.getInt("CD_CONVERSA"),
 					rs.getString("DT_CONSULTA"),
 					rs.getInt("VL_NOTA_ATENDIMENTO"), 
-					rs.getString("DS_COMENTARIO")));
+					rs.getString("DS_COMENTARIO"));
 		}
 		
-		return listaConsulta;
+		return new Consulta();
 	}
-
-	public String excluirConsulta(int codConsulta)throws Exception{
-		stmt = con.prepareStatement("DELETE FROM T_SCP_CONSULTA WHERE CD_CONSULTA = ?");
-		stmt.setInt(1, codConsulta);
-		return stmt.executeUpdate() + "excluida";
-	}
-	
-	public void fechar()throws Exception{
-		con.close();
-	}
-	
 }
 

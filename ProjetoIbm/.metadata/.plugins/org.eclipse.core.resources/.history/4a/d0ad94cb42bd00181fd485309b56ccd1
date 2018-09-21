@@ -32,18 +32,17 @@ public class ConsultaBO {
 		return c;
 	}
 
-	public static List<Consulta> pesquisarConsultacodPsiOnline(int codPsiOnline)throws Exception{
-		List<Consulta> listaConsulta = new ArrayList<Consulta>();
+	public static Consulta pesquisarConsultacodPsiOnline(int codPsiOnline)throws Exception{
 		
 		if(codPsiOnline< 1) {
-			return listaConsulta;
+			return new Consulta();
 		}
 		
 		if(codPsiOnline>99999) {
-			return listaConsulta;
+			return new Consulta();
 		}
 		
-		listaConsulta = new ConsultaDAO().pesquisarConsultaPsiOnline(codPsiOnline);
-		return listaConsulta;
+		Consulta c = new ConsultaDAO().pesquisarConsultaPsiOnline(codPsiOnline);
+		return c;
 	}
 }

@@ -43,7 +43,7 @@ public class ConsultaBO {
 			return listaConsulta;
 		}
 		
-		listaConsulta = new ConsultaDAO().pesquisarConsultaPsiOnline(codPsiOnline);
+		listaConsulta = new ConsultaDAO().pesquisarConsultaPsiOnline();
 		return listaConsulta;
 	}
 }

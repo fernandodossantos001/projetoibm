@@ -27,7 +27,7 @@ public class TesteConsulta {
 //				System.out.println(consulta.getAll());
 //			}
 			
-			System.out.println(new ConsultaDAO().excluirConsulta(10));
+			System.out.println(new ConsultaDAO().excluirConsulta(15));
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(Excecao.tratarExcecao(e));

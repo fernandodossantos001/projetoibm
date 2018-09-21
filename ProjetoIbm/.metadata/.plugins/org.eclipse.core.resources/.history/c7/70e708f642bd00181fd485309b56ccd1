@@ -36,14 +36,14 @@ public class ConsultaBO {
 		List<Consulta> listaConsulta = new ArrayList<Consulta>();
 		
 		if(codPsiOnline< 1) {
-			return listaConsulta;
+			return new Consulta();
 		}
 		
 		if(codPsiOnline>99999) {
-			return listaConsulta;
+			return new Consulta();
 		}
 		
-		listaConsulta = new ConsultaDAO().pesquisarConsultaPsiOnline(codPsiOnline);
-		return listaConsulta;
+		Consulta c = new ConsultaDAO().pesquisarConsultaPsiOnline(codPsiOnline);
+		return c;
 	}
 }
