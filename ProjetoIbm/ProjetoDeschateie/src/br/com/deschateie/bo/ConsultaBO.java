@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.deschateie.beans.Consulta;
+import br.com.deschateie.beans.Conversa;
 import br.com.deschateie.beans.Paciente;
 import br.com.deschateie.beans.PsiOnline;
 import br.com.deschateie.dao.ConsultaDAO;
@@ -85,5 +86,32 @@ public class ConsultaBO {
 		
 		listaConsulta = new ConsultaDAO().pesquisarConsultaPaciente(codPaciente);
 		return listaConsulta;
+	}
+
+	public static String excluirConsulta(int codConsulta)throws Exception{
+		if(codConsulta<1) {
+			return "codigo invalido";
+		}
+		
+		if (codConsulta>99999) {
+			return "codigo muito grande";
+		}
+		
+		Consulta c = pesquisarConsulta(codConsulta);
+		if (c.getCodConsulta()<1) {
+			return "consulta nao encontrada, verificar o codigo";
+		}
+		
+		PsiOnline psi = PsiOnlineBO.pesquisarPsicologoOnline(c.getCodPsiOnline());
+		PsiOnlineBO.excluirPsicologoOnline(psi.getCodPsiOnline());
+		Paciente p = PacienteBO.pesquisarPaciente(c.getCodPaciente());
+		PacienteBO.excluirPaciente(p.getCodPaciente());
+		Conversa cv = ConversaBO.pesquisarConversa(c.getCodConversa());
+		ConversaBO.exluirConversa(cv.getCodConversa());
+		ConsultaDAO dao = new ConsultaDAO();
+		dao.excluirConsulta(codConsulta);
+		dao.fechar();
+		
+		return "Excluiso com sucesso";
 	}
 }

@@ -4,22 +4,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.deschateie.beans.Consulta;
+import br.com.deschateie.beans.Paciente;
+import br.com.deschateie.beans.PsiOnline;
 import br.com.deschateie.bo.ConsultaBO;
+import br.com.deschateie.bo.PsiOnlineBO;
 import br.com.deschateie.excecao.Excecao;
 
 public class TesteConsulta {
 
 	public static void main(String[] args) {
 		try {
+//			
+//			List<List> listaConsultas = new ArrayList<List>();
+//			List<PsiOnline> psicologos = new ArrayList<PsiOnline>();
+//			List<Paciente> pacientes = new ArrayList<Paciente>();
+//			List<Consulta> consultas = new ArrayList<Consulta>();
+//			//System.out.println(ConsultaBO.pesquisarConsulta(1).getAll());
+//			
+//			listaConsultas = ConsultaBO.pesquisarConsultas();
+//			consultas = listaConsultas.get(0);
+//			psicologos = listaConsultas.get(2);
+//			
+//			for (Consulta consulta : consultas) {
+//				
+//					System.out.println(consulta.getAll());
+//					
+//					System.out.println("--------------------");
+//					
+//					System.out.println("-----------------");
+//					for (PsiOnline psicologo : psicologos) {
+//						psicologo = PsiOnlineBO.pesquisarPsicologoOnline(consulta.getCodPsiOnline());
+//						System.out.println(psicologo.getAll());
+//						System.out.println("------------------------");
+//						break;
+//						
+//					}
+//			}
 			
-			List<Consulta> listaConsultas = new ArrayList<Consulta>();
-			//System.out.println(ConsultaBO.pesquisarConsulta(1).getAll());
-			
-			listaConsultas = ConsultaBO.pesquisarConsultaCodPsiOnline(14);
-			
-			for (Consulta consulta : listaConsultas) {
-				System.out.println(consulta.getAll());
-			}
+			System.out.println(PsiOnlineBO.excluirPsicologoOnline(20));
 			
 //			listaConsultas = ConsultaBO.pesquisarConsultaCodPaciente(7);
 //			for (Consulta consulta : listaConsultas) {

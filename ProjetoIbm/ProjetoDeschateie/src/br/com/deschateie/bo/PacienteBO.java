@@ -121,6 +121,7 @@ public class PacienteBO {
 			return "nao foi possivel encontrar o paciente";
 		}
 		
+		
 		dao.excluirPaciente(codPaciente);
 		dao.fechar();
 		return "excluido com sucesso";
