@@ -1,6 +1,9 @@
 package br.com.deschateie.bo;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.deschateie.beans.Voluntario;
 import br.com.deschateie.dao.VoluntarioDAO;
 
@@ -186,4 +189,11 @@ public class VoluntarioBO {
 		return "Alterado com sucesso";
 	}
 
+	public static List<Voluntario> pesquisarVoluntarioTemporarios()throws Exception{
+	List<Voluntario> listaVoluntario = new ArrayList<Voluntario>();
+	VoluntarioDAO dao = new VoluntarioDAO();
+	listaVoluntario = dao.consultarVoluntario();
+	dao.fechar();
+	return listaVoluntario;
+	}
 }

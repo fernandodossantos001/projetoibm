@@ -1,8 +1,10 @@
 package br.com.deschateie.teste;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.deschateie.beans.PsiOnline;
 import br.com.deschateie.bo.PsiOnlineBO;
-import br.com.deschateie.bo.PsicologoBO;
 import br.com.deschateie.dao.PsiOnlineDAO;
 import br.com.deschateie.excecao.Excecao;
 
@@ -24,8 +26,17 @@ public class TestePsiOnline {
 			
 			
 			//VERIFICAR ESSE EXLUIR
-			System.out.println(PsiOnlineBO.excluirPsicologoOnline(855));
+		//	System.out.println(PsiOnlineBO.excluirPsicologoOnline(855));
 			
+			List<PsiOnline> lista = new ArrayList<PsiOnline>();
+			
+			PsiOnlineDAO dao = new PsiOnlineDAO();
+			lista = PsiOnlineBO.pesquisarPsicologosOnlineTemporario();
+			
+			for (PsiOnline psiOnline : lista) {
+				System.out.println(psiOnline.getAll());
+			}
+					
 //			System.out.println(PsiOnlineBO.AlterarDadosPsicologo(new PsiOnline(855, "Emanuel",
 //					"manubolao@man1221u.com.br","01/01/2000",
 //					"manuBola2123o", "manuu", 2,"c:", "outro",

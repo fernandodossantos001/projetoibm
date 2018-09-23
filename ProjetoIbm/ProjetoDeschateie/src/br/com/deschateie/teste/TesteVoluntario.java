@@ -1,5 +1,8 @@
 package br.com.deschateie.teste;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.deschateie.beans.Voluntario;
 import br.com.deschateie.bo.PacienteBO;
 import br.com.deschateie.bo.VoluntarioBO;
@@ -26,9 +29,16 @@ public class TesteVoluntario {
 //	System.out.println(new VoluntarioDAO().alterarDadosVoluntario(new Voluntario(23,
 	//						"anjosHenry", "asdfasfd@asfdasf.com", "12/01/1985", "loginss", "anjos", 3, "c:/windwos", "masculino", "230823K", 1231231323, "psicologia", "noturno", "chato", 272188991)));	
 
-		System.out.println(VoluntarioBO.pesquisarVoluntario(23).getAll());
-		System.out.println("---------------------------------");
-		System.out.println(PacienteBO.pesquisarPaciente(4).getAll());
+	//	System.out.println(VoluntarioBO.pesquisarVoluntario(23).getAll());
+	//	System.out.println("---------------------------------");
+	//	System.out.println(PacienteBO.pesquisarPaciente(4).getAll());
+		
+		System.out.println("================================");
+		List<Voluntario> voluntarios = new ArrayList<Voluntario>();
+		voluntarios = VoluntarioBO.pesquisarVoluntarioTemporarios();
+		for(Voluntario voluntario : voluntarios) {
+			System.out.println(voluntario.getAll());
+		}
 	
 	
 	

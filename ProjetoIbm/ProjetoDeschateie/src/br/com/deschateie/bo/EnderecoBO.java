@@ -463,6 +463,7 @@ public class EnderecoBO {
 	
 	
 	public static String alterarDadosEnderecoVoluntario(Endereco endereco)throws Exception{
+
 		
 		
 		if(endereco.getCdEndereco()<1) {
@@ -580,9 +581,9 @@ public class EnderecoBO {
 		dao.fechar();
 		return "código de endereco não encontrado";
 		
-		
+	}
 		
 	}
 	
 	
-}
+

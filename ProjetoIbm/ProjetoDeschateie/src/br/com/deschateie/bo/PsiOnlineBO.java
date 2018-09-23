@@ -1,9 +1,13 @@
 package br.com.deschateie.bo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.deschateie.beans.PsiOnline;
 import br.com.deschateie.dao.PsiOnlineDAO;
 
 public class PsiOnlineBO {
+	
 	public static PsiOnline pesquisarPsicologoOnline(int codPsi)throws Exception {
 		
 		if(codPsi <1) {
@@ -20,6 +24,13 @@ public class PsiOnlineBO {
 		return ps;
 	}
 	
+	public static List<PsiOnline> pesquisarPsicologosOnlineTemporario()throws Exception{
+		List<PsiOnline> listaPsi = new ArrayList<PsiOnline>();
+		PsiOnlineDAO dao = new PsiOnlineDAO();
+		listaPsi = dao.consultarPsiOnline();
+		dao.fechar();
+		return listaPsi;
+	}
 	
 	public static String novoPsicologoOnline(PsiOnline psi, boolean ehValido)throws Exception {
 		
