@@ -1,6 +1,7 @@
 package br.com.deschateie.bo;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import br.com.deschateie.beans.Consulta;
@@ -115,21 +116,20 @@ public class ConsultaBO {
 		return "Excluiso com sucesso";
 	}
 
-	public static List<PsiOnline> pesquisarPsiOnline(int codPsiOnline)throws Exception{
+	public static List<PsiOnline> pesquisarPsiOnline()throws Exception{
 		List<PsiOnline> listaPsiOnline = new ArrayList<PsiOnline>();
 		List<Consulta> listaConsulta = new ArrayList<Consulta>();
 		
-		if(codPsiOnline<1) {
-			return listaPsiOnline;
-		}
-		if (codPsiOnline>99999) {
-			return listaPsiOnline;
-		}
 		
-		listaConsulta = pesquisarConsultaCodPsiOnline(codPsiOnline);
+		
+		listaConsulta = new ConsultaDAO().pesquisarListaConsulta();
+		
 		
 		for (Consulta consulta : listaConsulta) {
+			
 			listaPsiOnline.add(PsiOnlineBO.pesquisarPsicologoOnline(consulta.getCodPsiOnline()));
+			
+			
 		}
 		
 		return listaPsiOnline;
@@ -137,24 +137,44 @@ public class ConsultaBO {
 		
 	}
 	
-	public static List<Paciente> pesquisarPaciente(int codPaciente)throws Exception{
+	
+	
+	public static List<Paciente> pesquisarPaciente()throws Exception{
 		List<Paciente> listaPacientes = new ArrayList<Paciente>();
 		List<Consulta> listaConsultas = new ArrayList<Consulta>();
-		
-		if (codPaciente<1) {
-			return listaPacientes;
-		}
-		
-		if (codPaciente>99999) {
-			return listaPacientes;
-		}
+		List<Integer> codigoPsicologoRepetido = new ArrayList<Integer>();
+		List<Paciente> pTeste = new ArrayList<Paciente>();
+		Iterator<Paciente> it = listaPacientes.iterator();
 		
 		
-		listaConsultas = pesquisarConsultaCodPaciente(codPaciente);
+		
+		listaConsultas = new  ConsultaDAO().pesquisarListaConsulta();
 		for (Consulta consulta : listaConsultas) {
-			listaPacientes.add(PacienteBO.pesquisarPaciente(consulta.getCodPaciente()));
+				listaPacientes.add(PacienteBO.pesquisarPaciente(consulta.getCodPaciente()));
 		}
 		
-		return listaPacientes;
+		for(Paciente paci : listaPacientes) {
+			for (Paciente paciente : listaPacientes) {
+				if(listaPacientes.size()==0) {
+					pTeste.add(listaPacientes.get(listaPacientes.size()));
+					
+				}else {
+					if(paci.getCodPaciente()== paciente.getCodPaciente()) {
+						
+					}else {
+						pTeste.add(listaPacientes.get(listaPacientes.size()));
+					}
+				}
+				break;
+			}
+		}
+		
+	
+		
+	
+		
+		
+		
+		return pTeste;
 	}
 }

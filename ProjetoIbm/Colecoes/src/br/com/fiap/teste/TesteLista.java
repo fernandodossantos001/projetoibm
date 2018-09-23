@@ -16,8 +16,9 @@ public class TesteLista {
 		List<Cargo> cargos = new ArrayList<Cargo>();
 		cargos.add(new Cargo("DBA",5000,"PLENO"));
 		cargos.add(new Cargo("ESTAGIARIO",500,"PLENO"));
-		cargos.add(new Cargo("ESTAGIARIO",100,"JUNIOR"));
-		cargos.add(new Cargo("DEV",3000,"JUNIOR"));
+		cargos.add(new Cargo("ESTAGIARIA",100,"JUNIOR"));
+		cargos.add(new Cargo("Fer",3000,"JUNIOR"));
+		cargos.add(new Cargo("Developer",898,"junior"));
 	
 		
 
@@ -25,7 +26,7 @@ public class TesteLista {
 		
 //		System.out.println(cargos);
 		
-		
+		 
 		for (Cargo cargo : cargos) {
 			System.out.println(cargo.getNome());
 //			System.out.println(cargo.getSalario());

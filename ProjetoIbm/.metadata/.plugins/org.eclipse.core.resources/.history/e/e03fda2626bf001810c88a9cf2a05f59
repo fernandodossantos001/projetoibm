@@ -1,0 +1,14 @@
+package br.com.fiap.teste;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class TesteArrayIterator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		List<Integer> teste = new ArrayList<Integer>();
+	}
+
+}

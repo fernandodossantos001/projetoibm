@@ -1,5 +1,6 @@
 package br.com.fiap.teste;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,6 +14,7 @@ public class TesteSet {
 		lista.add("DBA");
 		
 		System.out.println(lista);
+		
 		
 		System.out.println(lista.size());
 		

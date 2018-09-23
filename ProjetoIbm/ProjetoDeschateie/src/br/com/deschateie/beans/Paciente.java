@@ -136,5 +136,13 @@ public class Paciente extends Usuario implements Comparable<Usuario> {
 		return getNomeUsuario().compareTo(o.getNomeUsuario());
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+	if(((Paciente)obj).getNomeUsuario().equals(this.getNomeUsuario())){
+	return true;
+	}else{
+	return false;
+	}
+	}
 
 }
