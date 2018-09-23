@@ -142,39 +142,37 @@ public class ConsultaBO {
 	public static List<Paciente> pesquisarPaciente()throws Exception{
 		List<Paciente> listaPacientes = new ArrayList<Paciente>();
 		List<Consulta> listaConsultas = new ArrayList<Consulta>();
-		List<Integer> codigoPsicologoRepetido = new ArrayList<Integer>();
 		List<Paciente> pTeste = new ArrayList<Paciente>();
-		Iterator<Paciente> it = listaPacientes.iterator();
 		
 		
 		
 		listaConsultas = new  ConsultaDAO().pesquisarListaConsulta();
 		for (Consulta consulta : listaConsultas) {
-				listaPacientes.add(PacienteBO.pesquisarPaciente(consulta.getCodPaciente()));
-		}
-		
-		for(Paciente paci : listaPacientes) {
-			for (Paciente paciente : listaPacientes) {
-				if(listaPacientes.size()==0) {
-					pTeste.add(listaPacientes.get(listaPacientes.size()));
-					
-				}else {
-					if(paci.getCodPaciente()== paciente.getCodPaciente()) {
-						
-					}else {
-						pTeste.add(listaPacientes.get(listaPacientes.size()));
-					}
+			
+			for(int i = 0; i<listaConsultas.size();i++) {
+				
+				if (listaConsultas.size()==0) {
+					listaPacientes.add(PacienteBO.pesquisarPaciente(consulta.getCodPaciente()));
+				}else if (new ConsultaDAO().pesquisarConsultaPorCod(consulta.getCodConsulta()).getCodPaciente()!=
+						listaPacientes.get(i).getCodPaciente()) {
+					listaPacientes.add(PacienteBO.pesquisarPaciente(consulta.getCodPaciente()));
+					break;
 				}
 				break;
+				
 			}
+			
+				
+				
 		}
 		
-	
 		
 	
 		
+	
 		
 		
-		return pTeste;
+		
+		return listaPacientes;
 	}
 }

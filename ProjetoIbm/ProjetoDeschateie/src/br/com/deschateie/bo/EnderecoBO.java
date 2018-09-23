@@ -283,6 +283,38 @@ public class EnderecoBO {
 		return "O endereco foi apagado com sucesso" ;
 	}
 
+	public static Endereco pesquisarEnderecoCodPsicologo(int codPsicologo)throws Exception{
+		if (codPsicologo<1) {
+			return new Endereco();
+		}
+		
+		if (codPsicologo>99999) {
+			return new Endereco();
+		}
+		
+		EnderecoDAO dao = new EnderecoDAO();
+		Endereco e = new Endereco();
+		e = dao.consultarEnderecoCodPsicologo(codPsicologo);
+		dao.fechar();
+		return e;
+	}
+	
+	
+	public static Endereco pesquisarEnderecoCodVoluntario(int codVoluntario)throws Exception{
+		if (codVoluntario<1) {
+			return new Endereco();
+		}
+		
+		if (codVoluntario>99999) {
+			return new Endereco();
+		}
+		
+		EnderecoDAO dao = new EnderecoDAO();
+		Endereco e = new Endereco();
+		e = dao.consultarEnderecoCodVoluntario(codVoluntario);
+		dao.fechar();
+		return e;
+	}
 	
 
 	public static String excluirEnderecoVoluntario(int cdEndereco)throws Exception{

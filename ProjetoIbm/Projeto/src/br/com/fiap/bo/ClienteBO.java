@@ -6,7 +6,7 @@ import br.com.fiap.dao.ClienteDAO;
 /**
  * Classe para validar dados para a tabela t_DDD_Cliente
  * possui métodos para  criar um novo cliente, aumentar a quantidade de estrelas
- * @author Fernando Santos Ribeiro
+ * @author Deschateie
  * @version 1.0
  * @since 1.0
  * @see ClienteDAO
@@ -22,7 +22,7 @@ public class ClienteBO {
 	 * @param cli Recebe um objeto Cliente
 	 * @return retorna a mesma String que recebe do ClienteDAO
 	 * @throws Exception Excecao Checkd
-	 * @author Fernando Santos Ribeiro
+	 * @author Deschateie
 	 */
 	public static String novoCliente(Cliente cli) throws Exception {
 		// Regra de Negócio

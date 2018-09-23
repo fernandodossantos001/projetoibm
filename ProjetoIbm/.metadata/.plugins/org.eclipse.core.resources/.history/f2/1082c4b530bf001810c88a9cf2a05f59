@@ -1,0 +1,18 @@
+package br.com.deschateie.bo;
+
+import br.com.deschateie.excecao.Excecao;
+
+public class TesteAgendamento {
+
+	public static void main(String[] args) {
+		
+		try {
+			System.out.println(AgendamentoBO.pesquisarAgendamento(23.3));
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(Excecao.tratarExcecao(e));
+		}
+		
+	}
+
+}

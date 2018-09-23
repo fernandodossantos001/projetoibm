@@ -12,14 +12,15 @@ public class TesteEndereco {
 	public static void main(String[] args) {
 
 		try {
-			List<Endereco> listaEndereco = new ArrayList<Endereco>();
-			listaEndereco = EnderecoBO.pesquisarEnderecoVoluntario("A");
+//			List<Endereco> listaEndereco = new ArrayList<Endereco>();
+//			listaEndereco = EnderecoBO.pesquisarEnderecoVoluntario("A");
+//			
+//			for (Endereco endereco : listaEndereco) {
+//				System.out.println(endereco.getAll());
+//			}
+//			
 			
-			for (Endereco endereco : listaEndereco) {
-				System.out.println(endereco.getAll());
-			}
-			
-			
+			System.out.println(EnderecoBO.pesquisarEnderecoCodVoluntario(24).getAll());
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(Excecao.tratarExcecao(e));

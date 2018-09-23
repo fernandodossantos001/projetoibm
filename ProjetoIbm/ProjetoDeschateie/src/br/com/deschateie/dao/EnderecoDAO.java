@@ -39,7 +39,56 @@ public class EnderecoDAO {
 	}
 	
 	
-
+	public Endereco consultarEnderecoCodPsicologo(int codPsicologo)throws Exception {
+		stmt= con.prepareStatement("SELECT * FROM T_SCP_ENDERECO WHERE CD_PSICOLOGO = ?");
+		stmt.setInt(1, codPsicologo);
+		rs = stmt.executeQuery();
+		if(rs.next()) {
+			 return new Endereco(
+		 			rs.getInt("CD_ENDERECO"),
+		 			rs.getInt("CD_PSICOLOGO"),
+					rs.getString("DS_TIPO"),
+					rs.getString("DS_LOGRADOURO"),
+					rs.getString("NR_NUMERO"),
+					rs.getString("DS_COMPLEMENTO"),
+					rs.getString("NR_CEP"),
+					rs.getString("DS_BAIRRO"),
+					rs.getString("DS_CIDADE"),
+					rs.getString("DS_UF"),
+					rs.getString("DS_PAIS"));
+			
+			 
+			 
+		}
+		
+		return new Endereco();
+		
+	}
+	
+	public Endereco consultarEnderecoCodVoluntario(int codVoluntario)throws Exception {
+		stmt= con.prepareStatement("SELECT * FROM T_SCP_ENDERECO WHERE CD_VOLUNTARIO = ?");
+		stmt.setInt(1, codVoluntario);
+		rs = stmt.executeQuery();
+		if(rs.next()) {
+			return new Endereco(
+		 			rs.getInt("CD_ENDERECO"),
+		 			rs.getInt("CD_VOLUNTARIO"),
+					rs.getString("DS_TIPO"),
+					rs.getString("DS_LOGRADOURO"),
+					rs.getString("NR_NUMERO"),
+					rs.getString("DS_COMPLEMENTO"),
+					rs.getString("NR_CEP"),
+					rs.getString("DS_BAIRRO"),
+					rs.getString("DS_CIDADE"),
+					rs.getString("DS_UF"),
+					rs.getString("DS_PAIS"));
+		}
+		
+		return new Endereco();
+		
+	}
+	
+	
 	public String gravarEnderecoVoluntario(Endereco endereco) throws Exception {
 		stmt = con.prepareStatement("INSERT INTO T_SCP_ENDERECO "
 				+ "(CD_ENDERECO,CD_VOLUNTARIO,DS_TIPO,DS_LOGRADOURO,NR_NUMERO,DS_COMPLEMENTO,"

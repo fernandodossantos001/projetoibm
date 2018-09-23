@@ -26,7 +26,6 @@ public class TesteArrayIterator {
 			
 		}
 		
-		System.out.println(it.);
 	}
 
 }
