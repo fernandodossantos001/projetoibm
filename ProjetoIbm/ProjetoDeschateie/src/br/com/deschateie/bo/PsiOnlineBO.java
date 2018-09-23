@@ -15,7 +15,7 @@ public class PsiOnlineBO {
 		}
 		
 		PsiOnlineDAO dao = new PsiOnlineDAO();
-		PsiOnline ps = dao.consultarPsicologoOnline(codPsi);
+		PsiOnline ps = dao.consultarPsiOnline(codPsi);
 		dao.fechar();
 		return ps;
 	}
@@ -93,7 +93,7 @@ public class PsiOnlineBO {
 		
 		
 		PsiOnlineDAO dao = new PsiOnlineDAO();
-		String msg = dao.excluirPsicologoOnline(codPsi);
+		String msg = dao.excluirPsiOnline(codPsi);
 		PsicologoBO.excluirPsicologo(codPsi);
 		return msg;
 		
@@ -138,7 +138,7 @@ public class PsiOnlineBO {
 		}
 		
 		PsiOnlineDAO dao = new PsiOnlineDAO();
-		dao.alterarDadosPsicologoOnline(psi);
+		dao.alterarDadosPsiOnline(psi);
 		dao.fechar();
 		return "Psicologo Online atualizado com Sucesso";
 	}

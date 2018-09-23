@@ -9,39 +9,43 @@ import java.util.List;
 import br.com.deschateie.beans.Usuario;
 import br.com.deschateie.conexao.Conexao;
 
+/** 
+ * Está classe manipula a tabela T_SCP_USUARIO
+ * possui método para : Cadastrar, consultar, alterar ,excluir, fechar a conexão e autenticar usuario
+ * @author Fernando Santos Ribeiro
+ * @version 1.0
+ * @since 1.0
+ * @see Usuario
+ *
+ */
+
+
 public class UsuarioDAO {
 	
 	private Connection con;
 	private PreparedStatement stmt;
 	private ResultSet rs;
 	
+	/**
+	 *
+	 * Neste método construtor estabelecemos a comunicação com o banco de dados
+	 * @author Fernando Santos Ribeiro
+	 * @param não possui parâmetros
+	 * @return não há retorno
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public UsuarioDAO()throws Exception{
 		con = new  Conexao().conectar();
 	}
 	
 	
-	public Usuario consultarUsuario(int codUsuario)throws Exception{
-		stmt = con.prepareStatement("SELECT * FROM T_SCP_USUARIO WHERE CD_USUARIO = ?");
-		stmt.setInt(1, codUsuario);
-		rs = stmt.executeQuery();
-		
-		if(rs.next()) {
-			return new Usuario(	
-								rs.getInt("CD_USUARIO"),
-								rs.getString("NM_USUARIO"),
-								rs.getString("DS_EMAIL"),
-								rs.getString("DT_NASCIMENTO"),
-								rs.getString("DS_LOGIN"),
-								rs.getString("DS_SENHA"),
-								rs.getInt("NR_NIVEL_PERMISSAO"),
-								rs.getString("DS_FOTO"),
-								rs.getString("DS_GENERO"));
-		}
-		
-		return new Usuario();
-		
-	}
-	
+
+	/**
+	 * Método responsável por consultar uma linha na tabela T_SCP_USUARIO
+	 * @param recebe o nome de login do tipo String como parâmetro
+	 * @return retorna um objeto do tipo Usuairo
+	 * @throws Exception - chamada da  Exceção checked SQLException
+	 */
 	public Usuario consultarLoginUsuario(String login)throws Exception{
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_USUARIO WHERE DS_LOGIN = ?");
 		stmt.setString(1, login);

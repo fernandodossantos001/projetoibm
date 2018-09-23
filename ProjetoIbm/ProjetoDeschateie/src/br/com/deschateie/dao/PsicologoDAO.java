@@ -46,9 +46,6 @@ public class PsicologoDAO {
 	}
 
 	
-	
-	
-	
 	public Psicologo consultarPsicologoCrp(int crp)throws Exception{
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_USUARIO NATURAL JOIN T_SCP_PSICOLOGO  WHERE NR_CRP = ?");
 		stmt.setInt(1, crp);
@@ -74,8 +71,6 @@ public class PsicologoDAO {
 						return new Psicologo();
 					}
 	}
-
-
 
 
 

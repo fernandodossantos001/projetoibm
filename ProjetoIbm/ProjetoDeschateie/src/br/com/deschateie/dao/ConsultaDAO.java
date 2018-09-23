@@ -100,8 +100,6 @@ public class ConsultaDAO {
 		return listaConsulta;
 	}
 
-
-
 	public String excluirConsulta(int codConsulta)throws Exception{
 		stmt = con.prepareStatement("DELETE FROM T_SCP_CONSULTA WHERE CD_CONSULTA = ?");
 		stmt.setInt(1, codConsulta);
@@ -138,14 +136,11 @@ public class ConsultaDAO {
 		stmt.executeUpdate();
 		return "Conversa Cadastrada com sucesso";
 	}
+
+	
+	
 	public void fechar()throws Exception{
 		con.close();
 	}
-
-	public List<Consulta> pesquisarListaConsultaPaciente(int codPaciente) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 }
 

@@ -114,4 +114,47 @@ public class ConsultaBO {
 		
 		return "Excluiso com sucesso";
 	}
+
+	public static List<PsiOnline> pesquisarPsiOnline(int codPsiOnline)throws Exception{
+		List<PsiOnline> listaPsiOnline = new ArrayList<PsiOnline>();
+		List<Consulta> listaConsulta = new ArrayList<Consulta>();
+		
+		if(codPsiOnline<1) {
+			return listaPsiOnline;
+		}
+		if (codPsiOnline>99999) {
+			return listaPsiOnline;
+		}
+		
+		listaConsulta = pesquisarConsultaCodPsiOnline(codPsiOnline);
+		
+		for (Consulta consulta : listaConsulta) {
+			listaPsiOnline.add(PsiOnlineBO.pesquisarPsicologoOnline(consulta.getCodPsiOnline()));
+		}
+		
+		return listaPsiOnline;
+				
+		
+	}
+	
+	public static List<Paciente> pesquisarPaciente(int codPaciente)throws Exception{
+		List<Paciente> listaPacientes = new ArrayList<Paciente>();
+		List<Consulta> listaConsultas = new ArrayList<Consulta>();
+		
+		if (codPaciente<1) {
+			return listaPacientes;
+		}
+		
+		if (codPaciente>99999) {
+			return listaPacientes;
+		}
+		
+		
+		listaConsultas = pesquisarConsultaCodPaciente(codPaciente);
+		for (Consulta consulta : listaConsultas) {
+			listaPacientes.add(PacienteBO.pesquisarPaciente(consulta.getCodPaciente()));
+		}
+		
+		return listaPacientes;
+	}
 }

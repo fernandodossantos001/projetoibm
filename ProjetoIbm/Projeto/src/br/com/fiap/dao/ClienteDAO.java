@@ -8,7 +8,6 @@ import java.util.List;
 
 import br.com.fiap.beans.Cliente;
 import br.com.fiap.beans.Endereco;
-import br.com.fiap.bo.ClienteBO;
 import br.com.fiap.conexao.Conexao;
 /** 
  * Está classe manipula a tabela T_DDD_CLIENTE
@@ -17,7 +16,6 @@ import br.com.fiap.conexao.Conexao;
  * @author juninho
  * @version 1.0
  * @since 1.0
- * @see ClienteBO
  * @see Cliente
  *
  */
@@ -33,7 +31,7 @@ public class ClienteDAO {
 	 * @author Fernando Santos Ribeiro
 	 * @param não possui parâmetros
 	 * @return não há retorno
-	 * @throws Exception chamada da exceção checked SQLException
+	 * @throws Exception camada da exceção checked SQLException
 	 */
 	public ClienteDAO() throws Exception {
 		con = new Conexao().conectar();

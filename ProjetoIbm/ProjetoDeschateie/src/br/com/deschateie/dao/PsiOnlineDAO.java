@@ -17,7 +17,7 @@ public class PsiOnlineDAO {
 	}
 	
 	
-	public PsiOnline consultarPsicologoOnline(int codPsi)throws Exception{
+	public PsiOnline consultarPsiOnline(int codPsi)throws Exception{
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_USUARIO INNER JOIN T_SCP_PSICOLOGO"
 				+ " ON CD_USUARIO = CD_PSICOLOGO INNER JOIN T_SCP_PSI_ONLINE"
 				+ " ON CD_PSICOLOGO = CD_PSICOLOGO_ON WHERE CD_PSICOLOGO_ON = ?");
@@ -63,14 +63,14 @@ public class PsiOnlineDAO {
 		return "Cadastrado com sucesso";
 	}
 
-	public String excluirPsicologoOnline(int codPsi)throws Exception{
+	public String excluirPsiOnline(int codPsi)throws Exception{
 		stmt = con.prepareStatement("DELETE FROM T_SCP_PSI_ONLINE WHERE CD_PSICOLOGO_ON = ?");
 		stmt.setInt(1, codPsi);
 		return "foi excluida " + stmt.executeUpdate() + "linha";
 		
 	}
 
-	public String alterarDadosPsicologoOnline(PsiOnline psi)throws Exception{
+	public String alterarDadosPsiOnline(PsiOnline psi)throws Exception{
 		stmt = con.prepareStatement("UPDATE T_SCP_PSI_ONLINE "
 									+ "SET DS_PERIODO = ?,"
 									+ "DS_FORMA_ATENDIMENTO = ?,"
