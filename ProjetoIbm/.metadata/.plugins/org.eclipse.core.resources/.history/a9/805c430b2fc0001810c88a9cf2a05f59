@@ -1,0 +1,167 @@
+package br.com.deschateie.bo;
+
+
+import br.com.deschateie.beans.Avaliacao;
+import br.com.deschateie.beans.Psicologo;
+import br.com.deschateie.beans.Usuario;
+import br.com.deschateie.dao.AvaliacaoDAO;
+/**
+ * Classe para validar dados para tabela T_SCP_AVALIACAO
+ * possui métodos para criar,excluir,alterar e pesquisar Avaliacao
+ * @author Deschateie
+ * @version 1.0
+ * @since 1.0
+ * @see AgendamentoDAO
+ * @see Agendamento
+ * @see DataBO
+ * @see Psicologo
+ * @see Usuario
+ *
+ */
+public class AvaliacaoBO {
+	
+	/**
+	 * Método responsavel por manipular as regras de negócio relacionadas a Avaliacao
+	 * Regras a serem avaliada
+	 * 1 O tamanho do código da avaliação
+	 * @param Recebe o código da avaliação que é um número inteiro 
+	 * @return Retorna uma Avaliacao, que pode estar vazia se o código for inválido ou
+	 * se a avaliacao não for encontrada e estar preenchida caso o código seja válido
+	 * @throws Exception Exceção do tipo checkd
+	 */
+	public static Avaliacao pesquisarAvaliacao(int codAvaliacao) throws Exception{
+		
+		if (codAvaliacao<1) {
+			return new Avaliacao();
+		}
+		
+		if (codAvaliacao>99999) {
+			return new Avaliacao();
+		}
+		
+		
+		AvaliacaoDAO  dao = new AvaliacaoDAO(); 	 
+		Avaliacao avaliacao = dao.consultarAvaliacao(codAvaliacao);		
+		dao.fechar();
+		return avaliacao;
+	}
+
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas a  Avaliacao
+	 * Regras a serem avaliadas
+	 * 1 Tamanho do código da avaliacao
+	 * 2 Tamanho com campo resultado
+	 * 3 Verifica se a data informada é válida
+	 * 4 Verificar se o código da avaliacao que está sendo passar já existe
+	 * 5 Verifica se o código do psicologo ou voluntario passado é valido 
+	 * 6 verifica se o psicologo ou usuario existe
+	 * @param av
+	 * @param nrPermissao
+	 * @return
+	 * @throws Exception
+	 */
+	public static String novaAvaliacao(Avaliacao av)throws Exception{
+		
+		if (av.getCodAvaliacao()<0) {
+			return "codigo invalido";
+		}
+		
+		if (av.getCodAvaliacao()>99999) {
+			return "codigo muito grande"; 
+		}
+		if (av.getResultado().length()<0) {
+			return "O campo resultado não pode esta vazio";
+		}
+		
+		if(av.getResultado().length()>80) {
+			return "resultado muito grande";
+		}
+		
+		String status = DataBO.validarData(av.getDataAvaliacao());
+		if(!status.equals(av.getDataAvaliacao())) {
+			return status;
+		}
+		
+		Avaliacao avu = pesquisarAvaliacao(av.getCodAvaliacao());
+		if(avu.getCodAvaliacao()== av.getCodAvaliacao()) {
+			return "codigo de avaliacao ja existente";
+		}
+		
+
+		
+		Usuario usuario = UsuarioBO.pesquisarUsuarioPorCod(av.getUsuario().getCodUsuario());
+		Psicologo psicologo = PsicologoBO.pesquisarPsicologo(av.getPsicologo().getCodPsicologo());
+		if(usuario.getCodUsuario()!= av.getUsuario().getCodUsuario()) {
+			return "o codigo do usuairo nao foi encontrado";
+		}
+		
+		if(psicologo.getCodPsicologo()!= av.getPsicologo().getCodPsicologo()) {
+			return "o codigo do psicologo nao foi encontrado";
+		}
+		
+		
+		AvaliacaoDAO dao = new AvaliacaoDAO();
+		
+		if (dao.consultarAvaliacaoUsuario(av.getUsuario().getCodUsuario()).getUsuario().getCodUsuario()
+				== av.getUsuario().getCodUsuario()) {
+			return "Usuario já existe";
+		}
+		
+		avu.getUsuario().setNivelPermissao(7);
+		UsuarioBO.alterarNivelAcesso(avu.getUsuario());
+		
+		dao.gravarDadosAvaliacao(av);
+		dao.fechar();
+		return "Avaliacao cadastrada com sucesso";
+	}
+
+	public static String excluirAvaliacaoVoluntario(int codAvaliacao)throws Exception{
+		if(codAvaliacao<0) {
+			return "codigo invalido";
+		}
+		
+		if (codAvaliacao>99999) {
+			return "codigo muito grande";
+		}
+		
+		Avaliacao av = pesquisarAvaliacao(codAvaliacao);
+		
+		if(av.getCodAvaliacao()<1) {
+			return "codigo nao existe";
+		}
+		
+		AvaliacaoDAO dao = new AvaliacaoDAO();
+		dao.excluirAvaliacao(codAvaliacao);
+		dao.fechar();
+		return "Excluido com sucesso";
+	}
+
+	
+	public static String alteradaDadosAvaliacao(Avaliacao av)throws Exception {
+		
+		String status = DataBO.validarData(av.getDataAvaliacao());
+		if(!status.equals(av.getDataAvaliacao())) {
+			return status;
+		}
+		
+		if(av.getResultado().length()<0) {
+			return "resultado nao pode estar vazio";
+		}
+		
+		if (av.getResultado().length()>80) {
+			return "resultado muito grande";
+		}
+		
+		Avaliacao ava = pesquisarAvaliacao(av.getCodAvaliacao());
+		if(ava.getCodAvaliacao()==0) {
+			return "Avaliacao não encontradao";
+		}
+		
+		AvaliacaoDAO dao = new AvaliacaoDAO();
+		dao.alterarDadosAvaliacao(av);
+		dao.fechar();
+		return "Dados Alterados com suceso";
+	}
+	
+	
+}

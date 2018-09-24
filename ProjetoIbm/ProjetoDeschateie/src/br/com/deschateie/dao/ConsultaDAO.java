@@ -130,9 +130,6 @@ public class ConsultaDAO {
 		return "Conversa Cadastrada com sucesso";
 	}
 
-//	public String cancelarConsulta(int codConsulta)throws Exception{
-//		stmt = con.prepareStatement("UPDATE T_SP_CONSULTA");
-//	}
 	
 	public void fechar()throws Exception{
 		con.close();

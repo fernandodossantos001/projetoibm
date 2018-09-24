@@ -62,9 +62,15 @@ public class AvaliacaoDAO {
 		
 	}
 
-
-	
-public Avaliacao consultarAvaliacaoUsuario(int codUsuario)throws Exception{
+	public String avaliar(Avaliacao av)throws Exception{
+		stmt = con.prepareStatement("UPDATE T_SCP_AVALIACAO SET DS_RESULTADO = ? WHERE CD_AVALIACAO = ?");
+		stmt.setString(1, av.getResultado());
+		stmt.setInt(2, av.getCodAvaliacao());
+		stmt.executeUpdate();
+		return "Avaliado com sucesso";
+	}
+	 
+	public Avaliacao consultarAvaliacaoUsuario(int codUsuario)throws Exception{
 		
 		
 		

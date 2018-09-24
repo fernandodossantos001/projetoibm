@@ -1,0 +1,42 @@
+package br.com.deschateie.main;
+
+import br.com.deschateie.beans.Avaliacao;
+import br.com.deschateie.beans.Psicologo;
+import br.com.deschateie.bo.AvaliacaoBO;
+import br.com.deschateie.excecao.Excecao;
+
+public class TesteAvaliacao {
+
+	public static void main(String[] args) {
+		try {
+			System.out.println(AvaliacaoBO.pesquisarAvaliacao(1).getAll());
+			
+			System.out.println(AvaliacaoBO.novaAvaliacao
+					(new Avaliacao(
+							65,
+							new Psicologo(
+									codUsuario,
+									nomeUsuario,
+									email,
+									dataNascimento,
+									login, 
+									senha, 
+									nivelPermissao,
+									foto,
+									genero,
+									crp,
+									formacao, 
+									biografia, 
+									telefone, 
+									valorConsulta
+									), 
+							usuario,
+							dataAvaliacao,
+							resultado)));
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(Excecao.tratarExcecao(e));
+		}
+	}
+
+}

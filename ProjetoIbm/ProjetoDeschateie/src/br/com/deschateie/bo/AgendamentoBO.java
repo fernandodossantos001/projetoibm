@@ -18,7 +18,7 @@ import br.com.deschateie.dao.AgendamentoDAO;
 
 public class AgendamentoBO {
 	/**
-	 * Método responsável por validar as regras de negócio da classe Agendamento
+	 * Método responsável por manipular as regras de negócio relacionadas a Agendamento
 	 * Regras de negócio avaliadas
 	 * 1º O tamanho do código de agendamento
 	 * @param recebe um codigo de agendamento que precisa ser um número inteiro
@@ -44,7 +44,7 @@ public class AgendamentoBO {
 
 	
 	
-	/** Método responsável por validar as regras de negócio da classe Agendamento
+	/** Método responsável por manipular as regras de negócio relacionadas a Agendamento
 	 * Regras de negócio avaliadas
 	 * 1 O tamanha do código de agendamento
 	 * 2 Se o agendamento existe
@@ -74,7 +74,7 @@ public class AgendamentoBO {
 	}
 
 	/**
-	 * Método responsável por validas as regras de negócio da classe Agendamento
+	 * Método responsável por manipular as regras de negócio relacionadas a Agendamento
 	 * Regras de negócio avaliadas
 	 * 1 O tamanha do código de agendamento
 	 * 2 Verifica se o agendamento existe através do código
@@ -115,7 +115,7 @@ public class AgendamentoBO {
 
 	
 	/**
-	 * Método responsável por validar as regras de negócio da classe Agendamento
+	 * Método responsável por manipular as regras de negócio relacionadas a  Agendamento
 	 * Regras de negócio avaliadas
 	 * 1 O tamanha do código de agendamento
 	 * 2 Verifica se o agendamento existe através do código
