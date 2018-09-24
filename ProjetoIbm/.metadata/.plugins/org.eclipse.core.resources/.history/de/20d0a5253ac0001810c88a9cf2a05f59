@@ -216,9 +216,6 @@ public class AvaliacaoBO {
 	 * 1 Verifica se o código da avaliação é valido
 	 * 2 Verifica se existe alguma avaliacao com o codigo passado
 	 * 3 Verifica se a quantidade de caracteres do resultado é valida
-	 * 4 Verifica se o usuario que está sendo avaliado quer se tornar um psicologo ou paciente
-	 * e inseri o nivel de acesso caso usuario queria se tornar psicologo 
-	 * o nivel é 3 e se quiser ser voluntario o nivel é 2
 	 * @param Recebe um Objeto do tipo Avaliacao
 	 * @return Retorna uma String, podendo conter uma mesagem de erro caso
 	 * algumas das regras acima não sejam seguidas ou  uma mensagem de sucesso caso
@@ -247,7 +244,7 @@ public class AvaliacaoBO {
 			UsuarioBO.alterarNivelAcesso(av.getUsuario());
 		}else {
 			av.getUsuario().setNivelPermissao(2);
-			UsuarioBO.alterarNivelAcesso(av.getUsuario());
+			UsuarioBO.alterarNivelAcesso(av.getUsuario())
 		}
 			
 			
