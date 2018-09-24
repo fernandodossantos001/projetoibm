@@ -1,5 +1,6 @@
 package br.com.deschateie.teste;
 
+import java.security.cert.CollectionCertStoreParameters;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -45,16 +46,25 @@ public class TesteConsulta {
 			List<Paciente> listaPaciente = new ArrayList<Paciente>();
 			lista = ConsultaBO.pesquisarPsiOnline();
 			listaPaciente = ConsultaBO.pesquisarPaciente();
-			
-			
-			for (Paciente paciente : listaPaciente) {
-				System.out.println("----- Paciente ------");
-				System.out.println(paciente.getAll());
-				
 
+//			Collections.sort(listaPaciente);
+//			for (Paciente paciente : listaPaciente) {
+//				System.out.println("----- Paciente ------");
+//				System.out.println(paciente.getNomeUsuario());
+//				
+//
+//			}
+			
+			
+			lista = ConsultaBO.pesquisarPsiOnline();
+			Collections.sort(lista);
+			
+			for (PsiOnline psi : lista) {
+				System.out.println("---- Psicologo ----");
+				System.out.println(psi.getNomeUsuario());
 			}
 			
-			Collections.sort(lista);
+
 			
 //			for(PsiOnline psi:lista) {
 //				System.out.println("----- Psicologo ----- ");

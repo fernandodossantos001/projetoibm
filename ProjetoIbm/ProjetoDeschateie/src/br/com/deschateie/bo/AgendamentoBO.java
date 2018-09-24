@@ -12,7 +12,7 @@ import br.com.deschateie.dao.AgendamentoDAO;
  * @author Deschateie
  * @version 1.0
  * @since 1.0
- * @see AgendamentoDAO
+ * @see AgendamentoDAO 
  * @see Agendamento
  */
 
@@ -24,7 +24,7 @@ public class AgendamentoBO {
 	 * @param recebe um codigo de agendamento que precisa ser um número inteiro
 	 * @return Retorna um Objeto do tipo Agendamento, que pode estar nulo se o codigo não for existente
 	 *  ou se o código passado não estiver dentro dos padrões
-	 * @throws Exception Execao Checkd
+	 * @throws Exception Exceção Checkd
 	 */
 	public static Agendamento pesquisarAgendamento(int codAgendamento)throws Exception{
 		if (codAgendamento<0) {
@@ -51,7 +51,7 @@ public class AgendamentoBO {
 	 * @param recebe um código de agendamento, que precisa ser um número inteiro
 	 * @return retorna uma String  informando uma mensagem de erro se o código não for válido,
 	 * o agendamento não for encontrado ou uma mensagem de sucesso se o agendamento for excluido
-	 * @throws Exception
+	 * @throws Exception Exceção checkd
 	 */
 	public static String exluirAgendamento(int codAgendamento)throws Exception {
 		if (codAgendamento<0) {
@@ -81,16 +81,11 @@ public class AgendamentoBO {
 	 * 3 Verificar se a data é válida
 	 * @param Recebe um Objeto do tipo Agendamento
 	 * @return Retorna uma Stirng, informando uma mensagem de erro ou de sucesso
-	 * @throws Exception
+	 * @throws Exception Exceção checkd
 	 */
 	
 	
-	/**
-	 * Método responsável por validar as regras de negócio da classe Agendamento
-	 * @param ag
-	 * @return
-	 * @throws Exception
-	 */
+
 	public static String AlterarDadosAgendamento(Agendamento ag) throws Exception{
 
 		
@@ -118,6 +113,21 @@ public class AgendamentoBO {
 		return "Data Alterada com sucesso";
 	}
 
+	
+	/**
+	 * Método responsável por validar as regras de negócio da classe Agendamento
+	 * Regras de negócio avaliadas
+	 * 1 O tamanha do código de agendamento
+	 * 2 Verifica se o agendamento existe através do código
+	 * 3 Verificar se a data é válida
+	 * 4 Verificar se o Paciente Existe
+	 * 5 Verificar se o Psicologo existe
+	 * @param Recebe um Objeto do tipo Agendamento
+	 * @return retorna uma String, informando uma mensagem de erro caso 
+	 * alguma dessas regras não sejam cumpridas ou mensagem de sucesso caso o cadastro seja
+	 * efetuado com sucesso
+	 * @throws Exception Exceção checkd
+	 */ 
 	
 	
 	public static String novoAgendamento(Agendamento ag)throws Exception  {

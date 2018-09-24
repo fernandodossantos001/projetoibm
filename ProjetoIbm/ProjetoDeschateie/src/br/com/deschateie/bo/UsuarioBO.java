@@ -63,7 +63,7 @@ public class UsuarioBO {
 		}
 		
 		
-		if(u.getFoto().length()>40) {
+		if(u.getFoto().length()>120) {
 			return "caminho da imagem muito grande";
 		}
 		
@@ -193,15 +193,7 @@ public class UsuarioBO {
 		}
 		
 		
-//		Pattern pattern = Pattern.compile("^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$");
-//		
-//		Matcher matcher = pattern.matcher(u.getDataNascimento());
-//		
-//		if(!matcher.find()) {
-//			
-//			return "data inválido";
-//			
-//		}
+
 		
 		String status = DataBO.validarData(u.getDataNascimento());
 		if (!status.equals(u.getDataNascimento())) {
@@ -236,7 +228,7 @@ public class UsuarioBO {
 		}
 		
 		
-		if(u.getFoto().length()>40) {
+		if(u.getFoto().length()>120) {
 			return "caminho da imagem muito grande";
 		}
 		

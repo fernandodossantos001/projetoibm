@@ -1,7 +1,6 @@
 package br.com.deschateie.bo;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import br.com.deschateie.beans.Consulta;
@@ -56,6 +55,7 @@ public class ConsultaBO {
 		consulta.add(listaConsultas);
 		consulta.add(listaPacientes);
 		consulta.add(listaPsiOnlines);
+		dao.fechar();
 		return consulta;
 	}
 
@@ -70,7 +70,9 @@ public class ConsultaBO {
 			return listaConsulta;
 		}
 		
-		listaConsulta = new ConsultaDAO().pesquisarConsultaPsiOnline(codPsiOnline);
+		ConsultaDAO dao = new ConsultaDAO();
+		listaConsulta = dao.pesquisarConsultaPsiOnline(codPsiOnline);
+		dao.fechar();
 		return listaConsulta;
 	}
 
@@ -84,8 +86,9 @@ public class ConsultaBO {
 		if(codPaciente>99999) {
 			return listaConsulta;
 		}
-		
-		listaConsulta = new ConsultaDAO().pesquisarConsultaPaciente(codPaciente);
+		ConsultaDAO dao =  new ConsultaDAO();
+		listaConsulta =dao.pesquisarConsultaPaciente(codPaciente);
+		dao.fechar();
 		return listaConsulta;
 	}
 
@@ -117,62 +120,73 @@ public class ConsultaBO {
 	}
 
 	public static List<PsiOnline> pesquisarPsiOnline()throws Exception{
-		List<PsiOnline> listaPsiOnline = new ArrayList<PsiOnline>();
-		List<Consulta> listaConsulta = new ArrayList<Consulta>();
-		
-		
-		
-		listaConsulta = new ConsultaDAO().pesquisarListaConsulta();
-		
-		
-		for (Consulta consulta : listaConsulta) {
-			
-			listaPsiOnline.add(PsiOnlineBO.pesquisarPsicologoOnline(consulta.getCodPsiOnline()));
-			
-			
-		}
-		
-		return listaPsiOnline;
-				
-		
-	}
-	
-	
-	
-	public static List<Paciente> pesquisarPaciente()throws Exception{
-		List<Paciente> listaPacientes = new ArrayList<Paciente>();
+		boolean isTruePsi = false;
 		List<Consulta> listaConsultas = new ArrayList<Consulta>();
-		List<Paciente> pTeste = new ArrayList<Paciente>();
+		List<PsiOnline> listaPsiOnlines = new ArrayList<PsiOnline>();
+		List<Consulta> listaConsultPsiOn = new ArrayList<Consulta>();
+		ConsultaDAO dao = new ConsultaDAO();
+		listaConsultas = dao.pesquisarListaConsulta();
+		PsiOnline psiOnline;
 		
-		
-		
-		listaConsultas = new  ConsultaDAO().pesquisarListaConsulta();
-		for (Consulta consulta : listaConsultas) {
+		for (Consulta consultas: listaConsultas) {
+			psiOnline = PsiOnlineBO.pesquisarPsicologoOnline(consultas.getCodPsiOnline());
 			
-			for(int i = 0; i<listaConsultas.size();i++) {
-				
-				if (listaConsultas.size()==0) {
-					listaPacientes.add(PacienteBO.pesquisarPaciente(consulta.getCodPaciente()));
-				}else if (new ConsultaDAO().pesquisarConsultaPorCod(consulta.getCodConsulta()).getCodPaciente()!=
-						listaPacientes.get(i).getCodPaciente()) {
-					listaPacientes.add(PacienteBO.pesquisarPaciente(consulta.getCodPaciente()));
+			for(Consulta x : listaConsultPsiOn) {
+				if(x.getCodPsiOnline() == psiOnline.getCodPsicologo()) {
+					isTruePsi = true;
 					break;
 				}
-				break;
-				
 			}
 			
-				
-				
+			if(!isTruePsi) {
+				listaConsultPsiOn.add(consultas);
+			}
+			isTruePsi = false;
+			
 		}
 		
 		
-	
 		
-	
+		for (Consulta consulta : listaConsultPsiOn) {
+			listaPsiOnlines.add(PsiOnlineBO.pesquisarPsicologoOnline(consulta.getCodPsiOnline()));
+		}
 		
 		
+		return listaPsiOnlines;
+				
 		
-		return listaPacientes;
 	}
+	
+	public static List<Paciente> pesquisarPaciente()throws Exception{
+		
+		boolean isTrueP = false;
+		List<Consulta> listaConsultas = new ArrayList<Consulta>();
+		List<Paciente> listaPacientes = new ArrayList<Paciente>();
+		List<Consulta> listaConsultPaciente = new ArrayList<Consulta>();
+
+		
+		ConsultaDAO dao = new ConsultaDAO();
+		listaConsultas = dao.pesquisarListaConsulta();
+		Paciente paciente;
+		for (Consulta consultas: listaConsultas) {
+			paciente = PacienteBO.pesquisarPaciente(consultas.getCodPaciente());
+			for(Consulta x : listaConsultPaciente) {
+				if(x.getCodPaciente() == paciente.getCodPaciente()) {
+					isTrueP = true;
+					break;
+				}
+			}
+			if(!isTrueP) {
+				listaConsultPaciente.add(consultas);
+			}
+			isTrueP = false;
+		}
+		
+		for (Consulta consulta : listaConsultPaciente) {
+			listaPacientes.add(PacienteBO.pesquisarPaciente(consulta.getCodPaciente()));
+		}
+		
+	return listaPacientes;
+	}
+	
 }

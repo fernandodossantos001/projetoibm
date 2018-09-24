@@ -7,7 +7,19 @@ import br.com.deschateie.beans.Avaliacao;
 import br.com.deschateie.beans.Psicologo;
 import br.com.deschateie.beans.Usuario;
 import br.com.deschateie.dao.AvaliacaoDAO;
-
+/**
+ * Classe para validar dados para tabela T_SCP_AVALIACAO
+ * possui métodos para criar,excluir,alterar e pesquisar Avaliacao
+ * @author Deschateie
+ * @version 1.0
+ * @since 1.0
+ * @see AgendamentoDAO
+ * @see Agendamento
+ * @see DataBO
+ * @see Psicologo
+ * @see Paciente
+ *
+ */
 public class AvaliacaoBO {
 	public static Avaliacao pesquisarAvaliacao(int codAvaliacao) throws Exception{
 		

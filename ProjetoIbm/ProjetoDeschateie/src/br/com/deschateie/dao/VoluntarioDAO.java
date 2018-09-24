@@ -19,7 +19,8 @@ public class VoluntarioDAO {
 	}
 	
 	public Voluntario consultarVoluntario(int codVoluntario)throws Exception{
-		stmt = con.prepareStatement("SELECT * FROM  T_SCP_USUARIO ,T_SCP_VOLUNTARIO WHERE CD_USUARIO = ? ");
+		stmt = con.prepareStatement("SELECT * FROM  T_SCP_USUARIO INNER JOIN T_SCP_VOLUNTARIO "
+				+ "ON (T_SCP_USUARIO.CD_USUARIO = T_SCP_VOLUNTARIO.CD_VOLUNTARIO) WHERE CD_USUARIO = ? ");
 		stmt.setInt(1, codVoluntario);
 		rs = stmt.executeQuery();
 		

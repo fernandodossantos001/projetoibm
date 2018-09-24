@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.deschateie.beans.Consulta;
-import br.com.deschateie.beans.Paciente;
-import br.com.deschateie.beans.PsiOnline;
 import br.com.deschateie.conexao.Conexao;
 
 public class ConsultaDAO {
@@ -54,11 +52,6 @@ public class ConsultaDAO {
 		}
 		return listaConsulta;
 	}
-	
-
-	
-	
-	
 	
 
 	public List<Consulta> pesquisarConsultaPsiOnline(int codPsiOnline)throws Exception{ 
@@ -137,7 +130,9 @@ public class ConsultaDAO {
 		return "Conversa Cadastrada com sucesso";
 	}
 
-	
+//	public String cancelarConsulta(int codConsulta)throws Exception{
+//		stmt = con.prepareStatement("UPDATE T_SP_CONSULTA");
+//	}
 	
 	public void fechar()throws Exception{
 		con.close();
