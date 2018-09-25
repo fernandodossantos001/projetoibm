@@ -9,11 +9,12 @@ import br.com.deschateie.conexao.Conexao;
 
 /**
  * Classe responsável por manipular os dados da tabela T_SCP_FORMA_PAGAMENTO
- * possui métodos para criar,alterar,consultar e excluir uma forma de pagamento
+ * possui métodos para criar,alterar,consultar e excluir dados da tabela T_SCP_FORMA_PAGAMENTO
  * @author Deschateie
  * @version 1.0
  * @since 1.0
  * @see FormaPagamento
+ * @see FormaPagamentoBO
  */
 public class FormaPagamentoDAO {
 	

@@ -11,11 +11,12 @@ import br.com.deschateie.conexao.Conexao;
 
 /** 
  * Está classe manipula a tabela T_SCP_USUARIO
- * possui método para : Cadastrar, consultar, alterar ,excluir, fechar a conexão e autenticar usuario
+ * possui método para : Cadastrar, consultar, alterar ,excluir e autenticar usuario
  * @author Fernando Santos Ribeiro
  * @version 1.0
  * @since 1.0
  * @see Usuario
+ * @see UsuarioBO
  *
  */
 
@@ -29,10 +30,10 @@ public class UsuarioDAO {
 	/**
 	 *
 	 * Neste método construtor estabelecemos a comunicação com o banco de dados
-	 * @author Fernando Santos Ribeiro
+	 * @author Deschateie
 	 * @param não possui parâmetros
 	 * @return não há retorno
-	 * @throws Exception chamada da exceção checked SQLException
+	 * @exception chamada da exceção checked SQLException
 	 */
 	public UsuarioDAO()throws Exception{
 		con = new  Conexao().conectar();
@@ -44,7 +45,7 @@ public class UsuarioDAO {
 	 * Método responsável por consultar uma linha na tabela T_SCP_USUARIO
 	 * @param recebe o nome de login do tipo String como parâmetro
 	 * @return retorna um objeto do tipo Usuairo
-	 * @throws Exception - chamada da  Exceção checked SQLException
+	 * @exception  chamada da  Exceção checked SQLException
 	 */
 	public Usuario consultarLoginUsuario(String login)throws Exception{
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_USUARIO WHERE DS_LOGIN = ?");

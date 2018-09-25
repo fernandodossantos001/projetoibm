@@ -10,7 +10,7 @@ import br.com.deschateie.beans.Usuario;
 import br.com.deschateie.conexao.Conexao;
 /**
  * Classe responsável por manipular os dados da tabela T_SCP_AGENDAMENTO
- * possui métodos para cadastrar,consultar,alterar e excluir
+ * possui métodos para cadastrar,consultar,alterar e excluir dados da tabela T_SCP_AGENDAMENTO
  * @author Deschateie
  * @version 1.0
  * @since 1.0
