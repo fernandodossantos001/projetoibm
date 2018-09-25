@@ -1,7 +1,12 @@
 package br.com.deschateie.bo;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.deschateie.beans.Consulta;
 import br.com.deschateie.beans.Paciente;
 import br.com.deschateie.beans.Usuario;
+import br.com.deschateie.dao.ConsultaDAO;
 import br.com.deschateie.dao.PacienteDAO;
 
 public class PacienteBO {
@@ -173,4 +178,37 @@ public class PacienteBO {
 		return "alterado com sucesso";
 		
 	}
+	
+	public static List<Paciente> pesquisarPacienteConsulta()throws Exception{
+		
+		boolean isTrueP = false;
+		List<Consulta> listaConsultas = new ArrayList<Consulta>();
+		List<Paciente> listaPacientes = new ArrayList<Paciente>();
+		List<Consulta> listaConsultPaciente = new ArrayList<Consulta>();
+
+		
+		ConsultaDAO dao = new ConsultaDAO();
+		listaConsultas = dao.pesquisarListaConsulta();
+		Paciente paciente;
+		for (Consulta consultas: listaConsultas) {
+			paciente = PacienteBO.pesquisarPaciente(consultas.getCodPaciente());
+			for(Consulta x : listaConsultPaciente) {
+				if(x.getCodPaciente() == paciente.getCodPaciente()) {
+					isTrueP = true;
+					break;
+				}
+			}
+			if(!isTrueP) {
+				listaConsultPaciente.add(consultas);
+			}
+			isTrueP = false;
+		}
+		
+		for (Consulta consulta : listaConsultPaciente) {
+			listaPacientes.add(PacienteBO.pesquisarPaciente(consulta.getCodPaciente()));
+		}
+		
+	return listaPacientes;
+	}
+
 }

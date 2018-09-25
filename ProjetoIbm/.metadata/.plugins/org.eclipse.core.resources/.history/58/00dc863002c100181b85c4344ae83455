@@ -1,0 +1,17 @@
+package br.com.deschateie.dao;
+
+/**
+ * Classe responsável por manipular os dados da tabela T_SCP_PAGAMENTO
+ * possui métodos para criar,alterar,consultar e excluir dados da tabela T_SCP_PAGAMENTO
+ * @author Deschateie
+ * @version 1.0
+ * @since 1.0
+ * @see PagamentoBO
+ * @see Pagamento
+ * 
+ *
+ */
+public class PagamentoDAO {
+	
+
+}

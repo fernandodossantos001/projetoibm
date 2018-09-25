@@ -1,0 +1,6 @@
+package br.com.deschateie.beans;
+
+public class Pagamento {
+	
+
+}

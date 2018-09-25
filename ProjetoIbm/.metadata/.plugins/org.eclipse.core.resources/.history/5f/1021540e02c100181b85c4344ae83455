@@ -1,0 +1,11 @@
+package br.com.deschateie.dao;
+
+/**
+ * Classe responsável por manipular os dados da tabela T_SCP_PAGAMENTO
+ * @author Fernando
+ *
+ */
+public class PagamentoDAO {
+	
+
+}

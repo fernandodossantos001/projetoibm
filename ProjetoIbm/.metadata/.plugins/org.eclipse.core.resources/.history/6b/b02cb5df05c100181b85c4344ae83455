@@ -1,0 +1,30 @@
+package br.com.deschateie.main;
+
+import br.com.deschateie.beans.Pagamento;
+import br.com.deschateie.dao.PagamentoDAO;
+import br.com.deschateie.excecao.Excecao;
+
+public class TestePagamento {
+
+	public static void main(String[] args) {
+		try {
+			System.out.println(new PagamentoDAO().gravarPagamento
+					(new Pagamento(
+							22,
+							14,
+							codPaciente, 
+							codConsulta, 
+							codFormaPagamento, 
+							valorConsulta, 
+							dataPagamento, 
+							qtdeParcelas,
+							valorDesconto
+							)));
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(Excecao.tratarExcecao(e));
+		}
+
+	}
+
+}

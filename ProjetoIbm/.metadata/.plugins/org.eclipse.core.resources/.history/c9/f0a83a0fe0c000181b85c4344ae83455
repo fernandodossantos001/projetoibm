@@ -1,0 +1,22 @@
+package br.com.deschateie.main;
+
+import br.com.deschateie.bo.ConsultaBO;
+import br.com.deschateie.excecao.Excecao;
+
+public class TesteConsulta {
+
+	public static void main(String[] args) {
+		
+		try {
+			System.out.println(ConsultaBO.pesquisarConsultas());
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(Excecao.tratarExcecao(e));
+		}
+		
+
+	}
+
+}

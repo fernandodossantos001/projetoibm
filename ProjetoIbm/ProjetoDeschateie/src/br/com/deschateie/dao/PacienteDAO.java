@@ -13,6 +13,14 @@ public class PacienteDAO {
 	private PreparedStatement stmt;
 	private ResultSet rs;
 	
+
+	/**
+	 * Método responsável por estabelecer conexão com o banco de dados
+	 * @param Não há parâmetros
+	 * @return Não há retorno
+	 * @author Deschateie
+	 * @throws Exception Chamada da exceção checked SQLException
+	 */
 	public PacienteDAO()throws Exception {
 		con= new Conexao().conectar();
 	}

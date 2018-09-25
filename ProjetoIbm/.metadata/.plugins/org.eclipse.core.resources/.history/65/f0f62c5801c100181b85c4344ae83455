@@ -1,0 +1,28 @@
+package br.com.deschateie.beans;
+
+import oracle.net.aso.i;
+
+public class Pagamento implements Comparable<Pagamento> {
+	private int codPagamento;
+	private int codPsiOnline;
+	private int codPaciente;
+	private int codConsulta;
+	private int codFormaPagamento;
+	private double valorConsulta;
+	private String dataPagamento;
+	private int qtdeParcelas;
+	private double valorDesconto;
+	
+	
+	@Override
+	public int compareTo(Pagamento o) {
+		if (codPagamento < o.codPagamento) {
+			return -1;
+		}else if(codPagamento>o.codPagamento) {
+			return 1;
+		}else {
+			return 0;
+		}
+	}
+
+}

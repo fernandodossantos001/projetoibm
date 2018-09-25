@@ -1,0 +1,14 @@
+package br.com.deschateie.beans;
+
+public class Pagamento {
+	private int codPagamento;
+	private int codPsiOnline;
+	private int codPaciente;
+	private int codConsulta;
+	private int codFormaPagamento;
+	private double valorConsulta;
+	private String dataPagamento;
+	private int qtdeParcelas;
+	private double valorDesconto;
+
+}

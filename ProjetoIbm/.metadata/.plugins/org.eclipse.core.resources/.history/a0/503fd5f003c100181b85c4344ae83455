@@ -1,0 +1,18 @@
+package br.com.deschateie.main;
+
+import br.com.deschateie.dao.PagamentoDAO;
+import br.com.deschateie.excecao.Excecao;
+
+public class TestePagamento {
+
+	public static void main(String[] args) {
+		try {
+			System.out.println(new PagamentoDAO().consultarPagamento(1));
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(Excecao.tratarExcecao(e));
+		}
+
+	}
+
+}

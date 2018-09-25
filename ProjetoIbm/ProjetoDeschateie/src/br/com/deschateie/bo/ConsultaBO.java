@@ -119,11 +119,15 @@ public class ConsultaBO {
 		return "Excluiso com sucesso";
 	}
 
-	public static List<PsiOnline> pesquisarPsiOnline()throws Exception{
+	
+	public static List<List> pesquisarPsiOnline()throws Exception{
 		boolean isTruePsi = false;
 		List<Consulta> listaConsultas = new ArrayList<Consulta>();
 		List<PsiOnline> listaPsiOnlines = new ArrayList<PsiOnline>();
 		List<Consulta> listaConsultPsiOn = new ArrayList<Consulta>();
+		List<List> listaConsultaPsiOnlines = new ArrayList<List>();
+		
+		
 		ConsultaDAO dao = new ConsultaDAO();
 		listaConsultas = dao.pesquisarListaConsulta();
 		PsiOnline psiOnline;
@@ -151,18 +155,21 @@ public class ConsultaBO {
 			listaPsiOnlines.add(PsiOnlineBO.pesquisarPsicologoOnline(consulta.getCodPsiOnline()));
 		}
 		
+		listaConsultaPsiOnlines.add(listaConsultPsiOn);
+		listaConsultaPsiOnlines.add(listaPsiOnlines);
 		
-		return listaPsiOnlines;
+		return listaConsultaPsiOnlines;
 				
 		
 	}
 	
-	public static List<Paciente> pesquisarPaciente()throws Exception{
+	public static List<List> pesquisarPaciente()throws Exception{
 		
 		boolean isTrueP = false;
 		List<Consulta> listaConsultas = new ArrayList<Consulta>();
 		List<Paciente> listaPacientes = new ArrayList<Paciente>();
 		List<Consulta> listaConsultPaciente = new ArrayList<Consulta>();
+		List<List> listaConsultaPacientes = new ArrayList<List>();
 
 		
 		ConsultaDAO dao = new ConsultaDAO();
@@ -186,7 +193,10 @@ public class ConsultaBO {
 			listaPacientes.add(PacienteBO.pesquisarPaciente(consulta.getCodPaciente()));
 		}
 		
-	return listaPacientes;
+		listaConsultaPacientes.add(listaConsultPaciente);
+		listaConsultaPacientes.add(listaPacientes);
+		
+		return listaConsultaPacientes;
 	}
 	
 }

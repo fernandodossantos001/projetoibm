@@ -1,0 +1,65 @@
+package br.com.deschateie.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import br.com.deschateie.beans.Pagamento;
+import br.com.deschateie.conexao.Conexao;
+
+/**
+ * Classe responsável por manipular os dados da tabela T_SCP_PAGAMENTO
+ * possui métodos para criar,alterar,consultar e excluir dados da tabela T_SCP_PAGAMENTO
+ * @author Deschateie
+ * @version 1.0
+ * @since 1.0
+ * @see PagamentoBO
+ * @see Pagamento
+ * 
+ *
+ */
+public class PagamentoDAO {
+	private Connection con;
+	private PreparedStatement stmt;
+	private ResultSet rs;
+	
+
+	/**
+	 * Método responsável por estabelecer conexão com o banco de dados
+	 * @param Não há parâmetros
+	 * @return Não há retorno
+	 * @author Deschateie
+	 * @throws Exception Chamada da exceção checked SQLException
+	 */
+	public PagamentoDAO()throws Exception{
+		con = new Conexao().conectar();
+	}
+
+	/**
+	 * Método responsável por consultar uma linha da tabela T_SCP_PAGAMENTO
+	 * @param Recebe um número inteiro do codigo de pagamento
+	 * @return Retorna um Objeto do tipo Pagamento
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
+	public Pagamento consultarPagamento(int codPagamento)throws Exception{
+		stmt = con.prepareStatement("SELECT * FROM T_SCP_PAGAMENTO  WHERE CD_PAGAMENTO = ?");
+		stmt.setInt(1, codPagamento);
+		rs = stmt.executeQuery();
+		if (rs.next()) {
+			return new Pagamento(
+					rs.getInt("CD_PAGAMENTO"),
+					rs.getInt("CD_PSICOLOGO_ON"),
+					rs.getInt("CD_PACIENTE"), 
+					rs.getInt("CD_CONSULTA"), 
+					rs.getInt("CD_FORMA_PGTO"), 
+					valorConsulta, 
+					dataPagamento, 
+					qtdeParcelas, 
+					valorDesconto
+					);
+		}
+		return new Pagamento();
+		
+	}
+}
