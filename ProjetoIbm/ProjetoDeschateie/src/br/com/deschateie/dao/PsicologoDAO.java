@@ -27,7 +27,7 @@ public class PsicologoDAO {
 	 * @param Não há Parâmetros
 	 * @return Não há retornos
 	 * @author Deschateie
-	 * @exception Chamada exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public PsicologoDAO() throws Exception{
 		con = new Conexao().conectar();
@@ -39,7 +39,7 @@ public class PsicologoDAO {
 	 * @param Recebe um número inteiro de codigo do Psiologo
 	 * @return Retorna um Objeto do tipo Psicologo
 	 * @author Deschateie
-	 * @exception Chamada exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public Psicologo consultarPsicologo(int codPsicologo)throws Exception{
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_USUARIO NATURAL JOIN T_SCP_PSICOLOGO  WHERE CD_USUARIO = ? AND CD_PSICOLOGO = ?");
@@ -73,7 +73,7 @@ public class PsicologoDAO {
 	 * @param Recebe um número inteiro do codigo de CRP do Psiologo
 	 * @return Retorna um Objeto do tipo Psicologo
 	 * @author Deschateie
-	 * @exception Chamada exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public Psicologo consultarPsicologoCrp(int crp)throws Exception{
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_USUARIO NATURAL JOIN T_SCP_PSICOLOGO  WHERE NR_CRP = ?");
@@ -106,7 +106,7 @@ public class PsicologoDAO {
 	 * @param Recebe um  número inteiro de codigo do Psicologo
 	 * @return Retorna uma String informando que a linha foi exluida
 	 * @author Deschateie
-	 * @exception Chamada excecão checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public  String excluirPsicologo(int codPsicologo) throws Exception{
 		stmt = con.prepareStatement("DELETE FROM T_SCP_PSICOLOGO WHERE CD_PSICOLOGO = ?");
@@ -119,7 +119,7 @@ public class PsicologoDAO {
 	 * Método responsável por alterar os dados da tabela T_SCP_PSICOLOGO
 	 * @param Recebe um Objeto do tipo Psicologo
 	 * @return Retorna uma String informando que foi atualizado com sucesso
-	 * @exception Chamada exceçao checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public String alterarDadosPsicologo(Psicologo p)throws Exception{
 		stmt = con.prepareStatement("UPDATE T_SCP_PSICOLOGO"
@@ -142,7 +142,7 @@ public class PsicologoDAO {
 	 * Método responsável por inserir uma linha na tabela T_SCP_PSICOLOGO
 	 * @param Recebe um Objeto do tipo Psicologo
 	 * @return Retorna uma String informando que foi criada com sucesso
-	 * @exception Chamada exceçao checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public String GravarPsicologo(Psicologo p)throws Exception {
 		stmt = con.prepareStatement("INSERT INTO T_SCP_PSICOLOGO "
@@ -163,7 +163,7 @@ public class PsicologoDAO {
 	 * @param Não há parâmetros
 	 * @return Não há retorno
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public void fechar()throws Exception {
 		con.close();

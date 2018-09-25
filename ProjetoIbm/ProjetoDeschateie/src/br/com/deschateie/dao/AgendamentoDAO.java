@@ -30,7 +30,7 @@ public class AgendamentoDAO {
 	 * @param não há parametros
 	 * @return não há retorno
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public AgendamentoDAO()throws Exception {
 		con = new Conexao().conectar();
@@ -41,7 +41,7 @@ public class AgendamentoDAO {
 	 * @param Recebe um número inteiro do código de agendamento
 	 * @return Retorna um Objeto do tipo  Agendamento
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public Agendamento consultarAgendamento(int codAgendamento)throws Exception{
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_AGENDAMENTO INNER JOIN T_SCP_USUARIO ON"
@@ -88,7 +88,7 @@ public class AgendamentoDAO {
 	 * @param Recebe um número inteiro do código de agendamento
 	 * @return Retorna uma String com uma mensagem de sucesso
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public String  excluirAgendamento(int codAgendamento)throws Exception {
 		stmt = con.prepareStatement("DELETE FROM T_SCP_AGENDAMENTO WHERE CD_AGENDAMENTO = ?");
@@ -102,7 +102,7 @@ public class AgendamentoDAO {
 	 * @param Recebe um Objeto do tipo Agendamento
 	 * @return Retorna uma String com a mensagem de sucesso
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException 
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public String alterarDadosAgendamento(Agendamento ag)throws Exception {
 		stmt = con.prepareStatement("UPDATE T_SCP_AGENDAMENTO SET DT_AGENDAMENTO = TO_DATE(?,'DD/MM/YYYY HH24:MI') WHERE CD_AGENDAMENTO = ?");
@@ -117,7 +117,7 @@ public class AgendamentoDAO {
 	 * @param Recebe um Objeto do tipo Agendamento
 	 * @return Retorna uma String com a mensagem de sucesso
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public String gravarAgendamento(Agendamento ag)throws Exception {
 		stmt = con.prepareStatement("INSERT INTO T_SCP_AGENDAMENTO"
@@ -137,7 +137,7 @@ public class AgendamentoDAO {
 	 * @param não há parâmetros
 	 * @return não há retorno
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public void fechar()throws Exception {
 		con.close();

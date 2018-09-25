@@ -10,13 +10,15 @@ import br.com.deschateie.beans.Usuario;
 import br.com.deschateie.conexao.Conexao;
 
 /** 
- * Está classe manipula a tabela T_SCP_USUARIO
- * possui método para : Cadastrar, consultar, alterar ,excluir e autenticar usuario
+ * Classe responsável por manipula os dados da tabela T_SCP_USUARIO
+ * possui método para : Cadastrar, consultar, alterar ,excluir e autenticar os dados da tabela T_SCP_USUARIO
  * @author Fernando Santos Ribeiro
  * @version 1.0
  * @since 1.0
  * @see Usuario
  * @see UsuarioBO
+ * @see VoluntarioBO
+ * @see PsicologoBO
  *
  */
 
@@ -33,7 +35,7 @@ public class UsuarioDAO {
 	 * @author Deschateie
 	 * @param não possui parâmetros
 	 * @return não há retorno
-	 * @exception chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public UsuarioDAO()throws Exception{
 		con = new  Conexao().conectar();
@@ -43,9 +45,10 @@ public class UsuarioDAO {
 
 	/**
 	 * Método responsável por consultar uma linha na tabela T_SCP_USUARIO
-	 * @param recebe o nome de login do tipo String como parâmetro
-	 * @return retorna um objeto do tipo Usuairo
-	 * @exception  chamada da  Exceção checked SQLException
+	 * @param Recebe uma String do nome de login do usuario
+	 * @return Retorna um Objeto do tipo Usuario
+	 * @author Deschateie
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public Usuario consultarLoginUsuario(String login)throws Exception{
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_USUARIO WHERE DS_LOGIN = ?");
@@ -69,7 +72,13 @@ public class UsuarioDAO {
 		
 	}
 	
-
+	/**
+	 * Método responsável por consultar uma linha na tabela T_SCP_USUARIO
+	 * @param Recebe um número inteiro do codigo do usuario 
+	 * @return	Retorna um Objeto do tipo Usuario
+	 * @author Deschateie
+	 * @throws Exception Chamada da exceção checked SQLException
+	 */
 	public Usuario consultarCodUsuario(int codUsuario)throws Exception{
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_USUARIO WHERE CD_USUARIO= ?");
 		stmt.setInt(1, codUsuario);
@@ -92,6 +101,13 @@ public class UsuarioDAO {
 		
 	}
 	
+	/**
+	 * Método responsável por consultar uma linha na tabela T_SCP_USUARIO
+	 * @param Recebe uma String do email do usuario
+	 * @return Retorna um Objeto do tipo Usuario
+	 * @author Deschateie
+	 * @throws Exception Chamada da exceção checked SQLException
+	 */
 	public Usuario consultarEmailUsuario(String email)throws Exception{
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_USUARIO WHERE DS_EMAIL = ?");
 		stmt.setString(1, email);
@@ -114,6 +130,13 @@ public class UsuarioDAO {
 		
 	}
 
+	/**
+	 * Método responsável por consultar várias linhas da tabela T_SCP_USUARIO
+	 * @param Recebe uma String do nome do usuario
+	 * @return Retorna um ArrayList do tipo Usuario
+	 * @author Deschateie
+	 * @throws Exception Chamada da exceção checked SQLException
+	 */
 	public List<Usuario> consultarNomesUsuario(String nome)throws Exception{
 		List<Usuario> listaUsuario = new ArrayList<Usuario>();
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_USUARIO WHERE NM_USUARIO LIKE ? ");
@@ -137,6 +160,13 @@ public class UsuarioDAO {
 		return listaUsuario;
 	}
 	
+	/**
+	 * Método responsável por inserir uma linha na tabela T_SCP_USUARIO
+	 * @param Recebe um Obejto do tipo Usuario
+	 * @return	Retorna uma String com a mensagem de sucesso
+	 * @author Deschateie
+	 * @throws Exception Chamada da exceção checked SQLException
+	 */
 	public String gravaUsuario(Usuario u)throws Exception {
 		stmt = con.prepareStatement("INSERT INTO T_SCP_USUARIO "
 				+ "(CD_USUARIO,NM_USUARIO,DS_EMAIL,DT_NASCIMENTO,DS_LOGIN,DS_SENHA,NR_NIVEL_PERMISSAO,DS_GENERO,DS_FOTO)"
@@ -157,13 +187,25 @@ public class UsuarioDAO {
 		
 	}
 
-
+	/**
+	 * Método responsável por excluir uma linha da tabela t_SCP_USUARIO
+	 * @param Recebe um número inteiro do código do usuario
+	 * @return Retorna uma String com a mensagem de sucesso
+	 * @author Deschateie
+	 * @throws Exception Chamada da exceção checked SQLException
+	 */
 	public String excluirUsuario(int codUsuario)throws Exception{
 		stmt = con.prepareStatement("DELETE FROM T_SCP_USUARIO WHERE CD_USUARIO =  ?");
 		stmt.setInt(1, codUsuario);
 		return "Foram excluidas " + stmt.executeUpdate() + " linhas";
 	}
 
+	/**
+	 * Método responsável por alterar uma linha da tabea T_SCP_USUARIO
+	 * @param Recebe um Objeto do tipo Usuario
+	 * @return	Retorna uma String com a mensagem de sucesso
+	 * @throws Exception Chamada da exceção checked SQLException
+	 */
 	public String alterarDadosUsuario(Usuario u)throws Exception{
 		stmt = con.prepareStatement("UPDATE T_SCP_USUARIO"
 									+ "	SET NM_USUARIO = ?,"
@@ -186,6 +228,15 @@ public class UsuarioDAO {
 		
 	}
 
+	
+	/**
+	 * Método responspável por autenticar(Verificar/Consultar) um login e senha na tabela T_SCP_USUARIO
+	 * @param Recebe uma String do login do usuario
+	 * @param Recebe uma String da senha do usuario
+	 * @return	Retorna um Objeto do tipo Usuario
+	 * @author Deshcateie
+	 * @throws Exception Chamada da exceção checked SQLException
+	 */
 	public Usuario autenticarUsuario(String login, String senha)throws Exception {
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_USUARIO WHERE DS_LOGIN = ? AND DS_SENHA = ?");
 		stmt.setString(1, login);
@@ -208,12 +259,26 @@ public class UsuarioDAO {
 		return new Usuario();
 	}
 
+	/**
+	 * Método responsável por alterar o nivel de permissao de uma linha da tabela T_SCP_USUARIO
+	 * @param Recebe um Obejto do tipo Usuario
+	 * @return Retorna uma String com a mensagem de sucesso
+	 * @throws Exception
+	 */
 	public String alterarNivelAcesso(Usuario u)throws Exception{
 		stmt = con.prepareStatement("UPDATE T_SCP_USUARIO SET NR_NIVEL_PERMISSAO = ? WHERE CD_USUARIO = ?");
 		stmt.setInt(1, u.getNivelPermissao());
 		stmt.setInt(2, u.getCodUsuario());
 		return stmt.executeUpdate() + "linha atualizada";
 	}
+	
+	/**
+	 * Método responsável por finalizar a conexão com o banco de dados
+	 * @param Não há parâmetros
+	 * @return Não há retorno
+	 * @author Deschateie
+	 * @throws Exception Chamada da exceção checked SQLException
+	 */
 	public void fechar()throws Exception {
 		con.close();
 	}

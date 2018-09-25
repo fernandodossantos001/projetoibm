@@ -12,7 +12,7 @@ import br.com.deschateie.conexao.Conexao;
 
 /**
  * Classe responsável por manipular os dados da tabela T_SCP_PSI_ONLINE
- * possui métodos para criar,consultar,excluir e altedado dados da tabela T_SCP_PSI_ONLINE
+ * possui métodos para criar,consultar,excluir e alterar os dados da tabela T_SCP_PSI_ONLINE
  * @author Deschateie
  * @since 1.0
  * @version 1.0
@@ -30,7 +30,7 @@ public class PsiOnlineDAO {
 	 * @param Não há Parâmetros
 	 * @return Não há retornos
 	 * @author Deschateie
-	 * @exception Chamada exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public PsiOnlineDAO()throws Exception{
 		con = new Conexao().conectar();
@@ -41,7 +41,7 @@ public class PsiOnlineDAO {
 	 * @param Recebe um número inteiro de codigo do psicologo online
 	 * @return	Retorna um Objeto do tipo PsiOnline
 	 * @author Deschateie
-	 * @exception Chamada exceção checked SLQException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public PsiOnline consultarPsiOnline(int codPsi)throws Exception{
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_USUARIO INNER JOIN T_SCP_PSICOLOGO"
@@ -79,7 +79,7 @@ public class PsiOnlineDAO {
 	 * @param Não há parâmetros
 	 * @return	Retorna um ArrayList do Objeto  PsiOnline
 	 * @author Deschateie
-	 * @exception Chamada exceção checked SLQException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public List<PsiOnline> consultarPsiOnline()throws Exception{
 		List<PsiOnline> listaPsiOnline = new ArrayList<PsiOnline>();
@@ -120,7 +120,7 @@ public class PsiOnlineDAO {
 	 * @param Recebe um Objeto do tipo PsiOnline
 	 * @return	Retorna uma String informando uma mensagem de sucesso
 	 * @author Deschateie
-	 * @exception Chamada exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public String gravarPsiOnline(PsiOnline psi)throws Exception{
 		stmt = con.prepareStatement("INSERT INTO T_SCP_PSI_ONLINE"
@@ -140,7 +140,7 @@ public class PsiOnlineDAO {
 	 * Método responsável por excluir uma linha da tabela T_SCP_PSI_ONLINE
 	 * @param Recebe um numero inteiro do codigo do psicologo online
 	 * @return	Retorna uma String informando uma mensagem de sucesso
-	 * @exception Chamada Exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public String excluirPsiOnline(int codPsi)throws Exception{
 		stmt = con.prepareStatement("DELETE FROM T_SCP_PSI_ONLINE WHERE CD_PSICOLOGO_ON = ?");
@@ -154,7 +154,7 @@ public class PsiOnlineDAO {
 	 * @param Recebe um Objeto do tipo PsiOnline
 	 * @return	Retorna uma String informando uma mensagem de sucesso
 	 * @author Deschateie
-	 * @exception Chamada exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 
 	public String alterarDadosPsiOnline(PsiOnline psi)throws Exception{
@@ -176,7 +176,7 @@ public class PsiOnlineDAO {
 	 * @param Não há parâmetros
 	 * @return Não há retorno
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public void fechar()throws Exception {
 		con.close();

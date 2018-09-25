@@ -27,7 +27,7 @@ public class EnderecoDAO {
 	 * @param Não há parâmetros
 	 * @return Não há retorno
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public  EnderecoDAO()throws Exception {
 		con = new Conexao().conectar();
@@ -38,7 +38,7 @@ public class EnderecoDAO {
 	 * @param Recebe um Objeto do tipo Endereco (com o codigo do Psicologo)
 	 * @return Retorna uma String com a mensagem de sucesso
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public String gravarEnderecoPsicologo(Endereco endereco) throws Exception {
 		stmt = con.prepareStatement("INSERT INTO T_SCP_ENDERECO "
@@ -66,7 +66,7 @@ public class EnderecoDAO {
 	 * @param Recebe um número inteiro do codigo do Psicologo(pesquisa pelo codigo do psicologo)
 	 * @return Retorna um Objeto do tipo Endereco
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public Endereco consultarEnderecoCodPsicologo(int codPsicologo)throws Exception {
 		stmt= con.prepareStatement("SELECT * FROM T_SCP_ENDERECO WHERE CD_PSICOLOGO = ?");
@@ -99,7 +99,7 @@ public class EnderecoDAO {
 	 * @param Recebe um número inteiro do codigo do Voluntario(pesquisa pelo codigo do voluntario)
 	 * @return Retorna um Objeto do tipo Endereco
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public Endereco consultarEnderecoCodVoluntario(int codVoluntario)throws Exception {
 		stmt= con.prepareStatement("SELECT * FROM T_SCP_ENDERECO WHERE CD_VOLUNTARIO = ?");
@@ -129,7 +129,7 @@ public class EnderecoDAO {
 	 * @param Recebe um Objeto do tipo Endereco (com o codigo voluntario)
 	 * @return Retorna uma String com a mensagem de sucesso
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public String gravarEnderecoVoluntario(Endereco endereco) throws Exception {
 		stmt = con.prepareStatement("INSERT INTO T_SCP_ENDERECO "
@@ -157,7 +157,7 @@ public class EnderecoDAO {
 	 * @param Recebe um número inteiro do codigo do endereco
 	 * @return Retorna um Objeto do tipo Endereco(com o codigo do psicologo)
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public Endereco consultarEnderecoPsicologo(int cdEndereco)throws Exception {
 		stmt= con.prepareStatement("SELECT * FROM T_SCP_ENDERECO WHERE CD_ENDERECO = ?");
@@ -190,7 +190,7 @@ public class EnderecoDAO {
 	 * @param Recebe um número inteiro do codigo do endereco
 	 * @return Retorna um Objeto do tipo Endereco(com o codigo do voluntario)
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	
 	public Endereco consultarEnderecoVoluntario(int cdEndereco)throws Exception {
@@ -222,7 +222,7 @@ public class EnderecoDAO {
 	 * @param Recebe uma String
 	 * @return Retorna um ArrayList do Objeto Endereco(com o codigo do Psicologo)
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public List<Endereco> consultarPorLogradouroEnderecoPsicologo(String logradouro)throws Exception{
 		List<Endereco> listaEndereco = new ArrayList<Endereco>();
@@ -258,7 +258,7 @@ public class EnderecoDAO {
 	 * @param Recebe uma String
 	 * @return Retorna um ArrayList do Objeto Endereco(com o codigo do Voluntario)
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public List<Endereco> consultarPorLogradouroEnderecoVoluntario(String logradouro)throws Exception{
 		List<Endereco> listaEndereco = new ArrayList<Endereco>();
@@ -294,7 +294,7 @@ public class EnderecoDAO {
 	 * @param Recebe um número inteiro do código de endereco
 	 * @return	Retorna uma String com a mensagem de sucesso
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public String apagarEndereco(int cdEndereco)throws Exception{
 		stmt = con.prepareStatement("DELETE FROM T_SCP_ENDERECO WHERE CD_ENDERECO = ?");
@@ -308,7 +308,7 @@ public class EnderecoDAO {
 	 * @param Recebe um Objeto do tipo Endereco(com o codigo de Psicogolo)
 	 * @return Retorna uma String com a mensagem de sucesso;
 	 * @author Deshcateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	
 	public String alterarEnderecoPsicologo(Endereco endereco)throws Exception{
@@ -341,7 +341,7 @@ public class EnderecoDAO {
 	 * @param Recebe um Objeto do tipo Endereco(com o codigo de Voluntario)
 	 * @return Retorna uma String com a mensagem de sucesso;
 	 * @author Deshcateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public String alterarEnderecoVoluntario(Endereco endereco)throws Exception{
 		stmt= con.prepareStatement("UPDATE T_SCP_ENDERECO SET DS_LOGRADOURO = ?,"
@@ -372,7 +372,7 @@ public class EnderecoDAO {
 	 * @param Não há parâmetros
 	 * @return Não há retorno
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public void fechar()throws Exception{
 		con.close();

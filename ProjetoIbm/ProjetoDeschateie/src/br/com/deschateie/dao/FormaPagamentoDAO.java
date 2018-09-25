@@ -27,7 +27,7 @@ public class FormaPagamentoDAO {
 	 * @param Não há parâmetros
 	 * @return Não há retorno
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException 
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public FormaPagamentoDAO()throws Exception {
 		this.con = new  Conexao().conectar();
@@ -39,7 +39,7 @@ public class FormaPagamentoDAO {
 	 * @param Recebe um número inteiro do codigo da FormaPagamento
 	 * @return Retorna um Objeto do tipo FormaPagamento
 	 * @author Deschateie
-	 * @exception Chamada da excecao checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public FormaPagamento consultarFormaPagamento(FormaPagamento fp)throws Exception{
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_FORMA_PAGAMENTO WHERE CD_FORMA_PGTO = ?");
@@ -61,7 +61,7 @@ public class FormaPagamentoDAO {
 	 * @param Recebe um Objeto do tipo  FormaPagamento
 	 * @return Retorna uma String com uma mensagem de sucesso
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public String gravarFormaPagamento(FormaPagamento fp)throws Exception {
 		stmt = con.prepareStatement("INSERT INTO T_SCP_FORMA_PAGAMENTO(CD_FORMA_PGTO,DS_FORMA_PGTO) VALUES(?,?)");
@@ -77,7 +77,7 @@ public class FormaPagamentoDAO {
 	 * @param Recebe um Objeto do tipo FormaPagamento
 	 * @return	Retorna uma String informando que foi alterado
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public String alterarDadosFormaPagamento(FormaPagamento fp)throws Exception {
 		stmt = con.prepareStatement("UPDATE T_SCP_FORMA_PAGAMENTO SET DS_FORMA_PGTO = ? WHERE CD_FORMA_PGTO = ?");
@@ -92,7 +92,7 @@ public class FormaPagamentoDAO {
 	 * @param Recebe um número interio do código da FormaPagamento
 	 * @return Retorna uma String  informando que a linha foi excluida
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public String exluirFormaPagamento(FormaPagamento fp)throws Exception{
 		stmt = con.prepareStatement("DELETE FROM T_SCP_FORMA_PAGAMENTO WHERE CD_FORMA_PGTO = ?");
@@ -105,7 +105,7 @@ public class FormaPagamentoDAO {
 	 * @param Não há parâmetros
 	 * @return Não há retorno
 	 * @author Deschateie
-	 * @exception Chamada da exceção checked SQLException
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public void fechar()throws Exception{
 		con.close();
