@@ -17,8 +17,6 @@ import br.com.deschateie.conexao.Conexao;
  * @version 1.0
  * @see ConsultaBO
  * @see PsiOnlineBO
- * @see PacienteBO
- * @see Consulta
  *
  */
 public class ConsultaDAO {
@@ -41,9 +39,8 @@ public class ConsultaDAO {
 	/**
 	 * Método responável por consultar uma linha da tabela T_SCP_CONSULTA
 	 * @param Recebe um número interido do codigo da consulta
-	 * @return Retorna um Objeto do tipo Consulta
-	 * @author Deschateie
-	 * @throws Exception Chamada da exceção checked SQLException
+	 * @return Retorna uma Consulta
+	 * @throws Exception
 	 */
 	public Consulta pesquisarConsultaPorCod(int codConsulta)throws Exception{ 
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_CONSULTA WHERE CD_CONSULTA = ?");
@@ -63,13 +60,6 @@ public class ConsultaDAO {
 		return new Consulta();
 	}
 
-	/**
-	 * Método responsável por consultas várias linha da tabela T_SCPC_CONSULTA
-	 * @param Não há parâmetros
-	 * @return Retorna um ArrayList do tipo Consulta
-	 * @author Deschateie
-	 * @throws Exception Chamada da exceção checked SQLException
-	 */
 	public List<Consulta> pesquisarListaConsulta()throws Exception{ 
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_CONSULTA ");
 		rs = stmt.executeQuery();
@@ -87,13 +77,7 @@ public class ConsultaDAO {
 		return listaConsulta;
 	}
 	
-	/**
-	 * Método responsável por consultas várias linha da tabela T_SCPC_CONSULTA
-	 * @param Recebe um número inteiro do código do psicologo online
-	 * @return Retorna um ArrayList do tipo Consulta
-	 * @author Deschateie
-	 * @throws Exception Chamada da exceção checked SQLException
-	 */
+
 	public List<Consulta> pesquisarConsultaPsiOnline(int codPsiOnline)throws Exception{ 
 		List<Consulta> listaConsulta = new ArrayList<Consulta>();
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_CONSULTA WHERE CD_PSICOLOGO_ON = ?");
@@ -113,13 +97,7 @@ public class ConsultaDAO {
 		return listaConsulta;
 	}
 	
-	/**
-	 * Método responsável por consultas várias linha da tabela T_SCPC_CONSULTA
-	 * @param Recebe um número inteiro do código do pacientes
-	 * @return Retorna um ArrayList do tipo Consulta
-	 * @author Deschateie
-	 * @throws Exception Chamada da exceção checked SQLException
-	 */
+	
 	public List<Consulta> pesquisarConsultaPaciente(int codPaciente)throws Exception{ 
 		List<Consulta> listaConsulta = new ArrayList<Consulta>();
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_CONSULTA WHERE CD_PACIENTE = ?");
@@ -139,24 +117,13 @@ public class ConsultaDAO {
 		return listaConsulta;
 	}
 
-	/**
-	 * Método responsável por excluir uma linha da tabela T_SCP_CONSULTA
-	 * @param Recebe um número inteiro do códgo da consulta
-	 * @return Retorna uma String com a mensagem de sucesso
-	 * @throws Exception Chamada da exceção checked SQLExcpetion
-	 */
 	public String excluirConsulta(int codConsulta)throws Exception{
 		stmt = con.prepareStatement("DELETE FROM T_SCP_CONSULTA WHERE CD_CONSULTA = ?");
 		stmt.setInt(1, codConsulta);
 		return stmt.executeUpdate() + "excluida";
 	}
 	
-	/**
-	 * Método responsável por alterar os dados de uma linha da tabela T_SCP_CONSULTA
-	 * @param Recebe um Objeto do tipo Consulta
-	 * @return Retorna uma String com a mensagem de sucesso
-	 * @throws Exception Chamada da exceção checked SQLException
-	 */
+
 	public String alterarDadosConsulta(Consulta c)throws Exception{
 		stmt = con.prepareStatement("UPDATE T_SCP_CONSULTA SET"
 									+ "CD_PSICOLOGO_ON = ?, CD_PACIENTE = ?,CD_CONVERSA = ?,"
@@ -171,12 +138,7 @@ public class ConsultaDAO {
 	}
 	
 
-	/**
-	 * Método responsável por inserir uma linha na tabela T_SCP_CONSULTA
-	 * @param Recebe um Objeto do tipo Consulta
-	 * @return	Retorna uma String com a mensagem de sucesso
-	 * @throws Exception Chama da exceção checked SQLException
-	 */
+
 	public String gravarConsulta(Consulta c)throws Exception{
 		stmt = con.prepareStatement("INSERT INTO T_SCP_CONSULTA(CD_CONSULTA,CD_PSICOLOGO_ON,"
 				+ "CD_PACIENTE,CD_CONVERSA,DT_CONSULTA,VL_NOTA_ATENDIMENTO,DS_COMENTARIO)"

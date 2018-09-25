@@ -155,7 +155,7 @@ public class ConsultaDAO {
 	 * Método responsável por alterar os dados de uma linha da tabela T_SCP_CONSULTA
 	 * @param Recebe um Objeto do tipo Consulta
 	 * @return Retorna uma String com a mensagem de sucesso
-	 * @throws Exception Chamada da exceção checked SQLException
+	 * @throws Exception
 	 */
 	public String alterarDadosConsulta(Consulta c)throws Exception{
 		stmt = con.prepareStatement("UPDATE T_SCP_CONSULTA SET"
@@ -171,12 +171,7 @@ public class ConsultaDAO {
 	}
 	
 
-	/**
-	 * Método responsável por inserir uma linha na tabela T_SCP_CONSULTA
-	 * @param Recebe um Objeto do tipo Consulta
-	 * @return	Retorna uma String com a mensagem de sucesso
-	 * @throws Exception Chama da exceção checked SQLException
-	 */
+
 	public String gravarConsulta(Consulta c)throws Exception{
 		stmt = con.prepareStatement("INSERT INTO T_SCP_CONSULTA(CD_CONSULTA,CD_PSICOLOGO_ON,"
 				+ "CD_PACIENTE,CD_CONVERSA,DT_CONSULTA,VL_NOTA_ATENDIMENTO,DS_COMENTARIO)"
