@@ -85,7 +85,7 @@ public class PsiOnlineDAO {
 		List<PsiOnline> listaPsiOnline = new ArrayList<PsiOnline>();
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_USUARIO INNER JOIN T_SCP_PSICOLOGO"
 				+ " ON CD_USUARIO = CD_PSICOLOGO INNER JOIN T_SCP_PSI_ONLINE"
-				+ " ON CD_PSICOLOGO = CD_PSICOLOGO_ON WHERE T_SCP_USUARIO.NR_NIVEL_PERMISSAO = 6");
+				+ " ON CD_PSICOLOGO = CD_PSICOLOGO_ON WHERE T_SCP_USUARIO.NR_NIVEL_PERMISSAO = 7");
 		rs = stmt.executeQuery();
 		while(rs.next()) {
 			
