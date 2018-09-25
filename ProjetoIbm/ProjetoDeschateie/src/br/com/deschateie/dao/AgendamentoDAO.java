@@ -8,16 +8,41 @@ import br.com.deschateie.beans.Agendamento;
 import br.com.deschateie.beans.Psicologo;
 import br.com.deschateie.beans.Usuario;
 import br.com.deschateie.conexao.Conexao;
-
+/**
+ * Classe responsável por manipular os dados da tabela T_SCP_AGENDAMENTO
+ * possui métodos para cadastrar,consultar,alterar e excluir
+ * @author Deschateie
+ * @version 1.0
+ * @since 1.0
+ * @see AgendamentoBO
+ * @see Agendamento
+ * @see Psicologo
+ * @see Voluntario
+ *
+ */
 public class AgendamentoDAO {
+	
 	private Connection con;
 	private PreparedStatement stmt;
 	private ResultSet rs;
-	
+	/**
+	 * Método responsável por estabelecer a conexão com o banco de dados
+	 * @param não há parametros
+	 * @return não há retorno
+	 * @author Deschateie
+	 * @exception Chamada da exceção checked SQLException
+	 */
 	public AgendamentoDAO()throws Exception {
 		con = new Conexao().conectar();
 	}
 	
+	/**
+	 * Método responsável por consultar uma linha da tabela T_SCP_AGENDAMENTO
+	 * @param Recebe um número inteiro do código de agendamento
+	 * @return Retorna um Objeto do tipo  Agendamento
+	 * @author Deschateie
+	 * @exception Chamada da exceção checked SQLException
+	 */
 	public Agendamento consultarAgendamento(int codAgendamento)throws Exception{
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_AGENDAMENTO INNER JOIN T_SCP_USUARIO ON"
 				+ "(T_SCP_AGENDAMENTO.CD_USUARIO = T_SCP_USUARIO.CD_USUARIO)"
@@ -57,7 +82,14 @@ public class AgendamentoDAO {
 		
 		return new Agendamento();
 	}
-
+	
+	/**
+	 * Método responsável por excluir uma linha da tabela T_SCP_AGENDAMENTO
+	 * @param Recebe um número inteiro do código de agendamento
+	 * @return Retorna uma String com uma mensagem de sucesso
+	 * @author Deschateie
+	 * @exception Chamada da exceção checked SQLException
+	 */
 	public String  excluirAgendamento(int codAgendamento)throws Exception {
 		stmt = con.prepareStatement("DELETE FROM T_SCP_AGENDAMENTO WHERE CD_AGENDAMENTO = ?");
 		stmt.setInt(1, codAgendamento);
@@ -65,6 +97,13 @@ public class AgendamentoDAO {
 		
 	}
 
+	/**
+	 * Método responsável por alterar os dados de uma linha da tabela T_SCP_AGENDAMENTO
+	 * @param Recebe um Objeto do tipo Agendamento
+	 * @return Retorna uma String com a mensagem de sucesso
+	 * @author Deschateie
+	 * @exception Chamada da exceção checked SQLException 
+	 */
 	public String alterarDadosAgendamento(Agendamento ag)throws Exception {
 		stmt = con.prepareStatement("UPDATE T_SCP_AGENDAMENTO SET DT_AGENDAMENTO = TO_DATE(?,'DD/MM/YYYY HH24:MI') WHERE CD_AGENDAMENTO = ?");
 		stmt.setString(1, ag.getDataAgendamento());
@@ -73,6 +112,13 @@ public class AgendamentoDAO {
 		
 	}
 
+	/**
+	 * Método responsável por inserir uma linha na tabela T_SCP_AGENDAMENTO
+	 * @param Recebe um Objeto do tipo Agendamento
+	 * @return Retorna uma String com a mensagem de sucesso
+	 * @author Deschateie
+	 * @exception Chamada da exceção checked SQLException
+	 */
 	public String gravarAgendamento(Agendamento ag)throws Exception {
 		stmt = con.prepareStatement("INSERT INTO T_SCP_AGENDAMENTO"
 									+ "(CD_AGENDAMENTO,CD_PSICOLOGO,CD_USUARIO,DT_AGENDAMENTO)"
@@ -86,6 +132,13 @@ public class AgendamentoDAO {
 		
 	}
 	
+	/**
+	 * Método responsável por finalizar a conexão com o banco de dados
+	 * @param não há parâmetros
+	 * @return não há retorno
+	 * @author Deschateie
+	 * @exception Chamada da exceção checked SQLException
+	 */
 	public void fechar()throws Exception {
 		con.close();
 	}

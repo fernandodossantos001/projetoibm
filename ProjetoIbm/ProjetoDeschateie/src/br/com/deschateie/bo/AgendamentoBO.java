@@ -24,7 +24,8 @@ public class AgendamentoBO {
 	 * @param recebe um codigo de agendamento que precisa ser um número inteiro
 	 * @return Retorna um Objeto do tipo Agendamento, que pode estar nulo se o codigo não for existente
 	 *  ou se o código passado não estiver dentro dos padrões
-	 * @throws Exception Exceção Checkd
+	 * @author Deschateie
+	 * @throws  Exceção do tipo checkd
 	 */
 	public static Agendamento pesquisarAgendamento(int codAgendamento)throws Exception{
 		if (codAgendamento<0) {
@@ -51,7 +52,8 @@ public class AgendamentoBO {
 	 * @param recebe um código de agendamento, que precisa ser um número inteiro
 	 * @return retorna uma String  informando uma mensagem de erro se o código não for válido,
 	 * o agendamento não for encontrado ou uma mensagem de sucesso se o agendamento for excluido
-	 * @throws Exception Exceção checkd
+	 * @author Deschateie
+	 * @throws Exception Exceção do tipo checkd
 	 */
 	public static String exluirAgendamento(int codAgendamento)throws Exception {
 		if (codAgendamento<0) {
@@ -81,7 +83,8 @@ public class AgendamentoBO {
 	 * 3 Verificar se a data é válida
 	 * @param Recebe um Objeto do tipo Agendamento
 	 * @return Retorna uma Stirng, informando uma mensagem de erro ou de sucesso
-	 * @throws Exception Exceção checkd
+	 * @author Deschateie
+	 * @throws Exception Exceção do tipo checkd
 	 */
 	
 	
@@ -126,7 +129,8 @@ public class AgendamentoBO {
 	 * @return retorna uma String, informando uma mensagem de erro caso 
 	 * alguma dessas regras não sejam cumpridas ou mensagem de sucesso caso o cadastro seja
 	 * efetuado com sucesso
-	 * @throws Exception Exceção checkd
+	 * @throws Exception Exceção do tipo checkd
+	 * @author Deschateie
 	 */ 
 	
 	

@@ -3,6 +3,7 @@
 	<item value="JavaSE-1.8" key="org.eclipse.jdt.ui.last.selected.execution.enviroment"/>
 	<item value="false" key="delegateUpdating"/>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
+		<item value="false" key="renameSubpackages"/>
 		<item value="false" key="updateQualifiedNames"/>
 		<item value="*" key="patterns"/>
 		<item value="false" key="updateSimilarElements"/>
@@ -61,8 +62,8 @@
 		<item value="false" key="org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControlDIALOG_USE_PERSISTED_LOCATION"/>
 	</section>
 	<section name="RefactoringWizard.preview">
-		<item value="600" key="width"/>
-		<item value="400" key="height"/>
+		<item value="580" key="width"/>
+		<item value="380" key="height"/>
 	</section>
 	<section name="SourceActionDialog.methods">
 		<item value="true" key="IgnoreDefault"/>

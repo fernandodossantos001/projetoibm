@@ -28,10 +28,9 @@ public class ClienteDAO {
 	
 	/**
 	 * Neste método construtor estabelecemos a comunicação com o banco
-	 * @author Fernando Santos Ribeiro
-	 * @param não possui parâmetros
+  	 * @param não possui parâmetros
 	 * @return não há retorno
-	 * @throws Exception camada da exceção checked SQLException
+	 * @throws Exception chamada da exceção checked SQLException
 	 */
 	public ClienteDAO() throws Exception {
 		con = new Conexao().conectar();

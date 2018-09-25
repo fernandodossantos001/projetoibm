@@ -1,12 +1,36 @@
 package br.com.deschateie.bo;
 
+import br.com.deschateie.beans.Agendamento;
 import br.com.deschateie.beans.Conversa;
 import br.com.deschateie.beans.Usuario;
 import br.com.deschateie.beans.Voluntario;
+import br.com.deschateie.dao.AgendamentoDAO;
 import br.com.deschateie.dao.ConversaDAO;
 
+
+/**
+ * Classe para validar os dados da tabela T_SCP_CONVERSA
+ * possui métodos para consultar,excluir,criar e alterar uma consulta
+ * 
+ * @author Deschateie
+ * @version 1.0
+ * @since 1.0
+ * @see ConversaDAO
+ * @see Conversa
+ *
+ */
 public class ConversaBO {
 	
+	
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas a Conversa
+	 * Regras de negócio avaliadas
+	 * 1 Verifica se o código é valido
+	 * @param Recebe um código da conversa que precisa ser um número inteiro
+	 * @return Retorna um Objeto do tipo Conversa
+	 * @throws Exception chamada de exceção do tipo checked
+	 * @author Deschateie
+	 */
 	public static Conversa pesquisarConversa(int codConversa)throws Exception {
 		if (codConversa<1) {
 			return new Conversa();
