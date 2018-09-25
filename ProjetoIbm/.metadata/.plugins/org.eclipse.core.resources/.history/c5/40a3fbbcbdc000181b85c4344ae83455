@@ -22,7 +22,7 @@ public class EnderecoBO {
 						endereco.getCep(),
 						endereco.getBairro().toUpperCase(),
 						endereco.getCidade().toUpperCase(),
-						endereco.getUf().toUpperCase().trim().substring(0, 2),
+						endereco.getUf().toUpperCase().trim().substring(0, 1),
 						endereco.getPais().toUpperCase()
 						);
 		
@@ -136,7 +136,7 @@ public class EnderecoBO {
 						endereco.getCep(),
 						endereco.getBairro().toUpperCase(),
 						endereco.getCidade().toUpperCase(),
-						endereco.getUf().toUpperCase().trim().substring(0, 2),
+						endereco.getUf().toUpperCase().trim().substring(0, 1),
 						endereco.getPais().toUpperCase()
 						);
 		
@@ -438,7 +438,7 @@ public class EnderecoBO {
 					endereco.getCep(),
 					endereco.getBairro().toUpperCase(),
 					endereco.getCidade().toUpperCase(),
-					endereco.getUf().toUpperCase().trim().substring(0, 2),
+					endereco.getUf().toUpperCase().trim().substring(0, 1),
 					endereco.getPais().toUpperCase()
 					);
 			
@@ -564,7 +564,7 @@ public class EnderecoBO {
 					endereco.getCep(),
 					endereco.getBairro().toUpperCase(),
 					endereco.getCidade().toUpperCase(),
-					endereco.getUf().toUpperCase().trim().substring(0, 2),
+					endereco.getUf().toUpperCase().trim().substring(0, 1),
 					endereco.getPais().toUpperCase()
 					);
 			
