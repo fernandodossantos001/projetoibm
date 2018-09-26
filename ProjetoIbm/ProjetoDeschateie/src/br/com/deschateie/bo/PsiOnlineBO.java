@@ -5,11 +5,28 @@ import java.util.List;
 
 import br.com.deschateie.beans.Consulta;
 import br.com.deschateie.beans.PsiOnline;
-import br.com.deschateie.dao.ConsultaDAO;
 import br.com.deschateie.dao.PsiOnlineDAO;
 
+/**
+ *  Classe para validar os dados para tebela T_SCP_PSI_ONLINE
+ * possui métodos para criar,pesquisar,alterar e excluir um PsiOnline
+ * @author Deschateie
+ * @since 1.0
+ * @version 1.0
+ * @see PsiOnline
+ * @see PsiOnlineDAO
+ */
 public class PsiOnlineBO {
 	
+	/**
+	  * Método responsável por manipular as regras de negócio relacionadas PsiOnline
+	 * Regras avaliadas
+	 * Verifica se o codigo do psicologo online é valido
+	 * @param Recebe um número inteiro do codigo do PsiOnline
+	 * @return Retorna um Objeto do tipo PsiOnline
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static PsiOnline pesquisarPsicologoOnline(int codPsi)throws Exception {
 		
 		if(codPsi <1) {
@@ -26,6 +43,13 @@ public class PsiOnlineBO {
 		return ps;
 	}
 	
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas PsiOnline
+	 * @param Não há
+	 * @return Retorna um ArrayList do tipo PsiOnline apenas com os PsiOnline temporário
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static List<PsiOnline> pesquisarPsicologosOnlineTemporario()throws Exception{
 		List<PsiOnline> listaPsi = new ArrayList<PsiOnline>();
 		PsiOnlineDAO dao = new PsiOnlineDAO();
@@ -34,6 +58,24 @@ public class PsiOnlineBO {
 		return listaPsi;
 	}
 	
+	
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas PsiOnline
+	 * Regras avaliadas
+	 * 1 Verifica se o código do PsiOnline é valido
+	 * 2 Verifica o tamanho da formacao
+	 * 3 Verifica o tamanha da forma de atendimento
+	 * 4 Verifica o tamanha da nota de atendimento
+	 * 5 Verifica a quantidade de atendimentos
+	 * 6  Verifica se o usuario que está se cadastrando como PsiOnline já faz parte da plataforma ou não,
+	 * se ele fizer ele vai apenas complementar os dados mas, se não fizer será necessário cadastrar todos os dados dele
+	 * 7 Verifica se o usuario que foi passado existe
+	  * @param Recebe um Objeto do tipo PsiOnline
+	 * @param Recebe um boolean para validar uma regra de negócio
+	 * @return Retorna uma Stirng informando uma mensagem de erro ou sucesso se nenhuma das regras 
+	 * acima for quebrada
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static String novoPsicologoOnline(PsiOnline psi, boolean ehValido)throws Exception {
 		
 		if (psi.getPeriodo().length()<0) {
@@ -83,9 +125,7 @@ public class PsiOnlineBO {
 			return "Usuario nao encontrado";
 		}
 		
-		 if(pesquisarPsicologoOnline(psi.getCodPsicologo()).getCodPsicologo()>0) {
-				return "O codigo do psicologo ja existe";
-			}
+		 
 		
 		 
 		 PsiOnlineDAO dao = new PsiOnlineDAO();
@@ -94,6 +134,17 @@ public class PsiOnlineBO {
 		 return "Psicologo online cadastrado com  sucesso";
 	}
 
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas PsiOnline
+	 * Regras Avaliada
+	 * 1 Verifica se o codigo do Psionline é valido
+	 * 2 Verifica se o PsiOnline existe
+	 * @param Recebe um número inteiro do codigo do PsiOnlines
+	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima 
+	 * sejam quebradas
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static String excluirPsicologoOnline(int codPsi)throws Exception{
 		if(codPsi<1) {
 			return "codigo invalido";
@@ -103,7 +154,9 @@ public class PsiOnlineBO {
 			return "codigo muito grande";
 		}
 		
-		
+		if(pesquisarPsicologoOnline(codPsi).getCodPsicologo()<1) {
+			return "PsiOnline não encontrado";
+		}
 		
 		PsiOnlineDAO dao = new PsiOnlineDAO();
 		String msg = dao.excluirPsiOnline(codPsi);
@@ -112,6 +165,21 @@ public class PsiOnlineBO {
 		
 	}
 	
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas PsiOnline
+	 * Regras avaliadas
+	 * 1 Verifica se o código do PsiOnline é valido
+	 * 2 Verifica o tamanho da formacao
+	 * 3 Verifica o tamanha da forma de atendimento
+	 * 4 Verifica o tamanha da nota de atendimento
+	 * 5 Verifica a quantidade de atendimentos
+	 * 7 Verifica se o usuario que foi passado existe
+	 * @param Recebe um Objeto do tipo PsiOnline
+	 * @param Recebe um boolean para validar uma regra de negócio
+	 * @return Retorna uma Stirng informando uma mensagem de erro ou sucesso se nenhuma das regras 
+	 * acima for quebrada
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static String AlterarDadosPsicologo(PsiOnline psi)throws Exception{
 		if (psi.getPeriodo().length()<0) {
 			return "O periodo nao pode estar vazio";
@@ -155,14 +223,20 @@ public class PsiOnlineBO {
 		dao.fechar();
 		return "Psicologo Online atualizado com Sucesso";
 	}
-
+	
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas PsiOnline
+	 * @param Não há
+	 * @return Retorna um ArrayList do tipo PsiOnline que estão já fizeram alguma consulta
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static List<PsiOnline> pesquisarPsiOnlineConsulta()throws Exception{
 		boolean isTruePsi = false;
 		List<Consulta> listaConsultas = new ArrayList<Consulta>();
 		List<PsiOnline> listaPsiOnlines = new ArrayList<PsiOnline>();
 		List<Consulta> listaConsultPsiOn = new ArrayList<Consulta>();
-		ConsultaDAO dao = new ConsultaDAO();
-		listaConsultas = dao.pesquisarListaConsulta();
+		listaConsultas = ConsultaBO.pesquisarConsulta();
 		PsiOnline psiOnline;
 		
 		for (Consulta consultas: listaConsultas) {
@@ -193,4 +267,5 @@ public class PsiOnlineBO {
 				
 		
 	}	
+
 }

@@ -7,8 +7,26 @@ import java.util.List;
 import br.com.deschateie.beans.Voluntario;
 import br.com.deschateie.dao.VoluntarioDAO;
 
+/**
+ *  Classe para validar os dados para tebela T_SCP_VOLUNTARIO
+ * possui métodos para criar,pesquisar,alterar e excluir um Voluntario
+ * @author Deschateie
+ * @since 1.0
+ * @version 1.0
+ * @see Voluntario
+ * @see VoluntarioDAO
+ */
 public class VoluntarioBO {
 
+	/**
+	  * Método responsável por manipular as regras de negócio relacionadas Voluntario
+	 * Regras avaliadas
+	 * Verifica se o codigo do voluntário é valido
+	 * @param Recebe um número inteiro do codigo do Voluntario
+	 * @return Retorna um Objeto do tipo Voluntario
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static Voluntario pesquisarVoluntario(int codVoluntario)throws Exception {
 		if(codVoluntario <1) {
 			return new Voluntario();
@@ -26,6 +44,26 @@ public class VoluntarioBO {
 		
 	}
 
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas Voluntario
+	 * Regras avaliadas
+	 * 1 Verifica se o código do Voluntario é valido
+	 * 2 Verifica o tamanho da formacao
+	 * 3 Verifica o tamanha do período
+	 * 4 Verifica o tamanha do comentario
+	 * 5 Verifica o tamanho do campo telefone
+	 * 6 Verifica se o RG já existe
+	 * 7 Verifica se o CPF já existe
+	 * 8 Verifica se o usuario que foi passado existe
+	 * 9  Verifica se o usuario que está se cadastrando como PsiOnline já faz parte da plataforma ou não,
+	 * se ele fizer ele vai apenas complementar os dados mas, se não fizer será necessário cadastrar todos os dados dele
+	 * 10 Verifica se o usuario que foi passado existe
+	 * @param Recebe um Objeto do tipo Voluntario
+	 * @param Recebe um boolean para validar uma regra de negócio
+	 * @return Retorna uma Stirng informando uma mensagem de erro ou sucesso se nenhuma das regras 
+	 * acima for quebrada
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static String novoVoluntario(Voluntario v,boolean ehValido)throws Exception{
 		if (v.getCodVoluntario()<0) {
 			return "Codigo voluntario invalido";
@@ -91,12 +129,27 @@ public class VoluntarioBO {
 			}
 		}
 		
+		if(UsuarioBO.pesquisarUsuarioPorCod(volu.getCodUsuario()).getCodUsuario()<1) {
+			return "Usuario não existe";
+		}
+		
 		UsuarioBO.alterarNivelAcesso(v);
 		
 		dao.gravarVoluntario(v);
 		return "Cadastrado com sucesso";
 	}
 
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas Voluntario
+	 * Regras Avaliada
+	 * 1 Verifica se o codigo do Voluntario é valido
+	 * 2 Verifica se o Voluntarioe existe
+	 * @param Recebe um número inteiro do codigo do Voluntario
+	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima 
+	 * sejam quebradas
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static String  excluirVoluntario(int codVoluntario)throws Exception {
 		if(codVoluntario <0 ) {
 			return "codigo invalido";
@@ -120,6 +173,24 @@ public class VoluntarioBO {
 		return status;
 	}
 
+	
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas Voluntario
+	 * Regras avaliadas
+	 * 1 Verifica se o código do Voluntario é valido
+	 * 2 Verifica o tamanho da formacao
+	 * 3 Verifica o tamanha do período
+	 * 4 Verifica o tamanha do comentario
+	 * 5 Verifica o tamanho do campo telefone
+	 * 6 Verifica se o RG já existe
+	 * 7 Verifica se o CPF já existe
+	 * 8 Verifica se o usuario que foi passado existe
+	 * @param Recebe um Objeto do tipo Voluntario
+	 * @param Recebe um boolean para validar uma regra de negócio
+	 * @return Retorna uma Stirng informando uma mensagem de erro ou sucesso se nenhuma das regras 
+	 * acima for quebrada
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static String alterarDadosVoluntario(Voluntario v)throws Exception{
 		
 		if (v.getCodVoluntario()<0) {
@@ -189,6 +260,13 @@ public class VoluntarioBO {
 		return "Alterado com sucesso";
 	}
 
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas Voluntario
+	 * @param Não há
+	 * @return Retorna um ArrayList do tipo PsiOnline apenas com os Voluntario temporário
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static List<Voluntario> pesquisarVoluntarioTemporarios()throws Exception{
 	List<Voluntario> listaVoluntario = new ArrayList<Voluntario>();
 	VoluntarioDAO dao = new VoluntarioDAO();

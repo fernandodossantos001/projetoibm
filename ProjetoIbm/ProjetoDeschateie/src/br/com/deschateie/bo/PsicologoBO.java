@@ -3,8 +3,26 @@ package br.com.deschateie.bo;
 import br.com.deschateie.beans.Psicologo;
 import br.com.deschateie.dao.PsicologoDAO;
 
+/**
+ *  Classe para validar os dados para tebela T_SCP_PSICOLOGO
+ * possui métodos para criar,pesquisar,alterar e excluir um psicologo
+ * @author Deschateie
+ * @since 1.0
+ * @version 1.0
+ * @see Psicologo
+ * @see PsicologoDAO
+ */
 public class PsicologoBO {
-
+	
+	/**
+	  * Método responsável por manipular as regras de negócio relacionadas Psicologo
+	 * Regras avaliadas
+	 * Verifica se o codigo do psicologo é valido
+	 * @param Recebe um número inteiro do codigo do psicologo
+	 * @return Retorna um Objeto do tipo Psicologo
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static Psicologo pesquisarPsicologo(int codPsicologo)throws Exception {
 		
 		if(codPsicologo<1 || codPsicologo > 99999) {
@@ -23,10 +41,17 @@ public class PsicologoBO {
 		
 	}
 
-	
-
-
-	
+	/**
+	  * Método responsável por manipular as regras de negócio relacionadas Psicologo
+	 * Regras avaliadas
+	 * Verifica se o codigo do psicologo é valido
+	 * Verifica se o psicologo existe
+	 * @param Recebe um número inteiro do codigo do psicologo
+	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das
+	 * regras acima seja quebrada
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static String excluirPsicologo(int codPsicologo)throws Exception {
 	
 		if (codPsicologo<0) {
@@ -44,14 +69,35 @@ public class PsicologoBO {
 		}
 		
 		PsicologoDAO dao = new PsicologoDAO();
+		
 		dao.excluirPsicologo(codPsicologo);
+		UsuarioBO.excluirUsuario(codPsicologo);
 		UsuarioBO.excluirUsuario(codPsicologo);
 		dao.fechar();
 		return "Psicologo excluido com sucesso ";
 	}
 
-
-
+	/**
+	  * Método responsável por manipular as regras de negócio relacionadas Psicologo
+	 * Regras avaliadas
+	 * 1 Verifica se o codigo do psicologo é valido
+	 * 2 Verifica o tamnho da formacao
+	 * 3 Verifica o tamanho da biografia
+	 * 4 Verifica o tamanho do telefone
+	 * 5 Verifica o tamanho a url da foto
+	 * 6 Verifica o tamanho do valor da consulta
+	 * 7 Verifica se o CRP é valido
+	 * 8 Verifica se o CRP já existe
+	 * 9 Verifica se a usuario que está se cadastrando como psicologo já faz parte da plataforma ou não,
+	 * se ele fizer ele vai apenas complementar os dados mas, se não fizer será necessário cadastrar todos os dados dele
+	 * 10 Verifica se o usuário existe no banco de dados
+	 * 11 Verifica se o código do psicologo já existe
+	 * @param Recebe um Objeto do tipo Psicologo
+	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das
+	 * regras acima seja quebrada
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static String  NovoPsicologo(Psicologo p, boolean ehValido) throws Exception{
 		
 		if(p.getCodUsuario()<0) {
@@ -117,8 +163,7 @@ public class PsicologoBO {
 		}
 		 
 		 
-		UsuarioBO.alterarNivelAcesso(p);
-		UsuarioBO.AlterarDadosUsuario(p); 
+		 UsuarioBO.alterarNivelAcesso(p);
 		 if(UsuarioBO.pesquisarUsuarioPorCod(p.getCodUsuario()).getCodUsuario()==0) {
 				return "Usuario nao encontrado";
 			}
@@ -131,10 +176,26 @@ public class PsicologoBO {
 		 dao.fechar();
 		return "Psicologo cadastrado com Sucesso";
 	}
-
 	
-
-
+	
+	/**
+	  * Método responsável por manipular as regras de negócio relacionadas Psicologo
+	 * Regras avaliadas
+	 * 1 Verifica se o codigo do psicologo é valido
+	 * 2 Verifica o tamnho da formacao
+	 * 3 Verifica o tamanho da biografia
+	 * 4 Verifica o tamanho do telefone
+	 * 5 Verifica o tamanho a url da foto
+	 * 6 Verifica o tamanho do valor da consulta
+	 * 7 Verifica se o CRP é valido
+	 * 8 Verifica se o CRP já existe
+	 * 10 Verifica se o usuário existe no banco de dados
+	 * @param Recebe um Objeto do tipo Psicologo
+	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das
+	 * regras acima seja quebrada
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static String  AlterarDadosPsicologo(Psicologo p) throws Exception{
 		
 		 if(p.getFormacao().length()<0) {

@@ -56,9 +56,9 @@ public class PacienteBO {
 	 * 3 Verifica se o tamanho do histórico é válido
 	 * 4 Verifica se as quantidades de consultas realizadas são válidas
 	 * 5 Verifica se O paciente já é cadastrado no sistema atraves do segundo parâmetro que é passado
-	 * 6 Caso o a pessoa que está prestes a se tornar um paciente já esteja cadastrada no sistema será verificado
-	 * se o código de usuario dele existe no sistema
-	 * 7 Verifica se o código passado do paciente passado já existe
+	 * 6 Verifica se o código passado do paciente passado já existe
+	 * 7 Verifica se a usuario que está se cadastrando como voluntario já faz parte da plataforma ou não,
+	 * se ele fizer ele vai apenas complementar os dados mas, se não fizer será necessário cadastrar todos os dados dele
 	 * @param Recebe um Objeto do tipo Paciente
 	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima seja quebrada
 	 * @author Deschateie
