@@ -47,6 +47,21 @@ public class ConsultaBO {
 		
 	}
 
+	
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas FormaPagamento
+	 * @param Não há
+	 * @return Retorna um ArrayList do tipo Consulta
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
+	public static List<Consulta> pesquisarConsulta()throws Exception{
+		List<Consulta> lista = new ArrayList<Consulta>();
+		ConsultaDAO dao = new ConsultaDAO();
+		lista = dao.pesquisarListaConsulta();
+		dao.fechar();
+		return lista;
+	}
 	/**
 	 * Método responsável por manipular as regras de negócio relacionadas FormaPagamento
 	 * Regras avaliadas

@@ -5,11 +5,30 @@ import java.util.List;
 
 import br.com.deschateie.beans.Consulta;
 import br.com.deschateie.beans.Paciente;
-import br.com.deschateie.dao.ConsultaDAO;
 import br.com.deschateie.dao.PacienteDAO;
-
+/**
+ *  Classe para validar os dados para tebela T_SCP_PACIENTE
+ * possui métodos para criar,pesquisar,alterar e excluir um paciente
+ * @author Deschateie
+ * @since 1.0
+ * @version 1.0
+ * @see Consulta
+ * @see ConsultaBO
+ * @see Paciente
+ * @see PacienteDAO
+ *
+ */
 public class PacienteBO {
 	
+	/**
+	  * Método responsável por manipular as regras de negócio relacionadas Paciente
+	 * Regras avaliadas
+	 * Verifica se o codigo do paciente é valido
+	 * @param Recebe um número inteiro do codigo do paciente
+	 * @return Retorna um Objeto do tipo Paciente
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static Paciente pesquisarPaciente(int codPaciente)throws Exception{
 		
 		if(codPaciente <0) {
@@ -29,14 +48,26 @@ public class PacienteBO {
 		
 	}
 
-
+	/**
+	  * Método responsável por manipular as regras de negócio relacionadas Paciente
+	 * Regras avaliadas
+	 * 1 Verifica se o codigo do paciente é válido
+	 * 2 Vericia se o tamanho do cep á válido
+	 * 3 Verifica se o tamanho do histórico é válido
+	 * 4 Verifica se as quantidades de consultas realizadas são válidas
+	 * 5 Verifica se O paciente já é cadastrado no sistema atraves do segundo parâmetro que é passado
+	 * 6 Caso o a pessoa que está prestes a se tornar um paciente já esteja cadastrada no sistema será verificado
+	 * se o código de usuario dele existe no sistema
+	 * 7 Verifica se o código passado do paciente passado já existe
+	 * @param Recebe um Objeto do tipo Paciente
+	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima seja quebrada
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static String novoPaciente(Paciente p,boolean ehvalido)throws Exception{
 		
 		
 		
-		if(p.getCodUsuario()!=p.getCodPaciente()) {
-			return "os códigos do usuario e do paciente precisam ser iguais";
-		}
 		
 		if(p.getCodPaciente()<1) {
 			return "código inválido";
@@ -85,14 +116,6 @@ public class PacienteBO {
 		
 		
 		UsuarioBO.alterarNivelAcesso(p);	
-		//Usuario user = UsuarioBO.pesquisarUsuarioPorCod(p.getCodUsuario());
-		
-		
-		
-//		Paciente paci = pesquisarPaciente(p.getCodPaciente());
-//		if(paci.getCodPaciente()>0) {
-//			return "paciente ja cadastrado";
-//		}
 		
 		if(UsuarioBO.pesquisarUsuarioPorCod(p.getCodUsuario()).getCodUsuario()==0) {
 			return "Usuario nao encontrado";
@@ -107,7 +130,17 @@ public class PacienteBO {
 		dao.fechar();
 		return "Cadastrado com suceso";
 	}
-
+	
+	/**
+	  * Método responsável por manipular as regras de negócio relacionadas Paciente
+	 * Regras avaliadas
+	 * 1 Verifica se o codigo do paciente é válido
+	 * 2 Verifica se o paciente existe
+	 * @param Recebe um número inteiro do codigo do paciente
+	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima seja quebrada
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static String excluirPaciente(int codPaciente)throws Exception{
 		
 		if(codPaciente<1) {
@@ -130,7 +163,22 @@ public class PacienteBO {
 		dao.fechar();
 		return "excluido com sucesso";
 	}
-
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas Paciente
+	 * Regras avaliadas
+	 * 1 Verifica se o codigo do paciente é válido
+	 * 2 Vericia se o tamanho do cep á válido
+	 * 3 Verifica se o tamanho do histórico é válido
+	 * 4 Verifica se as quantidades de consultas realizadas são válidas
+	 * 5 Verifica se O paciente já é cadastrado no sistema atraves do segundo parâmetro que é passado
+	 * 6 Caso o a pessoa que está prestes a se tornar um paciente já esteja cadastrada no sistema será verificado
+	 * se o código de usuario dele existe no sistema
+	 * 7 Verifica se o código passado do paciente passado já existe
+	 * @param Recebe um Objeto do tipo Paciente
+	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima seja quebrada
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static String alterarDadosPaciente(Paciente p)throws Exception{
 		
 		
@@ -178,6 +226,15 @@ public class PacienteBO {
 		
 	}
 	
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas Paciente
+	 * Regras avaliadas
+	 * 1 Verificar se o paciente já está na lista, caso esteja
+	 * o mesmo não será adicionado
+	 * @return Retorna um ArrayList do tipo Paciente
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static List<Paciente> pesquisarPacienteConsulta()throws Exception{
 		
 		boolean isTrueP = false;
@@ -186,8 +243,8 @@ public class PacienteBO {
 		List<Consulta> listaConsultPaciente = new ArrayList<Consulta>();
 
 		
-		ConsultaDAO dao = new ConsultaDAO();
-		listaConsultas = dao.pesquisarListaConsulta();
+		listaConsultas = ConsultaBO.pesquisarConsulta();
+		
 		Paciente paciente;
 		for (Consulta consultas: listaConsultas) {
 			paciente = PacienteBO.pesquisarPaciente(consultas.getCodPaciente());

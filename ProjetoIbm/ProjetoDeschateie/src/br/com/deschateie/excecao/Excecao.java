@@ -12,8 +12,6 @@ public class Excecao extends Exception{
 			return "faltou informar a hora em alguma data, verificar a data de inicio e termino";
 		}else if(e.getClass().getName().equals("java.sql.SQLRecoverableException")){
 			return "A conexão com o banco foi encerrada inesperadamente ";
-		}else if(e.getClass().getName().equals("java.lang.StringIndexOutOfBoundsException")){
-			return "teste";
 		}else {
 			return "mensagem do arquiteto";
 		}

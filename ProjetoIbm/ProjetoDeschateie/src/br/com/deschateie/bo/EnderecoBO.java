@@ -5,26 +5,38 @@ import java.util.List;
 
 import br.com.deschateie.beans.Endereco;
 import br.com.deschateie.dao.EnderecoDAO;
-
+/**
+ *  Classe para validar os dados para tebela T_SCP_ENDERECO
+ * possui métodos para criar,pesquisar,alterar e excluir um endereco
+ * @author Deschateie
+ * @since 1.0
+ * @version 1.0
+ * @see EnderecoDAO
+ * @see Endereco
+ *
+ */
 public class EnderecoBO {
 	
-	
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas Endereco
+	 * Regras avaliadas
+	 * 1 Verifica o tamanho do tipo e se não está vazio
+	 * 2 Verifica o tamanho do logradouro e se não está vazio
+	 * 3 Verifica o tamanho do número e se não está vazio
+	 * 4 Verifica o tamanho do complemento
+	 * 5 Verifica o tamanho do cep e se não está vazio
+	 * 6 Verifica o tamanho do bairro e se não está vazio
+	 * 7 Verifica o tamanho da cidade e se não está vazio
+	 * 8 Verifica o tamnhao do uf e se não está vazio
+	 * 9 Verifica se o codigo do atendente é valido
+	 * 10 Verifica se o codigo do endereco é valido
+	 * 11 Verifica se o o codigo e o endereco já existe
+	 * @param Recebe um Objeto do tipo Endereco do psicolgo
+	 * @author Deschateie
+	 * @return Retorna uma String informando o erro ou a mensagem de sucesso
+	 * @throws Exception chamada de exceção checked SQLException
+	 */
 	public static String novoEnderecoPsicologo(Endereco endereco)throws Exception {
-		
-		
-		//padronizacao
-		endereco.setAll(endereco.getCdEndereco(),
-						endereco.getCdAtendente(),
-						endereco.getTipo().toUpperCase(),
-						endereco.getLogradouro().toUpperCase(),
-						endereco.getNumero(),
-						endereco.getComplemento().toUpperCase(),
-						endereco.getCep(),
-						endereco.getBairro().toUpperCase(),
-						endereco.getCidade().toUpperCase(),
-						endereco.getUf().toUpperCase().trim().substring(0, 2),
-						endereco.getPais().toUpperCase()
-						);
 		
 		if(endereco.getTipo().length()>20) {
 			return "Quantidade de caracterdes de  Tipo muito grande";
@@ -122,23 +134,26 @@ public class EnderecoBO {
 		return "Endereco Já existente";
 	}
 
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas Endereco
+	 * Regras avaliadas
+	 * 1 Verifica o tamanho do tipo e se não está vazio
+	 * 2 Verifica o tamanho do logradouro e se não está vazio
+	 * 3 Verifica o tamanho do número e se não está vazio
+	 * 4 Verifica o tamanho do complemento
+	 * 5 Verifica o tamanho do cep e se não está vazio
+	 * 6 Verifica o tamanho do bairro e se não está vazio
+	 * 7 Verifica o tamanho da cidade e se não está vazio
+	 * 8 Verifica o tamnhao do uf e se não está vazio
+	 * 9 Verifica se o codigo do atendente é valido
+	 * 10 Verifica se o codigo do endereco é valido
+	 * 11 Verifica se o o codigo e o endereco já existe
+	 * @param Recebe um Objeto do tipo Endereco do voluntario
+	 * @return Retorna uma String informando o erro ou a mensagem de sucesso
+	 * @throws Exception chamada de exceção checked SQLException
+	 */
 	public static String novoEnderecoVoluntario(Endereco endereco)throws Exception {
 
-		
-		
-		//padronizacao
-		endereco.setAll(endereco.getCdEndereco(),
-						endereco.getCdAtendente(),
-						endereco.getTipo().toUpperCase(),
-						endereco.getLogradouro().toUpperCase(),
-						endereco.getNumero(),
-						endereco.getComplemento().toUpperCase(),
-						endereco.getCep(),
-						endereco.getBairro().toUpperCase(),
-						endereco.getCidade().toUpperCase(),
-						endereco.getUf().toUpperCase().trim().substring(0, 2),
-						endereco.getPais().toUpperCase()
-						);
 		
 		if(endereco.getCdEndereco()<1) {
 			return "código inválido";
@@ -236,7 +251,13 @@ public class EnderecoBO {
 		return "Endereco Já existente";
 	}
 
-	
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas Endereco
+	 * @param Recebe uma String com o nome do logradouro
+	 * @return Retorna um ArrayList do tipo Endereco do psicologo
+	 * @author Deschateie
+	 * @throws Exception chamda da exceção checked SQLException
+	 */
 	public static List<Endereco> pesquisarEnderecoPsicologo(String logradouro)throws Exception{
 		
 		List<Endereco> listaEndereco = new ArrayList<Endereco>();
@@ -249,6 +270,13 @@ public class EnderecoBO {
 	
 	}
 
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas Endereco
+	 * @param Recebe uma String com o nome do logradouro
+	 * @return Retorna um ArrayList do tipo Endereco do voluntario
+	 * @author Deschateie
+	 * @throws Exception chamda da exceção checked SQLException
+	 */
 	public static List<Endereco> pesquisarEnderecoVoluntario(String logradouro)throws Exception{
 		List<Endereco> listaEndereco = new ArrayList<Endereco>();
 		
@@ -260,7 +288,17 @@ public class EnderecoBO {
 	
 	}
 
-	
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas Endereco
+	 * Regras avaliada
+	 * 1 Verifica se o codigo do endereco é valido
+	 * 2 Verifica se o endereco existe
+	 * @param Recebe um número inteiro com o codigo do psicologo
+	 * @return Retorna uma String informando o erro ou o sucesso caso nenhuma regra seja
+	 * quebrada 
+	 * @author Deschateie
+	 * @throws Exception chamda da exceção checked SQLException
+	 */
 	public static String excluirEnderecoPsicologo(int cdEndereco)throws Exception{
 		if(cdEndereco < 0) {
 			return "codigo endereco inválido";
@@ -282,7 +320,16 @@ public class EnderecoBO {
 		dao.fechar(); 
 		return "O endereco foi apagado com sucesso" ;
 	}
-
+	
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas Endereco
+	 * Regra avaliada
+	 * 1 Verifica se o codigo do endereco é valido
+	 * @param Recebe um número inteiro com o codigo do psicologo
+	 * @return Retorna um Objeto do tipo Endereco 
+	 * @author Deschateie
+	 * @throws Exception chamda da exceção checked SQLException
+	 */
 	public static Endereco pesquisarEnderecoCodPsicologo(int codPsicologo)throws Exception{
 		if (codPsicologo<1) {
 			return new Endereco();
@@ -299,7 +346,15 @@ public class EnderecoBO {
 		return e;
 	}
 	
-	
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas Endereco
+	 * Regra avaliada
+	 * 1 Verifica se o codigo do endereco é valido
+	 * @param Recebe um número inteiro com o codigo do voluntario
+	 * @return Retorna um Objeto do tipo Endereco
+	 * @author Deschateie
+	 * @throws Exception chamda da exceção checked SQLException
+	 */
 	public static Endereco pesquisarEnderecoCodVoluntario(int codVoluntario)throws Exception{
 		if (codVoluntario<1) {
 			return new Endereco();
@@ -317,28 +372,26 @@ public class EnderecoBO {
 	}
 	
 
-	public static String excluirEnderecoVoluntario(int cdEndereco)throws Exception{
-		if(cdEndereco < 0) {
-			return "código endereco inválido";
-		}
-		
-		if(cdEndereco > 999999) {
-			return "quantidade de caracteres ultrapassa o permitido ";
-		}
-		
-		EnderecoDAO dao = new EnderecoDAO();
-		Endereco endereco = dao.consultarEnderecoVoluntario(cdEndereco);
-		
-		if(endereco.getCdEndereco() == 0) {
-			dao.fechar();
-			return "não foi possivel localizar um endereco com esse cep para ser apagado";
-		}
-		
-		dao.apagarEndereco(cdEndereco);
-		dao.fechar(); 
-		return "O endereco foi apagado com sucesso" ;
-	}
 
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas Endereco
+	 * Regras avaliadas
+	 * 1 Verifica o tamanho do tipo e se não está vazio
+	 * 2 Verifica o tamanho do logradouro e se não está vazio
+	 * 3 Verifica o tamanho do número e se não está vazio
+	 * 4 Verifica o tamanho do complemento
+	 * 5 Verifica o tamanho do cep e se não está vazio
+	 * 6 Verifica o tamanho do bairro e se não está vazio
+	 * 7 Verifica o tamanho da cidade e se não está vazio
+	 * 8 Verifica o tamnhao do uf e se não está vazio
+	 * 9 Verifica se o codigo do atendente é valido
+	 * 10 Verifica se o codigo do endereco é valido
+	 * 11 Verifica se o o codigo e o endereco já existe
+	 * @param Recebe um Objeto do tipo Endereco do psicologo
+	 * @return Retorna uma String informando o erro ou a mensagem de sucesso
+	 * @author Deschateie
+	 * @throws Exception chamada de exceção checked SQLException
+	 */
 	public static String alterarDadosEnderecoPsicologo(Endereco endereco)throws Exception{
 		
 		if(endereco.getCdEndereco()<1) {
@@ -428,29 +481,10 @@ public class EnderecoBO {
 		ende = dao.consultarEnderecoPsicologo(endereco.getCdEndereco());
 		
 		if(ende.getCdEndereco() != 0) {
-			
-			endereco.setAll(endereco.getCdEndereco(),
-					endereco.getCdAtendente(),
-					endereco.getTipo().toUpperCase(),
-					endereco.getLogradouro().toUpperCase(),
-					endereco.getNumero(),
-					endereco.getComplemento().toUpperCase(),
-					endereco.getCep(),
-					endereco.getBairro().toUpperCase(),
-					endereco.getCidade().toUpperCase(),
-					endereco.getUf().toUpperCase().trim().substring(0, 2),
-					endereco.getPais().toUpperCase()
-					);
-			
 			String resp = dao.alterarEnderecoPsicologo(endereco);
-
-			
-
 			dao.fechar();
 			return resp;
 		}
-		
-		
 		
 		dao.fechar();
 		return "código de endereco não encontrado";
@@ -461,7 +495,25 @@ public class EnderecoBO {
 		
 	}
 	
-	
+	/**
+	 * Método responsável por manipular as regras de negócio relacionadas Endereco
+	 * Regras avaliadas
+	 * 1 Verifica o tamanho do tipo e se não está vazio
+	 * 2 Verifica o tamanho do logradouro e se não está vazio
+	 * 3 Verifica o tamanho do número e se não está vazio
+	 * 4 Verifica o tamanho do complemento
+	 * 5 Verifica o tamanho do cep e se não está vazio
+	 * 6 Verifica o tamanho do bairro e se não está vazio
+	 * 7 Verifica o tamanho da cidade e se não está vazio
+	 * 8 Verifica o tamnhao do uf e se não está vazio
+	 * 9 Verifica se o codigo do atendente é valido
+	 * 10 Verifica se o codigo do endereco é valido
+	 * 11 Verifica se o o codigo e o endereco já existe
+	 * @param Recebe um Objeto do tipo Endereco do voluntario
+	 * @return Retorna uma String informando o erro ou a mensagem de sucesso
+	 * @author Deschateie 
+	 * @throws Exception chamada de exceção checked SQLException
+	 */	
 	public static String alterarDadosEnderecoVoluntario(Endereco endereco)throws Exception{
 
 		
@@ -554,24 +606,7 @@ public class EnderecoBO {
 		ende = dao.consultarEnderecoVoluntario(endereco.getCdEndereco());
 		
 		if(ende.getCdEndereco() != 0) {
-			
-			endereco.setAll(endereco.getCdEndereco(),
-					endereco.getCdAtendente(),
-					endereco.getTipo().toUpperCase(),
-					endereco.getLogradouro().toUpperCase(),
-					endereco.getNumero(),
-					endereco.getComplemento().toUpperCase(),
-					endereco.getCep(),
-					endereco.getBairro().toUpperCase(),
-					endereco.getCidade().toUpperCase(),
-					endereco.getUf().toUpperCase().trim().substring(0, 2),
-					endereco.getPais().toUpperCase()
-					);
-			
 			String resp = dao.alterarEnderecoVoluntario(endereco);
-
-			
-
 			dao.fechar();
 			return resp;
 		}
