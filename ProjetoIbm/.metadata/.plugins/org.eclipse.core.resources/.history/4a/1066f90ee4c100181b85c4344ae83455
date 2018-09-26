@@ -69,7 +69,7 @@ public class AvaliacaoBO {
 		
 		
 		AvaliacaoDAO  dao = new AvaliacaoDAO(); 	 
-		Avaliacao avaliacao = dao.consultarAvaliacao(codUsuario);		
+		Avaliacao avaliacao = dao.consultarAvaliacao(codAvaliacao);		
 		dao.fechar();
 		return avaliacao;
 	}

@@ -91,7 +91,7 @@ public class AvaliacaoDAO {
 	
 	/**
 	 * Método responsável por consultar a tabela T_SCP_AVALIACAO
-	 * @param codUsuario recebe o código de usuario
+	 * @param codAvaliacao recebe o código da avaliação 
 	 * @return Retorna uma Avaliacao
 	 * @throws Exception chamada da exceção checked SQLException
 	 */

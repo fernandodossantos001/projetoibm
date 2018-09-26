@@ -84,63 +84,6 @@ public class AvaliacaoDAO {
 			return new Avaliacao();
 		
 	}
-	
-	
-	
-	
-	
-	/**
-	 * Método responsável por consultar a tabela T_SCP_AVALIACAO
-	 * @param codUsuario recebe o código de usuario
-	 * @return Retorna uma Avaliacao
-	 * @throws Exception chamada da exceção checked SQLException
-	 */
-	public Avaliacao consultarAvaliacaoCodUsuario(int codUsuairo)throws Exception{
-		
-		
-		
-		stmt = con.prepareStatement("SELECT * FROM T_SCP_AVALIACAO INNER JOIN t_scp_usuario ON(T_SCP_AVALIACAO.CD_USUARIO = T_SCP_USUARIO.CD_USUARIO)" + 
-				"				INNER JOIN T_SCP_PSICOLOGO ON(T_SCP_AVALIACAO.CD_PSICOLOGO = T_SCP_PSICOLOGO.CD_PSICOLOGO )" + 
-				"				WHERE T_SCP_AVALIACAO.CD_USUARIO = ? ");
-		
-		stmt.setInt(1, codUsuairo);
-		rs = stmt.executeQuery();
-		
-		if (rs.next()) {
-				return new Avaliacao
-					(rs.getInt("CD_AVALIACAO"),
-							new Psicologo(
-									rs.getInt("CD_USUARIO"),
-									rs.getString("NM_USUARIO"),
-									rs.getString("DS_EMAIL"),
-									rs.getString("DT_NASCIMENTO"),
-									rs.getString("DS_LOGIN"),
-									rs.getString("DS_SENHA"),
-									rs.getInt("NR_NIVEL_PERMISSAO"),
-									rs.getString("DS_FOTO"),
-									rs.getString("DS_GENERO"),
-									rs.getInt("NR_CRP"),
-									rs.getString("DS_FORMACAO"),
-									rs.getString("DS_BIOGRAFIA"),
-									rs.getLong("DS_TELEFONE"),
-									rs.getDouble("VL_CONSULTA")),
-							new Usuario(rs.getInt("CD_USUARIO"),
-									rs.getString("NM_USUARIO"),
-									rs.getString("DS_EMAIL"),
-									rs.getString("DT_NASCIMENTO"),
-									rs.getString("DS_LOGIN"),
-									rs.getString("DS_SENHA"),
-									rs.getInt("NR_NIVEL_PERMISSAO"),
-									rs.getString("DS_FOTO"),
-									rs.getString("DS_GENERO")),
-									rs.getString("DT_AVALIACAO"),
-									rs.getString("DS_RESULTADO"));
-		}
-			return new Avaliacao();
-		
-	}
-
-	
 
 	/**
 	 * Método responsável por alterar o resultado(coluna) de uma linha da tabela T_SCP_AVALIACAO

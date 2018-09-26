@@ -91,19 +91,19 @@ public class AvaliacaoDAO {
 	
 	/**
 	 * Método responsável por consultar a tabela T_SCP_AVALIACAO
-	 * @param codUsuario recebe o código de usuario
+	 * @param codAvaliacao recebe o código da avaliação 
 	 * @return Retorna uma Avaliacao
 	 * @throws Exception chamada da exceção checked SQLException
 	 */
-	public Avaliacao consultarAvaliacaoCodUsuario(int codUsuairo)throws Exception{
+	public Avaliacao consultarAvaliacao(int codAvaliacao)throws Exception{
 		
 		
 		
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_AVALIACAO INNER JOIN t_scp_usuario ON(T_SCP_AVALIACAO.CD_USUARIO = T_SCP_USUARIO.CD_USUARIO)" + 
 				"				INNER JOIN T_SCP_PSICOLOGO ON(T_SCP_AVALIACAO.CD_PSICOLOGO = T_SCP_PSICOLOGO.CD_PSICOLOGO )" + 
-				"				WHERE T_SCP_AVALIACAO.CD_USUARIO = ? ");
+				"				WHERE T_SCP_AVALIACAO.CD_AVALIACAO = ? ");
 		
-		stmt.setInt(1, codUsuairo);
+		stmt.setInt(1, codAvaliacao);
 		rs = stmt.executeQuery();
 		
 		if (rs.next()) {

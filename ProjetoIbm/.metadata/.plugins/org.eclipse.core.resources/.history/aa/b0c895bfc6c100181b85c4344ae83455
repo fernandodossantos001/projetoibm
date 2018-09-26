@@ -16,7 +16,7 @@ public class TesteConsulta {
 			List<PsiOnline> listaPsi = new ArrayList<PsiOnline>();
 			List<Consulta> listaConsulta = new ArrayList<Consulta>();
 			
-			lista = ConsultaBO.pesquisarConsultaPsiOnline();
+			lista = ConsultaBO.pesquisarPsiOnline();
 			listaPsi = lista.get(1);
 			Collections.sort(listaPsi);
 			for (PsiOnline psi : listaPsi) {

@@ -43,38 +43,6 @@ public class AvaliacaoBO {
 		dao.fechar();
 		return avaliacao;
 	}
-	
-	
-	
-	
-	
-	/**
-	 * Método responsavel por manipular as regras de negócio relacionadas a Avaliacao
-	 * Regras a serem avaliada
-	 * 1 O tamanho do código da avaliação
-	 * @param codUsuario Recebe o código da avaliação que é um número inteiro 
-	 * @return Retorna uma Avaliacao, que pode estar vazia se o código for inválido ou
-	 * se a avaliacao não for encontrada e estar preenchida caso o código seja válido
-	 * @throws Exception Exceção do tipo checkd SQLException
-	 */
-	public static Avaliacao pesquisarAvaliacaoCodUsuario(int codUsuario) throws Exception{
-		
-		if (codUsuario<1) {
-			return new Avaliacao();
-		}
-		
-		if (codUsuario>99999) {
-			return new Avaliacao();
-		}
-		
-		
-		AvaliacaoDAO  dao = new AvaliacaoDAO(); 	 
-		Avaliacao avaliacao = dao.consultarAvaliacao(codUsuario);		
-		dao.fechar();
-		return avaliacao;
-	}
-
-	
 
 	/**
 	 * Método responsável por manipular as regras de negócio relacionadas a  Avaliacao
