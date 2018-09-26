@@ -22,7 +22,7 @@ public class VoluntarioBO {
 	  * Método responsável por manipular as regras de negócio relacionadas Voluntario
 	 * Regras avaliadas
 	 * Verifica se o codigo do voluntário é valido
-	 * @param Recebe um número inteiro do codigo do Voluntario
+	 * @param codVoluntario Recebe um número inteiro do codigo do Voluntario
 	 * @return Retorna um Objeto do tipo Voluntario
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -58,8 +58,8 @@ public class VoluntarioBO {
 	 * 9  Verifica se o usuario que está se cadastrando como PsiOnline já faz parte da plataforma ou não,
 	 * se ele fizer ele vai apenas complementar os dados mas, se não fizer será necessário cadastrar todos os dados dele
 	 * 10 Verifica se o usuario que foi passado existe
-	 * @param Recebe um Objeto do tipo Voluntario
-	 * @param Recebe um boolean para validar uma regra de negócio
+	 * @param v Recebe um Objeto do tipo Voluntario
+	 * @param ehValido Recebe um boolean para validar uma regra de negócio
 	 * @return Retorna uma Stirng informando uma mensagem de erro ou sucesso se nenhuma das regras 
 	 * acima for quebrada
 	 * @throws Exception chamada da exceção checked SQLException
@@ -144,7 +144,7 @@ public class VoluntarioBO {
 	 * Regras Avaliada
 	 * 1 Verifica se o codigo do Voluntario é valido
 	 * 2 Verifica se o Voluntarioe existe
-	 * @param Recebe um número inteiro do codigo do Voluntario
+	 * @param codVoluntario Recebe um número inteiro do codigo do Voluntario
 	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima 
 	 * sejam quebradas
 	 * @author Deschateie
@@ -185,8 +185,7 @@ public class VoluntarioBO {
 	 * 6 Verifica se o RG já existe
 	 * 7 Verifica se o CPF já existe
 	 * 8 Verifica se o usuario que foi passado existe
-	 * @param Recebe um Objeto do tipo Voluntario
-	 * @param Recebe um boolean para validar uma regra de negócio
+	 * @param v Recebe um Objeto do tipo Voluntario
 	 * @return Retorna uma Stirng informando uma mensagem de erro ou sucesso se nenhuma das regras 
 	 * acima for quebrada
 	 * @throws Exception chamada da exceção checked SQLException
@@ -262,7 +261,6 @@ public class VoluntarioBO {
 
 	/**
 	 * Método responsável por manipular as regras de negócio relacionadas Voluntario
-	 * @param Não há
 	 * @return Retorna um ArrayList do tipo PsiOnline apenas com os Voluntario temporário
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException

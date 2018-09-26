@@ -1,12 +1,4 @@
 package br.com.deschateie.beans;
-/**
- * Essa classe representa um endereco
- * possui os metodos metodos para recuperar cada atributo
- *  e todos os metodo para inserir dados nos atributos
- * @author Fernando Ribeiro
- * @version 1.0
- * @since 1.0
- */
 
 
 public class Endereco implements Comparable <Endereco> {
@@ -29,13 +21,7 @@ public class Endereco implements Comparable <Endereco> {
 	}
 	
 	
-	/**
-	 * Nesse método construtor estamos inserindo os dados nos atributos da classe 
-	 * @param recebe os parametros para que possa ser criado um endereco
-	 * @author Fernando Ribeiro
-	 * @return não há retorno
-	 *
-	 */
+	
 	public Endereco(int cdEndereco, int cdAtendente ,String tipo, String logradouro, String numero,
 			String complemento, String cep, String bairro, String cidade, String uf, String pais) {
 		setCdEndereco(cdEndereco);
@@ -51,14 +37,7 @@ public class Endereco implements Comparable <Endereco> {
 		setPais(pais);
 	}
 	
-	
-	/**
-	 * Nesse método estamos inserindo os dados nos atributos da classe 
-	 * @param recebe os parametros para que possa ser criado um endereco
-	 * @author Fernando Ribeiro
-	 * @return não há retorno
-	 *
-	 */
+
 	public void setAll(int cdEndereco, int cdAtendente,String tipo, String logradouro, String numero,
 			String complemento, String cep, String bairro, String cidade, String uf, String pais) {
 		
@@ -75,11 +54,6 @@ public class Endereco implements Comparable <Endereco> {
 		setPais(pais);
 	}
 
-	/**
-	 * esse método compara dois atirbutos 
-	 * @param um Endereco como parametro para que possa ser feita a comparacao
-	 * @return retorna -1,0 e 1
-	 */
 	@Override
 	public int compareTo(Endereco outro) {
 		// TODO Auto-generated method stub

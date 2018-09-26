@@ -33,7 +33,7 @@ public class UsuarioBO {
 	 * 10 Verifica se o email já existe
 	 * 11 Verifica se o login já existe
 	 * 12 Verifica se códgio de usuario já existe
-	 * @param Recebe um Objeto do tipo Usuario
+	 * @param u Recebe um Objeto do tipo Usuario
 	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima seja quebrada
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -140,7 +140,7 @@ public class UsuarioBO {
 	  * Método responsável por manipular as regras de negócio relacionadas Usuario
 	 * Regras avaliadas
 	 * Verifica o tamanho do email do usuario
-	 * @param Recebe uma String com o email do usuario
+	 * @param email Recebe uma String com o email do usuario
 	 * @return Retorna um Objeto do tipo Usuario
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -167,7 +167,7 @@ public class UsuarioBO {
 	  * Método responsável por manipular as regras de negócio relacionadas Usuario
 	 * Regras avaliadas
 	 * Verifica o tamanho do nome do usuario
-	 * @param Recebe uma String com o nome do usuario
+	 * @param nome Recebe uma String com o nome do usuario
 	 * @return Retorna um ArrayList do tipo Usuario
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -194,7 +194,7 @@ public class UsuarioBO {
 	  * Método responsável por manipular as regras de negócio relacionadas Usuario
 	 * Regras avaliadas
 	 * Verifica se o codigo do usuario é valido
-	 * @param Recebe um número inteiro do codigo do usuario
+	 * @param codUsuario Recebe um número inteiro do codigo do usuario
 	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima seja quebrada
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -238,7 +238,7 @@ public class UsuarioBO {
 	 * 9 Verifica o tamanho do email do usuario
 	 * 10 Verifica se o email já existe
 	 * 11 Verifica se o login já existe
-	 * @param Recebe um Objeto do tipo Usuario
+	 * @param u Recebe um Objeto do tipo Usuario
 	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima seja quebrada
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -362,7 +362,8 @@ public class UsuarioBO {
 	 * Regras avaliadas
 	 * 1 Verifica se o login do usuario é válido
 	 * 2 Verifica se a senha do usuario é válida
-	 * @param Recebe uma String com o login e senha do usuario
+	 * @param login Recebe uma String com o login do usuario
+	 * @param senha  Recebe uma String com  senha do usuario
 	 * @return Retorna um Objeto do tipo Usuario
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -396,7 +397,7 @@ public class UsuarioBO {
 	  * Método responsável por manipular as regras de negócio relacionadas Usuario
 	 * Regras avaliadas
 	 * 1 Verifica se o codigo de usuario é valido
-	 * @param Recebe um número interio com o codigo do usuario
+	 * @param codUsuario Recebe um número interio com o codigo do usuario
 	 * @return Retorna um Objeto do tipo Usuario
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -425,7 +426,7 @@ public class UsuarioBO {
 	 * 1 Verifica se o codigo de usuario é valido
 	 * 2 Verifica se o nivel de permissao é valido
 	 * 3 Verifica se o usuario existe
-	 * @param Recebe um Objeto do tipo Usuario
+	 * @param u Recebe um Objeto do tipo Usuario
 	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima seja quebrada
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException

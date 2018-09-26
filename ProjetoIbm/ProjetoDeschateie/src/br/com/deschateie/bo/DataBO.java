@@ -25,7 +25,7 @@ public class DataBO {
 	 * Método responsável por manipular as regras de negócio relacionadas DataBO
 	 * Regras avaliadas
 	 * 1 Verifica se a data está dentro do padrão brasileiro de datas
-	 * @param Recebe uma String que será data
+	 * @param data Recebe uma String que será data
 	 * @return	Retonar uma String informando o erro ou a própria data caso esteja
 	 * de acordo com a regra de negocios
 	 * @author Deschateie
@@ -48,7 +48,7 @@ public class DataBO {
 	 * Regras avaliadas
 	 * 1 Verifica se a data está dentro do padrão brasileiro de datas
 	 * 2 Verifica se a hora passada é valida e está dentro do padrãp brasileiro
-	 * @param Recebe uma String que será data e a hora separados por um (-)
+	 * @param dataHora Recebe uma String que será data e a hora separados por um (-)
 	 * @return	Retonar uma String informando o erro ou a própria data e hora caso esteja
 	 * de acordo com a regra de negocios
 	 * @author Deschateie
@@ -89,8 +89,8 @@ public class DataBO {
 	 * Método responsável por manipular as regras de negócio relacionadas DataBO
 	 * Regras avaliadas
 	 * 1 Verifica se o horario de termino é menor que o de inicio
-	 * @param Recebe uma String com a hora de inicio
-	 * @param Recebe uma String com a hora de termino
+	 * @param dataInicio Recebe uma String com a hora de inicio
+	 * @param dataTermino Recebe uma String com a hora de termino
 	 * @return	Retonar uma Stirng informando o erro ou (ok) caso esteja
 	 * de acordo com a regra de negocios
 	 * @author Deschateie
@@ -155,7 +155,7 @@ public class DataBO {
 	 * Método responsável por manipular as regras de negócio relacionadas DataBO
 	 * Regras avaliadas
 	 * 1 Verifica se a data e a hora está no formato padrao brasileiro pegando por referencia o horario americado
-	 * @param Recebe uma String que será data mas também pode ser a data e a hora na mesma String
+	 * @param data Recebe uma String que será data mas também pode ser a data e a hora na mesma String
 	 * @return	Retonar uma String com a nova data
 	 * de acordo com a regra de negocios
 	 * @author Deschateie

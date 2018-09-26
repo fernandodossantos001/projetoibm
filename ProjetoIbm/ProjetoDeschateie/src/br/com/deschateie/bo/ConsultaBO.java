@@ -24,7 +24,7 @@ public class ConsultaBO {
 	 * Método responsável por manipular as regras de negócio relacionadas FormaPagamento
 	 * Regras avaliadas
 	 * 1 Verifica se o codigo é valido
-	 * @param Recebe um número inteiro do código da consutla
+	 * @param codConsulta Recebe um número inteiro do código da consutla
 	 * @return Retorna um Objeto do tipo Consulta
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -50,7 +50,6 @@ public class ConsultaBO {
 	
 	/**
 	 * Método responsável por manipular as regras de negócio relacionadas FormaPagamento
-	 * @param Não há
 	 * @return Retorna um ArrayList do tipo Consulta
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -69,7 +68,7 @@ public class ConsultaBO {
 	 * 2 Verifica se a consulta existe
 	 * 3 Verifica se a consulta já foi paga,
 	 * se ela foi paga não terá como apagar
-	 * @param Recebe um número inteiro do código da consulta
+	 * @param codConsulta Recebe um número inteiro do código da consulta
 	 * @return Retorna uma String informando um erro caso as regras acima não sejam seguidas
 	 * ou uma mensagem de sucesso
 	 * @throws Exception chamada da exceção checked SQLException
@@ -211,7 +210,7 @@ public class ConsultaBO {
 	 * 7 Verifica se o tamanho do campo comentário 
 	 * 8 Verifica se a consulta já foi paga, se a consulta
 	 * tiver sido paga então as alterações não poderão ser feitas
-	 * @param Recebe um Objeto do tipo Consulta
+	 * @param c Recebe um Objeto do tipo Consulta
 	 * @return Retorna uma Stirng informando um erro caso
 	 * as regras acima não sejam seguidas ou uma mensagem de sucesso
 	 * @author Deschateie
@@ -288,7 +287,7 @@ public class ConsultaBO {
 	 * 8 Verifica se a consulta já foi paga, se a consulta
 	 * tiver sido paga então as alterações não poderão ser feitas
 	 * @param Recebe um Objeto do tipo Consulta
-	 * @return Retorna uma Stirng informando um erro caso
+	 * @return c Retorna uma Stirng informando um erro caso
 	 * as regras acima não sejam seguidas ou uma mensagem de sucesso
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException

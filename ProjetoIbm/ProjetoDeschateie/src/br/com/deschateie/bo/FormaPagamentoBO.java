@@ -18,7 +18,7 @@ public class FormaPagamentoBO {
 	  * Método responsável por manipular as regras de negócio relacionadas FormaPagamento
 	  * Regras avaliadas
 	  * 1 Verificar se o código da forma de pagamento é valido
-	  * @param Recebe um número inteiro do codigo da forma de pagamento
+	  * @param codFormaPagamento Recebe um número inteiro do codigo da forma de pagamento
 	  * @return Retorna um Objeto do tipo FormaPagamento
 	  * @author Deschateie
 	  * @throws Exception chamada da exceção checked SQLException
@@ -45,7 +45,7 @@ public class FormaPagamentoBO {
 	 * Regras avaliadas
 	 * 1 verificar se o codigo é valido
 	 * 2 Verifica se o campo da forma de pagamento é valido
-	 * @param Recebe um Objeto do tipo FormaPagamento
+	 * @param fp Recebe um Objeto do tipo FormaPagamento
 	 * @return Retornar uma String informando um erro caso algumas das regras acima
 	 * não sejam seguidas ou mensagem de sucesso 
 	 * @author Deschateie
@@ -85,7 +85,7 @@ public class FormaPagamentoBO {
 	 * Regras avaliadas
 	 * 1 verificar se o codigo é valido
 	 * 2 Verifica se o campo da forma de pagamento é valido
-	 * @param Recebe um Objeto do tipo FormaPagamento
+	 * @param fp Recebe um Objeto do tipo FormaPagamento
 	 * @return Retornar uma String informando um erro caso alguma das regras acima
 	 * não sejam seguidas ou mensagem de sucesso 
 	 * @author Deschateie
@@ -126,7 +126,7 @@ public class FormaPagamentoBO {
 	 * Regras avaliadas
 	 * 1 Verifica se o código é valido
 	 * 2 Verifica se a forma de pagamento existe
-	 * @param Recebe um número interio do codigo da forma de pagamento
+	 * @param codFormaPagamento Recebe um número interio do codigo da forma de pagamento
 	 * @return Retorna uma Stirng informando um erro caso alguma das regras acima não sejam seguidas
 	 * ou mensagem de sucesso
 	 * @author Deschateie

@@ -24,7 +24,7 @@ public class PacienteBO {
 	  * Método responsável por manipular as regras de negócio relacionadas Paciente
 	 * Regras avaliadas
 	 * Verifica se o codigo do paciente é valido
-	 * @param Recebe um número inteiro do codigo do paciente
+	 * @param codPaciente Recebe um número inteiro do codigo do paciente
 	 * @return Retorna um Objeto do tipo Paciente
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -59,7 +59,8 @@ public class PacienteBO {
 	 * 6 Verifica se o código passado do paciente passado já existe
 	 * 7 Verifica se a usuario que está se cadastrando como voluntario já faz parte da plataforma ou não,
 	 * se ele fizer ele vai apenas complementar os dados mas, se não fizer será necessário cadastrar todos os dados dele
-	 * @param Recebe um Objeto do tipo Paciente
+	 * @param p Recebe um Objeto do tipo Paciente
+	 * @param ehValido
 	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima seja quebrada
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -136,7 +137,7 @@ public class PacienteBO {
 	 * Regras avaliadas
 	 * 1 Verifica se o codigo do paciente é válido
 	 * 2 Verifica se o paciente existe
-	 * @param Recebe um número inteiro do codigo do paciente
+	 * @param codPaciente Recebe um número inteiro do codigo do paciente
 	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima seja quebrada
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -174,7 +175,7 @@ public class PacienteBO {
 	 * 6 Caso o a pessoa que está prestes a se tornar um paciente já esteja cadastrada no sistema será verificado
 	 * se o código de usuario dele existe no sistema
 	 * 7 Verifica se o código passado do paciente passado já existe
-	 * @param Recebe um Objeto do tipo Paciente
+	 * @param p Recebe um Objeto do tipo Paciente
 	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima seja quebrada
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException

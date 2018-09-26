@@ -22,7 +22,7 @@ public class PsiOnlineBO {
 	  * Método responsável por manipular as regras de negócio relacionadas PsiOnline
 	 * Regras avaliadas
 	 * Verifica se o codigo do psicologo online é valido
-	 * @param Recebe um número inteiro do codigo do PsiOnline
+	 * @param codPsi Recebe um número inteiro do codigo do PsiOnline
 	 * @return Retorna um Objeto do tipo PsiOnline
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -45,7 +45,6 @@ public class PsiOnlineBO {
 	
 	/**
 	 * Método responsável por manipular as regras de negócio relacionadas PsiOnline
-	 * @param Não há
 	 * @return Retorna um ArrayList do tipo PsiOnline apenas com os PsiOnline temporário
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -70,8 +69,8 @@ public class PsiOnlineBO {
 	 * 6  Verifica se o usuario que está se cadastrando como PsiOnline já faz parte da plataforma ou não,
 	 * se ele fizer ele vai apenas complementar os dados mas, se não fizer será necessário cadastrar todos os dados dele
 	 * 7 Verifica se o usuario que foi passado existe
-	  * @param Recebe um Objeto do tipo PsiOnline
-	 * @param Recebe um boolean para validar uma regra de negócio
+	 * @param psi Recebe um Objeto do tipo PsiOnline
+	 * @param ehValido Recebe um boolean para validar uma regra de negócio
 	 * @return Retorna uma Stirng informando uma mensagem de erro ou sucesso se nenhuma das regras 
 	 * acima for quebrada
 	 * @throws Exception chamada da exceção checked SQLException
@@ -139,7 +138,7 @@ public class PsiOnlineBO {
 	 * Regras Avaliada
 	 * 1 Verifica se o codigo do Psionline é valido
 	 * 2 Verifica se o PsiOnline existe
-	 * @param Recebe um número inteiro do codigo do PsiOnlines
+	 * @param codPsi Recebe um número inteiro do codigo do PsiOnlines
 	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima 
 	 * sejam quebradas
 	 * @author Deschateie
@@ -174,8 +173,7 @@ public class PsiOnlineBO {
 	 * 4 Verifica o tamanha da nota de atendimento
 	 * 5 Verifica a quantidade de atendimentos
 	 * 7 Verifica se o usuario que foi passado existe
-	 * @param Recebe um Objeto do tipo PsiOnline
-	 * @param Recebe um boolean para validar uma regra de negócio
+	 * @param psi Recebe um Objeto do tipo PsiOnline
 	 * @return Retorna uma Stirng informando uma mensagem de erro ou sucesso se nenhuma das regras 
 	 * acima for quebrada
 	 * @throws Exception chamada da exceção checked SQLException
@@ -226,7 +224,6 @@ public class PsiOnlineBO {
 	
 	/**
 	 * Método responsável por manipular as regras de negócio relacionadas PsiOnline
-	 * @param Não há
 	 * @return Retorna um ArrayList do tipo PsiOnline que estão já fizeram alguma consulta
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException

@@ -19,7 +19,7 @@ public class PagamentoBO {
 	 * Métod responsável por manipular a regra de negócio relacionado ao pagamento
 	 * Regra avaliada
 	 * 1 Verificar se o código do pagamento é valido
-	 * @param Recebe um número inteiro do código de pagamento
+	 * @param codPagamento Recebe um número inteiro do código de pagamento
 	 * @return Retornar um Objeto do tipo Pagamento
 	 * @throws Exception chamada da exceção checked SQLException
 	 */
@@ -42,7 +42,7 @@ public class PagamentoBO {
 	 * Métod responsável por manipular a regra de negócio relacionado ao pagamento
 	 * Regra avaliada
 	 * 1 Verificar se o código do pagamento é valido
-	 * @param Recebe um número inteiro do código de consulta
+	 * @param codConsulta Recebe um número inteiro do código de consulta
 	 * @return Retornar um Objeto do tipo Pagamento
 	 * @throws Exception chamada da exceção checked SQLException
 	 */

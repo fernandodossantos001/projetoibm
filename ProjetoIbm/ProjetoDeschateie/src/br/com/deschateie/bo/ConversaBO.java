@@ -22,7 +22,7 @@ public class ConversaBO {
 	 * Método responsável por manipular as regras de negócio relacionadas a Conversa
 	 * Regras de negócio avaliadas
 	 * 1 Verifica se o código é valido
-	 * @param Recebe um código da conversa que precisa ser um número inteiro
+	 * @param codConversa Recebe um código da conversa que precisa ser um número inteiro
 	 * @return Retorna um Objeto do tipo Conversa
 	 * @throws Exception chamada de exceção do tipo checked
 	 * @author Deschateie
@@ -47,7 +47,7 @@ public class ConversaBO {
 	 * Regras avaliadas
 	 * 1 Verifica se o código é valido
 	 * 2 Verifica através do código se a conversa existe
-	 * @param Recebe um número inteiro do codigo da conversa
+	 * @param codConversa Recebe um número inteiro do codigo da conversa
 	 * @return Retorna uma String informando um erro se alguma das regras acima
 	 * não estiverem sendo cumpridas ou uma mensagem de sucesso
 	 * @throws Exception chamada da exceção checked SQLException
@@ -78,7 +78,7 @@ public class ConversaBO {
 	 * 2 Verifica se a data da convers é válida
 	 * 3 Verifica se o códgio da conversa passado já existe
 	 * 4 Verifica se o voluntario existe 
-	 * @param Recebe um Objeto do tipo Conversa
+	 * @param c Recebe um Objeto do tipo Conversa
 	 * @return Retorna uma String informando um erro se alguma das regras acima 
 	 * não estivem sendo cumpridas ou uma mensagem de sucesso
 	 * @throws Exception chamada da exceção checked SQLException
@@ -134,7 +134,7 @@ public class ConversaBO {
 	 * 3 Verifica se o códgio da conversa passado já existe
 	 * 4 Verifica se o voluntario existe 
 	 * @param Recebe um Objeto do tipo Conversa
-	 * @return Retorna uma String informando um erro se alguma das regras acima 
+	 * @return c Retorna uma String informando um erro se alguma das regras acima 
 	 * não estivem sendo cumpridas ou uma mensagem de sucesso
 	 * @throws Exception chamada da exceção checked SQLException
 	 */

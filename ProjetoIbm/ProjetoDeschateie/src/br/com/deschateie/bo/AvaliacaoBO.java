@@ -24,10 +24,10 @@ public class AvaliacaoBO {
 	 * Método responsavel por manipular as regras de negócio relacionadas a Avaliacao
 	 * Regras a serem avaliada
 	 * 1 O tamanho do código da avaliação
-	 * @param Recebe o código da avaliação que é um número inteiro 
+	 * @param codAvaliacao Recebe o código da avaliação que é um número inteiro 
 	 * @return Retorna uma Avaliacao, que pode estar vazia se o código for inválido ou
 	 * se a avaliacao não for encontrada e estar preenchida caso o código seja válido
-	 * @throws Exception Exceção do tipo checkd
+	 * @throws Exception Exceção do tipo checkd SQLException
 	 */
 	public static Avaliacao pesquisarAvaliacao(int codAvaliacao) throws Exception{
 		
@@ -60,10 +60,10 @@ public class AvaliacaoBO {
 	 * 9 Verificar se o usuario que está sendo cadastrado pretende se tornar um
 	 * voluntario ou psicologo online, sendo o nivel de acesso no voluntario 7
 	 * e o nivel de acesso do psicologo 6
-	 * @param Recebe uma um objeto do tipo Avaliacao
+	 * @param av Recebe uma um objeto do tipo Avaliacao
 	 * @return Retorna uma String, podendo conter a mensagem de sucesso ou de erro se 
 	 *  se a avaliacao passada não estiver de acordo com as regras acima
-	 * @throws Exception Exceção do tipo checkd
+	 * @throws Exception Exceção do tipo checked SQLException
 	 */
 	public static String novaAvaliacao(Avaliacao av)throws Exception{
 		
@@ -128,10 +128,10 @@ public class AvaliacaoBO {
 	 * Regras a serem avaliadas
 	 * 1 Verifica o tamnho do código da avaliação
 	 * 2 Verificar se a avaliação existe através do código 
-	 * @param Recebe o código da avaliação
+	 * @param codAvaliacao Recebe o código da avaliação
 	 * @return Retorna uma String, podendo conter uma mensagem de suceso ou de erro caso 
 	 *  alguma regra de negócio não seja cumprida
-	 * @throws Exception
+	 * @throws Exception Exceção do tipo checked SQLException
 	 */
 	public static String excluirAvaliacaoVoluntario(int codAvaliacao)throws Exception{
 		if(codAvaliacao<0) {
@@ -164,9 +164,9 @@ public class AvaliacaoBO {
 	 * voluntario ou psicologo online, sendo o nivel de acesso no voluntario 7
 	 * e o nivel de acesso do psicologo 6
 	 * 5 Verifica se o código da avaliação é valido
-	 * @param av
-	 * @return
-	 * @throws Exception
+	 * @param av Recebe um Objeto do tipo Avaliacao
+	 * @return Retorna uma String
+	 * @throws Exception chamada exceção checked SQLException
 	 */
 	public static String alterarDadosAvaliacao(Avaliacao av)throws Exception {
 		
@@ -219,11 +219,11 @@ public class AvaliacaoBO {
 	 * 4 Verifica se o usuario que está sendo avaliado quer se tornar um psicologo ou paciente
 	 * e inseri o nivel de acesso caso usuario queria se tornar psicologo 
 	 * o nivel é 3 e se quiser ser voluntario o nivel é 2
-	 * @param Recebe um Objeto do tipo Avaliacao
+	 * @param av Recebe um Objeto do tipo Avaliacao
 	 * @return Retorna uma String, podendo conter uma mesagem de erro caso
 	 * algumas das regras acima não sejam seguidas ou  uma mensagem de sucesso caso
 	 * a avaliação seja feita com sucesso
-	 * @throws Exception
+	 * @throws Exception Exceção do tipo checked SQLException
 	 */
 	public static String avaliar(Avaliacao av)throws Exception{
 		if (av.getCodAvaliacao()<1) {

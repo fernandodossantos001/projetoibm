@@ -31,7 +31,7 @@ public class EnderecoBO {
 	 * 9 Verifica se o codigo do atendente é valido
 	 * 10 Verifica se o codigo do endereco é valido
 	 * 11 Verifica se o o codigo e o endereco já existe
-	 * @param Recebe um Objeto do tipo Endereco do psicolgo
+	 * @param endereco Recebe um Objeto do tipo Endereco do psicolgo
 	 * @author Deschateie
 	 * @return Retorna uma String informando o erro ou a mensagem de sucesso
 	 * @throws Exception chamada de exceção checked SQLException
@@ -148,7 +148,7 @@ public class EnderecoBO {
 	 * 9 Verifica se o codigo do atendente é valido
 	 * 10 Verifica se o codigo do endereco é valido
 	 * 11 Verifica se o o codigo e o endereco já existe
-	 * @param Recebe um Objeto do tipo Endereco do voluntario
+	 * @param endereco Recebe um Objeto do tipo Endereco do voluntario
 	 * @return Retorna uma String informando o erro ou a mensagem de sucesso
 	 * @throws Exception chamada de exceção checked SQLException
 	 */
@@ -253,7 +253,7 @@ public class EnderecoBO {
 
 	/**
 	 * Método responsável por manipular as regras de negócio relacionadas Endereco
-	 * @param Recebe uma String com o nome do logradouro
+	 * @param logradouro Recebe uma String com o nome do logradouro
 	 * @return Retorna um ArrayList do tipo Endereco do psicologo
 	 * @author Deschateie
 	 * @throws Exception chamda da exceção checked SQLException
@@ -272,7 +272,7 @@ public class EnderecoBO {
 
 	/**
 	 * Método responsável por manipular as regras de negócio relacionadas Endereco
-	 * @param Recebe uma String com o nome do logradouro
+	 * @param logradouro Recebe uma String com o nome do logradouro
 	 * @return Retorna um ArrayList do tipo Endereco do voluntario
 	 * @author Deschateie
 	 * @throws Exception chamda da exceção checked SQLException
@@ -293,7 +293,7 @@ public class EnderecoBO {
 	 * Regras avaliada
 	 * 1 Verifica se o codigo do endereco é valido
 	 * 2 Verifica se o endereco existe
-	 * @param Recebe um número inteiro com o codigo do psicologo
+	 * @param cdEndereco Recebe um número inteiro com o codigo do psicologo
 	 * @return Retorna uma String informando o erro ou o sucesso caso nenhuma regra seja
 	 * quebrada 
 	 * @author Deschateie
@@ -325,7 +325,7 @@ public class EnderecoBO {
 	 * Método responsável por manipular as regras de negócio relacionadas Endereco
 	 * Regra avaliada
 	 * 1 Verifica se o codigo do endereco é valido
-	 * @param Recebe um número inteiro com o codigo do psicologo
+	 * @param codPsicologo Recebe um número inteiro com o codigo do psicologo
 	 * @return Retorna um Objeto do tipo Endereco 
 	 * @author Deschateie
 	 * @throws Exception chamda da exceção checked SQLException
@@ -350,7 +350,7 @@ public class EnderecoBO {
 	 * Método responsável por manipular as regras de negócio relacionadas Endereco
 	 * Regra avaliada
 	 * 1 Verifica se o codigo do endereco é valido
-	 * @param Recebe um número inteiro com o codigo do voluntario
+	 * @param codVoluntario Recebe um número inteiro com o codigo do voluntario
 	 * @return Retorna um Objeto do tipo Endereco
 	 * @author Deschateie
 	 * @throws Exception chamda da exceção checked SQLException
@@ -387,7 +387,7 @@ public class EnderecoBO {
 	 * 9 Verifica se o codigo do atendente é valido
 	 * 10 Verifica se o codigo do endereco é valido
 	 * 11 Verifica se o o codigo e o endereco já existe
-	 * @param Recebe um Objeto do tipo Endereco do psicologo
+	 * @param endereco Recebe um Objeto do tipo Endereco do psicologo
 	 * @return Retorna uma String informando o erro ou a mensagem de sucesso
 	 * @author Deschateie
 	 * @throws Exception chamada de exceção checked SQLException
@@ -509,7 +509,7 @@ public class EnderecoBO {
 	 * 9 Verifica se o codigo do atendente é valido
 	 * 10 Verifica se o codigo do endereco é valido
 	 * 11 Verifica se o o codigo e o endereco já existe
-	 * @param Recebe um Objeto do tipo Endereco do voluntario
+	 * @param endereco Recebe um Objeto do tipo Endereco do voluntario
 	 * @return Retorna uma String informando o erro ou a mensagem de sucesso
 	 * @author Deschateie 
 	 * @throws Exception chamada de exceção checked SQLException

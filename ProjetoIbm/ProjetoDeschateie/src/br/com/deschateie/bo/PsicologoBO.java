@@ -18,7 +18,7 @@ public class PsicologoBO {
 	  * Método responsável por manipular as regras de negócio relacionadas Psicologo
 	 * Regras avaliadas
 	 * Verifica se o codigo do psicologo é valido
-	 * @param Recebe um número inteiro do codigo do psicologo
+	 * @param codPsicologo Recebe um número inteiro do codigo do psicologo
 	 * @return Retorna um Objeto do tipo Psicologo
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -46,7 +46,7 @@ public class PsicologoBO {
 	 * Regras avaliadas
 	 * Verifica se o codigo do psicologo é valido
 	 * Verifica se o psicologo existe
-	 * @param Recebe um número inteiro do codigo do psicologo
+	 * @param codPsicologo Recebe um número inteiro do codigo do psicologo
 	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das
 	 * regras acima seja quebrada
 	 * @author Deschateie
@@ -92,7 +92,8 @@ public class PsicologoBO {
 	 * se ele fizer ele vai apenas complementar os dados mas, se não fizer será necessário cadastrar todos os dados dele
 	 * 10 Verifica se o usuário existe no banco de dados
 	 * 11 Verifica se o código do psicologo já existe
-	 * @param Recebe um Objeto do tipo Psicologo
+	 * @param p Recebe um Objeto do tipo Psicologo
+	 * @param ehValido recebe um boolean para verificar se o usuario já está no banco ou não 
 	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das
 	 * regras acima seja quebrada
 	 * @author Deschateie
@@ -190,7 +191,7 @@ public class PsicologoBO {
 	 * 7 Verifica se o CRP é valido
 	 * 8 Verifica se o CRP já existe
 	 * 10 Verifica se o usuário existe no banco de dados
-	 * @param Recebe um Objeto do tipo Psicologo
+	 * @param p Recebe um Objeto do tipo Psicologo
 	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das
 	 * regras acima seja quebrada
 	 * @author Deschateie
