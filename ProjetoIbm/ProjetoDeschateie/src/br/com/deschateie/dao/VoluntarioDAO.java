@@ -112,8 +112,47 @@ public class VoluntarioDAO {
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public Voluntario consultarVoluntarioCpf(long cpf)throws Exception{
-		stmt = con.prepareStatement("SELECT * FROM  T_SCP_USUARIO ,T_SCP_VOLUNTARIO WHERE CR_CPF = ? ");
+		stmt = con.prepareStatement("SELECT * FROM  T_SCP_USUARIO "
+				+ "INNER JOIN T_SCP_VOLUNTARIO ON(T_SCP_USUARIO.CD_USUARIO = T_SCP_VOLUNTARIO.CD_VOLUNTARIO)"
+				+ "WHERE NR_CPF = ? ");
 		stmt.setLong(1, cpf);
+		rs = stmt.executeQuery();
+		
+		if(rs.next()) { 
+			return new  Voluntario(
+									rs.getInt("CD_USUARIO"),
+									rs.getString("NM_USUARIO"),
+									rs.getString("DS_EMAIL"),
+									rs.getString("DT_NASCIMENTO"),
+									rs.getString("DS_LOGIN"),
+									rs.getString("DS_SENHA"),
+									rs.getInt("NR_NIVEL_PERMISSAO"),
+									rs.getString("DS_FOTO"),
+									rs.getString("DS_GENERO"),
+									rs.getString("NR_RG"),
+									rs.getLong("NR_CPF"),
+									rs.getString("DS_FORMACAO"),
+									rs.getString("DS_PERIODO"),
+									rs.getString("DS_COMENTARIO"),
+									rs.getLong("DS_TELEFONE"));
+		}else {
+			return new Voluntario();
+		}
+	}
+	
+	
+	/**
+	 * Método responsável por consultar uma linha da tabela T_SCP_VOLUNTARIO
+	 * @param rg Recebe um número long do cpf do voluntario
+	 * @return	Retorna um  Objeto do tipo Voluntario
+	 * @author Deschateie
+	 * @throws Exception Chamada da exceção checked SQLException
+	 */
+	public Voluntario consultarVoluntarioRg(String rg)throws Exception{
+		stmt = con.prepareStatement("SELECT * FROM  T_SCP_USUARIO "
+				+ "INNER JOIN T_SCP_VOLUNTARIO ON(T_SCP_USUARIO.CD_USUARIO = T_SCP_VOLUNTARIO.CD_VOLUNTARIO)"
+				+ " WHERE NR_RG = ? ");
+		stmt.setString(1, rg);
 		rs = stmt.executeQuery();
 		
 		if(rs.next()) { 

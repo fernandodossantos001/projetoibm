@@ -110,7 +110,7 @@ public class AvaliacaoBO {
 			return "Esse usuario já fez avalição";
 		}
 		
-		if(avu.getUsuario().getNivelPermissao()<6 ||avu.getUsuario().getNivelPermissao()>7) {
+		if(avu.getUsuario().getNivelPermissao()== 6 ||avu.getUsuario().getNivelPermissao()==7) {
 			return "os niveis de permissão precisam estar entre 6 e 7, pois ambos são temporarios";
 		}
 		avu.getUsuario().setNivelPermissao(avu.getUsuario().getNivelPermissao());
@@ -247,7 +247,10 @@ public class AvaliacaoBO {
 			av.getUsuario().setNivelPermissao(2);
 			UsuarioBO.alterarNivelAcesso(av.getUsuario());
 		}
-			
+		
+		if (pesquisarAvaliacao(av.getCodAvaliacao()).getCodAvaliacao() == 0) {
+			return "Avaliação não encontrada";
+		}
 			
 		AvaliacaoDAO dao = new AvaliacaoDAO();
 		String msg = dao.avaliar(av);

@@ -10,44 +10,14 @@ public class TesteAvaliacao {
 
 	public static void main(String[] args) {
 		try {
-	//		System.out.println(AvaliacaoBO.pesquisarAvaliacao(64).getAll());
+			//System.out.println(AvaliacaoBO.pesquisarAvaliacao(64).getAll());
 			
-//			System.out.println(AvaliacaoBO.alterarDadosAvaliacao
-//					(new Avaliacao(
-//							64,
-//							new Psicologo(
-//									20,
-//									"teste",
-//									"asd",
-//									"12/01/1997",
-//									"asd", 
-//									"asd", 
-//									6,
-//									"c://",
-//									"",
-//									34535,
-//									"asb", 
-//									"asd", 
-//									5749323, 
-//									240
-//									), 
-//							new Usuario(
-//									2,
-//									"ASD", 
-//									"asd", 
-//									"asdad", 
-//									"asdad", 
-//									"asd", 
-//									7,
-//									"asd", 
-//									"sdfsfd"
-//									),
-//							"24/09/2018",
-//							"REPROVADO")));
+
 			
-			System.out.println(AvaliacaoBO.avaliar(
+			
+			System.out.println(AvaliacaoBO.novaAvaliacao(
 					(new Avaliacao(
-							64,
+							65,
 							new Psicologo(
 									20,
 									"teste",
@@ -76,12 +46,45 @@ public class TesteAvaliacao {
 									"sdfsfd"
 									),
 							"24/09/2018",
-							"REPROVADO"))));
+							"APROVADO"))));
 			
 			
-			int cod = 64;
+			int cod = 65;
 			System.out.println(AvaliacaoBO.pesquisarAvaliacao(cod).getAll());
-//			System.out.println("----------------------------------------");
+			System.out.println("----------------------------------------");
+			
+			System.out.println(AvaliacaoBO.alterarDadosAvaliacao((
+					(new Avaliacao(
+							65,
+							new Psicologo(
+									20,
+									"teste",
+									"asd",
+									"12/01/1997",
+									"asd", 
+									"asd", 
+									6,
+									"c://",
+									"",
+									34535,
+									"asb", 
+									"asd", 
+									5749323, 
+									240
+									), 
+							new Usuario(
+									2,
+									"ASD", 
+									"asd", 
+									"asdad", 
+									"asdad", 
+									"asd", 
+									7,
+									"asd", 
+									"sdfsfd"
+									),
+							"24/09/2018",
+							"REPROVADO")))));
 //			System.out.println(AvaliacaoBO.excluirAvaliacaoVoluntario(cod));
 //			System.out.println("----------------------------");
 //			System.out.println(AvaliacaoBO.pesquisarAvaliacao(cod).getAll());

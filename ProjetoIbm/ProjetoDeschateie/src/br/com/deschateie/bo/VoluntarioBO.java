@@ -113,6 +113,10 @@ public class VoluntarioBO {
 			return "RG já existente";
 		}
 		
+		if (volu.getRg().length()<1) {
+			return "RG não pode estar vazio";
+		}
+		
 		if(volu.getCpf()== v.getCpf()) {
 			dao.fechar();
 			return "CPF já existente";
@@ -232,6 +236,9 @@ public class VoluntarioBO {
 			return "telefone muito grande";
 		}
 		
+		if (v.getRg().length()<1) {
+			return "RG não pode estar vazio";
+		}
 		VoluntarioDAO dao = new VoluntarioDAO();
 
 		Voluntario volu = new Voluntario();
@@ -243,6 +250,11 @@ public class VoluntarioBO {
 				return "cpf já existe";			}
 		}
 		
+		if(v.getRg() != volu.getRg()) {
+			if(v.getRg() == dao.consultarVoluntarioRg(v.getRg()).getRg()) {
+				dao.fechar();
+				return "cpf já existe";			}
+		}
 		
 		
 		String status = UsuarioBO.AlterarDadosUsuario(v);
