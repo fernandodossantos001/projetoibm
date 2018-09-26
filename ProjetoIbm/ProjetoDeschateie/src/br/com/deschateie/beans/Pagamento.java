@@ -17,7 +17,7 @@ public class Pagamento implements Comparable<Pagamento> {
 	}
 	
 	
-	public Pagamento(int codPagamento, int codPsiOnline, int codPaciente, int codConsulta, int codFormaPagamento,
+	public Pagamento(int codPagamento, int codConsulta,int codPsiOnline, int codPaciente, int codFormaPagamento,
 			double valorConsulta, String dataPagamento, int qtdeParcelas, double valorDesconto) {
 		super();
 		setCodPagamento(codPagamento);

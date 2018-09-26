@@ -7,7 +7,7 @@ import br.com.deschateie.beans.Usuario;
 import br.com.deschateie.dao.AgendamentoDAO;
 
 /**
- * Classe para validar dados para a tabela T_SCP_AGENDAMENTO
+ * Classe responsável por validar dados para a tabela T_SCP_AGENDAMENTO
  * possui métodos para  criar,exluir,alterar e pesquisar agendamentos
  * @author Deschateie
  * @version 1.0

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.deschateie.beans.Consulta;
-import br.com.deschateie.beans.Conversa;
 import br.com.deschateie.beans.Paciente;
 import br.com.deschateie.beans.PsiOnline;
 import br.com.deschateie.dao.ConsultaDAO;
@@ -106,17 +105,14 @@ public class ConsultaBO {
 			return "consulta nao encontrada, verificar o codigo";
 		}
 		
-		PsiOnline psi = PsiOnlineBO.pesquisarPsicologoOnline(c.getCodPsiOnline());
-		PsiOnlineBO.excluirPsicologoOnline(psi.getCodPsiOnline());
-		Paciente p = PacienteBO.pesquisarPaciente(c.getCodPaciente());
-		PacienteBO.excluirPaciente(p.getCodPaciente());
-		Conversa cv = ConversaBO.pesquisarConversa(c.getCodConversa());
-		ConversaBO.exluirConversa(cv.getCodConversa());
+		if(PagamentoBO.pesquisarPagamentoCodConsulta(codConsulta).getCodConsulta()>1) {
+			return "Não é possivel apagar essa consulta pois ela já foi paga";
+		}
 		ConsultaDAO dao = new ConsultaDAO();
 		dao.excluirConsulta(codConsulta);
 		dao.fechar();
 		
-		return "Excluiso com sucesso";
+		return "Excluido com sucesso";
 	}
 
 	
@@ -199,4 +195,62 @@ public class ConsultaBO {
 		return listaConsultaPacientes;
 	}
 	
+	public static String alterarDadosConsulta(Consulta c)throws Exception{
+		
+		if (c.getCodConsulta()<1) {
+			return "codigo invalido";
+		}
+		if (c.getCodConsulta()>99999) {
+			return "codigo muito grande";
+		}
+		
+		if (c.getCodConversa()<1) {
+			return "codigo invalido";
+		}
+		
+		if (c.getCodConversa()>99999) {
+			return "codigo muito grande";
+		}
+		
+		if (c.getCodPaciente()<1) {
+			return "codigo invalido";
+		}
+		
+		if (c.getCodPaciente()>99999) {
+			return "codigo muito grande";
+		}
+		
+		if (c.getCodPsiOnline()<1) {
+			return "codigo invalido";
+		}
+		
+		if (c.getCodPsiOnline()>99999) {
+			return "codigo muito grande";
+		}
+		
+		String status = DataBO.validarData(c.getDataConsulta());
+		if (status != c.getDataConsulta()) {
+			return status;
+		}
+		
+		if (c.getNotaAtendimento()<1 || c.getNotaAtendimento()>5) {
+			return "nota inválida, a nota precisa estar entre 1 e 5";
+		}
+		
+		if (c.getComentario().length()>120) {
+			return "Comentario muito grande";
+		}
+		
+		if(PagamentoBO.pesquisarPagamentoCodConsulta(c.getCodConsulta()).getCodPagamento()>0) {
+			return "Não será possível efetuar altereções pois a consulta já foi paga";
+		}
+		
+		ConsultaDAO dao = new ConsultaDAO();
+		dao.alterarDadosConsulta(c);
+		dao.fechar();
+		return "Dados alterado com sucesso";
+		
+	}
+	
+	 
 }

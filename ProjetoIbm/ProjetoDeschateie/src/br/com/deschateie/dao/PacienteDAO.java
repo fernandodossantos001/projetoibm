@@ -1,5 +1,6 @@
 package br.com.deschateie.dao;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,7 +8,17 @@ import java.sql.ResultSet;
 import br.com.deschateie.beans.Paciente;
 
 import br.com.deschateie.conexao.Conexao;
-
+/**
+ * Classe responsável por manipular os dados da tabela T_SCP_PACIENTE
+ * possui métodos para criar,consultar,alterar e excluir dados da tabela T_SCP_PACIENTE
+ * @author Deschateie
+ * @version 1.0
+ * @since 1.0
+ * @see PacienteBO
+ * @see Paciente
+ * @see Usuario
+ * @see UsuarioBO
+ */
 public class PacienteDAO {
 	private Connection con;
 	private PreparedStatement stmt;
@@ -25,9 +36,14 @@ public class PacienteDAO {
 		con= new Conexao().conectar();
 	}
 	
-	
+	/**
+	 * Método responsável por inserir uma linha na tabela T_SCP_PACIENTE
+	 * @param Recebe um Objeto do tipo Paciente
+	 * @return Retorna uma String informando que a linha foi inserida
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public String gravarPaciente(Paciente p)throws Exception{
-//		new  UsuarioDAO().gravaUsuario(p);		 
 		stmt = con.prepareStatement("INSERT INTO T_SCP_PACIENTE"
 									+ "(CD_PACIENTE, DS_CEP,NR_CPF,"
 									+ "DS_HISTORICO,NR_CONSULTAS_REALIZADAS)"
@@ -42,9 +58,14 @@ public class PacienteDAO {
 		return "cadastrado com sucesso";
 	}
 	
-	
+	/**
+	 * Método responsável por alterar os dados de uma linha da tabela T_SCP_VOLUNTARIO
+	 * @param Recebe um Objeto do tipo Paciente
+	 * @return Retorna uma String informando que a alteração foi feita
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLExcepiton
+	 */
 	public String AlteraDadosPaciente(Paciente p)throws Exception{
-//		new UsuarioDAO().alterarDadosUsuario(p);
 		
 		stmt = con.prepareStatement(
 									"UPDATE T_SCP_PACIENTE SET DS_CEP = ?, NR_CPF = ?, DS_HISTORICO = ? WHERE CD_PACIENTE = ?"
@@ -60,6 +81,13 @@ public class PacienteDAO {
 	}
 
 
+	/**
+	 * Método responsável por excluir uma linha da tabela T_SCP_PACIENTE
+	 * @param Recebe um número inteiro do codido de paciente
+	 * @return Retorna uma String informando que a linha foi excluida
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public String excluirPaciente(int codPaciente) throws Exception{
 		
 		stmt = con.prepareStatement("DELETE FROM T_SCP_PACIENTE WHERE CD_PACIENTE=  ?");
@@ -67,6 +95,13 @@ public class PacienteDAO {
 		return "foi excluida " + stmt.executeUpdate() + " linha";
 	}
 	
+	/**
+	 * Método responsável por consultar uma linha da tabela T_SCP_PACIENTE
+	 * @param Recebe um número inteiro do codigo de paciente
+	 * @return Retorna um Objeto do tipo Paciente
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public Paciente consultarPaciente(int codPaciente)throws Exception{
 		stmt= con.prepareStatement("SELECT * FROM  T_SCP_USUARIO NATURAL JOIN T_SCP_PACIENTE WHERE CD_USUARIO = ? AND CD_PACIENTE = ? ");
 		stmt.setInt(1, codPaciente);
@@ -93,12 +128,17 @@ public class PacienteDAO {
 			}
 	}
 	
-
-	public void fechar()throws Exception{
-		con.close();
-	}
+	
+	
 
 
+	/**
+	 * Método responsável por consultar uma linha da tabela T_SCP_PACIENTE
+	 * @param Recebe um número long do cpf de paciente
+	 * @return Retorna um Objeto do tipo Paciente
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public Paciente consultarPacienteCpf(long cpf)throws Exception {
 		stmt= con.prepareStatement("SELECT * FROM  T_SCP_USUARIO NATURAL JOIN T_SCP_PACIENTE WHERE NR_CPF = ? ");
 		stmt.setLong(1, cpf);
@@ -122,6 +162,18 @@ public class PacienteDAO {
 			}else {
 				return new Paciente();
 			}
+	}
+	
+	
+	/**
+	 * Método responsável por finalizar a conexão com o banco de dados
+	 * @param Não há parâmetros
+	 * @return Não há retorno
+	 * @author Deschateie
+	 * @throws Exception Chamada da exceção checked SQLException
+	 */
+	public void fechar()throws Exception{
+		con.close();
 	}
 }
 

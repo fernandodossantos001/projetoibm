@@ -45,7 +45,13 @@ public class ConversaBO {
 		dao.fechar();
 		return conversa;
 	}
-
+	
+	/**
+	 * Método responsável por
+	 * @param codConversa
+	 * @return
+	 * @throws Exception
+	 */
 	public static String  exluirConversa(int codConversa)throws Exception {
 		if (codConversa<1) {
 			return "codigo invalido";
@@ -61,7 +67,7 @@ public class ConversaBO {
 		
 		ConversaDAO dao = new ConversaDAO();
 		dao.excluirConversa(codConversa);
-		return null;
+		return "Conversa excluida com sucesso";
 	}
 
 	public static String novaConversa(Conversa c)throws Exception {

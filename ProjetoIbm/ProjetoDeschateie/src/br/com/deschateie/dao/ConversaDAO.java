@@ -8,15 +8,41 @@ import br.com.deschateie.beans.Conversa;
 import br.com.deschateie.beans.Voluntario;
 import br.com.deschateie.conexao.Conexao;
 
+/**
+ * Classe responsável por manipular dados da tabela T_SCP_CONVERSA
+ * possui métodos para criar,alterar,consulta e excluir dados da tabela T_SCP_CONVERSA
+ * @author Deschateie
+ * @since 1.0
+ * @version 1.0
+ * @see ConversaBO
+ * @see Conversa
+ * 
+ *
+ */
 public class ConversaDAO {
 	private Connection con;
 	private PreparedStatement stmt;
 	private ResultSet rs;
 	
+	/**
+	 *
+	 * Neste método construtor estabelecemos a comunicação com o banco de dados
+	 * @author Deschateie
+	 * @param não possui parâmetros
+	 * @return não há retorno
+	 * @throws Exception Chamada da exceção checked SQLException
+	 */
 	public ConversaDAO()throws Exception{
 		con = new Conexao().conectar();
 	}
 	
+	/**
+	 * Método responsável por consultar uma linha da tabela T_SCP_CONVERSA
+	 * @param Recebe um número inteiro do codigo da conversa
+	 * @return Retorna um Objeto do tipo Conversa
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLExcepiton
+	 */
 	public Conversa consultarConversa(int codConversa)throws Exception{
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_CONVERSA INNER JOIN T_SCP_VOLUNTARIO ON "
 									+ "(T_SCP_CONVERSA.CD_VOLUNTARIO = T_SCP_VOLUNTARIO.CD_VOLUNTARIO)"
@@ -53,17 +79,27 @@ public class ConversaDAO {
 	}
 
 	
-
+	/**
+	 * Método responsável por excluir uma linha da tabela T_SCP_CONVERSA
+	 * @param Recebe um número inteiro do codigo da conversa
+	 * @return Retorna uma Stirng informando que a linha foi excluida
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLExcepiton
+	 */
 	public String excluirConversa(int codConversa)throws Exception {
 		stmt = con.prepareStatement("DELETE FROM T_SCP_CONVERSA WHERE CD_CONVERSA = ?");
 		stmt.setInt(1, codConversa);
 		return stmt.executeUpdate() + "linha excluida";
 	}
 	
-	public void fechar()throws Exception{
-		con.close();
-	}
-
+	
+	/**
+	 * Método responsável por inserir uma linha na tabela T_SCP_CONVERSA
+	 * @param Recebe um Objeto do tipo Conversa
+	 * @return Retorna uma String informando que a inserção foi realizada
+	 * @author Deschateie
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public String gravarConversa(Conversa c)throws Exception {
 		stmt = con.prepareStatement("INSERT INTO T_SCP_CONVERSA"
 									+ "(CD_CONVERSA,HR_INICIO,QT_RESPOSTAS,"
@@ -79,7 +115,12 @@ public class ConversaDAO {
 		return "Conversa cadastrada com sucesso";
 	}
 
-
+	/**
+	 * Método responsável por alterar os dados de uma linha da tabela T_SCP_CONVERSA
+	 * @param Recebe um Objeto do tipo Conversa
+	 * @return Retorna uma String informando que a alteração foi realizada
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public String alterarDadosConversa(Conversa c)throws Exception {
 		stmt = con.prepareStatement("UPDATE T_SCP_CONVERSA SET "
 									+ "HR_INICIO = TO_DATE(?,'DD/MM/YYYY HH24:MI'), QT_RESPOSTAS = ?,DS_HISTORICO = ?,HR_TERMINO = TO_DATE(?,'DD/MM/YYYY HH24:MI') WHERE CD_CONVERSA = ?");
@@ -89,6 +130,17 @@ public class ConversaDAO {
 		stmt.setString(4, c.getHoraTermino());
 		stmt.setInt(5, c.getCodConversa());
 		return stmt.executeUpdate() + "linha alterada";
+	}
+	
+	/**
+	 * Método responsável por finalizar a conexão com o banco de dados
+	 * @param Não há parâmetros
+	 * @return Não há retorno
+	 * @author Deschateie
+	 * @throws Exception Chamada da exceção checked SQLException
+	 */
+	public void fechar()throws Exception{
+		con.close();
 	}
 	
 }

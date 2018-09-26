@@ -1,0 +1,11 @@
+package br.com.deschateie.bo;
+
+/**
+ * Classe responsável por validar dados da tabela T_SCP_PAGAMENTO
+ * possui métodos para criar,pesquisar,alterar e exlcuir do pagamento
+ * @author Fernando
+ *
+ */
+public class PagamentoBO {
+
+}

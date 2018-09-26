@@ -1,0 +1,10 @@
+package br.com.deschateie.bo;
+
+/**
+ * Classe responsável por validar
+ * @author Fernando
+ *
+ */
+public class PagamentoBO {
+
+}

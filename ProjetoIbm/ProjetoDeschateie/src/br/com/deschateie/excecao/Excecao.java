@@ -10,6 +10,8 @@ public class Excecao extends Exception{
 			return "não foi possível conectar ao banco de dados, verifique a conexão";
 		}else if (e.getClass().getName().equals("java.lang.StringIndexOutOfBoundsException")) {
 			return "faltou informar a hora em alguma data, verificar a data de inicio e termino";
+		}else if(e.getClass().getName().equals("java.sql.SQLRecoverableException")){
+			return "A conexão com o banco foi encerrada inesperadamente ";
 		}else {
 			return "mensagem do arquiteto";
 		}

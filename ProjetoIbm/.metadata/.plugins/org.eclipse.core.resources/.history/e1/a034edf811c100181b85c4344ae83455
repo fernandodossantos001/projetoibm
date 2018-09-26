@@ -1,0 +1,33 @@
+package br.com.deschateie.main;
+
+import br.com.deschateie.beans.Pagamento;
+import br.com.deschateie.dao.PagamentoDAO;
+import br.com.deschateie.excecao.Excecao;
+
+public class TestePagamento {
+
+	public static void main(String[] args) {
+		try {
+			System.out.println(new PagamentoDAO().gravarPagamento
+					(new Pagamento(
+
+							97,
+							3,
+							3, 
+							14, 
+							3, 
+							340.32, 
+							"25/09/2018", 
+							5,
+							40
+							)));
+			
+			new Pagamento(codPagamento, codConsulta, codPsiOnline, codPaciente, codFormaPagamento, valorConsulta, dataPagamento, qtdeParcelas, valorDesconto)
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(Excecao.tratarExcecao(e));
+		}
+
+	}
+
+}
