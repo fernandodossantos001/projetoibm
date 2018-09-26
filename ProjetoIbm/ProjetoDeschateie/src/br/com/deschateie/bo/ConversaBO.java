@@ -1,10 +1,6 @@
 package br.com.deschateie.bo;
 
-import br.com.deschateie.beans.Agendamento;
 import br.com.deschateie.beans.Conversa;
-import br.com.deschateie.beans.Usuario;
-import br.com.deschateie.beans.Voluntario;
-import br.com.deschateie.dao.AgendamentoDAO;
 import br.com.deschateie.dao.ConversaDAO;
 
 
@@ -47,10 +43,14 @@ public class ConversaBO {
 	}
 	
 	/**
-	 * Método responsável por
-	 * @param codConversa
-	 * @return
-	 * @throws Exception
+	 * Método responsável por manipular as regras de negócio relacionada a Conversa
+	 * Regras avaliadas
+	 * 1 Verifica se o código é valido
+	 * 2 Verifica através do código se a conversa existe
+	 * @param Recebe um número inteiro do codigo da conversa
+	 * @return Retorna uma String informando um erro se alguma das regras acima
+	 * não estiverem sendo cumpridas ou uma mensagem de sucesso
+	 * @throws Exception chamada da exceção checked SQLException
 	 */
 	public static String  exluirConversa(int codConversa)throws Exception {
 		if (codConversa<1) {
@@ -70,6 +70,19 @@ public class ConversaBO {
 		return "Conversa excluida com sucesso";
 	}
 
+	
+	/**
+	 * Método responsável por manipular as regras de negócio relacionada a Conversa
+	 * Regras avaliadas 
+	 * 1 Verifica se o códgio é valido
+	 * 2 Verifica se a data da convers é válida
+	 * 3 Verifica se o códgio da conversa passado já existe
+	 * 4 Verifica se o voluntario existe 
+	 * @param Recebe um Objeto do tipo Conversa
+	 * @return Retorna uma String informando um erro se alguma das regras acima 
+	 * não estivem sendo cumpridas ou uma mensagem de sucesso
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static String novaConversa(Conversa c)throws Exception {
 		
 		if (c.getCodConversa()<1) {
@@ -113,6 +126,18 @@ public class ConversaBO {
 		return status;
 	}
 
+	/**
+	 * Método responsável por manipular as regras de negócio relacionada a Conversa
+	 * Regras avaliadas 
+	 * 1 Verifica se o códgio é valido
+	 * 2 Verifica se a data da convers é válida
+	 * 3 Verifica se o códgio da conversa passado já existe
+	 * 4 Verifica se o voluntario existe 
+	 * @param Recebe um Objeto do tipo Conversa
+	 * @return Retorna uma String informando um erro se alguma das regras acima 
+	 * não estivem sendo cumpridas ou uma mensagem de sucesso
+	 * @throws Exception chamada da exceção checked SQLException
+	 */
 	public static String alterarDadosConversa(Conversa c) throws Exception{
 		if (c.getCodConversa()<1) {
 			return "codigo invalido";

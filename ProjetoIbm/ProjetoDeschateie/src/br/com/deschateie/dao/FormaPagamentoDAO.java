@@ -41,9 +41,9 @@ public class FormaPagamentoDAO {
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
-	public FormaPagamento consultarFormaPagamento(FormaPagamento fp)throws Exception{
+	public FormaPagamento consultarFormaPagamento(int codFormaPagamento)throws Exception{
 		stmt = con.prepareStatement("SELECT * FROM T_SCP_FORMA_PAGAMENTO WHERE CD_FORMA_PGTO = ?");
-		stmt.setInt(1, fp.getCodFormaPagamento());
+		stmt.setInt(1, codFormaPagamento);
 		rs = stmt.executeQuery();
 		if (rs.next()) {
 			return new FormaPagamento(
@@ -94,9 +94,9 @@ public class FormaPagamentoDAO {
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
-	public String exluirFormaPagamento(FormaPagamento fp)throws Exception{
+	public String exluirFormaPagamento(int codFormaPagamento)throws Exception{
 		stmt = con.prepareStatement("DELETE FROM T_SCP_FORMA_PAGAMENTO WHERE CD_FORMA_PGTO = ?");
-		stmt.setInt(1,fp.getCodFormaPagamento());
+		stmt.setInt(1,codFormaPagamento);
 		return stmt.executeUpdate() + "linha excluida";
 	}
 	

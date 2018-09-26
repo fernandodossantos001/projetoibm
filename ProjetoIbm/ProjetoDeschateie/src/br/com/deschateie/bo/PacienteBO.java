@@ -5,7 +5,6 @@ import java.util.List;
 
 import br.com.deschateie.beans.Consulta;
 import br.com.deschateie.beans.Paciente;
-import br.com.deschateie.beans.Usuario;
 import br.com.deschateie.dao.ConsultaDAO;
 import br.com.deschateie.dao.PacienteDAO;
 
