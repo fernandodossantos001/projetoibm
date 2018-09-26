@@ -13,7 +13,6 @@ import br.com.deschateie.conexao.Conexao;
  * @since 1.0
  * @version 1.0
  * @see Psicologo
- * @see PsicologoBO
  *
  */
 
@@ -24,8 +23,6 @@ public class PsicologoDAO {
 	
 	/**
 	 * Método responsável por estabelecer conexão com banco de dados
-	 * @param Não há Parâmetros
-	 * @return Não há retornos
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
@@ -36,7 +33,7 @@ public class PsicologoDAO {
 	
 	/**
 	 * Método responsável por consultar uma linha da tabela T_SCP_PSICOLOGO
-	 * @param Recebe um número inteiro de codigo do Psiologo
+	 * @param codPsicologo Recebe um número inteiro de codigo do Psiologo
 	 * @return Retorna um Objeto do tipo Psicologo
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -70,7 +67,7 @@ public class PsicologoDAO {
 
 	/**
 	 * Método responsável por consultar uma linha da tabela T_SCP_PSICOLOGO
-	 * @param Recebe um número inteiro do codigo de CRP do Psiologo
+	 * @param  crp Recebe um número inteiro do codigo de CRP do Psiologo
 	 * @return Retorna um Objeto do tipo Psicologo
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -103,7 +100,7 @@ public class PsicologoDAO {
 
 	/**
 	 * métodos responsável por excluir uma linha da tabela T_SCP_PSICOLOGO
-	 * @param Recebe um  número inteiro de codigo do Psicologo
+	 * @param codPsicologo Recebe um  número inteiro de codigo do Psicologo
 	 * @return Retorna uma String informando que a linha foi exluida
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -117,7 +114,7 @@ public class PsicologoDAO {
 
 	/**
 	 * Método responsável por alterar os dados da tabela T_SCP_PSICOLOGO
-	 * @param Recebe um Objeto do tipo Psicologo
+	 * @param p Recebe um Objeto do tipo Psicologo
 	 * @return Retorna uma String informando que foi atualizado com sucesso
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
@@ -140,7 +137,7 @@ public class PsicologoDAO {
 	
 	/**
 	 * Método responsável por inserir uma linha na tabela T_SCP_PSICOLOGO
-	 * @param Recebe um Objeto do tipo Psicologo
+	 * @param p Recebe um Objeto do tipo Psicologo
 	 * @return Retorna uma String informando que foi criada com sucesso
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
@@ -160,8 +157,6 @@ public class PsicologoDAO {
 		
 	/**
 	 * Método responsável por finalizar a conexão com o banco de dados
-	 * @param Não há parâmetros
-	 * @return Não há retorno
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */

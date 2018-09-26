@@ -14,7 +14,6 @@ import br.com.deschateie.conexao.Conexao;
  * @author Deschateie
  * @since 1.0
  * @version 1.0
- * @see ConversaBO
  * @see Conversa
  * 
  *
@@ -28,8 +27,6 @@ public class ConversaDAO {
 	 *
 	 * Neste método construtor estabelecemos a comunicação com o banco de dados
 	 * @author Deschateie
-	 * @param não possui parâmetros
-	 * @return não há retorno
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public ConversaDAO()throws Exception{
@@ -38,7 +35,7 @@ public class ConversaDAO {
 	
 	/**
 	 * Método responsável por consultar uma linha da tabela T_SCP_CONVERSA
-	 * @param Recebe um número inteiro do codigo da conversa
+	 * @param codConversa Recebe um número inteiro do codigo da conversa
 	 * @return Retorna um Objeto do tipo Conversa
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLExcepiton
@@ -81,7 +78,7 @@ public class ConversaDAO {
 	
 	/**
 	 * Método responsável por excluir uma linha da tabela T_SCP_CONVERSA
-	 * @param Recebe um número inteiro do codigo da conversa
+	 * @param codConversa Recebe um número inteiro do codigo da conversa
 	 * @return Retorna uma Stirng informando que a linha foi excluida
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLExcepiton
@@ -95,7 +92,7 @@ public class ConversaDAO {
 	
 	/**
 	 * Método responsável por inserir uma linha na tabela T_SCP_CONVERSA
-	 * @param Recebe um Objeto do tipo Conversa
+	 * @param c Recebe um Objeto do tipo Conversa
 	 * @return Retorna uma String informando que a inserção foi realizada
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -117,7 +114,7 @@ public class ConversaDAO {
 
 	/**
 	 * Método responsável por alterar os dados de uma linha da tabela T_SCP_CONVERSA
-	 * @param Recebe um Objeto do tipo Conversa
+	 * @param c Recebe um Objeto do tipo Conversa
 	 * @return Retorna uma String informando que a alteração foi realizada
 	 * @throws Exception chamada da exceção checked SQLException
 	 */
@@ -134,8 +131,6 @@ public class ConversaDAO {
 	
 	/**
 	 * Método responsável por finalizar a conexão com o banco de dados
-	 * @param Não há parâmetros
-	 * @return Não há retorno
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */

@@ -14,7 +14,6 @@ import br.com.deschateie.conexao.Conexao;
  * @since 1.0
  * @version 1.0
  * @see Endereco
- * @see EnderecoBO
  *
  */
 public class EnderecoDAO {
@@ -24,8 +23,6 @@ public class EnderecoDAO {
 	
 	/**
 	 * Método responsável por estabelecer conexão com banco de dados
-	 * @param Não há parâmetros
-	 * @return Não há retorno
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
@@ -35,7 +32,7 @@ public class EnderecoDAO {
 	
 	/**
 	 * Métodos responsável por inserir uma linha na tabela T_SCP_ENDERECO
-	 * @param Recebe um Objeto do tipo Endereco (com o codigo do Psicologo)
+	 * @param endereco Recebe um Objeto do tipo Endereco (com o codigo do Psicologo)
 	 * @return Retorna uma String com a mensagem de sucesso
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -63,7 +60,7 @@ public class EnderecoDAO {
 	
 	/**
 	 * Método responsável por consultar uma linha da tabela T_SCP_ENDERECO
-	 * @param Recebe um número inteiro do codigo do Psicologo(pesquisa pelo codigo do psicologo)
+	 * @param codPsicologo Recebe um número inteiro do codigo do Psicologo(pesquisa pelo codigo do psicologo)
 	 * @return Retorna um Objeto do tipo Endereco
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -96,7 +93,7 @@ public class EnderecoDAO {
 	
 	/**
 	 * Método responsável por consultar uma linha da tabela T_SCP_ENDERECO
-	 * @param Recebe um número inteiro do codigo do Voluntario(pesquisa pelo codigo do voluntario)
+	 * @param codVoluntario Recebe um número inteiro do codigo do Voluntario(pesquisa pelo codigo do voluntario)
 	 * @return Retorna um Objeto do tipo Endereco
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -126,7 +123,7 @@ public class EnderecoDAO {
 	
 	/**
 	 * Métodos responsável por inserir uma linha na tabela T_SCP_ENDERECO
-	 * @param Recebe um Objeto do tipo Endereco (com o codigo voluntario)
+	 * @param endereco Recebe um Objeto do tipo Endereco (com o codigo voluntario)
 	 * @return Retorna uma String com a mensagem de sucesso
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -154,7 +151,7 @@ public class EnderecoDAO {
 	
 	/**
 	 * Método responsável por consultar uma linha da tabela T_SCP_ENDERECO 
-	 * @param Recebe um número inteiro do codigo do endereco
+	 * @param cdEndereco Recebe um número inteiro do codigo do endereco
 	 * @return Retorna um Objeto do tipo Endereco(com o codigo do psicologo)
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -187,7 +184,7 @@ public class EnderecoDAO {
 	
 	/**
 	 * Método responsável por consultar uma linha da tabela T_SCP_ENDERECO 
-	 * @param Recebe um número inteiro do codigo do endereco
+	 * @param cdEndereco Recebe um número inteiro do codigo do endereco
 	 * @return Retorna um Objeto do tipo Endereco(com o codigo do voluntario)
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -219,7 +216,7 @@ public class EnderecoDAO {
 	
 	/**
 	 * Método responsável por consultar uma linha da tabela T_SCP_ENDERECO 
-	 * @param Recebe uma String
+	 * @param logradouro Recebe uma String
 	 * @return Retorna um ArrayList do Objeto Endereco(com o codigo do Psicologo)
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -255,7 +252,7 @@ public class EnderecoDAO {
 	
 	/**
 	 * Método responsável por consultar uma linha da tabela T_SCP_ENDERECO 
-	 * @param Recebe uma String
+	 * @param logradouro Recebe uma String
 	 * @return Retorna um ArrayList do Objeto Endereco(com o codigo do Voluntario)
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -291,7 +288,7 @@ public class EnderecoDAO {
 	
 	/**
 	 * Método responsável por excluir uma linha da tabela T_SCP_ENDERECO
-	 * @param Recebe um número inteiro do código de endereco
+	 * @param cdEndereco Recebe um número inteiro do código de endereco
 	 * @return	Retorna uma String com a mensagem de sucesso
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -305,7 +302,7 @@ public class EnderecoDAO {
 	
 	/**
 	 * Método responsável por alterar dados de uma linha da tabela t_SCP_ENDERECO
-	 * @param Recebe um Objeto do tipo Endereco(com o codigo de Psicogolo)
+	 * @param endereco Recebe um Objeto do tipo Endereco(com o codigo de Psicogolo)
 	 * @return Retorna uma String com a mensagem de sucesso;
 	 * @author Deshcateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -338,7 +335,7 @@ public class EnderecoDAO {
 	
 	/**
 	 * Método responsável por alterar dados de uma linha da tabela t_SCP_ENDERECO
-	 * @param Recebe um Objeto do tipo Endereco(com o codigo de Voluntario)
+	 * @param endereco Recebe um Objeto do tipo Endereco(com o codigo de Voluntario)
 	 * @return Retorna uma String com a mensagem de sucesso;
 	 * @author Deshcateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -369,8 +366,6 @@ public class EnderecoDAO {
 
 	/**
 	 * Método responsável por finalizar a conexão com o banco de dados
-	 * @param Não há parâmetros
-	 * @return Não há retorno
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */

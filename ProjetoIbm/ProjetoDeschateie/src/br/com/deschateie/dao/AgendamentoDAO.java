@@ -14,10 +14,8 @@ import br.com.deschateie.conexao.Conexao;
  * @author Deschateie
  * @version 1.0
  * @since 1.0
- * @see AgendamentoBO
  * @see Agendamento
  * @see Psicologo
- * @see Voluntario
  *
  */
 public class AgendamentoDAO {
@@ -27,8 +25,6 @@ public class AgendamentoDAO {
 	private ResultSet rs;
 	/**
 	 * Método responsável por estabelecer a conexão com o banco de dados
-	 * @param não há parametros
-	 * @return não há retorno
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
@@ -38,7 +34,7 @@ public class AgendamentoDAO {
 	
 	/**
 	 * Método responsável por consultar uma linha da tabela T_SCP_AGENDAMENTO
-	 * @param Recebe um número inteiro do código de agendamento
+	 * @param codAgendamento Recebe um número inteiro do código de agendamento
 	 * @return Retorna um Objeto do tipo  Agendamento
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -85,8 +81,8 @@ public class AgendamentoDAO {
 	
 	/**
 	 * Método responsável por excluir uma linha da tabela T_SCP_AGENDAMENTO
-	 * @param Recebe um número inteiro do código de agendamento
-	 * @return Retorna uma String com uma mensagem de sucesso
+	 * @param codAgendamento Recebe um número inteiro do código de agendamento
+	 * @return  Retorna uma String com uma mensagem de sucesso
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
@@ -99,8 +95,8 @@ public class AgendamentoDAO {
 
 	/**
 	 * Método responsável por alterar os dados de uma linha da tabela T_SCP_AGENDAMENTO
-	 * @param Recebe um Objeto do tipo Agendamento
-	 * @return Retorna uma String com a mensagem de sucesso
+	 * @param ag Recebe um Objeto do tipo Agendamento
+	 * @return  Retorna uma String com a mensagem de sucesso
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
@@ -114,7 +110,7 @@ public class AgendamentoDAO {
 
 	/**
 	 * Método responsável por inserir uma linha na tabela T_SCP_AGENDAMENTO
-	 * @param Recebe um Objeto do tipo Agendamento
+	 * @param ag Recebe um Objeto do tipo Agendamento
 	 * @return Retorna uma String com a mensagem de sucesso
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -134,8 +130,6 @@ public class AgendamentoDAO {
 	
 	/**
 	 * Método responsável por finalizar a conexão com o banco de dados
-	 * @param não há parâmetros
-	 * @return não há retorno
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */

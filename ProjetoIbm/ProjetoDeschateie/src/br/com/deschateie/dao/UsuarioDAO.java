@@ -16,9 +16,6 @@ import br.com.deschateie.conexao.Conexao;
  * @version 1.0
  * @since 1.0
  * @see Usuario
- * @see UsuarioBO
- * @see VoluntarioBO
- * @see PsicologoBO
  *
  */
 
@@ -33,8 +30,6 @@ public class UsuarioDAO {
 	 *
 	 * Neste método construtor estabelecemos a comunicação com o banco de dados
 	 * @author Deschateie
-	 * @param não possui parâmetros
-	 * @return não há retorno
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public UsuarioDAO()throws Exception{
@@ -45,8 +40,8 @@ public class UsuarioDAO {
 
 	/**
 	 * Método responsável por consultar uma linha na tabela T_SCP_USUARIO
-	 * @param Recebe uma String do nome de login do usuario
-	 * @return Retorna um Objeto do tipo Usuario
+	 * @param login Recebe uma String do nome de login do usuario
+	 * @return  Retorna um Objeto do tipo Usuario
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
@@ -74,7 +69,7 @@ public class UsuarioDAO {
 	
 	/**
 	 * Método responsável por consultar uma linha na tabela T_SCP_USUARIO
-	 * @param Recebe um número inteiro do codigo do usuario 
+	 * @param codUsuario Recebe um número inteiro do codigo do usuario 
 	 * @return	Retorna um Objeto do tipo Usuario
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -103,7 +98,7 @@ public class UsuarioDAO {
 	
 	/**
 	 * Método responsável por consultar uma linha na tabela T_SCP_USUARIO
-	 * @param Recebe uma String do email do usuario
+	 * @param email Recebe uma String do email do usuario
 	 * @return Retorna um Objeto do tipo Usuario
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -132,7 +127,7 @@ public class UsuarioDAO {
 
 	/**
 	 * Método responsável por consultar várias linhas da tabela T_SCP_USUARIO
-	 * @param Recebe uma String do nome do usuario
+	 * @param nome Recebe uma String do nome do usuario
 	 * @return Retorna um ArrayList do tipo Usuario
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -162,7 +157,7 @@ public class UsuarioDAO {
 	
 	/**
 	 * Método responsável por inserir uma linha na tabela T_SCP_USUARIO
-	 * @param Recebe um Obejto do tipo Usuario
+	 * @param u Recebe um Obejto do tipo Usuario
 	 * @return	Retorna uma String com a mensagem de sucesso
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -189,7 +184,7 @@ public class UsuarioDAO {
 
 	/**
 	 * Método responsável por excluir uma linha da tabela t_SCP_USUARIO
-	 * @param Recebe um número inteiro do código do usuario
+	 * @param codUsuario Recebe um número inteiro do código do usuario
 	 * @return Retorna uma String com a mensagem de sucesso
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -202,7 +197,7 @@ public class UsuarioDAO {
 
 	/**
 	 * Método responsável por alterar uma linha da tabea T_SCP_USUARIO
-	 * @param Recebe um Objeto do tipo Usuario
+	 * @param u Recebe um Objeto do tipo Usuario
 	 * @return	Retorna uma String com a mensagem de sucesso
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
@@ -231,8 +226,8 @@ public class UsuarioDAO {
 	
 	/**
 	 * Método responspável por autenticar(Verificar/Consultar) um login e senha na tabela T_SCP_USUARIO
-	 * @param Recebe uma String do login do usuario
-	 * @param Recebe uma String da senha do usuario
+	 * @param login Recebe uma String do login do usuario
+	 * @param senha Recebe uma String da senha do usuario
 	 * @return	Retorna um Objeto do tipo Usuario
 	 * @author Deshcateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -261,9 +256,9 @@ public class UsuarioDAO {
 
 	/**
 	 * Método responsável por alterar o nivel de permissao de uma linha da tabela T_SCP_USUARIO
-	 * @param Recebe um Obejto do tipo Usuario
+	 * @param u Recebe um Objeto do tipo Usuario
 	 * @return Retorna uma String com a mensagem de sucesso
-	 * @throws Exception
+	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public String alterarNivelAcesso(Usuario u)throws Exception{
 		stmt = con.prepareStatement("UPDATE T_SCP_USUARIO SET NR_NIVEL_PERMISSAO = ? WHERE CD_USUARIO = ?");
@@ -274,8 +269,6 @@ public class UsuarioDAO {
 	
 	/**
 	 * Método responsável por finalizar a conexão com o banco de dados
-	 * @param Não há parâmetros
-	 * @return Não há retorno
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */

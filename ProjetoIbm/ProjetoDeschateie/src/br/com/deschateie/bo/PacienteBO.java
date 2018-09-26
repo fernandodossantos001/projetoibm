@@ -60,7 +60,7 @@ public class PacienteBO {
 	 * 7 Verifica se a usuario que está se cadastrando como voluntario já faz parte da plataforma ou não,
 	 * se ele fizer ele vai apenas complementar os dados mas, se não fizer será necessário cadastrar todos os dados dele
 	 * @param p Recebe um Objeto do tipo Paciente
-	 * @param ehValido
+	 * @param ehvalido Verifica se a pessoas que quer se tornar paciente já está cadastrada na plataforma
 	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima seja quebrada
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException

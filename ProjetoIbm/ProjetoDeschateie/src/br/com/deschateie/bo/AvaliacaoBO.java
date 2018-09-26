@@ -11,8 +11,6 @@ import br.com.deschateie.dao.AvaliacaoDAO;
  * @author Deschateie
  * @version 1.0
  * @since 1.0
- * @see AgendamentoDAO
- * @see Agendamento
  * @see DataBO
  * @see Psicologo
  * @see Usuario

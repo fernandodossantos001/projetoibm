@@ -28,8 +28,6 @@ public class AvaliacaoDAO {
 	
 	/**
 	 * Neste método construtor estabelece a comunicação com o banco
-	 * @param não possui parâmetros
-	 * @return não há retorno
 	 * @throws Exception chamada da exceção checked SQLException
 	 */
 	public AvaliacaoDAO()throws Exception {
@@ -38,7 +36,7 @@ public class AvaliacaoDAO {
 	
 	/**
 	 * Método responsável por consultar a tabela T_SCP_AVALIACAO
-	 * @param recebe o código da avaliação 
+	 * @param codAvaliacao recebe o código da avaliação 
 	 * @return Retorna uma Avaliacao
 	 * @throws Exception chamada da exceção checked SQLException
 	 */
@@ -91,7 +89,7 @@ public class AvaliacaoDAO {
 	 * Método responsável por alterar o resultado(coluna) de uma linha da tabela T_SCP_AVALIACAO
 	 *  de  um psicologo ou voluntario, de acordo com o critério de avaliação do
 	 *  psicólogo responsável
-	 * @param Recebe um Objeto do tipo Avaliacao
+	 * @param av Recebe um Objeto do tipo Avaliacao
 	 * @return Retorna uma String informando que a alteração foi feita
 	 * @throws Exception chamada de exceção checked SQLException
 	 */
@@ -106,7 +104,7 @@ public class AvaliacaoDAO {
 	/**
 	 * Método responsável por consultar a tabela T_SCP_AVALIACAO usando 
 	 * o código do usuario como referência
-	 * @param Recebe o código do usuario para fazer a pesquisa
+	 * @param  codUsuario Recebe o código do usuario para fazer a pesquisa
 	 * @return Retornar uma Avaliacao
 	 * @throws Exception chamada da exceção checked SQLException
 	 */
@@ -157,7 +155,7 @@ public class AvaliacaoDAO {
 
 	/**
 	 * Método responsável por criar uma linha na tabela T_SCP_AVALIACAO
-	 * @param Recebe como parametro um Objeto do tipo Avaliacao
+	 * @param av Recebe como parametro um Objeto do tipo Avaliacao
 	 * @return Retorna uma Avaliacao
 	 * @throws Exception chamada da exceção checked SQLException
 	 */
@@ -176,7 +174,7 @@ public class AvaliacaoDAO {
 	
 	/**
 	 * Método responsável por excluir uma linha da tabela T_SCP_AVALIACAO 
-	 * @param Recebe o código da avaliacao para excluir a linha
+	 * @param codAvaliacao Recebe o código da avaliacao para excluir a linha
 	 * @return Retorna uma String  informando que a exclusão foi efetuada
 	 * @throws Exception chamada da exceção checked SQLException
 	 */
@@ -188,7 +186,7 @@ public class AvaliacaoDAO {
 	
 	/**
 	 * Método responsável por alterar os dados da tabela T_SCP_AVALIACAO
-	 * @param Recebe um Objeto do tipo Avaliacao
+	 * @param av Recebe um Objeto do tipo Avaliacao
 	 * @return Retorna uma String informando que a alteração foi feita com sucesso
 	 * @throws Exception chamada da exceção checked SQLException
 	 */
@@ -205,7 +203,7 @@ public class AvaliacaoDAO {
 	
 	/**
 	 * Método responsável por fechar a conexão com o banco
-	 * @return void
+	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
 	 */
 	public void fechar()throws Exception{

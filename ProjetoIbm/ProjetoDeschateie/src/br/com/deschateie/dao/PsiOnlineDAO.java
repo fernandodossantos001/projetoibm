@@ -17,7 +17,6 @@ import br.com.deschateie.conexao.Conexao;
  * @since 1.0
  * @version 1.0
  * @see PsiOnline
- * @see PsiOnlineBO
  *
  */
 public class PsiOnlineDAO {
@@ -27,8 +26,6 @@ public class PsiOnlineDAO {
 		
 	/**
 	 * Método responsável por estabelecer conexão com banco de dados
-	 * @param Não há Parâmetros
-	 * @return Não há retornos
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
@@ -38,7 +35,7 @@ public class PsiOnlineDAO {
 	
 	/**
 	 * Método responsável por consultar uma linha da tabela T_SCP_PSI_ONLINE
-	 * @param Recebe um número inteiro de codigo do psicologo online
+	 * @param codPsi Recebe um número inteiro de codigo do psicologo online
 	 * @return	Retorna um Objeto do tipo PsiOnline
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -76,7 +73,6 @@ public class PsiOnlineDAO {
 
 	/**
 	 * Método responsável por consultar uma linha da tabela T_SCP_PSI_ONLINE
-	 * @param Não há parâmetros
 	 * @return	Retorna um ArrayList do Objeto  PsiOnline
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -117,7 +113,7 @@ public class PsiOnlineDAO {
 	
 	/**
 	 * Método responsável por inserir uma linha na tabela T_SCP_PSI_ONLINE
-	 * @param Recebe um Objeto do tipo PsiOnline
+	 * @param psi Recebe um Objeto do tipo PsiOnline
 	 * @return	Retorna uma String informando uma mensagem de sucesso
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -138,7 +134,7 @@ public class PsiOnlineDAO {
 
 	/**
 	 * Método responsável por excluir uma linha da tabela T_SCP_PSI_ONLINE
-	 * @param Recebe um numero inteiro do codigo do psicologo online
+	 * @param codPsi Recebe um numero inteiro do codigo do psicologo online
 	 * @return	Retorna uma String informando uma mensagem de sucesso
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
@@ -151,7 +147,7 @@ public class PsiOnlineDAO {
 	
 	/**
 	 * Método responsável por alterar uma linha na tabela T_SCP_PSI_ONLINE
-	 * @param Recebe um Objeto do tipo PsiOnline
+	 * @param psi Recebe um Objeto do tipo PsiOnline
 	 * @return	Retorna uma String informando uma mensagem de sucesso
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -173,8 +169,6 @@ public class PsiOnlineDAO {
 	
 	/**
 	 * Método responsável por finalizar a conexão com o banco de dados
-	 * @param Não há parâmetros
-	 * @return Não há retorno
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */

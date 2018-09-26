@@ -17,7 +17,6 @@ import br.com.deschateie.conexao.Conexao;
  * @version 1.0
  * @since 1.0
  * @see Voluntario
- * @see VoluntaioBO
  *
  */
 public class VoluntarioDAO {
@@ -29,8 +28,6 @@ public class VoluntarioDAO {
 	 *
 	 * Neste método construtor estabelecemos a comunicação com o banco de dados
 	 * @author Deschateie
-	 * @param não possui parâmetros
-	 * @return não há retorno
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public VoluntarioDAO()throws Exception {
@@ -39,7 +36,7 @@ public class VoluntarioDAO {
 	
 	/**
 	 * Método responsável por consultar uma linha da tabela T_SCP_VOLUNTARIO
-	 * @param Recebe um número interio do código de voluntario
+	 * @param codVoluntario Recebe um número interio do código de voluntario
 	 * @return	Retorna um  Objeto do tipo Voluntario
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -74,7 +71,6 @@ public class VoluntarioDAO {
 	
 	/**
 	 * Método responsável por consultar várias linhas da tabela T_SCP_VOLUNTARIO
-	 * @param Não há parâmetros
 	 * @return	Retorna um ArrayList do tipo Voluntario
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -110,7 +106,7 @@ public class VoluntarioDAO {
 
 	/**
 	 * Método responsável por consultar uma linha da tabela T_SCP_VOLUNTARIO
-	 * @param Recebe um número long do cpf do voluntario
+	 * @param cpf Recebe um número long do cpf do voluntario
 	 * @return	Retorna um  Objeto do tipo Voluntario
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -144,12 +140,11 @@ public class VoluntarioDAO {
 	
 	/**
 	 * Método responsável por inserir uma linha na tabela T_SCP_VOLUNTARIO
-	 * @param Recebe um Objeto do tipo Voluntario
+	 * @param v Recebe um Objeto do tipo Voluntario
 	 * @return	Retorna uma String com a mensagem de sucesso
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public String gravarVoluntario(Voluntario v)throws Exception{
-//		new UsuarioDAO().gravaUsuario(v);
 		stmt = con.prepareStatement("INSERT INTO T_SCP_VOLUNTARIO"
 									+ "	(CD_VOLUNTARIO,"
 									+ " NR_RG,"
@@ -172,7 +167,7 @@ public class VoluntarioDAO {
 
 	/**
 	 * Método responsável por excluir uma linha da tabela T_SCP_VOLUNTARIO
-	 * @param Recebe um número inteiro do código do voluntario
+	 * @param codVoluntario Recebe um número inteiro do código do voluntario
 	 * @return  Retorna uma String com a mensagem de sucesso
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
@@ -184,7 +179,7 @@ public class VoluntarioDAO {
 	
 	/**
 	 * Método responsável por alterar os dados de uma linha da tabela T_SCP_VOLUNTARIO
-	 * @param Recebe um Objeto do tipo Voluntario
+	 * @param v Recebe um Objeto do tipo Voluntario
 	 * @return Retorna uma String com a mensagem de sucesso
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
@@ -211,8 +206,6 @@ public class VoluntarioDAO {
 
 	/**
 	 * Método responsável por finalizar a conexão com o banco de dados
-	 * @param Não há parâmetros
-	 * @return Não há retorno
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */

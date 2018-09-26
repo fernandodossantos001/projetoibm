@@ -286,8 +286,8 @@ public class ConsultaBO {
 	 * 7 Verifica se o tamanho do campo comentário 
 	 * 8 Verifica se a consulta já foi paga, se a consulta
 	 * tiver sido paga então as alterações não poderão ser feitas
-	 * @param Recebe um Objeto do tipo Consulta
-	 * @return c Retorna uma Stirng informando um erro caso
+	 * @param c Recebe um Objeto do tipo Consulta
+	 * @return  Retorna uma Stirng informando um erro caso
 	 * as regras acima não sejam seguidas ou uma mensagem de sucesso
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException

@@ -17,12 +17,7 @@ import br.com.deschateie.conexao.Conexao;
  * @author Deshcateie
  * @since 1.0
  * @version 1.0
- * @see ConsultaBO
- * @see PsiOnlineBO
- * @see PacienteBO
  * @see Consulta
- * @see Paciente
- * @see PsiOnline
  *
  */
 public class ConsultaDAO {
@@ -34,8 +29,6 @@ public class ConsultaDAO {
 	 *
 	 * Neste método construtor estabelecemos a comunicação com o banco de dados
 	 * @author Deschateie
-	 * @param não possui parâmetros
-	 * @return não há retorno
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
 	public ConsultaDAO()throws Exception{
@@ -44,7 +37,7 @@ public class ConsultaDAO {
 	
 	/**
 	 * Método responável por consultar uma linha da tabela T_SCP_CONSULTA
-	 * @param Recebe um número interido do codigo da consulta
+	 * @param codConsulta Recebe um número interido do codigo da consulta
 	 * @return Retorna um Objeto do tipo Consulta
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -69,7 +62,6 @@ public class ConsultaDAO {
 
 	/**
 	 * Método responsável por consultas várias linha da tabela T_SCPC_CONSULTA
-	 * @param Não há parâmetros
 	 * @return Retorna um ArrayList do tipo Consulta
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -93,7 +85,7 @@ public class ConsultaDAO {
 	
 	/**
 	 * Método responsável por consultas várias linha da tabela T_SCPC_CONSULTA
-	 * @param Recebe um número inteiro do código do psicologo online
+	 * @param codPsiOnline Recebe um número inteiro do código do psicologo online
 	 * @return Retorna um ArrayList do tipo Consulta
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -119,7 +111,7 @@ public class ConsultaDAO {
 	
 	/**
 	 * Método responsável por consultas várias linha da tabela T_SCPC_CONSULTA
-	 * @param Recebe um número inteiro do código do pacientes
+	 * @param codPaciente Recebe um número inteiro do código do pacientes
 	 * @return Retorna um ArrayList do tipo Consulta
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -145,7 +137,7 @@ public class ConsultaDAO {
 
 	/**
 	 * Método responsável por excluir uma linha da tabela T_SCP_CONSULTA
-	 * @param Recebe um número inteiro do códgo da consulta
+	 * @param codConsulta Recebe um número inteiro do código da consulta
 	 * @return Retorna uma String com a mensagem de sucesso
 	 * @throws Exception Chamada da exceção checked SQLExcpetion
 	 */
@@ -157,7 +149,7 @@ public class ConsultaDAO {
 	
 	/**
 	 * Método responsável por alterar os dados de uma linha da tabela T_SCP_CONSULTA
-	 * @param Recebe um Objeto do tipo Consulta
+	 * @param c Recebe um Objeto do tipo Consulta
 	 * @return Retorna uma String com a mensagem de sucesso
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
@@ -177,7 +169,7 @@ public class ConsultaDAO {
 
 	/**
 	 * Método responsável por inserir uma linha na tabela T_SCP_CONSULTA
-	 * @param Recebe um Objeto do tipo Consulta
+	 * @param c Recebe um Objeto do tipo Consulta
 	 * @return	Retorna uma String com a mensagem de sucesso
 	 * @throws Exception Chama da exceção checked SQLException
 	 */
@@ -198,8 +190,6 @@ public class ConsultaDAO {
 
 	/**
 	 * Método responsável por finalizar a conexão com o banco de dados
-	 * @param Não há parâmetros
-	 * @return Não há retorno
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */

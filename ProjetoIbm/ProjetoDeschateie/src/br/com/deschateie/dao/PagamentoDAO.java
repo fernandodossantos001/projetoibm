@@ -13,7 +13,6 @@ import br.com.deschateie.conexao.Conexao;
  * @author Deschateie
  * @version 1.0
  * @since 1.0
- * @see PagamentoBO
  * @see Pagamento
  * 
  *
@@ -26,8 +25,6 @@ public class PagamentoDAO {
 
 	/**
 	 * Método responsável por estabelecer conexão com o banco de dados
-	 * @param Não há parâmetros
-	 * @return Não há retorno
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
@@ -37,7 +34,7 @@ public class PagamentoDAO {
 
 	/**
 	 * Método responsável por consultar uma linha da tabela T_SCP_PAGAMENTO
-	 * @param Recebe um número inteiro do codigo de pagamento
+	 * @param codPagamento Recebe um número inteiro do codigo de pagamento
 	 * @return Retorna um Objeto do tipo Pagamento
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -65,7 +62,7 @@ public class PagamentoDAO {
 	
 	/**
 	 * Método responsável por consultar uma linha da tabela T_SCP_PAGAMENTO
-	 * @param Recebe um número inteiro do codigo de consulta
+	 * @param codConsulta Recebe um número inteiro do codigo de consulta
 	 * @return Retorna um Objeto do tipo Pagamento
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -93,7 +90,7 @@ public class PagamentoDAO {
 
 	/**
 	 * Método responsável por inserir uma linha na tabela T_SCP_PAGAMENTO
-	 * @param Recebe um Objeto do tipo Pagamento
+	 * @param p Recebe um Objeto do tipo Pagamento
 	 * @return Retorna uma String informando que a linha foi inserida
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -120,7 +117,7 @@ public class PagamentoDAO {
 	/**
 	 * Método responsável por alterar uma linha da tabela T_SCP_PAGAMENTO
 	 * @author Deschateie
-	 * @param Recebe um Objeto do tipo Pagamento
+	 * @param p Recebe um Objeto do tipo Pagamento
 	 * @return Retorna uma String informando que a linha foi alterada
 	 * @throws Exception chamada da exceção checked SQLException
 	 */
@@ -137,7 +134,7 @@ public class PagamentoDAO {
 	/**
 	 * Método responsável por excluir uma linha da tabela T_SCP_PAGAMENTO
 	 * @author Deschateie
-	 * @param Recebe um número inteiro do codigo de pagamento
+	 * @param codPagamento Recebe um número inteiro do codigo de pagamento
 	 * @return Retorna uma String informando que a linha foi excluida
 	 * @throws Exception chamada da exceção checked SQLException
 	 */
@@ -149,8 +146,6 @@ public class PagamentoDAO {
 	
 	/**
 	 * Método responsável por finalizar a conexão com o banco de dados
-	 * @param Não há parâmetros
-	 * @return Não há retorno
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */

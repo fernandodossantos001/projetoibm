@@ -12,8 +12,6 @@ import java.util.regex.Pattern;
  * @see AgendamentoBO
  * @see UsuarioBO
  * @see ConsultaBO
- * @see Avaliacao
- * @see Pagamento
  *
  */
 public class DataBO {

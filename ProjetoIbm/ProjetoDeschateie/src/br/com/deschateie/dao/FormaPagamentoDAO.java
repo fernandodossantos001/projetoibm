@@ -14,7 +14,6 @@ import br.com.deschateie.conexao.Conexao;
  * @version 1.0
  * @since 1.0
  * @see FormaPagamento
- * @see FormaPagamentoBO
  */
 public class FormaPagamentoDAO {
 	
@@ -24,8 +23,6 @@ public class FormaPagamentoDAO {
 	
 	/**
 	 * Método responsável por estabelecer conexão com o banco de dados
-	 * @param Não há parâmetros
-	 * @return Não há retorno
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
@@ -36,7 +33,7 @@ public class FormaPagamentoDAO {
 	
 	/**
 	 * Método responsável por consultar uma linha da tabela T_SCP_FORMA_PAGAMENTO
-	 * @param Recebe um número inteiro do codigo da FormaPagamento
+	 * @param codFormaPagamento Recebe um número inteiro do codigo da FormaPagamento
 	 * @return Retorna um Objeto do tipo FormaPagamento
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -58,7 +55,7 @@ public class FormaPagamentoDAO {
 	
 	/**
 	 * Método responsável por inserir uma linha na tabela T_SCP_FORMA_PAGAMENTO
-	 * @param Recebe um Objeto do tipo  FormaPagamento
+	 * @param fp Recebe um Objeto do tipo  FormaPagamento
 	 * @return Retorna uma String com uma mensagem de sucesso
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -74,7 +71,7 @@ public class FormaPagamentoDAO {
 
 	/**
 	 * Método responsável por alterar os dados de uma linha da tabela T_SCP_FORMA_PAGAMENTO
-	 * @param Recebe um Objeto do tipo FormaPagamento
+	 * @param fp Recebe um Objeto do tipo FormaPagamento
 	 * @return	Retorna uma String informando que foi alterado
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -89,7 +86,7 @@ public class FormaPagamentoDAO {
 	
 	/**
 	 * Método responsável por excluir uma linha da tabela T_SCP_FORMA_PAGAMENTO
-	 * @param Recebe um número interio do código da FormaPagamento
+	 * @param codFormaPagamento Recebe um número interio do código da FormaPagamento
 	 * @return Retorna uma String  informando que a linha foi excluida
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
@@ -102,8 +99,6 @@ public class FormaPagamentoDAO {
 	
 	/**
 	 * Método responsável por finalizar a conexão com o banco de dados
-	 * @param Não há parâmetros
-	 * @return Não há retorno
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */

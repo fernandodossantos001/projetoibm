@@ -133,8 +133,8 @@ public class ConversaBO {
 	 * 2 Verifica se a data da convers é válida
 	 * 3 Verifica se o códgio da conversa passado já existe
 	 * 4 Verifica se o voluntario existe 
-	 * @param Recebe um Objeto do tipo Conversa
-	 * @return c Retorna uma String informando um erro se alguma das regras acima 
+	 * @param c Recebe um Objeto do tipo Conversa
+	 * @return  Retorna uma String informando um erro se alguma das regras acima 
 	 * não estivem sendo cumpridas ou uma mensagem de sucesso
 	 * @throws Exception chamada da exceção checked SQLException
 	 */

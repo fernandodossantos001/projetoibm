@@ -14,10 +14,7 @@ import br.com.deschateie.conexao.Conexao;
  * @author Deschateie
  * @version 1.0
  * @since 1.0
- * @see PacienteBO
  * @see Paciente
- * @see Usuario
- * @see UsuarioBO
  */
 public class PacienteDAO {
 	private Connection con;
@@ -27,8 +24,6 @@ public class PacienteDAO {
 
 	/**
 	 * Método responsável por estabelecer conexão com o banco de dados
-	 * @param Não há parâmetros
-	 * @return Não há retorno
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
@@ -38,7 +33,7 @@ public class PacienteDAO {
 	
 	/**
 	 * Método responsável por inserir uma linha na tabela T_SCP_PACIENTE
-	 * @param Recebe um Objeto do tipo Paciente
+	 * @param p Recebe um Objeto do tipo Paciente
 	 * @return Retorna uma String informando que a linha foi inserida
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -60,7 +55,7 @@ public class PacienteDAO {
 	
 	/**
 	 * Método responsável por alterar os dados de uma linha da tabela T_SCP_VOLUNTARIO
-	 * @param Recebe um Objeto do tipo Paciente
+	 * @param p Recebe um Objeto do tipo Paciente
 	 * @return Retorna uma String informando que a alteração foi feita
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLExcepiton
@@ -83,7 +78,7 @@ public class PacienteDAO {
 
 	/**
 	 * Método responsável por excluir uma linha da tabela T_SCP_PACIENTE
-	 * @param Recebe um número inteiro do codido de paciente
+	 * @param codPaciente Recebe um número inteiro do codido de paciente
 	 * @return Retorna uma String informando que a linha foi excluida
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -97,7 +92,7 @@ public class PacienteDAO {
 	
 	/**
 	 * Método responsável por consultar uma linha da tabela T_SCP_PACIENTE
-	 * @param Recebe um número inteiro do codigo de paciente
+	 * @param codPaciente Recebe um número inteiro do codigo de paciente
 	 * @return Retorna um Objeto do tipo Paciente
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -134,7 +129,7 @@ public class PacienteDAO {
 
 	/**
 	 * Método responsável por consultar uma linha da tabela T_SCP_PACIENTE
-	 * @param Recebe um número long do cpf de paciente
+	 * @param cpf Recebe um número long do cpf de paciente
 	 * @return Retorna um Objeto do tipo Paciente
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
@@ -167,8 +162,6 @@ public class PacienteDAO {
 	
 	/**
 	 * Método responsável por finalizar a conexão com o banco de dados
-	 * @param Não há parâmetros
-	 * @return Não há retorno
 	 * @author Deschateie
 	 * @throws Exception Chamada da exceção checked SQLException
 	 */
