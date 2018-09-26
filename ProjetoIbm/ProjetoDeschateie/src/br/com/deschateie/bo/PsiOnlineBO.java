@@ -110,7 +110,7 @@ public class PsiOnlineBO {
 		}
 		
 		
-		psi.setNivelPermissao(3);
+		psi.setNivelPermissao(6);
 		if (!ehValido) {
 			String status = PsicologoBO.NovoPsicologo(psi,ehValido);
 			 if (!status.equals("Psicologo cadastrado com Sucesso")) {

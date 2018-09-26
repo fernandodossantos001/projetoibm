@@ -15,39 +15,39 @@ public class TesteAvaliacao {
 
 			
 			
-			System.out.println(AvaliacaoBO.novaAvaliacao(
-					(new Avaliacao(
-							65,
-							new Psicologo(
-									20,
-									"teste",
-									"asd",
-									"12/01/1997",
-									"asd", 
-									"asd", 
-									6,
-									"c://",
-									"",
-									34535,
-									"asb", 
-									"asd", 
-									5749323, 
-									240
-									), 
-							new Usuario(
-									2,
-									"ASD", 
-									"asd", 
-									"asdad", 
-									"asdad", 
-									"asd", 
-									7,
-									"asd", 
-									"sdfsfd"
-									),
-							"24/09/2018",
-							"APROVADO"))));
-			
+//			System.out.println(AvaliacaoBO.novaAvaliacao(
+//					(new Avaliacao(
+//							67,
+//							new Psicologo(
+//									20,
+//									null,
+//									"asd",
+//									"12/01/1997",
+//									"asd", 
+//									"asd", 
+//									6,
+//									"c://",
+//									"",
+//									34535,
+//									"asb", 
+//									"asd", 
+//									5749323, 
+//									240
+//									), 
+//							new Usuario(
+//									2,
+//									"ASD", 
+//									"asd", 
+//									"asdad", 
+//									"asdad", 
+//									"asd", 
+//									7,
+//									"asd", 
+//									"sdfsfd"
+//									),
+//							"24/09/2018",
+//							"APROVADO"))));
+//			
 			
 			int cod = 65;
 			System.out.println(AvaliacaoBO.pesquisarAvaliacao(cod).getAll());
@@ -56,33 +56,8 @@ public class TesteAvaliacao {
 			System.out.println(AvaliacaoBO.alterarDadosAvaliacao((
 					(new Avaliacao(
 							65,
-							new Psicologo(
-									20,
-									"teste",
-									"asd",
-									"12/01/1997",
-									"asd", 
-									"asd", 
-									6,
-									"c://",
-									"",
-									34535,
-									"asb", 
-									"asd", 
-									5749323, 
-									240
-									), 
-							new Usuario(
-									2,
-									"ASD", 
-									"asd", 
-									"asdad", 
-									"asdad", 
-									"asd", 
-									7,
-									"asd", 
-									"sdfsfd"
-									),
+							new Psicologo(), 
+							new Usuario(),
 							"24/09/2018",
 							"REPROVADO")))));
 //			System.out.println(AvaliacaoBO.excluirAvaliacaoVoluntario(cod));

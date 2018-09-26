@@ -1,0 +1,39 @@
+package br.com.deschateie.main;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.deschateie.beans.Consulta;
+import br.com.deschateie.beans.Paciente;
+import br.com.deschateie.bo.ConsultaBO;
+import br.com.deschateie.excecao.Excecao;
+
+public class TesteConsulta {
+
+	public static void main(String[] args) {
+		
+		try {
+			
+			List<Consulta> lista = new ArrayList<Consulta>();
+			List<Paciente> listaPaciente = new ArrayList<Paciente>();
+			List<List> listaObjeto = new ArrayList<List>();
+			lista = ConsultaBO.pesquisarConsulta();
+			for (Consulta consulta : lista) {
+				System.out.println(consulta.getAll());
+			}
+			
+			listaObjeto = ConsultaBO.pesquisarPaciente();
+			lista = listaObjeto.get(0);
+			listaPaciente = listaObjeto.get(1);
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(Excecao.tratarExcecao(e));
+		}
+		
+
+	}
+
+}

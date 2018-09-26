@@ -123,7 +123,7 @@ public class VoluntarioBO {
 		}
 		
 		
-		v.setNivelPermissao(2);
+		v.setNivelPermissao(7);
 		
 		if (!ehValido) {
 			String status = UsuarioBO.novoUsuario(v);		

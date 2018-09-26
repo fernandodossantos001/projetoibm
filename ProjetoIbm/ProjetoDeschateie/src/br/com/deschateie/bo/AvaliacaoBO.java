@@ -195,8 +195,8 @@ public class AvaliacaoBO {
 		}
 		
 		
-		if(av.getUsuario().getNivelPermissao()==6 ||av.getUsuario().getNivelPermissao()==7) {
-			return "os niveis de permissão não podem estar entre 6 e 7, pois ambos já foram avaliados";
+		if(av.getUsuario().getNivelPermissao()< 6 ||av.getUsuario().getNivelPermissao()>7) {
+			return "  ambos já foram avaliados, não será possível mudar os dados";
 		}
 		
 		

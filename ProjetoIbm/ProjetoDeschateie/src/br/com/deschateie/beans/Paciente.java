@@ -43,7 +43,8 @@ public class Paciente extends Usuario implements Comparable<Usuario> {
 
 	
 	public String getAll() {
-		return super.getAll()+"\n"+ 
+		return  " ---- Paciente ------ "+ "\n"+
+				super.getAll()+"\n"+ 
 				"Código Paciente :" + codPaciente  + "\n"+ 
 				"Cep : " + cep  + "\n"+ 
 				"Cpf : " + cpf  + "\n"+ 
