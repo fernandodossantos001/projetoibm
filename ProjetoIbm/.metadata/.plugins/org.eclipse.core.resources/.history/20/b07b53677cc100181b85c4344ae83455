@@ -167,8 +167,8 @@ public class UsuarioBO {
 	  * Método responsável por manipular as regras de negócio relacionadas Usuario
 	 * Regras avaliadas
 	 * Verifica o tamanho do nome do usuario
-	 * @param Recebe uma String com o nome do usuario
-	 * @return Retorna um ArrayList do tipo Usuario
+	 * @param Recebe uma String com o email do usuario
+	 * @return Retorna um Objeto do tipo Usuario
 	 * @author Deschateie
 	 * @throws Exception chamada da exceção checked SQLException
 	 */
@@ -189,16 +189,7 @@ public class UsuarioBO {
 		return dao.consultarNomesUsuario(nome);
 		
 	}
-	
-	/**
-	  * Método responsável por manipular as regras de negócio relacionadas Usuario
-	 * Regras avaliadas
-	 * Verifica se o codigo do usuario é valido
-	 * @param Recebe um número inteiro do codigo do usuario
-	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima seja quebrada
-	 * @author Deschateie
-	 * @throws Exception chamada da exceção checked SQLException
-	 */
+
 	public static String excluirUsuario(int codUsuario)throws Exception{
 		
 		if(codUsuario <0) {
@@ -392,15 +383,7 @@ public class UsuarioBO {
 		return usuario;
 
 	}
-	/**
-	  * Método responsável por manipular as regras de negócio relacionadas Usuario
-	 * Regras avaliadas
-	 * 1 Verifica se o codigo de usuario é valido
-	 * @param Recebe um número interio com o codigo do usuario
-	 * @return Retorna um Objeto do tipo Usuario
-	 * @author Deschateie
-	 * @throws Exception chamada da exceção checked SQLException
-	 */
+	
 	public static Usuario pesquisarUsuarioPorCod(int codUsuario)throws Exception{
 		
 		if(codUsuario<0) {
@@ -419,17 +402,6 @@ public class UsuarioBO {
 		return us;
 	}
 	
-	/**
-	  * Método responsável por manipular as regras de negócio relacionadas Usuario
-	 * Regras avaliadas
-	 * 1 Verifica se o codigo de usuario é valido
-	 * 2 Verifica se o nivel de permissao é valido
-	 * 3 Verifica se o usuario existe
-	 * @param Recebe um Objeto do tipo Usuario
-	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima seja quebrada
-	 * @author Deschateie
-	 * @throws Exception chamada da exceção checked SQLException
-	 */
 	public static String alterarNivelAcesso(Usuario u)throws Exception{
 		if (u.getCodUsuario()<1) {
 			return "codigo invalido";

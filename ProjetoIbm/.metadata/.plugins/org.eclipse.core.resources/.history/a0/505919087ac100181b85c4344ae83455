@@ -23,16 +23,8 @@ public class UsuarioBO {
 	 * Regras avaliadas
 	 * 1 Verifica se o codigo do usuario é valido
 	 * 2 Verifica o tamanho do nome 
-	 * 3 Verifica se a data é valida
-	 * 4 Verifica o tamanho do login
-	 * 5 Verifica o tamanha da senha
-	 * 6 Verifica o nivel de permissao 
-	 * 7 Verifica o tamanho da foto
-	 * 8 Verifica o tamanho do genero
-	 * 9 Verifica o tamanho do email do usuario
-	 * 10 Verifica se o email já existe
-	 * 11 Verifica se o login já existe
-	 * 12 Verifica se códgio de usuario já existe
+	 * 3 Ver
+	 * Verifica o tamanho do email do usuario
 	 * @param Recebe um Objeto do tipo Usuario
 	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima seja quebrada
 	 * @author Deschateie
@@ -129,6 +121,9 @@ public class UsuarioBO {
 			return "codigo existente";
 		}
 		
+		u.setGenero(u.getGenero().toUpperCase());
+		u.setNomeUsuario(u.getNomeUsuario().toUpperCase());
+		
 		
 		dao.gravaUsuario(u);
 		dao.fechar();
@@ -162,16 +157,7 @@ public class UsuarioBO {
 		dao.fechar();
 		return us;
 	}
-	
-	/**
-	  * Método responsável por manipular as regras de negócio relacionadas Usuario
-	 * Regras avaliadas
-	 * Verifica o tamanho do nome do usuario
-	 * @param Recebe uma String com o nome do usuario
-	 * @return Retorna um ArrayList do tipo Usuario
-	 * @author Deschateie
-	 * @throws Exception chamada da exceção checked SQLException
-	 */
+
 	public static List<Usuario> pesquisarNomesUsuarios(String nome)throws Exception{
 	
 		List<Usuario> listaUsuario = new ArrayList<Usuario>();
@@ -189,16 +175,7 @@ public class UsuarioBO {
 		return dao.consultarNomesUsuario(nome);
 		
 	}
-	
-	/**
-	  * Método responsável por manipular as regras de negócio relacionadas Usuario
-	 * Regras avaliadas
-	 * Verifica se o codigo do usuario é valido
-	 * @param Recebe um número inteiro do codigo do usuario
-	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima seja quebrada
-	 * @author Deschateie
-	 * @throws Exception chamada da exceção checked SQLException
-	 */
+
 	public static String excluirUsuario(int codUsuario)throws Exception{
 		
 		if(codUsuario <0) {
@@ -224,25 +201,6 @@ public class UsuarioBO {
 		
 	}
 
-	/**
-	  * Método responsável por manipular as regras de negócio relacionadas Usuario
-	 * Regras avaliadas
-	 * 1 Verifica se o codigo do usuario é valido
-	 * 2 Verifica o tamanho do nome 
-	 * 3 Verifica se a data é valida
-	 * 4 Verifica o tamanho do login
-	 * 5 Verifica o tamanha da senha
-	 * 6 Verifica o nivel de permissao 
-	 * 7 Verifica o tamanho da foto
-	 * 8 Verifica o tamanho do genero
-	 * 9 Verifica o tamanho do email do usuario
-	 * 10 Verifica se o email já existe
-	 * 11 Verifica se o login já existe
-	 * @param Recebe um Objeto do tipo Usuario
-	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima seja quebrada
-	 * @author Deschateie
-	 * @throws Exception chamada da exceção checked SQLException
-	 */
 	public static String AlterarDadosUsuario(Usuario u )throws Exception {
 		
 		if(u.getCodUsuario()>99999) {
@@ -356,17 +314,7 @@ public class UsuarioBO {
 		return "Usuário alterado com Sucesso";
 		
 	}
-	
-	/**
-	  * Método responsável por manipular as regras de negócio relacionadas Usuario
-	 * Regras avaliadas
-	 * 1 Verifica se o login do usuario é válido
-	 * 2 Verifica se a senha do usuario é válida
-	 * @param Recebe uma String com o login e senha do usuario
-	 * @return Retorna um Objeto do tipo Usuario
-	 * @author Deschateie
-	 * @throws Exception chamada da exceção checked SQLException
-	 */
+
 	public static Usuario autenticarUsuario(String login, String senha)throws Exception{
 		if(login.length()<1) {
 			return new Usuario();	
@@ -392,15 +340,7 @@ public class UsuarioBO {
 		return usuario;
 
 	}
-	/**
-	  * Método responsável por manipular as regras de negócio relacionadas Usuario
-	 * Regras avaliadas
-	 * 1 Verifica se o codigo de usuario é valido
-	 * @param Recebe um número interio com o codigo do usuario
-	 * @return Retorna um Objeto do tipo Usuario
-	 * @author Deschateie
-	 * @throws Exception chamada da exceção checked SQLException
-	 */
+	
 	public static Usuario pesquisarUsuarioPorCod(int codUsuario)throws Exception{
 		
 		if(codUsuario<0) {
@@ -419,17 +359,6 @@ public class UsuarioBO {
 		return us;
 	}
 	
-	/**
-	  * Método responsável por manipular as regras de negócio relacionadas Usuario
-	 * Regras avaliadas
-	 * 1 Verifica se o codigo de usuario é valido
-	 * 2 Verifica se o nivel de permissao é valido
-	 * 3 Verifica se o usuario existe
-	 * @param Recebe um Objeto do tipo Usuario
-	 * @return Retorna uma String informando um erro ou sucesso caso nenhuma das regras acima seja quebrada
-	 * @author Deschateie
-	 * @throws Exception chamada da exceção checked SQLException
-	 */
 	public static String alterarNivelAcesso(Usuario u)throws Exception{
 		if (u.getCodUsuario()<1) {
 			return "codigo invalido";
