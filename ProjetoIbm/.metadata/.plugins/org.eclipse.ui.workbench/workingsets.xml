@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1537972377657_2" label="funcionalidades" name="funcionalidades">
+<item elementID="=ProjetoDeschateie/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1536252912055_0" label="Window Working Set" name="Aggregate for window 1536252912053"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1536763750152_1" label="Window Working Set" name="Aggregate for window 1536763750152"/>
 </workingSetManager>

@@ -108,7 +108,7 @@ public class ConsultaBO {
 	 * @throws Exception chamada da exceção checked SQLException
 	 * @author Deschateie
 	 */
-	public static List<List> pesquisarConsultaPsiOnline()throws Exception{
+	public static List<List> pesquisarPsiOnline()throws Exception{
 		boolean isTruePsi = false;
 		List<Consulta> listaConsultas = new ArrayList<Consulta>();
 		List<PsiOnline> listaPsiOnlines = new ArrayList<PsiOnline>();
@@ -162,7 +162,7 @@ public class ConsultaBO {
 	 * @throws Exception chamada da exceção checked SQLException
 	 * @author Deschateie
 	 */
-	public static List<List> pesquisarConsultaPaciente()throws Exception{
+	public static List<List> pesquisarPaciente()throws Exception{
 		
 		boolean isTrueP = false;
 		List<Consulta> listaConsultas = new ArrayList<Consulta>();

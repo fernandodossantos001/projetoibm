@@ -219,7 +219,8 @@ public class AvaliacaoBO {
 	 * o nivel é 3 e se quiser ser voluntario o nivel é 2
 	 * @param av Recebe um Objeto do tipo Avaliacao
 	 * @return Retorna uma String, podendo conter uma mesagem de erro caso
-	 * algumas das regras acima não sejam seguidas ou  uma mensagem de sucesso 
+	 * algumas das regras acima não sejam seguidas ou  uma mensagem de sucesso caso
+	 * a avaliação seja feita com sucesso
 	 * @throws Exception Exceção do tipo checked SQLException
 	 */
 	public static String avaliar(Avaliacao av)throws Exception{
