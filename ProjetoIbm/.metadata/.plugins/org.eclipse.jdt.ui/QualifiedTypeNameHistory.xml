@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
-<fullyQualifiedTypeName name="javax.swing.OverlayLayout"/>
-<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="br.com.deschateie.beans.PsicologoOnline"/>
 <fullyQualifiedTypeName name="javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction"/>
 <fullyQualifiedTypeName name="br.com.deschateie.dao.PsiOnlineDAO"/>
@@ -22,7 +18,6 @@
 <fullyQualifiedTypeName name="java.lang.Character"/>
 <fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
 <fullyQualifiedTypeName name="br.com.deschateie.bo.AgendamentoBO"/>
-<fullyQualifiedTypeName name="br.com.deschateie.bo.DataBO"/>
 <fullyQualifiedTypeName name="br.com.deschateie.bo.PacienteBO"/>
 <fullyQualifiedTypeName name="br.com.deschateie.bo.VoluntarioBO"/>
 <fullyQualifiedTypeName name="br.com.deschateie.beans.Voluntario"/>
@@ -36,28 +31,33 @@
 <fullyQualifiedTypeName name="br.com.deschateie.bo.UsuarioBO"/>
 <fullyQualifiedTypeName name="br.com.deschateie.beans.FormaPagamento"/>
 <fullyQualifiedTypeName name="br.com.deschateie.bo.FormaPagamentoBO"/>
-<fullyQualifiedTypeName name="java.lang.Comparable"/>
-<fullyQualifiedTypeName name="br.com.deschateie.bo.ConsultaBO"/>
 <fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="br.com.deschateie.beans.Paciente"/>
 <fullyQualifiedTypeName name="java.lang.Override"/>
 <fullyQualifiedTypeName name="java.awt.geom.Area"/>
 <fullyQualifiedTypeName name="java.util.concurrent.ArrayBlockingQueue"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="br.com.deschateie.beans.Agendamento"/>
 <fullyQualifiedTypeName name="java.security.spec.ECFieldF2m"/>
 <fullyQualifiedTypeName name="br.com.deschateie.dao.VoluntarioDAO"/>
 <fullyQualifiedTypeName name="br.com.deschateie.bo.PsiOnlineBO"/>
 <fullyQualifiedTypeName name="br.com.deschateie.beans.Consulta"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.security.cert.CollectionCertStoreParameters"/>
-<fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="br.com.deschateie.beans.PsiOnline"/>
-<fullyQualifiedTypeName name="br.com.deschateie.excecao.Excecao"/>
 <fullyQualifiedTypeName name="br.com.deschateie.beans.Avaliacao"/>
 <fullyQualifiedTypeName name="br.com.deschateie.beans.Psicologo"/>
 <fullyQualifiedTypeName name="br.com.deschateie.beans.Usuario"/>
 <fullyQualifiedTypeName name="br.com.deschateie.bo.AvaliacaoBO"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.lang.Comparable"/>
+<fullyQualifiedTypeName name="oracle.net.aso.i"/>
+<fullyQualifiedTypeName name="br.com.deschateie.excecao.Excecao"/>
+<fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlAnyAttribute"/>
+<fullyQualifiedTypeName name="br.com.deschateie.beans.Pagamento"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="br.com.deschateie.bo.PagamentoBO"/>
+<fullyQualifiedTypeName name="br.com.deschateie.bo.DataBO"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="br.com.deschateie.bo.ConsultaBO"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

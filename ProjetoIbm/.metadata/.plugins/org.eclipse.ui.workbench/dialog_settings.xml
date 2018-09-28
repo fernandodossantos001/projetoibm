@@ -8,8 +8,13 @@
 		<item value="250" key="dialogHeight"/>
 		<item value="350" key="dialogWidth"/>
 		<list key="textEntries">
-			<item value="2"/>
-			<item value="2"/>
+			<item value="3"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
 			<item value="1"/>
 			<item value="1"/>
 			<item value="1"/>
@@ -17,16 +22,26 @@
 			<item value="2"/>
 		</list>
 		<list key="orderedElements">
-			<item value="org.eclipse.debug.ui.actions.RunLast"/>
-			<item value="AUTOGEN:::org.eclipse.jdt.ui.JavaElementCreationActionSet/org.eclipse.jdt.ui.actions.NewTypeDropDown"/>
-			<item value="org.eclipse.ui.newWizard(newWizardId=org.eclipse.jdt.ui.wizards.NewPackageCreationWizard)"/>
-			<item value="org.eclipse.ui.newWizard(newWizardId=org.eclipse.jdt.ui.wizards.JavaProjectWizard)"/>
 			<item value="org.eclipse.ui.file.export"/>
+			<item value="org.eclipse.debug.ui.actions.RunLast"/>
+			<item value="org.eclipse.jdt.ui.JavadocView"/>
+			<item value="AUTOGEN:::org.eclipse.jdt.ui.JavaElementCreationActionSet/org.eclipse.jdt.ui.actions.NewTypeDropDown"/>
+			<item value="search.in.help"/>
+			<item value="org.eclipse.ui.newWizard(newWizardId=org.eclipse.jdt.ui.wizards.JavaProjectWizard)"/>
+			<item value="org.eclipse.jdt.ui.edit.text.java.generate.tostring"/>
+			<item value="org.eclipse.jdt.ui.edit.text.java.generate.constructor.using.fields"/>
+			<item value="org.eclipse.jdt.ui.edit.text.java.create.getter.setter"/>
+			<item value="org.eclipse.ui.newWizard(newWizardId=org.eclipse.jdt.ui.wizards.NewPackageCreationWizard)"/>
 			<item value="org.eclipse.wst.server.ui.ServersView"/>
 			<item value="org.eclipse.jdt.ui.wizards.NewPackageCreationWizard"/>
 		</list>
 		<list key="orderedProviders">
+			<item value="org.eclipse.ui.commands"/>
 			<item value="org.eclipse.ui.actions"/>
+			<item value="org.eclipse.e4.ui.parts"/>
+			<item value="org.eclipse.ui.commands"/>
+			<item value="org.eclipse.ui.actions"/>
+			<item value="org.eclipse.ui.commands"/>
 			<item value="org.eclipse.ui.commands"/>
 			<item value="org.eclipse.ui.commands"/>
 			<item value="org.eclipse.ui.commands"/>
@@ -35,13 +50,18 @@
 			<item value="org.eclipse.ui.wizards"/>
 		</list>
 		<list key="textArray">
-			<item value="ru"/>
-			<item value="run"/>
-			<item value="new c"/>
-			<item value="new cl"/>
-			<item value="new pack"/>
-			<item value="java projec"/>
 			<item value="export"/>
+			<item value="expor"/>
+			<item value="expo"/>
+			<item value="run"/>
+			<item value="javadoc"/>
+			<item value="new cl"/>
+			<item value="new lc"/>
+			<item value="java projec"/>
+			<item value="tostr"/>
+			<item value="construc"/>
+			<item value="getter"/>
+			<item value="new pack"/>
 			<item value="server"/>
 			<item value="packa"/>
 			<item value="pa"/>
@@ -55,12 +75,14 @@
 		</list>
 		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
 			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.jdt.ui.Java"/>
 		</list>
 	</section>
 	<section name="ZipFileExportWizard">
 		<item value="true" key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID"/>
 		<item value="true" key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID"/>
 		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\Fernando\Desktop\Deschateie.zip"/>
 			<item value="A:\Documentos\Backup\java.zip"/>
 			<item value="A:\Documentos\Backup\workspaceJava.zip"/>
 		</list>

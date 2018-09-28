@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<item value="JavaSE-1.8" key="org.eclipse.jdt.ui.last.selected.execution.enviroment"/>
+	<item value="false" key="TypeHierarchyViewPart.qualifiednames"/>
+	<item value="3" key="TypeHierarchyViewPart.orientation"/>
+	<item value="false" key="TypeHierarchyViewPart.linkeditors"/>
+	<item value="2" key="TypeHierarchyViewPart.hierarchyview"/>
 	<item value="false" key="delegateUpdating"/>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
 		<item value="false" key="renameSubpackages"/>
@@ -40,6 +44,12 @@
 		<item value="1" key="VisibilityModifier"/>
 		<item value="false" key="FinalModifier"/>
 	</section>
+	<section name="org.eclipse.jdt.internal.ui.typehierarchy.QuickHierarchy">
+		<item value="true" key="org.eclipse.jdt.internal.ui.typehierarchy.HierarchyInformationControlDIALOG_USE_PERSISTED_SIZE"/>
+		<item value="306" key="org.eclipse.jdt.internal.ui.typehierarchy.HierarchyInformationControlDIALOG_HEIGHT"/>
+		<item value="350" key="org.eclipse.jdt.internal.ui.typehierarchy.HierarchyInformationControlDIALOG_WIDTH"/>
+		<item value="false" key="org.eclipse.jdt.internal.ui.typehierarchy.HierarchyInformationControlDIALOG_USE_PERSISTED_LOCATION"/>
+	</section>
 	<section name="DialogBounds_GetterSetterTreeSelectionDialog">
 		<item value="528" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
@@ -64,6 +74,58 @@
 	<section name="RefactoringWizard.preview">
 		<item value="580" key="width"/>
 		<item value="380" key="height"/>
+	</section>
+	<section name="javadoc">
+		<item value="public" key="access"/>
+		<item value="false" key="noindex"/>
+		<item value="C:\Users\Fernando\Desktop\ProjetoIBM\ProjetoIbm\ProjetoDeschateie\javadoc.xml" key="antpath"/>
+		<item value="false" key="nodeprecatedlist"/>
+		<item value="true" key="use"/>
+		<item value="true" key="author"/>
+		<item value="false" key="nodeprecated"/>
+		<item value="false" key="nonavbar"/>
+		<item value="as" key="docletpath"/>
+		<item value="A:\Arquivos de Programas\Java\jdk1.8.0_171\bin\javadoc.exe;C:\Users\Fernando\Downloads\TesteNumero.java" key="javadoc_command_history"/>
+		<item value="1.8" key="source"/>
+		<item value="true" key="version"/>
+		<item value="asfd" key="docletname"/>
+		<item value="true" key="splitindex"/>
+		<item value="true" key="fromStandard"/>
+		<item value="false" key="notree"/>
+		<item value="C:\Users\Fernando\Desktop\javadoc\javaDocFinal.zep" key="destdir"/>
+		<item value="false" key="openinbrowser"/>
+		<section name="projects">
+			<section name="Colecoes">
+				<item value="C:\Users\Fernando\Desktop\ProjetoIBM\ProjetoIbm\Colecoes\javadoc.xml" key="antpath"/>
+				<item value="C:\Users\Fernando\Desktop\ProjetoIBM\ProjetoIbm\Colecoes\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="ProjetoDescanso">
+				<item value="C:\Users\Fernando\Desktop\ProjetoIBM\ProjetoIbm\ProjetoDescanso\javadoc.xml" key="antpath"/>
+				<item value="C:\Users\Fernando\Desktop\ProjetoIBM\ProjetoIbm\ProjetoDescanso\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="ProjetoDeschateie">
+				<item value="C:\Users\Fernando\Desktop\ProjetoIBM\ProjetoIbm\ProjetoDeschateie\javadoc.xml" key="antpath"/>
+				<item value="C:\Users\Fernando\Desktop\javadoc\javaDocFinal.zep" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Excecao">
+				<item value="C:\Users\Fernando\Desktop\ProjetoIBM\ProjetoIbm\Excecao\javadoc.xml" key="antpath"/>
+				<item value="C:\Users\Fernando\Desktop\ProjetoIBM\ProjetoIbm\Excecao\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Projeto">
+				<item value="C:\Users\Fernando\Desktop\ProjetoIBM\ProjetoIbm\Projeto\javadoc.xml" key="antpath"/>
+				<item value="C:\Users\Fernando\Desktop\ProjetoIBM\ProjetoIbm\Projeto\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="RemoteSystemsTempFiles">
+				<item value="C:\Users\Fernando\Desktop\ProjetoIBM\ProjetoIbm\RemoteSystemsTempFiles\javadoc.xml" key="antpath"/>
+				<item value="C:\Users\Fernando\Desktop\ProjetoIBM\ProjetoIbm\RemoteSystemsTempFiles\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+		</section>
 	</section>
 	<section name="SourceActionDialog.methods">
 		<item value="true" key="IgnoreDefault"/>

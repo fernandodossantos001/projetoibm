@@ -137,7 +137,7 @@ public class AvaliacaoBO {
 		
 		AvaliacaoDAO dao = new AvaliacaoDAO();
 		
-		if (dao.consultarAvaliacaoCodUsuario(av.getUsuario().getCodUsuario()).getUsuario().getCodUsuario()
+		if (dao.consultarAvaliacaoUsuario(av.getUsuario().getCodUsuario()).getUsuario().getCodUsuario()
 				== av.getUsuario().getCodUsuario()) {
 			return "Esse usuario já fez avalição";
 		}
